@@ -4,21 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AE Expressions Guide</title>
-<link id="font-link" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg:      #0a0a0a;
-  --bg2:     #1a1a1a;
-  --bg3:     #242424;
-  --border:  rgba(255,255,255,0.09);
-  --border-hover: rgba(255,255,255,0.18);
-  --text:    #f2f0e8;
-  --text-muted: #7a7670;
-  --text-dim:   #3e3c38;
-  --accent:     #f5b800;
-  --accent-text:#0a0a0a;
-  --radius: 10px;
+  --bg: #0e0e0f; --bg2: #161618; --bg3: #1c1c1f;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+  --text: #f0efe8; --text-muted: #888780; --text-dim: #4a4947;
+  --accent: #c8ff5f; --accent-text: #0e0e0f; --radius: 12px;
   --ce: #5DCAA5; --ce-bg: rgba(93,202,165,0.1);
   --ct: #85B7EB; --ct-bg: rgba(133,183,235,0.1);
   --cs: #EF9F27; --cs-bg: rgba(239,159,39,0.1);
@@ -28,28 +21,23 @@
   --ci: #4DD0E1; --ci-bg: rgba(77,208,225,0.1);
   --ca: #81C784; --ca-bg: rgba(129,199,132,0.1);
   --cb: #FFB74D; --cb-bg: rgba(255,183,77,0.1);
-  --font-ui:   'Plus Jakarta Sans', sans-serif;
-  --font-code: 'DM Mono', monospace;
+  --font-ui: 'Plus Jakarta Sans', sans-serif;
+  --font-code: 'Fira Code', monospace;
 }
 html { font-size: 16px; }
 body { background: var(--bg); color: var(--text); font-family: var(--font-ui); min-height: 100vh; line-height: 1.6; transition: background 0.2s, color 0.2s; }
-.noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.25; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); }
+.noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); }
 .container { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 6rem; position: relative; z-index: 1; }
-
 header { margin-bottom: 3rem; }
 .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.eyebrow { font-family: var(--font-code); font-size: 11px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.8rem; opacity: 0.9; }
+.eyebrow { font-family: var(--font-code); font-size: 11px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.8rem; }
 h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; font-family: var(--font-ui); }
 h1 em { color: var(--text-muted); font-style: normal; }
 .subtitle { margin-top: 0.85rem; font-size: 14.5px; color: var(--text-muted); max-width: 540px; line-height: 1.65; }
-
-/* settings button */
-.settings-btn { display: flex; align-items: center; gap: 6px; flex-shrink: 0; margin-top: 4px; padding: 7px 14px; font-size: 12px; font-family: var(--font-ui); font-weight: 600; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; letter-spacing: 0.01em; }
+.settings-btn { display: flex; align-items: center; gap: 6px; flex-shrink: 0; margin-top: 4px; padding: 7px 13px; font-size: 12px; font-family: var(--font-ui); font-weight: 500; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
 .settings-btn:hover { border-color: var(--border-hover); color: var(--text); }
 .settings-btn.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
 .settings-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-
-/* settings panel */
 .settings-panel { background: var(--bg2); border: 1px solid var(--border-hover); border-radius: var(--radius); padding: 20px; margin-bottom: 1.75rem; display: none; }
 .settings-panel.open { display: block; }
 .settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
@@ -59,44 +47,41 @@ h1 em { color: var(--text-muted); font-style: normal; }
 .swatch { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.12s, border-color 0.12s; flex-shrink: 0; }
 .swatch:hover { transform: scale(1.15); }
 .swatch.active { border-color: var(--text); }
-.bg-swatch { width: 26px; height: 26px; border-radius: 6px; cursor: pointer; border: 2px solid rgba(255,255,255,0.12); transition: transform 0.12s, border-color 0.12s; }
+.bg-swatch { width: 26px; height: 26px; border-radius: 6px; cursor: pointer; border: 2px solid rgba(255,255,255,0.15); transition: transform 0.12s, border-color 0.12s; }
 .bg-swatch:hover { transform: scale(1.1); }
 .bg-swatch.active { border-color: var(--text); }
 .font-options { display: flex; flex-direction: column; gap: 6px; }
 .font-option { padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.15s; background: transparent; text-align: left; color: var(--text-muted); font-size: 13px; }
 .font-option:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg3); }
-.font-option.active { border-color: var(--accent); color: var(--accent); background: rgba(245,184,0,0.06); }
+.font-option.active { border-color: var(--accent); color: var(--accent); background: rgba(200,255,95,0.06); }
 .font-option span { display: block; font-size: 10px; color: var(--text-dim); margin-top: 1px; font-family: var(--font-code); }
 .radius-options { display: flex; gap: 7px; }
 .radius-option { flex: 1; padding: 8px; border: 1px solid var(--border); cursor: pointer; background: transparent; color: var(--text-muted); font-size: 11px; font-family: var(--font-code); transition: all 0.15s; text-align: center; }
 .radius-option:hover { border-color: var(--border-hover); color: var(--text); }
-.radius-option.active { border-color: var(--accent); color: var(--accent); background: rgba(245,184,0,0.06); }
+.radius-option.active { border-color: var(--accent); color: var(--accent); background: rgba(200,255,95,0.06); }
 .radius-option.r-sm { border-radius: 4px; } .radius-option.r-md { border-radius: 10px; } .radius-option.r-lg { border-radius: 18px; }
 .settings-reset { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
 .reset-btn { font-size: 11px; font-family: var(--font-code); padding: 5px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-dim); cursor: pointer; transition: all 0.15s; }
 .reset-btn:hover { color: var(--text); border-color: var(--border-hover); }
-
-/* toolbar */
 .toolbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.75rem; }
 .search-wrap { position: relative; }
 .search-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-dim); pointer-events: none; font-size: 14px; }
-.search-wrap input { width: 100%; padding: 11px 14px 11px 38px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: var(--font-ui); font-size: 14px; outline: none; transition: border-color 0.15s; }
-.search-wrap input:focus { border-color: var(--accent); }
+.search-wrap input { width: 100%; padding: 10px 14px 10px 38px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: var(--font-ui); font-size: 14px; outline: none; transition: border-color 0.15s; }
+.search-wrap input:focus { border-color: var(--border-hover); }
 .search-wrap input::placeholder { color: var(--text-dim); }
 .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
-.tab { padding: 5px 14px; font-size: 12px; font-family: var(--font-ui); font-weight: 600; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; background: transparent; color: var(--text-muted); transition: all 0.15s; letter-spacing: 0.01em; }
+.tab { padding: 5px 13px; font-size: 12px; font-family: var(--font-ui); font-weight: 500; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; background: transparent; color: var(--text-muted); transition: all 0.15s; }
 .tab:hover { border-color: var(--border-hover); color: var(--text); }
-.tab.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-
-.count { font-family: var(--font-code); font-size: 11px; color: var(--text-dim); margin-bottom: 0.9rem; letter-spacing: 0.04em; }
-
-/* cards */
+.tab.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 700; }
+.count { font-family: var(--font-code); font-size: 11px; color: var(--text-dim); margin-bottom: 0.9rem; letter-spacing: 0.05em; }
 .cards { display: flex; flex-direction: column; gap: 4px; }
 .card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.15s; }
-.card:hover { border-color: rgba(245,184,0,0.2); }
-.card-header { display: flex; align-items: center; gap: 10px; padding: 13px 16px; cursor: pointer; user-select: none; }
-.card-title { font-size: 13.5px; font-weight: 600; color: var(--text); flex: 1; font-family: var(--font-ui); }
-.badge { font-size: 9.5px; font-family: var(--font-ui); font-weight: 600; padding: 2px 9px; border-radius: 999px; white-space: nowrap; letter-spacing: 0.03em; flex-shrink: 0; }
+.card:hover { border-color: var(--border-hover); }
+.card-header { display: flex; align-items: center; gap: 10px; padding: 12px 15px; cursor: pointer; user-select: none; }
+.card-left { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.card-title { font-size: 13.5px; font-weight: 500; color: var(--text); font-family: var(--font-ui); }
+.card-desc { font-size: 11.5px; color: var(--text-dim); font-family: var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.badge { font-size: 9.5px; font-family: var(--font-code); padding: 2px 8px; border-radius: 999px; white-space: nowrap; letter-spacing: 0.04em; flex-shrink: 0; }
 .b-E{background:var(--ce-bg);color:var(--ce);} .b-T{background:var(--ct-bg);color:var(--ct);}
 .b-S{background:var(--cs-bg);color:var(--cs);} .b-M{background:var(--cm-bg);color:var(--cm);}
 .b-R{background:var(--cr-bg);color:var(--cr);} .b-D{background:var(--cd-bg);color:var(--cd);}
@@ -106,25 +91,20 @@ h1 em { color: var(--text-muted); font-style: normal; }
 .card.open .chevron { transform: rotate(90deg); color: var(--accent); }
 .card-body { display: none; border-top: 1px solid var(--border); }
 .card.open .card-body { display: block; }
-
-/* code block — medium grey box */
 .code-wrap { padding: 12px 14px; }
-.code-block { background: var(--bg3); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 14px; font-family: var(--font-code); font-size: 12.5px; color: var(--accent); white-space: pre-wrap; word-break: break-all; line-height: 1.75; }
-.copy-btn { display: block; margin-top: 8px; width: 100%; padding: 8px; font-size: 11px; font-family: var(--font-ui); font-weight: 600; border: 1px solid var(--border); border-radius: 6px; background: var(--bg3); color: var(--text-muted); cursor: pointer; transition: all 0.15s; text-align: center; letter-spacing: 0.02em; }
-.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-.copy-btn.done { color: var(--accent); border-color: rgba(245,184,0,0.4); background: rgba(245,184,0,0.06); }
-
-/* notes */
-.notes { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 7px; }
-.note { font-size: 12.5px; line-height: 1.65; font-family: var(--font-ui); padding: 9px 12px; border-radius: 7px; }
-.note-info  { background: rgba(133,183,235,0.05); color: var(--text-muted); border-left: 2px solid rgba(133,183,235,0.25); }
-.note-setup { background: rgba(175,169,236,0.06); color: #c4bef5; border-left: 2px solid rgba(175,169,236,0.3); }
-.note-warn  { background: rgba(239,159,39,0.07); color: #EF9F27; border-left: 2px solid rgba(239,159,39,0.35); }
-.note-label { font-family: var(--font-code); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; display: block; margin-bottom: 3px; }
-
+.code-block { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; font-family: var(--font-code); font-size: 12px; color: var(--accent); white-space: pre-wrap; word-break: break-all; line-height: 1.75; }
+.copy-btn { display: block; margin-top: 8px; width: 100%; padding: 7px; font-size: 11px; font-family: var(--font-code); border: 1px solid var(--border); border-radius: 6px; background: var(--bg3); color: var(--text-muted); cursor: pointer; transition: all 0.15s; text-align: center; }
+.copy-btn:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg2); }
+.copy-btn.done { color: var(--accent); border-color: rgba(200,255,95,0.3); background: rgba(200,255,95,0.05); }
+.notes { padding: 0 14px 13px; display: flex; flex-direction: column; gap: 7px; }
+.note { font-size: 12.5px; line-height: 1.6; font-family: var(--font-ui); padding: 8px 11px; border-radius: 7px; }
+.note-info { background: rgba(133,183,235,0.06); color: var(--text-muted); border-left: 2px solid rgba(133,183,235,0.3); }
+.note-setup { background: rgba(175,169,236,0.07); color: #c4bef5; border-left: 2px solid rgba(175,169,236,0.35); }
+.note-warn { background: rgba(239,159,39,0.08); color: #EF9F27; border-left: 2px solid rgba(239,159,39,0.4); }
+.note-label { font-family: var(--font-code); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; display: block; margin-bottom: 3px; }
 .no-results { text-align: center; padding: 4rem 2rem; font-size: 13px; color: var(--text-dim); font-family: var(--font-code); }
-footer { margin-top: 4rem; padding-top: 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-code); font-size: 10.5px; color: var(--text-dim); letter-spacing: 0.04em; }
-@media (max-width: 580px) { .container { padding: 2rem 1rem 4rem; } h1 { font-size: 1.8rem; } }
+footer { margin-top: 4rem; padding-top: 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-code); font-size: 10.5px; color: var(--text-dim); letter-spacing: 0.05em; }
+@media (max-width: 580px) { .container { padding: 2rem 1rem 4rem; } h1 { font-size: 1.8rem; } .card-desc { display: none; } }
 </style>
 </head>
 <body>
@@ -151,7 +131,7 @@ footer { margin-top: 4rem; padding-top: 1.75rem; border-top: 1px solid var(--bor
       <div class="setting-group"><p class="setting-label">Font pairing</p><div class="font-options" id="fontOptions"></div></div>
       <div class="setting-group"><p class="setting-label">Card corners</p><div class="radius-options">
         <button class="radius-option r-sm" data-r="4px" onclick="setRadius('4px')">Sharp</button>
-        <button class="radius-option r-md" data-r="10px" onclick="setRadius('10px')">Rounded</button>
+        <button class="radius-option r-md" data-r="12px" onclick="setRadius('12px')">Rounded</button>
         <button class="radius-option r-lg" data-r="20px" onclick="setRadius('20px')">Pill</button>
       </div></div>
     </div>
@@ -172,84 +152,41 @@ footer { margin-top: 4rem; padding-top: 1.75rem; border-top: 1px solid var(--bor
 </div>
 
 <script>
-const ACCENTS=[
-  {label:"Amber",   val:"#f5b800", text:"#0a0a0a"},
-  {label:"Lime",    val:"#c8ff5f", text:"#0a0a0a"},
-  {label:"Cyan",    val:"#5fe8ff", text:"#0a0a0a"},
-  {label:"Coral",   val:"#ff7f5f", text:"#0a0a0a"},
-  {label:"Violet",  val:"#b88cff", text:"#0a0a0a"},
-  {label:"Rose",    val:"#ff6eb4", text:"#0a0a0a"},
-  {label:"White",   val:"#f2f0e8", text:"#0a0a0a"},
-  {label:"Teal",    val:"#3fffc8", text:"#0a0a0a"},
-];
-const BGS=[
-  {label:"Black",  bg:"#0a0a0a", bg2:"#1a1a1a", bg3:"#242424"},
-  {label:"Void",   bg:"#0e0e0f", bg2:"#161618", bg3:"#1e1e21"},
-  {label:"Slate",  bg:"#0d1117", bg2:"#161b22", bg3:"#1e2530"},
-  {label:"Navy",   bg:"#080c14", bg2:"#101828", bg3:"#182034"},
-  {label:"Forest", bg:"#080f0c", bg2:"#0f1a14", bg3:"#162318"},
-  {label:"Plum",   bg:"#100b14", bg2:"#1a1020", bg3:"#231528"},
-  {label:"Warm",   bg:"#120f0a", bg2:"#1c1710", bg3:"#252018"},
-  {label:"Ink",    bg:"#050508", bg2:"#0e0e12", bg3:"#141418"},
-];
+const ACCENTS=[{label:"Lime",val:"#c8ff5f",text:"#0e0e0f"},{label:"Cyan",val:"#5fe8ff",text:"#0e0e0f"},{label:"Coral",val:"#ff7f5f",text:"#0e0e0f"},{label:"Violet",val:"#b88cff",text:"#0e0e0f"},{label:"Rose",val:"#ff6eb4",text:"#0e0e0f"},{label:"Amber",val:"#ffcc44",text:"#0e0e0f"},{label:"White",val:"#f0efe8",text:"#0e0e0f"},{label:"Teal",val:"#3fffc8",text:"#0e0e0f"}];
+const BGS=[{label:"Void",bg:"#0e0e0f",bg2:"#161618"},{label:"Slate",bg:"#0d1117",bg2:"#161b22"},{label:"Navy",bg:"#080c14",bg2:"#101828"},{label:"Forest",bg:"#080f0c",bg2:"#0f1a14"},{label:"Plum",bg:"#100b14",bg2:"#1a1020"},{label:"Warm",bg:"#120f0a",bg2:"#1c1710"},{label:"Ash",bg:"#111111",bg2:"#1a1a1a"},{label:"Ink",bg:"#050508",bg2:"#0e0e12"}];
 const FONTS=[
-  {label:"Plus Jakarta Sans + DM Mono", sub:"default — Gilroy-style, clean code", ui:"Plus Jakarta Sans", code:"DM Mono",        gurl:"https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"},
-  {label:"Plus Jakarta Sans + Outfit",  sub:"all sans — no monospace at all",     ui:"Plus Jakarta Sans", code:"Outfit",         gurl:"https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"},
-  {label:"Nunito + DM Mono",            sub:"rounder & friendlier",               ui:"Nunito",            code:"DM Mono",        gurl:"https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;500;700&display=swap"},
-  {label:"Poppins + DM Mono",           sub:"geometric & structured",             ui:"Poppins",           code:"DM Mono",        gurl:"https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Poppins:wght@400;500;700&display=swap"},
-  {label:"Raleway + IBM Plex Mono",     sub:"editorial & elegant",                ui:"Raleway",           code:"IBM Plex Mono",  gurl:"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Raleway:wght@400;500;700&display=swap"},
+  {label:"Plus Jakarta Sans + Fira Code",sub:"default — closest to Gilroy",ui:"Plus Jakarta Sans",code:"Fira Code",gurl:"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"},
+  {label:"Nunito + JetBrains Mono",sub:"rounded & friendly",ui:"Nunito",code:"JetBrains Mono",gurl:"https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;500;700&display=swap"},
+  {label:"Poppins + Fira Code",sub:"geometric & clean",ui:"Poppins",code:"Fira Code",gurl:"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@400;500;700&display=swap"},
+  {label:"Raleway + IBM Plex Mono",sub:"elegant & editorial",ui:"Raleway",code:"IBM Plex Mono",gurl:"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Raleway:wght@400;500;700&display=swap"},
+  {label:"DM Sans + Source Code Pro",sub:"minimal & sharp",ui:"DM Sans",code:"Source Code Pro",gurl:"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap"},
 ];
-
-const DEFAULTS={accent:0,bg:0,font:0,radius:"10px"};
-
+const DEFAULTS={accent:0,bg:0,font:0,radius:"12px"};
 function loadSettings(){try{return JSON.parse(localStorage.getItem("ae-guide-s")||"{}");}catch{return{};}}
 function saveSettings(s){try{localStorage.setItem("ae-guide-s",JSON.stringify(s));}catch{}}
-function getSettings(){const s=loadSettings();return{accent:s.accent??0,bg:s.bg??0,font:s.font??0,radius:s.radius??"10px"};}
-
+function getSettings(){const s=loadSettings();return{accent:s.accent??0,bg:s.bg??0,font:s.font??0,radius:s.radius??"12px"};}
 function applySettings(s){
   const ac=ACCENTS[s.accent],bg=BGS[s.bg],ft=FONTS[s.font],r=document.documentElement;
-  r.style.setProperty("--accent",ac.val);
-  r.style.setProperty("--accent-text",ac.text);
-  r.style.setProperty("--bg",bg.bg);
-  r.style.setProperty("--bg2",bg.bg2);
-  r.style.setProperty("--bg3",bg.bg3);
+  r.style.setProperty("--accent",ac.val);r.style.setProperty("--accent-text",ac.text);
+  r.style.setProperty("--bg",bg.bg);r.style.setProperty("--bg2",bg.bg2);r.style.setProperty("--bg3",bg.bg2);
   r.style.setProperty("--radius",s.radius);
-  r.style.setProperty("--font-ui",`'${ft.ui}', sans-serif`);
-  r.style.setProperty("--font-code",`'${ft.code}', monospace`);
-  document.getElementById("font-link").href=ft.gurl;
-  updateActive(s);
+  r.style.setProperty("--font-ui",`'${ft.ui}', sans-serif`);r.style.setProperty("--font-code",`'${ft.code}', monospace`);
+  document.getElementById("font-link").href=ft.gurl;updateActive(s);
 }
-
 function updateActive(s){
   document.querySelectorAll(".swatch").forEach((el,i)=>el.classList.toggle("active",i===s.accent));
   document.querySelectorAll(".bg-swatch").forEach((el,i)=>el.classList.toggle("active",i===s.bg));
   document.querySelectorAll(".font-option").forEach((el,i)=>el.classList.toggle("active",i===s.font));
   document.querySelectorAll(".radius-option").forEach(el=>el.classList.toggle("active",el.dataset.r===s.radius));
 }
-
 function buildSettings(){
   const as=document.getElementById("accentSwatches");
-  ACCENTS.forEach((a,i)=>{
-    const d=document.createElement("div");d.className="swatch";d.title=a.label;d.style.background=a.val;
-    d.onclick=()=>{const s=getSettings();s.accent=i;saveSettings(s);applySettings(s);};
-    as.appendChild(d);
-  });
+  ACCENTS.forEach((a,i)=>{const d=document.createElement("div");d.className="swatch";d.title=a.label;d.style.background=a.val;d.onclick=()=>{const s=getSettings();s.accent=i;saveSettings(s);applySettings(s);};as.appendChild(d);});
   const bs=document.getElementById("bgSwatches");
-  BGS.forEach((b,i)=>{
-    const d=document.createElement("div");d.className="bg-swatch";d.title=b.label;
-    d.style.background=b.bg;d.style.border=`2px solid ${b.bg2}`;
-    d.onclick=()=>{const s=getSettings();s.bg=i;saveSettings(s);applySettings(s);};
-    bs.appendChild(d);
-  });
+  BGS.forEach((b,i)=>{const d=document.createElement("div");d.className="bg-swatch";d.title=b.label;d.style.background=b.bg;d.style.border=`2px solid ${b.bg2}`;d.onclick=()=>{const s=getSettings();s.bg=i;saveSettings(s);applySettings(s);};bs.appendChild(d);});
   const fo=document.getElementById("fontOptions");
-  FONTS.forEach((f,i)=>{
-    const btn=document.createElement("button");btn.className="font-option";
-    btn.innerHTML=`<span style="font-family:'${f.ui}',sans-serif;font-weight:600">${f.label}</span><span>${f.sub}</span>`;
-    btn.onclick=()=>{const s=getSettings();s.font=i;saveSettings(s);applySettings(s);};
-    fo.appendChild(btn);
-  });
+  FONTS.forEach((f,i)=>{const btn=document.createElement("button");btn.className="font-option";btn.innerHTML=`<span style="font-family:'${f.ui}',sans-serif;font-weight:500">${f.label}</span><span>${f.sub}</span>`;btn.onclick=()=>{const s=getSettings();s.font=i;saveSettings(s);applySettings(s);};fo.appendChild(btn);});
 }
-
 function setRadius(val){const s=getSettings();s.radius=val;saveSettings(s);applySettings(s);}
 function toggleSettings(){const p=document.getElementById("settingsPanel"),b=document.getElementById("settingsBtn");const o=p.classList.toggle("open");b.classList.toggle("active",o);}
 function resetSettings(){saveSettings(DEFAULTS);applySettings(DEFAULTS);}
@@ -258,115 +195,116 @@ const CATS={E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Cont
 
 const DATA=[
 // ─── ESSENTIALS ───────────────────────────────────────────────────────────────
-{cat:"E",title:"Wiggle",code:"wiggle(5, 30);",notes:[{type:"info",text:"Args: (frequency, amplitude). Higher frequency = faster shake, higher amplitude = bigger movement."}]},
-{cat:"E",title:"Safe opacity wiggle",code:"Math.abs(wiggle(10, 50));",notes:[{type:"info",text:"Math.abs() prevents negative opacity values. Without it, wiggle can dip below 0 and cause invisible flicker."}]},
-{cat:"E",title:"Loop out",code:'loopOut("cycle");',notes:[{type:"info",text:'Also try "pingpong" to reverse each cycle, or "continue" to extrapolate beyond the last keyframe.'}]},
-{cat:"E",title:"Loop in",code:'loopIn("cycle");',notes:[{type:"info",text:"Loops the in-point instead of the out-point. Combine with loopOut for a fully seamless infinite loop."}]},
-{cat:"E",title:"Loop in + out combined",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[{type:"info",text:'Second argument = keyframes to include. 0 = use all. For bidirectional looping use loopOut("pingpong") alone instead.'}]},
-{cat:"E",title:"Constant motion",code:"time * 100;",notes:[{type:"info",text:"Multiplier controls speed. Works on position, rotation, or any numeric property. Negative values reverse direction."}]},
-{cat:"E",title:"Posterize time",code:"posterizeTime(12); value;",notes:[{type:"info",text:"Forces a specific frame rate on any property. 12fps gives a stop-motion feel. Pair with wiggle for choppy animated noise."}]},
-{cat:"E",title:"Clamp",code:"clamp(value, 0, 100);",notes:[{type:"info",text:"Prevents values going out of range. Critical for opacity, scale, or any slider-driven property that shouldn't exceed bounds."}]},
-{cat:"E",title:"Linear remap",code:"linear(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Maps one value range onto another. Here: time 0–2s maps to output 0–100. Swap 'time' for any property."},{type:"setup",label:"syntax",text:"linear(input, inputMin, inputMax, outputMin, outputMax). Input clamps at the min/max bounds."}]},
-{cat:"E",title:"Ease remap",code:"ease(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Like linear() but with smooth ease-in/out at both ends. Also try easeIn() and easeOut() for one-sided easing."},{type:"setup",label:"syntax",text:"ease(input, inputMin, inputMax, outputMin, outputMax) — same signature as linear()."}]},
-{cat:"E",title:"Inertia bounce",code:"n = 0;\nif (numKeys > 1) {\n  n = nearestKey(time).index;\n  if (nearestKey(time).time > time) n--;\n}\nif (n == 0) { t = 0; }\nelse { t = time - key(n).time; }\nif (n > 0 && t < 1) {\n  v = velocityAtTime(key(n).time - thisComp.frameDuration / 10);\n  amp = 0.05; freq = 3; decay = 8;\n  v * amp * Math.sin(freq * t * 2 * Math.PI) / Math.exp(decay * t);\n} else { 0; }",notes:[{type:"setup",label:"how to use",text:"Paste on any keyframed property. Keep keyframes as normal — expression adds a physical overshoot after each one."},{type:"info",text:"amp = overshoot strength (0.03–0.08). freq = oscillation speed (2–5). decay = settle speed (5–12). Higher decay = snappier."}]},
-{cat:"E",title:"Mirrored position",code:"cx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[2 * cx - value[0], value[1]];",notes:[{type:"info",text:"Mirrors a layer's X position across the comp centre. Swap the axes to mirror vertically instead."}]},
-{cat:"E",title:"Aspect ratio lock",code:"ratio = 16 / 9;\n[value[0], value[0] / ratio];",notes:[{type:"info",text:"Apply to Scale. Keeps width/height ratio fixed. Change 16/9 to any ratio."}]},
+{cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);",notes:[{type:"info",text:"Args: (frequency, amplitude). Higher frequency = faster shake, higher amplitude = bigger movement."}]},
+{cat:"E",title:"Safe opacity wiggle",desc:"Wiggle opacity without going negative",code:"Math.abs(wiggle(10, 50));",notes:[{type:"info",text:"Math.abs() prevents negative opacity values which cause invisible flicker."}]},
+{cat:"E",title:"Loop out",desc:"Loop keyframes from the out-point",code:'loopOut("cycle");',notes:[{type:"info",text:'Also try "pingpong" to reverse each cycle, or "continue" to extrapolate beyond the last keyframe.'}]},
+{cat:"E",title:"Loop in",desc:"Loop keyframes from the in-point",code:'loopIn("cycle");',notes:[{type:"info",text:"Loops the in-point instead of the out-point. Combine with loopOut for a fully seamless infinite loop."}]},
+{cat:"E",title:"Loop in + out combined",desc:"Seamless infinite loop in both directions",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[{type:"info",text:'Second argument = keyframes to include. 0 = use all. For bidirectional looping use loopOut("pingpong") alone instead.'}]},
+{cat:"E",title:"Constant motion",desc:"Continuous movement without keyframes",code:"time * 100;",notes:[{type:"info",text:"Multiplier controls speed. Negative values reverse direction. Works on rotation, position, or any numeric property."}]},
+{cat:"E",title:"Posterize time",desc:"Force a lower frame rate on any property",code:"posterizeTime(12); value;",notes:[{type:"info",text:"12fps gives a stop-motion feel. Pair with wiggle for choppy animated noise."}]},
+{cat:"E",title:"Clamp",desc:"Prevent a value going out of bounds",code:"clamp(value, 0, 100);",notes:[{type:"info",text:"Essential for opacity, scale, or any slider-driven property that shouldn't exceed its bounds."}]},
+{cat:"E",title:"Linear remap",desc:"Map one value range onto another",code:"linear(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Here: time 0–2s maps to output 0–100. Swap 'time' for any property — slider, position axis, or effect value."},{type:"setup",label:"syntax",text:"linear(input, inputMin, inputMax, outputMin, outputMax). Input clamps at the bounds."}]},
+{cat:"E",title:"Ease remap",desc:"Smooth mapped range with ease-in and ease-out",code:"ease(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Like linear() but adds smooth ease-in and ease-out at both ends. Also try easeIn() and easeOut() for one-sided easing."},{type:"setup",label:"syntax",text:"ease(input, inputMin, inputMax, outputMin, outputMax) — same signature as linear()."}]},
+{cat:"E",title:"Inertia bounce",desc:"Physical overshoot and settle after each keyframe",code:"n = 0;\nif (numKeys > 1) {\n  n = nearestKey(time).index;\n  if (nearestKey(time).time > time) n--;\n}\nif (n == 0) { t = 0; }\nelse { t = time - key(n).time; }\nif (n > 0 && t < 1) {\n  v = velocityAtTime(key(n).time - thisComp.frameDuration / 10);\n  amp = 0.05; freq = 3; decay = 8;\n  v * amp * Math.sin(freq * t * 2 * Math.PI) / Math.exp(decay * t);\n} else { 0; }",notes:[{type:"setup",label:"how to use",text:"Paste on any keyframed property. Keep keyframes as normal — expression reads velocity and adds a physical overshoot after each one."},{type:"info",text:"amp = overshoot strength (0.03–0.08). freq = oscillation speed (2–5). decay = settle speed (5–12). Higher decay = snappier."}]},
+{cat:"E",title:"Mirrored position",desc:"Flip a layer symmetrically across the comp centre",code:"cx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[2 * cx - value[0], value[1]];",notes:[{type:"info",text:"Mirrors X position across the comp centre. Swap value[0] and value[1] references to mirror vertically instead. Great for symmetric layout rigs."}]},
+{cat:"E",title:"Aspect ratio lock",desc:"Keep width and height proportional when scaling",code:"ratio = 16 / 9;\n[value[0], value[0] / ratio];",notes:[{type:"info",text:"Apply to Scale. Change 16/9 to any ratio. Useful for responsive layouts or when one axis is driven by a slider."}]},
 
 // ─── TEXT & COUNTERS ──────────────────────────────────────────────────────────
-{cat:"T",title:"Slider (whole number)",code:'Math.round(effect("Slider Control")("Slider"));',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Slider Control. Default name is "Slider Control" — if you rename it, update the string to match.'}]},
-{cat:"T",title:"Currency",code:'"$" + Math.round(effect("Slider Control")("Slider"));',notes:[{type:"info",text:'Swap "$" for any symbol. Combine with toLocaleString() for comma thousands.'}]},
-{cat:"T",title:"Percentage",code:'Math.round(effect("Slider Control")("Slider")) + "%";'},
-{cat:"T",title:"Leading zeros (001)",code:'s = Math.round(effect("Slider Control")("Slider")).toString();\nwhile (s.length < 3) s = "0" + s;\ns;',notes:[{type:"info",text:"Math.round() before toString() prevents decimal bleed. Change the 3 to set total digit width."}]},
-{cat:"T",title:"Odometer (commas)",code:"num = value;\nnum.toLocaleString();"},
-{cat:"T",title:"Hundredths counter (1.00)",code:'num = effect("Slider Control")("Slider").value;\nnum.toFixed(2);'},
-{cat:"T",title:"Granular increment (0.01)",code:'num = effect("Slider Control")("Slider").value;\nfinalVal = num * 0.01;\nfinalVal.toFixed(2);'},
-{cat:"T",title:"Uppercase all",code:"value.toUpperCase();"},
-{cat:"T",title:"Typewriter substring",code:"value.substr(0, 10);",notes:[{type:"info",text:"Shows first N characters. Animate a Slider Control and feed it to the second argument for a typewriter reveal."}]},
-{cat:"T",title:"Source name",code:"thisLayer.name;",notes:[{type:"info",text:"Pulls the layer name into a text source. Rename the layer and the text updates automatically."}]},
-{cat:"T",title:"Comp name",code:"thisComp.name;",notes:[{type:"info",text:"Useful for lower-thirds or title cards driven by comp naming conventions in a template system."}]},
-{cat:"T",title:"Line count",code:'value.split("\\r").length;'},
-{cat:"T",title:"Frame number",code:"Math.floor(time * thisComp.frameRate);",notes:[{type:"info",text:"Displays the current frame as an integer. Good for debug overlays or frame-stamp watermarks."}]},
-{cat:"T",title:"SMPTE timecode",code:'t = time;\nh = Math.floor(t / 3600);\nm = Math.floor((t % 3600) / 60);\ns = Math.floor(t % 60);\nf = Math.floor((t % 1) * thisComp.frameRate);\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(h) + ":" + pad(m) + ":" + pad(s) + ":" + pad(f);',notes:[{type:"setup",label:"how to use",text:"Paste on Source Text. No effects needed — reads time and frameRate from the comp automatically."},{type:"info",text:"Outputs HH:MM:SS:FF format. Works at any frame rate."}]},
-{cat:"T",title:"ETA countdown (MM:SS)",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);',notes:[{type:"setup",label:"setup",text:'Add a Slider Control, set value in seconds. Keyframe counting down to 0.'},{type:"info",text:"Good for transport ETAs, countdowns, and time-based B2B infographics."}]},
-{cat:"T",title:"Typing cursor blink",code:'Math.floor(time * 2) % 2 === 0 ? 100 : 0;',notes:[{type:"info",text:"Apply to Opacity of a | text layer. Blinks at 2 per second. Change the 2 to adjust speed."}]},
-{cat:"T",title:"Random character scramble",code:'s = "ABC#!@012";\ns[Math.floor(random(s.length))];',notes:[{type:"info",text:"Edit the character set to control which characters appear. Use seedRandom(index, true) above it to stabilise per-layer."}]},
+{cat:"T",title:"Slider (whole number)",desc:"Drive a text counter from a Slider Control",code:'Math.round(effect("Slider Control")("Slider"));',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Slider Control to your layer or a null. If you rename it, update the string in the expression to match.'}]},
+{cat:"T",title:"Currency",desc:"Prefix a counter with a currency symbol",code:'"$" + Math.round(effect("Slider Control")("Slider"));',notes:[{type:"info",text:'Swap "$" for any symbol. Combine with toLocaleString() for comma-separated thousands.'}]},
+{cat:"T",title:"Percentage",desc:"Append a % sign to a counter",code:'Math.round(effect("Slider Control")("Slider")) + "%";'},
+{cat:"T",title:"Leading zeros (001)",desc:"Pad a number to a fixed digit width",code:'s = Math.round(effect("Slider Control")("Slider")).toString();\nwhile (s.length < 3) s = "0" + s;\ns;',notes:[{type:"info",text:"Change the 3 to set total digit width. Math.round() before toString() prevents decimal bleed."}]},
+{cat:"T",title:"Odometer (commas)",desc:"Format large numbers with comma separators",code:"num = value;\nnum.toLocaleString();",notes:[{type:"info",text:"Uses the system locale to format numbers. Applies to the value of the property — link to a slider for animated counting."}]},
+{cat:"T",title:"Hundredths counter (1.00)",desc:"Display a slider value to 2 decimal places",code:'num = effect("Slider Control")("Slider").value;\nnum.toFixed(2);'},
+{cat:"T",title:"Granular increment (0.01)",desc:"Scale down a slider to hundredths precision",code:'num = effect("Slider Control")("Slider").value;\nfinalVal = num * 0.01;\nfinalVal.toFixed(2);',notes:[{type:"info",text:"Multiplies the slider value by 0.01 so a slider range of 0–100 displays as 0.00–1.00. Useful for showing decimal rates or percentages."}]},
+{cat:"T",title:"Uppercase all",desc:"Force text to display in uppercase",code:"value.toUpperCase();",notes:[{type:"info",text:"Non-destructive — the source text stays unchanged, only the display is uppercased. Useful for styled caps without editing the text."}]},
+{cat:"T",title:"Typewriter substring",desc:"Reveal text character by character",code:"value.substr(0, 10);",notes:[{type:"info",text:"Shows first N characters. Animate a Slider Control and feed it to the second argument to animate the reveal in real time."}]},
+{cat:"T",title:"Source name",desc:"Display the layer's own name as text",code:"thisLayer.name;",notes:[{type:"info",text:"Pulls the layer name into the text source. Rename the layer in the timeline and the text updates automatically — great for labelling rigs."}]},
+{cat:"T",title:"Comp name",desc:"Display the composition name as text",code:"thisComp.name;",notes:[{type:"info",text:"Useful for lower-thirds or title cards that should automatically reflect the comp name. Essential in template systems."}]},
+{cat:"T",title:"Line count",desc:"Count the number of lines in a text layer",code:'value.split("\\r").length;',notes:[{type:"info",text:"Returns the number of lines as an integer. Useful for driving the height of a smart background based on how many lines of text there are."}]},
+{cat:"T",title:"Frame number",desc:"Display the current frame as an integer",code:"Math.floor(time * thisComp.frameRate);",notes:[{type:"info",text:"Good for debug overlays, burn-in frame references, or frame-stamp watermarks. Auto-updates as the comp plays."}]},
+{cat:"T",title:"SMPTE timecode",desc:"Full HH:MM:SS:FF timecode display",code:'t = time;\nh = Math.floor(t / 3600);\nm = Math.floor((t % 3600) / 60);\ns = Math.floor(t % 60);\nf = Math.floor((t % 1) * thisComp.frameRate);\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(h) + ":" + pad(m) + ":" + pad(s) + ":" + pad(f);',notes:[{type:"setup",label:"how to use",text:"Paste on Source Text. No effects needed — reads time and frameRate from the comp automatically."},{type:"info",text:"Works at any frame rate. Matches the timecode display shown in the AE viewer."}]},
+{cat:"T",title:"ETA countdown (MM:SS)",desc:"Count down from a set number of seconds",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);',notes:[{type:"setup",label:"setup",text:'Add a Slider Control. Set value in seconds. Keyframe it counting down to 0.'},{type:"info",text:"Good for transport ETAs, live countdowns, and time-based B2B infographics."}]},
+{cat:"T",title:"Typing cursor blink",desc:"Blinking | cursor to pair with a typewriter reveal",code:'Math.floor(time * 2) % 2 === 0 ? 100 : 0;',notes:[{type:"info",text:"Apply to Opacity of a text layer containing just a | character. Change the 2 to adjust blink rate. Pair with a typewriter substring expression on the main text layer."}]},
+{cat:"T",title:"Random character scramble",desc:"Randomly cycle through characters — glitch or redaction effect",code:'s = "ABC#!@012";\ns[Math.floor(random(s.length))];',notes:[{type:"info",text:"Edit the character set string to control which characters appear. Use posterizeTime() to set the scramble speed. Add seedRandom(index, true) above it to give each layer a different but stable scramble."}]},
 
 // ─── SHAPE & LAYOUT ───────────────────────────────────────────────────────────
-{cat:"S",title:"Maintain stroke width (uniform scale)",code:"s = transform.scale[0];\nvalue * (100 / s);",notes:[{type:"warn",text:"Only works with uniform scale. If X and Y scale differ independently, use the robust version below."}]},
-{cat:"S",title:"Maintain stroke width (non-uniform scale)",code:"length(toComp([0,0]), toComp([0.7071,0.7071])) || 0.001;",notes:[{type:"info",text:"Robust version — works even when X and Y scale differ. 0.7071 = 1/√2, samples the diagonal for a true scale factor."},{type:"setup",label:"how to use",text:"Paste on Stroke Width. The || 0.001 prevents division-by-zero if scale reaches exactly zero."}]},
-{cat:"S",title:"Auto-size text box",code:'t = thisComp.layer("Text Layer");\nw = t.sourceRectAtTime().width;\nh = t.sourceRectAtTime().height;\n[w, h];',notes:[{type:"setup",label:"setup",text:'Paste on Size of a Rectangle path inside a shape layer. Replace "Text Layer" with your text layer name.'}]},
-{cat:"S",title:"Smart background with padding",code:'t = thisComp.layer("Text Layer");\nr = t.sourceRectAtTime(time, false);\npad = 50;\n[r.width + pad * 2, r.height + pad * 2];',notes:[{type:"setup",label:"how to use",text:'Paste on Rectangle Size in a shape layer behind your text. Replace "Text Layer" with your layer name. Change pad value.'},{type:"info",text:"For position: tPos = t.transform.position; [tPos[0] + r.left + r.width/2, tPos[1] + r.top + r.height/2];"}]},
-{cat:"S",title:"Index spacing (auto-stack)",code:"padding = 150;\n[value[0], value[1] + (index - 1) * padding];",notes:[{type:"setup",label:"how to use",text:"Paste on Position across every layer you want to stack. Change padding to adjust the gap."}]},
-{cat:"S",title:"Multi-column auto-stack",code:"cols = 3;\npadX = 200;\npadY = 150;\ncol = (index - 1) % cols;\nrow = Math.floor((index - 1) / cols);\nstartX = thisComp.width / 2 - (cols - 1) * padX / 2;\nstartY = 200;\n[startX + col * padX, startY + row * padY];",notes:[{type:"info",text:"Distributes layers into a grid automatically. Change cols, padX, padY."},{type:"setup",label:"how to use",text:"Paste same expression on every layer's Position. They self-organise into rows and columns by index."}]},
-{cat:"S",title:"Snap to grid",code:"grid = 50;\n[Math.round(value[0] / grid) * grid, Math.round(value[1] / grid) * grid];",notes:[{type:"info",text:"Change grid to set cell size in pixels."}]},
-{cat:"S",title:"Circular orbit",code:"radius = 200;\nspeed = 1;\nangle = time * speed * 2 * Math.PI;\ncx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius];",notes:[{type:"setup",label:"how to use",text:"Paste on Position and remove all Position keyframes."},{type:"info",text:"radius = orbit size. speed = rotations per second. cx/cy default to comp centre."}]},
-{cat:"S",title:"Spiral outward",code:"radius = 40 + time * 50;\nspeed = 2;\nangle = time * speed * 2 * Math.PI;\n[thisComp.width/2 + Math.cos(angle) * radius, thisComp.height/2 + Math.sin(angle) * radius];",notes:[{type:"info",text:"40 = starting radius, 50 = growth rate per second. Swap + for - to spiral inward."}]},
-{cat:"S",title:"Pulse (rhythmic scale beat)",code:"amp = 20;\nfreq = 2;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];",notes:[{type:"info",text:"amp = pulse size. freq = pulses per second. To sync to BPM: freq = BPM / 60."}]},
-{cat:"S",title:"Progress bar fill",code:'val = effect("Slider Control")("Slider");\nmaxW = 600;\n[maxW * (val / 100), value[1]];',notes:[{type:"setup",label:"setup",text:'Add Slider Control. Paste on Rectangle Size. maxW = full width at 100%. Keyframe slider 0–100 to animate fill.'}]},
-{cat:"S",title:"Percentage ring (trim paths)",code:'val = effect("Slider Control")("Slider");\nval / 100;',notes:[{type:"setup",label:"setup",text:'Add Trim Paths to an ellipse shape layer. Paste on the End property. Slider 0–100 drives the fill.'},{type:"info",text:"Rotate the layer -90° to start the fill from the top."}]},
-{cat:"S",title:"Signal pulse (data flow)",code:"speed = 2;\namp = 30;\nphase = index * 0.4;\n[value[0], value[1] + amp * Math.sin(time * speed * 2 * Math.PI + phase)];",notes:[{type:"info",text:"Apply to Position on multiple layers for a flowing data signal. Phase offsets each layer so they ripple in sequence."}]},
-{cat:"S",title:"Auto-fit scale (long translations)",code:'textW = thisLayer.sourceRectAtTime(time, false).width;\nmaxW = 800;\nif (textW > maxW) {\n  s = (maxW / textW) * 100;\n  [s, s];\n} else {\n  [100, 100];\n}',notes:[{type:"info",text:"Shrinks text to fit within maxW pixels. Critical for multilingual templates where translated text is often 30–50% longer."}]},
-{cat:"S",title:"Safe zone warning",code:'x = transform.position[0];\ny = transform.position[1];\nw = thisComp.width;\nh = thisComp.height;\nmargin = 100;\noutside = (x < margin || x > w - margin || y < margin || y > h - margin);\noutside ? Math.abs(Math.sin(time * 8)) * 100 : 0;',notes:[{type:"info",text:"Pulses opacity if the layer gets too close to the comp edge. Change margin to set the safe zone boundary."}]},
+{cat:"S",title:"Maintain stroke width (uniform scale)",desc:"Keep stroke width consistent when scaling",code:"s = transform.scale[0];\nvalue * (100 / s);",notes:[{type:"warn",text:"Only works with uniform scale. If X and Y scale differ independently, use the robust version below."}]},
+{cat:"S",title:"Maintain stroke width (non-uniform scale)",desc:"Correct stroke width even with non-uniform scale",code:"length(toComp([0,0]), toComp([0.7071,0.7071])) || 0.001;",notes:[{type:"info",text:"Robust version — works even when X and Y scale differ. 0.7071 = 1/√2, sampling the diagonal for a true comp-space scale factor."},{type:"setup",label:"how to use",text:"Paste on the Stroke Width property. The || 0.001 prevents division-by-zero if scale reaches exactly zero."}]},
+{cat:"S",title:"Auto-size text box",desc:"Rectangle that automatically matches text width and height",code:'t = thisComp.layer("Text Layer");\nw = t.sourceRectAtTime().width;\nh = t.sourceRectAtTime().height;\n[w, h];',notes:[{type:"setup",label:"setup",text:'Paste on the Size of a Rectangle path inside a shape layer. Replace "Text Layer" with the exact name of your text layer. Updates live as text changes.'}]},
+{cat:"S",title:"Smart background with padding",desc:"Shape that wraps tightly around text with adjustable padding",code:'t = thisComp.layer("Text Layer");\nr = t.sourceRectAtTime(time, false);\npad = 50;\n[r.width + pad * 2, r.height + pad * 2];',notes:[{type:"setup",label:"how to use",text:'Paste on Size of a Rectangle in a shape layer behind your text. Replace "Text Layer" with your layer name. Change pad to set padding.'},{type:"info",text:"For the position expression to centre the background: tPos = t.transform.position; [tPos[0] + r.left + r.width/2, tPos[1] + r.top + r.height/2];"}]},
+{cat:"S",title:"Index spacing (auto-stack)",desc:"Automatically distribute layers in a vertical column",code:"padding = 150;\n[value[0], value[1] + (index - 1) * padding];",notes:[{type:"setup",label:"how to use",text:"Paste on Position of every layer you want to stack. They distribute themselves automatically using their layer index. Change padding to adjust the gap."}]},
+{cat:"S",title:"Multi-column auto-stack",desc:"Distribute layers into a grid of rows and columns",code:"cols = 3;\npadX = 200;\npadY = 150;\ncol = (index - 1) % cols;\nrow = Math.floor((index - 1) / cols);\nstartX = thisComp.width / 2 - (cols - 1) * padX / 2;\nstartY = 200;\n[startX + col * padX, startY + row * padY];",notes:[{type:"info",text:"Paste the same expression on every layer's Position. They self-organise into rows and columns by index. Change cols for column count and padX/padY for spacing."}]},
+{cat:"S",title:"Snap to grid",desc:"Constrain a layer's position to a pixel grid",code:"grid = 50;\n[Math.round(value[0] / grid) * grid, Math.round(value[1] / grid) * grid];",notes:[{type:"info",text:"Change grid to set the cell size in pixels. Apply to Position. Useful for maintaining alignment in tech diagram and layout animations."}]},
+{cat:"S",title:"Circular orbit",desc:"Layer orbits continuously around a centre point",code:"radius = 200;\nspeed = 1;\nangle = time * speed * 2 * Math.PI;\ncx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius];",notes:[{type:"setup",label:"how to use",text:"Paste on Position and remove all Position keyframes — expression drives position entirely."},{type:"info",text:"radius = orbit size in pixels. speed = rotations per second (try 0.3–1.5). cx/cy default to comp centre — replace with any [x,y] to offset the orbit."}]},
+{cat:"S",title:"Spiral outward",desc:"Layer traces an expanding spiral path",code:"radius = 40 + time * 50;\nspeed = 2;\nangle = time * speed * 2 * Math.PI;\n[thisComp.width/2 + Math.cos(angle) * radius, thisComp.height/2 + Math.sin(angle) * radius];",notes:[{type:"info",text:"40 = starting radius, 50 = growth rate per second. Swap + for - in the radius line to spiral inward instead."}]},
+{cat:"S",title:"Pulse (rhythmic scale beat)",desc:"Rhythmic scale pulse — syncs to BPM",code:"amp = 20;\nfreq = 2;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];",notes:[{type:"setup",label:"how to use",text:"Paste on Scale and remove scale keyframes."},{type:"info",text:"amp = pulse size in percentage points. freq = pulses per second. To sync to BPM: freq = BPM / 60. For 120bpm → freq = 2."}]},
+{cat:"S",title:"Progress bar fill",desc:"Rectangle width driven by a 0–100 slider",code:'val = effect("Slider Control")("Slider");\nmaxW = 600;\n[maxW * (val / 100), value[1]];',notes:[{type:"setup",label:"setup",text:'Add a Slider Control. Paste on Rectangle Size. maxW = full width at 100%. Keyframe slider 0–100 to animate the fill.'},{type:"info",text:"Essential for loading bars, KPI dashboards, data viz, and tech explainer sequences."}]},
+{cat:"S",title:"Percentage ring (trim paths)",desc:"Circular fill driven by a slider — donut chart style",code:'val = effect("Slider Control")("Slider");\nval / 100;',notes:[{type:"setup",label:"setup",text:'Add Trim Paths to an ellipse shape layer. Paste on the End property of Trim Paths. Slider 0–100 animates the ring fill.'},{type:"info",text:"Rotate the layer -90° to start fill from the top. Combine with a percentage counter text layer for a complete KPI ring."}]},
+{cat:"S",title:"Signal pulse (data flow)",desc:"Wave ripple across a row of layers — data pipeline effect",code:"speed = 2;\namp = 30;\nphase = index * 0.4;\n[value[0], value[1] + amp * Math.sin(time * speed * 2 * Math.PI + phase)];",notes:[{type:"info",text:"Apply to Position on a row of dot layers. Each gets a different phase from its index so they ripple in sequence. Great for tech explainer data flow diagrams."},{type:"setup",label:"how to use",text:"Paste the same expression on all dots in a row. Adjust amp for height and speed for flow rate."}]},
+{cat:"S",title:"Auto-fit scale (long translations)",desc:"Shrinks text to fit a max width — critical for multilingual templates",code:'textW = thisLayer.sourceRectAtTime(time, false).width;\nmaxW = 800;\nif (textW > maxW) {\n  s = (maxW / textW) * 100;\n  [s, s];\n} else {\n  [100, 100];\n}',notes:[{type:"info",text:"Translated text is often 30–50% longer than English. This expression prevents text overflow automatically."},{type:"setup",label:"how to use",text:"Paste on Scale of any text layer. Change maxW to your safe text width in pixels."}]},
+{cat:"S",title:"Safe zone warning",desc:"Pulses the layer if it gets too close to the comp edge",code:'x = transform.position[0];\ny = transform.position[1];\nw = thisComp.width;\nh = thisComp.height;\nmargin = 100;\noutside = (x < margin || x > w - margin || y < margin || y > h - margin);\noutside ? Math.abs(Math.sin(time * 8)) * 100 : 0;',notes:[{type:"info",text:"Apply to Opacity of a warning indicator layer. Pulses when the layer moves within margin pixels of the edge. Change margin to set the safe zone boundary."}]},
 
 // ─── MASTER CONTROLLERS ───────────────────────────────────────────────────────
-{cat:"M",title:"Global position link",code:'comp("MAIN").layer("CONTROL_PANEL").transform.position;',notes:[{type:"setup",label:"setup",text:'Create Null in main comp. Name comp "MAIN" and null "CONTROL_PANEL". Paste on Position in any pre-comp. Swap .position for .scale or .rotation.'},{type:"warn",text:"Cross-comp references break silently if the comp or layer is renamed."}]},
-{cat:"M",title:"Global colour link",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Color Control")("Color");',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Color Control to your null. Any layer referencing this updates instantly when you change the swatch.'}]},
-{cat:"M",title:"Global slider link",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Slider Control")("Slider");',notes:[{type:"setup",label:"setup",text:'Add Slider Control to your null. Rename it descriptively. Right-click to set a custom range if you need values above 100.'}]},
-{cat:"M",title:"Checkbox visibility",code:'check = comp("MAIN").layer("CONTROL_PANEL").effect("Checkbox Control")("Checkbox");\n(check == 1) ? 100 : 0;',notes:[{type:"setup",label:"setup",text:'Add Checkbox Control to your null. Paste on Opacity — toggle the checkbox to show/hide.'},{type:"warn",text:"Use the ternary operator (? :) for single-value conditionals in AE."}]},
-{cat:"M",title:"World position (null parent offset)",code:"toComp([0, 0, 0]);",notes:[{type:"setup",label:"how to use",text:"Apply on Anchor Point. Returns absolute world position regardless of parenting chain. To read from another expression: thisComp.layer('LayerName').toComp([0,0,0])."}]},
-{cat:"M",title:"Parented position compensation",code:'fromComp(thisComp.layer("Parent").toComp([0, 0]));',notes:[{type:"setup",label:"how to use",text:'Paste on Position of child layer. Replace "Parent" with exact layer name. Converts parent world position into child local space.'}]},
-{cat:"M",title:"Multi-switch (index router)",code:'idx = effect("Index Control")("Slider");\nidx == 1 ? 100 : idx == 2 ? 50 : 0;',notes:[{type:"setup",label:"setup",text:'Add Slider Control to any null, rename "Index Control". Whole numbers: 1, 2, 3 = states. Keyframe to switch.'},{type:"info",text:"Extend with more ternaries: idx == 3 ? 25 : 0."}]},
+{cat:"M",title:"Global position link",desc:"Drive a layer's position from a null in another comp",code:'comp("MAIN").layer("CONTROL_PANEL").transform.position;',notes:[{type:"setup",label:"setup",text:'Create a Null in your main comp. Name the comp "MAIN" and the null "CONTROL_PANEL". Paste on Position in any pre-comp. Swap .position for .scale or .rotation.'},{type:"warn",text:"Cross-comp references break silently if the comp or layer is renamed. Use consistent naming."}]},
+{cat:"M",title:"Global colour link",desc:"One colour swatch controls every layer that references it",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Color Control")("Color");',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Color Control to your CONTROL_PANEL null. Any layer referencing this updates instantly when you change the swatch.'},{type:"info",text:"Apply to Fill, Stroke, or any RGBA property. One swatch can control your entire project palette."}]},
+{cat:"M",title:"Global slider link",desc:"Single slider drives a value across every linked layer",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Slider Control")("Slider");',notes:[{type:"setup",label:"setup",text:'Add Slider Control to your CONTROL_PANEL null. Rename it descriptively. Right-click the effect to set a custom range if you need values above 100.'},{type:"info",text:"Keyframe the slider on the null to drive animation globally across all linked layers from one place."}]},
+{cat:"M",title:"Checkbox visibility",desc:"Toggle layer visibility on/off from a master null",code:'check = comp("MAIN").layer("CONTROL_PANEL").effect("Checkbox Control")("Checkbox");\n(check == 1) ? 100 : 0;',notes:[{type:"setup",label:"setup",text:'Add Checkbox Control to your CONTROL_PANEL null. Paste on Opacity of any layer — toggle the checkbox to show/hide.'},{type:"warn",text:"Use the ternary operator (? :) for single-value conditionals — the if/else form without braces is error-prone in AE."}]},
+{cat:"M",title:"World position (null parent offset)",desc:"Get a layer's true world position regardless of parenting",code:"toComp([0, 0, 0]);",notes:[{type:"setup",label:"how to use",text:"Apply on the Anchor Point property. Returns absolute world position regardless of any parenting chain. To read from another expression: thisComp.layer('LayerName').toComp([0,0,0])."},{type:"info",text:"Essential for rigs where you need a parented layer's true position without breaking the parent relationship."}]},
+{cat:"M",title:"Parented position compensation",desc:"Track a parent layer's position in a child's local space",code:'fromComp(thisComp.layer("Parent").toComp([0, 0]));',notes:[{type:"setup",label:"how to use",text:'Paste on Position of a child layer. Replace "Parent" with exact layer name. Converts the parent\'s world position into the child\'s local coordinate space.'},{type:"info",text:"Useful for attaching a label or element to a moving layer without actually parenting it — keeps the layer independent."}]},
+{cat:"M",title:"Multi-switch (index router)",desc:"Keyframe a single slider to switch between multiple states",code:'idx = effect("Index Control")("Slider");\nidx == 1 ? 100 : idx == 2 ? 50 : 0;',notes:[{type:"setup",label:"setup",text:'Add Slider Control to any null, rename "Index Control". Set to whole numbers: 1, 2, 3. Keyframe to switch states over time.'},{type:"info",text:"Extend with more ternaries: idx == 3 ? 25 : 0. Apply to Opacity, Scale, or any property for multi-state visibility rigs."}]},
 
 // ─── ADVANCED RIGS ────────────────────────────────────────────────────────────
-{cat:"R",title:"Magnet (LERP)",code:'magnetPos = thisComp.layer("MAGNET").transform.position;\nstrength = thisComp.layer("MAGNET").effect("Strength")("Slider") / 100;\nlerp(value, magnetPos, strength);',notes:[{type:"setup",label:"setup",text:'Create Null "MAGNET". Add Slider Control named "Strength". Paste on Position.'},{type:"info",text:"Strength 0 = no pull, 100 = snaps to magnet."}]},
-{cat:"R",title:"Look at (face target)",code:'v = thisComp.layer("Target").transform.position - transform.position;\nradiansToDegrees(Math.atan2(v[1], v[0]));',notes:[{type:"setup",label:"setup",text:'Create Null "Target". Paste on Rotation of the layer that should face it.'},{type:"info",text:"Add - 90 to the result if your artwork faces up."}]},
-{cat:"R",title:"Proximity trigger (opacity)",code:'d = length(thisComp.layer("Trigger").transform.position, transform.position);\nif (d < 200) 100 else 20;',notes:[{type:"setup",label:"setup",text:'Create Null "Trigger". Paste on Opacity. Move null within 200px to activate.'},{type:"info",text:"Use linear(d, 0, 200, 100, 20) for a smooth fade instead."}]},
-{cat:"R",title:"Proximity-based scale",code:'d = length(thisComp.layer("Attractor").transform.position, transform.position);\nmaxDist = 400;\ns = linear(d, 0, maxDist, 150, 100);\n[s, s];',notes:[{type:"setup",label:"setup",text:'Create Null "Attractor". Paste on Scale. As null moves closer, layer grows.'},{type:"info",text:"Change 150/100 for min/max scale."}]},
-{cat:"R",title:"Velocity-based rotation",code:"v = velocity;\nradiansToDegrees(Math.atan2(v[1], v[0]));",notes:[{type:"setup",label:"how to use",text:"Paste on Rotation. Layer needs animated Position keyframes. Automatically banks to face direction of travel."},{type:"info",text:"Add + 90 or - 90 if the layer points the wrong direction."}]},
-{cat:"R",title:"Spring follow (physics)",code:"mass = 20;\nstiffness = 50;\ndamping = 8;\nfps = 1 / thisComp.frameDuration;\nnumInt = 16;\ndt = 1 / (fps * numInt);\nx = position;\nv = velocity;\nfor (i = 0; i < numInt; i++) {\n  f = -stiffness * (x - value) - damping * v;\n  a = f / mass;\n  v += a * dt;\n  x += v * dt;\n}\nx;",notes:[{type:"setup",label:"how to use",text:"Paste on Position. Keep your keyframes — expression adds physics on top."},{type:"info",text:"mass = heaviness. stiffness = catch-up speed. damping = oscillation die-off. Start: mass 20 / stiffness 50 / damping 8."}]},
-{cat:"R",title:"Stagger delay by index",code:"delay = 0.08;\noffset = (index - 1) * delay;\nnumKeys > 0 ? thisProperty.valueAtTime(time - offset) : value;",notes:[{type:"info",text:"Paste same expression on every layer's property. No per-layer editing — reads index automatically."}]},
-{cat:"R",title:"Seeded random wiggle (per layer)",code:"seedRandom(index, true);\nwiggle(2, 40);",notes:[{type:"info",text:"Each layer gets a unique but consistent wiggle by index. true = stable offset, not animating over time."}]},
-{cat:"R",title:"Strobe / glitch on beat",code:"fps = 6;\nposterizeTime(fps);\nwiggle(1, 50);",notes:[{type:"info",text:"fps controls choppiness (try 4–8). Swap wiggle(1,100) on Position for a glitch displacement effect."}]},
-{cat:"R",title:"Ghost trail — position",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.position.valueAtTime(time - offset);',notes:[{type:"setup",label:"setup",text:'Create layer named "Leader" with animated Position. Paste on Position of all follower layers.'},{type:"info",text:"Change delay to control chain spread."}]},
-{cat:"R",title:"Ghost trail — scale",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.scale.valueAtTime(time - offset);',notes:[{type:"info",text:"Follows the leader's Scale with index-based delay. Combine with position version for a full snake rig."}]},
-{cat:"R",title:"Ghost trail — opacity",code:'delay = 0.1;\noffset = (index - 1) * delay;\nbaseOpacity = thisComp.layer("Leader").transform.opacity.valueAtTime(time - offset);\nbaseOpacity * (1 - (index - 1) * 0.15);',notes:[{type:"info",text:"Each follower fades slightly. 0.15 controls how quickly opacity drops per layer in the chain."}]},
-{cat:"R",title:"Matrix wave (scale)",code:'master = thisComp.layer("WAVE_MASTER");\namp = master.effect("Wave Amplitude")("Slider");\nphase = master.effect("Wave Phase")("Slider");\nfreq = 2;\nphaseOffset = (index - 1) * 0.3;\nwave = amp * Math.sin(time * freq * 2 * Math.PI + phaseOffset + phase);\n[100 + wave, 100 + wave];',notes:[{type:"setup",label:"setup",text:'Create Null "WAVE_MASTER". Add Slider Controls: "Wave Amplitude" (try 40) and "Wave Phase". Paste on Scale of all grid layers. Keyframe Wave Phase to trigger the wave.'}]},
-{cat:"R",title:"Rubik row shift",code:'rowSize = 4;\nrow = Math.floor((index - 1) / rowSize);\nshiftSlider = thisComp.layer("WAVE_MASTER").effect("Wave Phase")("Slider");\nrowOffset = row * 0.5;\namp = 80;\namp * Math.sin(time * 2 * Math.PI + rowOffset + shiftSlider);',notes:[{type:"setup",label:"setup",text:'Requires WAVE_MASTER null with "Wave Phase" slider. Set rowSize to your grid column count. Paste on Position X or Y offset.'}]},
-{cat:"R",title:"Value smoothing",code:"smooth(0.2, 5);",notes:[{type:"info",text:"Fixes jittery tracking data. Args: (width in seconds, number of samples). Higher width = more smoothing but more lag."}]},
-{cat:"R",title:"Sample image (colour picker)",code:'thisComp.layer("Video").sampleImage(transform.position, [1,1]);',notes:[{type:"setup",label:"how to use",text:'Apply to Fill or Stroke colour. Replace "Video" with layer name. [1,1] = sample radius — increase for blurred average.'}]},
-{cat:"R",title:"Blink",code:"Math.sin(time * 10) > 0 ? 100 : 0;",notes:[{type:"info",text:"Change 10 to control speed. Higher = faster."}]},
+{cat:"R",title:"Magnet (LERP)",desc:"Layer is attracted toward a null with adjustable strength",code:'magnetPos = thisComp.layer("MAGNET").transform.position;\nstrength = thisComp.layer("MAGNET").effect("Strength")("Slider") / 100;\nlerp(value, magnetPos, strength);',notes:[{type:"setup",label:"setup",text:'Create Null named "MAGNET". Add Slider Control named "Strength". Paste on Position of any layer to attract.'},{type:"info",text:"Strength 0 = no pull, 100 = snaps to magnet. Keyframe Strength for a dynamic pull/release effect."}]},
+{cat:"R",title:"Look at (face target)",desc:"Layer rotates to always face a target null",code:'v = thisComp.layer("Target").transform.position - transform.position;\nradiansToDegrees(Math.atan2(v[1], v[0]));',notes:[{type:"setup",label:"setup",text:'Create Null named "Target". Paste on Rotation of the layer that should face it. Move the null to aim.'},{type:"info",text:"Layer's 0° (right-facing) points toward the target. Add - 90 if your artwork faces up."}]},
+{cat:"R",title:"Proximity trigger (opacity)",desc:"Layer appears when a trigger null gets close enough",code:'d = length(thisComp.layer("Trigger").transform.position, transform.position);\nif (d < 200) 100 else 20;',notes:[{type:"setup",label:"setup",text:'Create Null named "Trigger". Paste on Opacity of any layer. Move null within 200px to activate.'},{type:"info",text:"Use linear(d, 0, 200, 100, 20) for a smooth fade instead of a hard switch. Change 200 to adjust trigger radius."}]},
+{cat:"R",title:"Proximity-based scale",desc:"Layer grows as an attractor null moves closer",code:'d = length(thisComp.layer("Attractor").transform.position, transform.position);\nmaxDist = 400;\ns = linear(d, 0, maxDist, 150, 100);\n[s, s];',notes:[{type:"setup",label:"setup",text:'Create Null named "Attractor". Paste on Scale.'},{type:"info",text:"Change 150/100 for min/max scale. Good for interactive explainer reveals and proximity-based data visualisations."}]},
+{cat:"R",title:"Velocity-based rotation",desc:"Layer banks automatically to face its direction of travel",code:"v = velocity;\nradiansToDegrees(Math.atan2(v[1], v[0]));",notes:[{type:"setup",label:"how to use",text:"Paste on Rotation. Layer needs animated Position keyframes to have velocity to read from."},{type:"info",text:"No manual rotation keyframes needed. Add + 90 or - 90 if the layer faces the wrong direction."}]},
+{cat:"R",title:"Spring follow (physics)",desc:"Layer chases keyframes with real mass, stiffness and damping",code:"mass = 20;\nstiffness = 50;\ndamping = 8;\nfps = 1 / thisComp.frameDuration;\nnumInt = 16;\ndt = 1 / (fps * numInt);\nx = position;\nv = velocity;\nfor (i = 0; i < numInt; i++) {\n  f = -stiffness * (x - value) - damping * v;\n  a = f / mass;\n  v += a * dt;\n  x += v * dt;\n}\nx;",notes:[{type:"setup",label:"how to use",text:"Paste on Position. Keep your keyframes as normal — the expression reads them and adds physics on top."},{type:"info",text:"mass = heaviness (more overshoot). stiffness = catch-up speed. damping = oscillation die-off speed. Start: mass 20 / stiffness 50 / damping 8."}]},
+{cat:"R",title:"Stagger delay by index",desc:"Same animation plays offset across multiple layers automatically",code:"delay = 0.08;\noffset = (index - 1) * delay;\nnumKeys > 0 ? thisProperty.valueAtTime(time - offset) : value;",notes:[{type:"setup",label:"how to use",text:"Paste the exact same expression on every layer's property. No per-layer editing needed — reads each layer's index automatically."},{type:"info",text:"delay = seconds between each layer. 0.08 ≈ 5 frames at 60fps. Layer 1 plays normal, layer 2 delayed one step, etc."}]},
+{cat:"R",title:"Seeded random wiggle (per layer)",desc:"Each layer gets a different but stable wiggle",code:"seedRandom(index, true);\nwiggle(2, 40);",notes:[{type:"info",text:"seedRandom(index) ties the random seed to the layer index so no two layers move the same. true = stable offset (not animating over time). Remove true to make each layer animate differently."}]},
+{cat:"R",title:"Strobe / glitch on beat",desc:"Choppy strobe or glitch displacement effect",code:"fps = 6;\nposterizeTime(fps);\nwiggle(1, 50);",notes:[{type:"info",text:"fps controls choppiness — lower = more aggressive (try 4–8). Swap wiggle(1,50) for wiggle(1,100) on Position for a glitch displacement effect rather than opacity strobe."}]},
+{cat:"R",title:"Ghost trail — position",desc:"Layers follow a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.position.valueAtTime(time - offset);',notes:[{type:"setup",label:"setup",text:'Create a layer named "Leader" with animated Position. Paste on Position of all follower layers.'},{type:"info",text:"Change delay to control chain spread. Works on any property — swap .position for .scale or .rotation."}]},
+{cat:"R",title:"Ghost trail — scale",desc:"Scale follows a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.scale.valueAtTime(time - offset);',notes:[{type:"info",text:"Combine with the position version for a full snake follower rig where each layer mimics the leader with progressive delay."}]},
+{cat:"R",title:"Ghost trail — opacity",desc:"Followers fade progressively down the chain",code:'delay = 0.1;\noffset = (index - 1) * delay;\nbaseOpacity = thisComp.layer("Leader").transform.opacity.valueAtTime(time - offset);\nbaseOpacity * (1 - (index - 1) * 0.15);',notes:[{type:"info",text:"Each follower is slightly more transparent than the previous. 0.15 controls the opacity drop per layer — lower for a longer visible trail."}]},
+{cat:"R",title:"Matrix wave (scale)",desc:"Wave ripples across a grid of layers from a master null",code:'master = thisComp.layer("WAVE_MASTER");\namp = master.effect("Wave Amplitude")("Slider");\nphase = master.effect("Wave Phase")("Slider");\nfreq = 2;\nphaseOffset = (index - 1) * 0.3;\nwave = amp * Math.sin(time * freq * 2 * Math.PI + phaseOffset + phase);\n[100 + wave, 100 + wave];',notes:[{type:"setup",label:"setup",text:'Create Null "WAVE_MASTER". Add Slider Controls: "Wave Amplitude" (try 40) and "Wave Phase". Paste on Scale of all grid layers. Keyframe Wave Phase to trigger the wave.'},{type:"info",text:"phaseOffset spreads the wave across layers by index. Change 0.3 to spread faster or slower."}]},
+{cat:"R",title:"Rubik row shift",desc:"Rows shift in staggered waves — Rubik's cube style",code:'rowSize = 4;\nrow = Math.floor((index - 1) / rowSize);\nshiftSlider = thisComp.layer("WAVE_MASTER").effect("Wave Phase")("Slider");\nrowOffset = row * 0.5;\namp = 80;\namp * Math.sin(time * 2 * Math.PI + rowOffset + shiftSlider);',notes:[{type:"setup",label:"setup",text:'Requires WAVE_MASTER null with "Wave Phase" slider. Set rowSize to match your grid column count. Paste on Position X or Y offset.'},{type:"info",text:"Each row shifts at a different phase — creates a rolling wave effect across a grid. Keyframe Wave Phase to trigger it."}]},
+{cat:"R",title:"Value smoothing",desc:"Smooth out jittery tracking or noisy data",code:"smooth(0.2, 5);",notes:[{type:"info",text:"Apply directly to a tracked position property. Args: (width in seconds, number of samples). Higher width = more smoothing but adds lag."}]},
+{cat:"R",title:"Sample image (colour picker)",desc:"Sample a pixel colour from a video layer dynamically",code:'thisComp.layer("Video").sampleImage(transform.position, [1,1]);',notes:[{type:"setup",label:"how to use",text:'Apply to Fill or Stroke colour. Replace "Video" with your source layer name. [1,1] = sample radius — increase for a blurred/averaged colour.'},{type:"info",text:"Uses the layer's own position as the sample point by default. Change transform.position to a fixed [x,y] to sample a specific pixel."}]},
+{cat:"R",title:"Blink",desc:"Hard on/off blink using a sine wave threshold",code:"Math.sin(time * 10) > 0 ? 100 : 0;",notes:[{type:"info",text:"Change 10 to control speed — higher = faster. For an irregular blink use a wiggle-driven threshold instead of Math.sin."}]},
 
 // ─── DATA & FINANCE ───────────────────────────────────────────────────────────
-{cat:"D",title:"Currency formatter ($1,000,000)",code:'val = effect("Slider Control")("Slider");\nsym = "$";\nsym + Math.round(val).toLocaleString();',notes:[{type:"setup",label:"setup",text:'Add a Slider Control with range matching your data. Paste on Source Text. Change sym to any currency symbol.'}]},
-{cat:"D",title:"Shorthand number (1.2M / 50K)",code:'val = Math.abs(effect("Slider Control")("Slider"));\nif (val >= 1000000000) {\n  (val / 1000000000).toFixed(1) + "B";\n} else if (val >= 1000000) {\n  (val / 1000000).toFixed(1) + "M";\n} else if (val >= 1000) {\n  (val / 1000).toFixed(1) + "K";\n} else {\n  Math.round(val).toString();\n}',notes:[{type:"info",text:"Auto-switches between B, M, K, and whole number based on value. Ideal for dashboards where scale varies widely."}]},
-{cat:"D",title:"Dynamic bar height (slider linked)",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\n[80, Math.abs(val)];',notes:[{type:"setup",label:"setup",text:'Create Null "GRAPH_MASTER". Add Slider Control named "Bar 1 Value" for each bar. Paste on Rectangle Size.'},{type:"info",text:"80 = bar width. Math.abs() prevents negative heights."}]},
-{cat:"D",title:"Color heatmap (value-based)",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\nthresh = 50;\nlow  = [0.9, 0.2, 0.2, 1];\nmid  = [1.0, 0.75, 0.1, 1];\nhigh = [0.2, 0.8, 0.3, 1];\nval < thresh * 0.5 ? low : val < thresh ? mid : high;',notes:[{type:"info",text:"Apply to Fill Color on bar layers. Red = low, amber = mid, green = high. Change thresh to move the boundary."}]},
-{cat:"D",title:"Animated number delta (+12% / -8%)",code:'val = effect("Slider Control")("Slider");\nrounded = Math.round(val * 10) / 10;\nprefix = rounded >= 0 ? "+" : "";\nprefix + rounded + "%";',notes:[{type:"info",text:"Always shows + for positive, - for negative. Good for stock tickers, KPI change indicators, financial dashboards."}]},
-{cat:"D",title:"Rolling average (smooth slider)",code:'frames = 10;\ntotal = 0;\nfor (i = 0; i < frames; i++) {\n  total += effect("Slider Control")("Slider").valueAtTime(time - i * thisComp.frameDuration);\n}\ntotal / frames;',notes:[{type:"info",text:"Averages slider value over the last N frames to smooth sudden jumps. Higher frames = smoother but more lag."}]},
-{cat:"D",title:"Sparkline dot position",code:'val = effect("Slider Control")("Slider");\nminVal = 0; maxVal = 100;\nminX = -300; maxX = 300;\nminY = 100; maxY = -100;\nx = linear(val, minVal, maxVal, minX, maxX);\ny = linear(val, minVal, maxVal, minY, maxY);\n[x, y];',notes:[{type:"setup",label:"how to use",text:"Paste on Position of a dot layer. Keyframe the Slider over time to move the dot along the sparkline path."}]},
+{cat:"D",title:"Currency formatter ($1,000,000)",desc:"Format large numbers with symbol and comma separators",code:'val = effect("Slider Control")("Slider");\nsym = "$";\nsym + Math.round(val).toLocaleString();',notes:[{type:"setup",label:"setup",text:'Add a Slider Control with range matching your data. Paste on Source Text. Change sym to any currency symbol.'},{type:"info",text:"toLocaleString() handles comma formatting automatically. Combine with .toFixed(2) for decimal places."}]},
+{cat:"D",title:"Shorthand number (1.2M / 50K)",desc:"Auto-switch between B, M, K and full number based on value",code:'val = Math.abs(effect("Slider Control")("Slider"));\nif (val >= 1000000000) {\n  (val / 1000000000).toFixed(1) + "B";\n} else if (val >= 1000000) {\n  (val / 1000000).toFixed(1) + "M";\n} else if (val >= 1000) {\n  (val / 1000).toFixed(1) + "K";\n} else {\n  Math.round(val).toString();\n}',notes:[{type:"info",text:"Ideal for dashboards where data scales vary widely — the format updates automatically as the value changes."}]},
+{cat:"D",title:"Dynamic bar height (slider linked)",desc:"Bar shape height driven by a slider on a master null",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\n[80, Math.abs(val)];',notes:[{type:"setup",label:"setup",text:'Create Null "GRAPH_MASTER". Add Slider Control named "Bar 1 Value" for each bar. Paste on Rectangle Size. Change slider name per bar.'},{type:"info",text:"Math.abs() prevents negative heights. 80 = bar width in pixels. Keyframe the sliders to animate the chart."}]},
+{cat:"D",title:"Color heatmap (value-based)",desc:"Bar fill colour changes automatically based on its value",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\nthresh = 50;\nlow  = [0.9, 0.2, 0.2, 1];\nmid  = [1.0, 0.75, 0.1, 1];\nhigh = [0.2, 0.8, 0.3, 1];\nval < thresh * 0.5 ? low : val < thresh ? mid : high;',notes:[{type:"setup",label:"setup",text:'Apply to Fill Color on bar shape layers. Reads the same slider as the bar height expression.'},{type:"info",text:"Change thresh to move the colour boundaries. Change the RGB arrays to customise colours for your brand."}]},
+{cat:"D",title:"Animated number delta (+12% / -8%)",desc:"Show positive/negative change with automatic +/- sign",code:'val = effect("Slider Control")("Slider");\nrounded = Math.round(val * 10) / 10;\nprefix = rounded >= 0 ? "+" : "";\nprefix + rounded + "%";',notes:[{type:"info",text:"Always shows + for positive values, - for negative. Good for stock tickers, KPI change indicators, and financial performance dashboards."}]},
+{cat:"D",title:"Rolling average (smooth slider)",desc:"Average slider value over recent frames to remove spikes",code:'frames = 10;\ntotal = 0;\nfor (i = 0; i < frames; i++) {\n  total += effect("Slider Control")("Slider").valueAtTime(time - i * thisComp.frameDuration);\n}\ntotal / frames;',notes:[{type:"info",text:"Averages the slider value over the last N frames. frames = smoothing window — higher = smoother but adds lag. Good for live data displays that update every frame."}]},
+{cat:"D",title:"Sparkline dot position",desc:"Move a dot along a data axis driven by a slider",code:'val = effect("Slider Control")("Slider");\nminVal = 0; maxVal = 100;\nminX = -300; maxX = 300;\nminY = 100; maxY = -100;\nx = linear(val, minVal, maxVal, minX, maxX);\ny = linear(val, minVal, maxVal, minY, maxY);\n[x, y];',notes:[{type:"setup",label:"how to use",text:"Paste on Position of a dot layer. Keyframe the Slider over time to move the dot along the sparkline."},{type:"info",text:"Adjust minVal/maxVal to match your data range. Adjust minX/maxX and minY/maxY to set screen bounds of the line."}]},
 
 // ─── ISOMETRIC ────────────────────────────────────────────────────────────────
-{cat:"I",title:"ISO top face (SSR)",code:"// Scale expression\n[100, 57.735];\n// Set Rotation to -45 manually",notes:[{type:"info",text:"Top face of an isometric cube. Scale Y to 57.735% (= cos 30°) and rotate -45°."},{type:"setup",label:"target property",text:"Scale: [100, 57.735]. Rotation: -45;"}]},
-{cat:"I",title:"ISO left face (SSR)",code:"// Scale expression\n[100, 57.735];\n// Set Rotation to +45 manually",notes:[{type:"info",text:"Left face. Same scale as top but rotated +45°. Use a darker fill for correct ISO shading."},{type:"setup",label:"target property",text:"Scale: [100, 57.735]. Rotation: 45;"}]},
-{cat:"I",title:"ISO right face (SSR)",code:"// Scale — flip X to mirror\n[-100, 57.735];\n// Set Rotation to -45 manually",notes:[{type:"info",text:"Right face. Negative X scale mirrors for correct right-side perspective. Use the darkest fill."},{type:"setup",label:"target property",text:"Scale: [-100, 57.735]. Rotation: -45;"}]},
-{cat:"I",title:"ISO full SSR expression (top)",code:"scaleX = 100;\nscaleY = 57.735;\n[scaleX, scaleY];",notes:[{type:"info",text:"Pure expression version for the top face. Apply on Scale, set Rotation to -45. Drive from a slider for a dynamic rig."}]},
-{cat:"I",title:"ISO Z-height movement",code:'zCtrl = thisComp.layer("ISO_Z_CONTROLLER");\nzh = zCtrl.effect("Z-Height")("Slider");\nbase = [value[0], value[1]];\n[base[0], base[1] - zh * 0.5];',notes:[{type:"setup",label:"setup",text:'Create Null "ISO_Z_CONTROLLER". Add Slider Control named "Z-Height". Paste on Position.'},{type:"info",text:"Keyframe Z-Height to move objects up and down the iso axis."}]},
-{cat:"I",title:"ISO extrude offset",code:"depthStep = 4;\n[value[0] + (index - 1) * depthStep * 0.866, value[1] + (index - 1) * depthStep * 0.5];",notes:[{type:"info",text:"Apply to duplicate layers to create ISO depth. 0.866 = cos(30°), 0.5 = sin(30°) — correct ISO offset ratios."},{type:"setup",label:"how to use",text:"Duplicate your ISO layer N times. Paste on Position of all duplicates. They self-offset in correct ISO perspective."}]},
-{cat:"I",title:"ISO depth shading",code:"baseColor = [0.4, 0.6, 1.0, 1];\ndepth = (index - 1);\ndarkness = Math.max(0, 1 - depth * 0.06);\n[baseColor[0] * darkness, baseColor[1] * darkness, baseColor[2] * darkness, 1];",notes:[{type:"info",text:"Apply to Fill Color on extruded layers. Each layer gets progressively darker."},{type:"setup",label:"how to use",text:"Change baseColor to match your design. Change 0.06 to control how quickly it darkens."}]},
+{cat:"I",title:"ISO top face (SSR)",desc:"Scale and rotate a layer into the top isometric plane",code:"// Scale expression\n[100, 57.735];\n// Set Rotation to -45 manually",notes:[{type:"info",text:"Scale Y to 57.735% (= cos 30°) and rotate -45°. Apply to a square shape layer to create the top face of an ISO cube."},{type:"setup",label:"target property",text:"Scale: [100, 57.735]. Rotation: -45;"}]},
+{cat:"I",title:"ISO left face (SSR)",desc:"Scale and rotate a layer into the left isometric plane",code:"// Scale expression\n[100, 57.735];\n// Set Rotation to +45 manually",notes:[{type:"info",text:"Same scale as the top face but rotated +45°. Use a darker fill than the top for correct ISO shading."},{type:"setup",label:"target property",text:"Scale: [100, 57.735]. Rotation: 45;"}]},
+{cat:"I",title:"ISO right face (SSR)",desc:"Scale and rotate a layer into the right isometric plane",code:"// Scale — flip X to mirror\n[-100, 57.735];\n// Set Rotation to -45 manually",notes:[{type:"info",text:"Negative X scale mirrors the layer for correct right-side perspective. Use the darkest fill of the three faces."},{type:"setup",label:"target property",text:"Scale: [-100, 57.735]. Rotation: -45;"}]},
+{cat:"I",title:"ISO full SSR expression (top)",desc:"Top face scale as a pure expression — driveable from a slider",code:"scaleX = 100;\nscaleY = 57.735;\n[scaleX, scaleY];",notes:[{type:"info",text:"Useful when you want to drive scaleX or scaleY from a slider or other expression. Apply on Scale, then set Rotation to -45."}]},
+{cat:"I",title:"ISO Z-height movement",desc:"Move a layer up and down the isometric vertical axis",code:'zCtrl = thisComp.layer("ISO_Z_CONTROLLER");\nzh = zCtrl.effect("Z-Height")("Slider");\nbase = [value[0], value[1]];\n[base[0], base[1] - zh * 0.5];',notes:[{type:"setup",label:"setup",text:'Create Null "ISO_Z_CONTROLLER". Add Slider Control named "Z-Height". Paste on Position of any ISO layer.'},{type:"info",text:"ISO vertical movement = Y offset by -zh * 0.5. Keyframe Z-Height to move objects up and down the isometric axis."}]},
+{cat:"I",title:"ISO extrude offset",desc:"Stack duplicate layers to create isometric depth",code:"depthStep = 4;\n[value[0] + (index - 1) * depthStep * 0.866, value[1] + (index - 1) * depthStep * 0.5];",notes:[{type:"info",text:"Apply to a stack of duplicate layers. 0.866 = cos(30°), 0.5 = sin(30°) — correct ISO offset ratios. Each layer self-positions to create depth."},{type:"setup",label:"how to use",text:"Duplicate your ISO layer N times. Paste on Position of all duplicates. Change depthStep to control extrusion depth."}]},
+{cat:"I",title:"ISO depth shading",desc:"Progressively darken extruded layers for realistic ISO shading",code:"baseColor = [0.4, 0.6, 1.0, 1];\ndepth = (index - 1);\ndarkness = Math.max(0, 1 - depth * 0.06);\n[baseColor[0] * darkness, baseColor[1] * darkness, baseColor[2] * darkness, 1];",notes:[{type:"info",text:"Apply to Fill Color on extruded layers. Each layer in the stack gets progressively darker."},{type:"setup",label:"how to use",text:"Change baseColor to your design colour. Change 0.06 to control how quickly each layer darkens."}]},
 
 // ─── AUDIO & MUSIC ────────────────────────────────────────────────────────────
-{cat:"A",title:"Audio reactor (scale)",code:'amp = thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider");\n[100 + amp, 100 + amp];',notes:[{type:"setup",label:"setup",text:'Select audio layer > Animation > Keyframe Assistant > Convert Audio to Keyframes. Paste on Scale.'},{type:"info",text:"Multiply amp for more exaggeration. Use on Rotation, Position, or Opacity for different effects."}]},
-{cat:"A",title:"Left/right channel isolator",code:'leftAmp  = thisComp.layer("Audio Amplitude").effect("Left Channel")("Slider");\nrightAmp = thisComp.layer("Audio Amplitude").effect("Right Channel")("Slider");\n[100 + leftAmp, 100 + rightAmp];',notes:[{type:"info",text:"Scale X from left channel, Scale Y from right. Creates a stereo-aware size reaction."}]},
-{cat:"A",title:"Beat sync pulse (BPM, no audio)",code:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 30;\ns = 100 + amp * Math.pow(1 - phase, 3);\n[s, s];",notes:[{type:"info",text:"Generates a sharp pulse on every beat without needing an audio layer."},{type:"setup",label:"how to use",text:"Paste on Scale. Change bpm to match your track. The exponent 3 controls the attack/decay feel."}]},
-{cat:"A",title:"Waveform offset per layer",code:"amp = 40;\nfreq = 3;\nphase = (index - 1) * 0.25;\n[value[0], value[1] + amp * Math.sin(time * freq * 2 * Math.PI + phase)];",notes:[{type:"info",text:"Creates a waveform visualiser when applied to a row of equally-spaced layers."},{type:"setup",label:"how to use",text:"Create a row of identical layers. Paste on Position. Change amp for height and freq for speed."}]},
-{cat:"A",title:"Note-to-colour mapper",code:'val = effect("Slider Control")("Slider");\nt = val / 127;\nr = Math.abs(Math.sin(t * Math.PI));\ng = Math.abs(Math.sin(t * Math.PI + 2.094));\nb = Math.abs(Math.sin(t * Math.PI + 4.189));\n[r, g, b, 1];',notes:[{type:"info",text:"Maps a 0–127 MIDI-style slider to a smooth colour spectrum."},{type:"setup",label:"how to use",text:"Add Slider Control with range 0–127. Paste on Fill Color."}]},
+{cat:"A",title:"Audio reactor (scale)",desc:"Layer scale reacts to the amplitude of an audio layer",code:'amp = thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider");\n[100 + amp, 100 + amp];',notes:[{type:"setup",label:"setup",text:'Select audio layer > Animation > Keyframe Assistant > Convert Audio to Keyframes. Creates an "Audio Amplitude" null. Paste on Scale.'},{type:"info",text:"Multiply amp for more exaggeration (amp * 2). Use on Rotation, Position, or Opacity for different reactive effects."}]},
+{cat:"A",title:"Left/right channel isolator",desc:"Separate left and right audio channels drive different axes",code:'leftAmp  = thisComp.layer("Audio Amplitude").effect("Left Channel")("Slider");\nrightAmp = thisComp.layer("Audio Amplitude").effect("Right Channel")("Slider");\n[100 + leftAmp, 100 + rightAmp];',notes:[{type:"info",text:"Scale X reacts to the left channel, Scale Y to the right. Creates a stereo-aware size reaction. Requires the same audio conversion setup as the standard reactor."}]},
+{cat:"A",title:"Beat sync pulse (BPM, no audio)",desc:"Sharp scale pulse on every beat — no audio layer needed",code:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 30;\ns = 100 + amp * Math.pow(1 - phase, 3);\n[s, s];",notes:[{type:"info",text:"Change bpm to match your track. Math.pow(1 - phase, 3) creates a sharp attack with smooth decay — adjust the exponent for different feels."},{type:"setup",label:"how to use",text:"Paste on Scale. Remove any existing Scale keyframes."}]},
+{cat:"A",title:"Waveform offset per layer",desc:"Row of layers ripples like a sound waveform",code:"amp = 40;\nfreq = 3;\nphase = (index - 1) * 0.25;\n[value[0], value[1] + amp * Math.sin(time * freq * 2 * Math.PI + phase)];",notes:[{type:"info",text:"Each layer gets a phase offset by index so they ripple in sequence. Change amp for height and freq for wave speed."},{type:"setup",label:"how to use",text:"Create a row of equally-spaced identical layers. Paste on Position of all of them."}]},
+{cat:"A",title:"Note-to-colour mapper",desc:"MIDI-style 0–127 slider maps to a full colour spectrum",code:'val = effect("Slider Control")("Slider");\nt = val / 127;\nr = Math.abs(Math.sin(t * Math.PI));\ng = Math.abs(Math.sin(t * Math.PI + 2.094));\nb = Math.abs(Math.sin(t * Math.PI + 4.189));\n[r, g, b, 1];',notes:[{type:"info",text:"Each slider value 0–127 produces a unique colour from the rainbow spectrum. Animate the slider in sync with musical notes or data events."},{type:"setup",label:"how to use",text:"Add Slider Control with range 0–127. Paste on Fill Color."}]},
 
 // ─── B2B & TRANSPORT ─────────────────────────────────────────────────────────
-{cat:"B",title:"Dashed line animator",code:"dashOffset = time * 200;\ndashOffset;",notes:[{type:"setup",label:"how to use",text:"Add a Dashes section to your stroke (click + in stroke options). Paste on the Offset property."},{type:"info",text:"Change 200 to control speed. Great for route lines, network connections, and data flow diagrams."}]},
-{cat:"B",title:"Compass heading (north arrow)",code:'a = thisComp.layer("Point B").transform.position;\nb = thisComp.layer("Point A").transform.position;\nv = a - b;\nradiansToDegrees(Math.atan2(v[1], v[0])) + 90;',notes:[{type:"setup",label:"setup",text:'Create Nulls "Point A" (origin) and "Point B" (destination). Paste on Rotation of your arrow. +90 corrects for upward-facing arrows.'}]},
-{cat:"B",title:"Route progress dot",code:'start = thisComp.layer("Route Start").transform.position;\nend = thisComp.layer("Route End").transform.position;\npct = effect("Progress")("Slider") / 100;\nlerp(start, end, pct);',notes:[{type:"setup",label:"setup",text:'Create Nulls "Route Start" and "Route End". Add Slider Control named "Progress" (0–100). Paste on Position.'},{type:"info",text:"Keyframe Progress 0 to 100 to move the dot along the route."}]},
-{cat:"B",title:"Speed readout (pixel velocity)",code:'v = length(velocity);\nMath.round(v) + " px/s";',notes:[{type:"info",text:"Calculates the actual movement speed of a layer in pixels per second."},{type:"setup",label:"how to use",text:"To display another layer's speed: v = length(thisComp.layer('Target').velocity); then the rest."}]},
-{cat:"B",title:"Network node connection line",code:'a = thisComp.layer("Node A").transform.position;\nb = thisComp.layer("Node B").transform.position;\nmid = [(a[0]+b[0])/2, (a[1]+b[1])/2];\ndist = length(a, b);\nangle = radiansToDegrees(Math.atan2(b[1]-a[1], b[0]-a[0]));\n// Apply mid to Position, dist to Scale X, angle to Rotation',notes:[{type:"setup",label:"how to use",text:'Create Nulls "Node A" and "Node B". Apply mid to Position, dist to Scale X, angle to Rotation of a thin rectangle.'},{type:"info",text:"Line dynamically connects two nodes. Perfect for network diagrams, org charts, and tech explainer maps."}]},
+{cat:"B",title:"Dashed line animator",desc:"Animated flowing dashes along a stroke path",code:"dashOffset = time * 200;\ndashOffset;",notes:[{type:"setup",label:"how to use",text:"Add a Dashes section to your stroke (click + in stroke options in the shape layer). Paste on the Offset property of the dash. Positive value = flows one direction, negative = reverses."},{type:"info",text:"Change 200 to control speed. Great for route lines, network connections, pipeline flows, and data flow diagrams."}]},
+{cat:"B",title:"Compass heading (north arrow)",desc:"Arrow rotates dynamically to point from A to B",code:'a = thisComp.layer("Point B").transform.position;\nb = thisComp.layer("Point A").transform.position;\nv = a - b;\nradiansToDegrees(Math.atan2(v[1], v[0])) + 90;',notes:[{type:"setup",label:"setup",text:'Create two Nulls: "Point A" (origin) and "Point B" (destination). Paste on Rotation of your arrow layer. The +90 corrects for upward-facing arrows — adjust if needed.'},{type:"info",text:"Move either null to update the heading. Good for map animations, transport routes, and directional indicators in B2B explainers."}]},
+{cat:"B",title:"Route progress dot",desc:"Dot moves between two points based on a progress slider",code:'start = thisComp.layer("Route Start").transform.position;\nend = thisComp.layer("Route End").transform.position;\npct = effect("Progress")("Slider") / 100;\nlerp(start, end, pct);',notes:[{type:"setup",label:"setup",text:'Create Nulls "Route Start" and "Route End". Add Slider Control named "Progress" (0–100) to the dot layer. Paste on Position.'},{type:"info",text:"Keyframe Progress from 0 to 100 to move the dot along the route. For curved paths, use a motion path instead and time-remap."}]},
+{cat:"B",title:"ETA countdown (MM:SS)",desc:"Live MM:SS countdown driven by a slider in seconds",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);',notes:[{type:"setup",label:"setup",text:'Add a Slider Control, set value in seconds. Keyframe it counting down to 0 over the duration of the shot.'},{type:"info",text:"Good for transport ETAs, delivery countdowns, and time-based B2B infographics."}]},
+{cat:"B",title:"Speed readout (pixel velocity)",desc:"Displays a layer's actual movement speed in px/s",code:'v = length(velocity);\nMath.round(v) + " px/s";',notes:[{type:"info",text:"Calculates the actual movement speed of a layer and displays it as pixels per second. Paste on Source Text."},{type:"setup",label:"how to use",text:"To display another layer's speed instead: v = length(thisComp.layer('Target').velocity); then the rest of the expression."}]},
+{cat:"B",title:"Network node connection line",desc:"Line that dynamically stretches and rotates between two nodes",code:'a = thisComp.layer("Node A").transform.position;\nb = thisComp.layer("Node B").transform.position;\nmid = [(a[0]+b[0])/2, (a[1]+b[1])/2];\ndist = length(a, b);\nangle = radiansToDegrees(Math.atan2(b[1]-a[1], b[0]-a[0]));\n// Apply mid to Position, dist to Scale X, angle to Rotation',notes:[{type:"setup",label:"how to use",text:'Create Nulls "Node A" and "Node B". Create a thin rectangle shape layer. Apply mid to Position, dist to Scale X (as % of base width), angle to Rotation.'},{type:"info",text:"The line dynamically connects two nodes as you move the nulls. Perfect for network diagrams, org charts, and tech explainer connection maps."}]},
 ];
 
 document.getElementById("ftotal").textContent=DATA.length+" expressions";
@@ -390,7 +328,7 @@ function render(){
   const q=query.toLowerCase();
   const filtered=DATA.filter(d=>{
     const matchCat=activeTab==="All"||d.cat===activeTab;
-    const matchQ=!q||d.title.toLowerCase().includes(q)||d.code.toLowerCase().includes(q)||(d.notes||[]).some(n=>n.text.toLowerCase().includes(q));
+    const matchQ=!q||d.title.toLowerCase().includes(q)||d.code.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)||(d.notes||[]).some(n=>n.text.toLowerCase().includes(q));
     return matchCat&&matchQ;
   });
   countEl.textContent=filtered.length+" expression"+(filtered.length!==1?"s":"");
@@ -402,7 +340,10 @@ function render(){
     const notesHtml=makeNotes(d.notes);
     card.innerHTML=`
       <div class="card-header">
-        <span class="card-title">${esc(d.title)}</span>
+        <div class="card-left">
+          <span class="card-title">${esc(d.title)}</span>
+          <span class="card-desc">${esc(d.desc)}</span>
+        </div>
         <span class="badge b-${d.cat}">${tabLabels[d.cat]}</span>
         <span class="chevron">▶</span>
       </div>
