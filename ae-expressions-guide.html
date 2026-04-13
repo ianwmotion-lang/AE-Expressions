@@ -1,14 +1,31 @@
 <!--
-  Copyright (c) 2026 Ian Whitehead.
-  All rights reserved.
+  Copyright (c) 2026 Ian Whitehead. All rights reserved.
   Unauthorized copying, modification, or distribution is strictly prohibited.
+
+  ═══════════════════════════════════════════════════
+  MOTIONMATHS — BRAND COLOUR CONFIGURATION
+  Paste your hex codes here to update the whole site.
+  ═══════════════════════════════════════════════════
+
+  Page background (darkest):       #0e0e0f
+  Card / panel background:         #161618
+  Input / hover background:        #1c1c1f
+  Body text (primary):             #f0efe8
+  Body text (muted):               #888780
+  Body text (dim / disabled):      #4a4947
+  Accent colour (buttons, links):  #c8ff5f
+  Accent text (text on accent bg): #0e0e0f
+  Card corner radius:              12px
+
+  To update: find the matching value in :root {} below and replace it.
+  ═══════════════════════════════════════════════════
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AE Expressions — Guide &amp; Quiz · Ian Whitehead</title>
+<title>MotionMaths — AE Expressions Guide, Quiz &amp; Plugins</title>
 <link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -41,41 +58,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-heigh
 .mode-tab.active{background:var(--bg2);color:var(--accent);border-color:var(--border);border-bottom-color:var(--bg2)}
 
 /* ── HEADER ── */
-header{margin-bottom:3rem}
-.header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+header{margin-bottom:2rem}
+.brand-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:1.5rem}
+.brand-name{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:-0.03em;font-family:var(--font-ui);line-height:1}
+.brand-name em{color:var(--accent);font-style:normal}
+.brand-tagline{font-family:var(--font-code);font-size:10px;color:var(--text-dim);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px}
 .eyebrow{font-family:var(--font-code);font-size:11px;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.8rem}
 h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-0.025em;font-family:var(--font-ui)}
 h1 em{color:var(--text-muted);font-style:normal}
 .subtitle{margin-top:0.85rem;font-size:14.5px;color:var(--text-muted);max-width:540px;line-height:1.65}
-.settings-btn{display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:4px;padding:7px 13px;font-size:12px;font-family:var(--font-ui);font-weight:500;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.15s;white-space:nowrap}
-.settings-btn:hover{border-color:var(--border-hover);color:var(--text)}
-.settings-btn.active{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
-.settings-btn svg{width:13px;height:13px;flex-shrink:0}
-.settings-panel{background:var(--bg2);border:1px solid var(--border-hover);border-radius:var(--radius);padding:20px;margin-bottom:1.75rem;display:none}
-.settings-panel.open{display:block}
-.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-.setting-group{display:flex;flex-direction:column;gap:10px}
-.setting-label{font-family:var(--font-code);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px}
-.color-swatches,.bg-swatches{display:flex;flex-wrap:wrap;gap:7px}
-.swatch{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform 0.12s,border-color 0.12s;flex-shrink:0}
-.swatch:hover{transform:scale(1.15)}
-.swatch.active{border-color:var(--text)}
-.bg-swatch{width:26px;height:26px;border-radius:6px;cursor:pointer;border:2px solid rgba(255,255,255,0.15);transition:transform 0.12s,border-color 0.12s}
-.bg-swatch:hover{transform:scale(1.1)}
-.bg-swatch.active{border-color:var(--text)}
-.font-options{display:flex;flex-direction:column;gap:6px}
-.font-option{padding:8px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all 0.15s;background:transparent;text-align:left;color:var(--text-muted);font-size:13px}
-.font-option:hover{border-color:var(--border-hover);color:var(--text);background:var(--bg3)}
-.font-option.active{border-color:var(--accent);color:var(--accent);background:rgba(200,255,95,0.06)}
-.font-option span{display:block;font-size:10px;color:var(--text-dim);margin-top:1px;font-family:var(--font-code)}
-.radius-options{display:flex;gap:7px}
-.radius-option{flex:1;padding:8px;border:1px solid var(--border);cursor:pointer;background:transparent;color:var(--text-muted);font-size:11px;font-family:var(--font-code);transition:all 0.15s;text-align:center}
-.radius-option:hover{border-color:var(--border-hover);color:var(--text)}
-.radius-option.active{border-color:var(--accent);color:var(--accent);background:rgba(200,255,95,0.06)}
-.radius-option.r-sm{border-radius:4px}.radius-option.r-md{border-radius:10px}.radius-option.r-lg{border-radius:18px}
-.settings-reset{margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
-.reset-btn{font-size:11px;font-family:var(--font-code);padding:5px 12px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-dim);cursor:pointer;transition:all 0.15s}
-.reset-btn:hover{color:var(--text);border-color:var(--border-hover)}
+.intro-block{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:2rem}
+.intro-block p{font-size:13.5px;color:var(--text-muted);line-height:1.75;margin-bottom:10px}
+.intro-block p:last-child{margin-bottom:0}
+.intro-block strong{color:var(--text);font-weight:600}
+.intro-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.intro-pill{font-family:var(--font-code);font-size:10px;padding:3px 10px;border-radius:999px;border:1px solid var(--border);color:var(--text-muted);letter-spacing:0.04em}
 
 /* ── GUIDE: TOOLBAR ── */
 .toolbar{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
@@ -278,10 +275,26 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
 <div class="noise"></div>
 <div class="container">
 
-<div class="safari-tip" id="safariTip">
-    <span class="safari-tip-icon">⌘</span>
-    <span class="safari-tip-text">On a Mac? Open this in Safari, go to <strong>File → Add to Dock</strong> — it'll sit in your dock like a native app, one click away whenever you're working in After Effects.</span>
-    <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">✕</button>
+  <!-- BRAND BAR -->
+  <div class="brand-bar">
+    <div>
+      <div class="brand-name">Motion<em>Maths</em></div>
+      <div class="brand-tagline">// after effects expressions · by Ian Whitehead</div>
+    </div>
+  </div>
+
+  <!-- WELCOME INTRO -->
+  <div class="intro-block">
+    <p><strong>Welcome to MotionMaths</strong> — the go-to reference for After Effects expressions, built by a motion designer for motion designers.</p>
+    <p>Whether you're just starting out or building complex production rigs, everything here is practical, production-tested, and ready to drop straight into your comp. Browse the <strong>Reference Guide</strong> to find and copy any expression instantly — from a simple wiggle to a full physics-based spring follow. When you're ready to level up, head to the <strong>Expression Quiz</strong> and work through five stages from beginner to pro, writing real expressions, spotting bugs, and predicting outputs as you go.</p>
+    <p>Need it even faster? The <strong>Shop</strong> has one-click plugins that wire expressions directly into After Effects — no copy-pasting, no setup, just animate.</p>
+    <div class="intro-pills">
+      <span class="intro-pill">94 expressions</span>
+      <span class="intro-pill">5 quiz stages</span>
+      <span class="intro-pill">5 plugins available</span>
+      <span class="intro-pill">AE 2022+</span>
+      <span class="intro-pill">by Ian Whitehead</span>
+    </div>
   </div>
 
   <!-- MODE TABS -->
@@ -291,37 +304,13 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
     <button class="mode-tab" id="modeShop" onclick="setMode('shop')">// Shop</button>
   </div>
 
-  <!-- SHARED HEADER -->
-  <header>
-    <div class="header-top">
-      <div>
-        <p class="eyebrow" id="headerEyebrow">// motion design reference</p>
-        <h1 id="headerTitle">After Effects<br><em>Expressions Guide</em></h1>
-      </div>
-      <button class="settings-btn" id="settingsBtn" onclick="toggleSettings()">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg>
-        Customise
-      </button>
-    </div>
-    <p class="subtitle" id="headerSub">Automate workflows, link compositions, and build dynamic rigs. Advanced expressions include full setup notes.</p>
-  </header>
-
-  <div class="settings-panel" id="settingsPanel">
-    <div class="settings-grid">
-      <div class="setting-group"><p class="setting-label">Accent colour</p><div class="color-swatches" id="accentSwatches"></div></div>
-      <div class="setting-group"><p class="setting-label">Background</p><div class="bg-swatches" id="bgSwatches"></div></div>
-      <div class="setting-group"><p class="setting-label">Font pairing</p><div class="font-options" id="fontOptions"></div></div>
-      <div class="setting-group"><p class="setting-label">Card corners</p><div class="radius-options">
-        <button class="radius-option r-sm" data-r="4px" onclick="setRadius('4px')">Sharp</button>
-        <button class="radius-option r-md" data-r="12px" onclick="setRadius('12px')">Rounded</button>
-        <button class="radius-option r-lg" data-r="20px" onclick="setRadius('20px')">Pill</button>
-      </div></div>
-    </div>
-    <div class="settings-reset"><button class="reset-btn" onclick="resetSettings()">↺ reset to defaults</button></div>
-  </div>
-
   <!-- ═══════════════════════════════════════════════════════ GUIDE SCREEN -->
   <div class="screen active" id="screenGuide">
+    <div class="safari-tip" id="safariTip">
+      <span class="safari-tip-icon">⌘</span>
+      <span class="safari-tip-text">On a Mac? Open this in Safari and go to <strong>File → Add to Dock</strong> — MotionMaths will sit in your dock like a native app, one click away whenever you need it.</span>
+      <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">✕</button>
+    </div>
     <div class="toolbar">
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -395,48 +384,6 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
 </div><!-- /container -->
 <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   SETTINGS
-═══════════════════════════════════════════════════════════════════════════ */
-const ACCENTS=[{label:"Lime",val:"#c8ff5f",text:"#0e0e0f"},{label:"Cyan",val:"#5fe8ff",text:"#0e0e0f"},{label:"Coral",val:"#ff7f5f",text:"#0e0e0f"},{label:"Violet",val:"#b88cff",text:"#0e0e0f"},{label:"Rose",val:"#ff6eb4",text:"#0e0e0f"},{label:"Amber",val:"#ffcc44",text:"#0e0e0f"},{label:"White",val:"#f0efe8",text:"#0e0e0f"},{label:"Teal",val:"#3fffc8",text:"#0e0e0f"}];
-const BGS=[{label:"Void",bg:"#0e0e0f",bg2:"#161618"},{label:"Slate",bg:"#0d1117",bg2:"#161b22"},{label:"Navy",bg:"#080c14",bg2:"#101828"},{label:"Forest",bg:"#080f0c",bg2:"#0f1a14"},{label:"Plum",bg:"#100b14",bg2:"#1a1020"},{label:"Warm",bg:"#120f0a",bg2:"#1c1710"},{label:"Ash",bg:"#111111",bg2:"#1a1a1a"},{label:"Ink",bg:"#050508",bg2:"#0e0e12"}];
-const FONTS=[
-  {label:"Plus Jakarta Sans + Fira Code",sub:"default — closest to Gilroy",ui:"Plus Jakarta Sans",code:"Fira Code",gurl:"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"},
-  {label:"Nunito + JetBrains Mono",sub:"rounded & friendly",ui:"Nunito",code:"JetBrains Mono",gurl:"https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;500;700&display=swap"},
-  {label:"Poppins + Fira Code",sub:"geometric & clean",ui:"Poppins",code:"Fira Code",gurl:"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@400;500;700&display=swap"},
-  {label:"Raleway + IBM Plex Mono",sub:"elegant & editorial",ui:"Raleway",code:"IBM Plex Mono",gurl:"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Raleway:wght@400;500;700&display=swap"},
-  {label:"DM Sans + Source Code Pro",sub:"minimal & sharp",ui:"DM Sans",code:"Source Code Pro",gurl:"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap"},
-];
-const DEFAULTS={accent:0,bg:0,font:0,radius:"12px"};
-function loadS(){try{return JSON.parse(localStorage.getItem("ae-guide-s")||"{}");}catch{return{};}}
-function saveS(s){try{localStorage.setItem("ae-guide-s",JSON.stringify(s));}catch{}}
-function getS(){const s=loadS();return{accent:s.accent??0,bg:s.bg??0,font:s.font??0,radius:s.radius??"12px"};}
-function applyS(s){
-  const ac=ACCENTS[s.accent],bg=BGS[s.bg],ft=FONTS[s.font],r=document.documentElement;
-  r.style.setProperty("--accent",ac.val);r.style.setProperty("--accent-text",ac.text);
-  r.style.setProperty("--bg",bg.bg);r.style.setProperty("--bg2",bg.bg2);r.style.setProperty("--bg3",bg.bg2);
-  r.style.setProperty("--radius",s.radius);
-  r.style.setProperty("--font-ui",`'${ft.ui}', sans-serif`);r.style.setProperty("--font-code",`'${ft.code}', monospace`);
-  document.getElementById("font-link").href=ft.gurl;updateActive(s);
-}
-function updateActive(s){
-  document.querySelectorAll(".swatch").forEach((el,i)=>el.classList.toggle("active",i===s.accent));
-  document.querySelectorAll(".bg-swatch").forEach((el,i)=>el.classList.toggle("active",i===s.bg));
-  document.querySelectorAll(".font-option").forEach((el,i)=>el.classList.toggle("active",i===s.font));
-  document.querySelectorAll(".radius-option").forEach(el=>el.classList.toggle("active",el.dataset.r===s.radius));
-}
-function buildSettings(){
-  const as=document.getElementById("accentSwatches");
-  ACCENTS.forEach((a,i)=>{const d=document.createElement("div");d.className="swatch";d.title=a.label;d.style.background=a.val;d.onclick=()=>{const s=getS();s.accent=i;saveS(s);applyS(s);};as.appendChild(d);});
-  const bs=document.getElementById("bgSwatches");
-  BGS.forEach((b,i)=>{const d=document.createElement("div");d.className="bg-swatch";d.title=b.label;d.style.background=b.bg;d.style.border=`2px solid ${b.bg2}`;d.onclick=()=>{const s=getS();s.bg=i;saveS(s);applyS(s);};bs.appendChild(d);});
-  const fo=document.getElementById("fontOptions");
-  FONTS.forEach((f,i)=>{const btn=document.createElement("button");btn.className="font-option";btn.innerHTML=`<span style="font-family:'${f.ui}',sans-serif;font-weight:500">${f.label}</span><span>${f.sub}</span>`;btn.onclick=()=>{const s=getS();s.font=i;saveS(s);applyS(s);};fo.appendChild(btn);});
-}
-function setRadius(val){const s=getS();s.radius=val;saveS(s);applyS(s);}
-function toggleSettings(){const p=document.getElementById("settingsPanel"),b=document.getElementById("settingsBtn");const o=p.classList.toggle("open");b.classList.toggle("active",o);}
-function resetSettings(){saveS(DEFAULTS);applyS(DEFAULTS);}
-
-/* ═══════════════════════════════════════════════════════════════════════════
    MODE SWITCHING
 ═══════════════════════════════════════════════════════════════════════════ */
 let currentMode="guide";
@@ -448,23 +395,8 @@ function setMode(mode){
   document.getElementById("screenGuide").classList.toggle("active",mode==="guide");
   document.getElementById("screenQuiz").classList.toggle("active",mode==="quiz");
   document.getElementById("screenShop").classList.toggle("active",mode==="shop");
-  // hide settings btn on shop (not needed there)
-  document.getElementById("settingsBtn").style.display=mode==="shop"?"none":"flex";
-  if(mode==="guide"){
-    document.getElementById("headerEyebrow").textContent="// motion design reference";
-    document.getElementById("headerTitle").innerHTML='After Effects<br><em>Expressions Guide</em>';
-    document.getElementById("headerSub").textContent="Automate workflows, link compositions, and build dynamic rigs. Advanced expressions include full setup notes.";
-  } else if(mode==="quiz"){
-    document.getElementById("headerEyebrow").textContent="// interactive training";
-    document.getElementById("headerTitle").innerHTML='After Effects<br><em>Expressions Quiz</em>';
-    document.getElementById("headerSub").textContent="Five stages from beginner to pro. Learn by doing — write real expressions, spot bugs, and predict outputs.";
-    buildStageHome();
-  } else {
-    document.getElementById("headerEyebrow").textContent="// after effects plugins";
-    document.getElementById("headerTitle").innerHTML='Expression<br><em>Plugins</em>';
-    document.getElementById("headerSub").textContent="One-click scripts that install directly into After Effects. No copy-pasting, no setup — just animate.";
-    renderShop();
-  }
+  if(mode==="quiz") buildStageHome();
+  if(mode==="shop") renderShop();
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1002,8 +934,6 @@ function renderShop(){
 /* ═══════════════════════════════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════════════════════════════ */
-buildSettings();
-applyS(getS());
 renderGuide();
 buildStageHome();
 </script>
