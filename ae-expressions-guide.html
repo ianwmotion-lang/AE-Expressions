@@ -1,9 +1,14 @@
+<!--
+  Copyright (c) 2026 Ian Whitehead.
+  All rights reserved.
+  Unauthorized copying, modification, or distribution is strictly prohibited.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AE Expressions — Guide &amp; Quiz</title>
+<title>AE Expressions — Guide &amp; Quiz · Ian Whitehead</title>
 <link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -212,6 +217,58 @@ h1 em{color:var(--text-muted);font-style:normal}
 footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--font-code);font-size:10.5px;color:var(--text-dim);letter-spacing:0.05em}
 
 /* ── SCREENS ── */
+/* ── SAFARI TIP BANNER ── */
+.safari-tip{display:flex;align-items:center;gap:11px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:11px 14px;margin-bottom:1.5rem}
+.safari-tip-icon{font-size:15px;flex-shrink:0;color:var(--accent);font-family:var(--font-code)}
+.safari-tip-text{font-size:12.5px;color:var(--text-muted);line-height:1.55;flex:1}
+.safari-tip-text strong{color:var(--text);font-weight:600}
+.safari-tip-close{flex-shrink:0;background:transparent;border:none;color:var(--text-dim);font-size:11px;cursor:pointer;padding:2px 4px;transition:color 0.15s;font-family:var(--font-code)}
+.safari-tip-close:hover{color:var(--text-muted)}
+
+/* ── SHOP ── */
+.shop-banner{margin-bottom:2.5rem}
+.shop-banner-label{font-family:var(--font-code);font-size:11px;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.7rem}
+.shop-banner-title{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.7rem}
+.shop-banner-title em{color:var(--text-muted);font-style:normal}
+.shop-banner-sub{font-size:14px;color:var(--text-muted);max-width:480px;line-height:1.65}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-bottom:8px}
+.shop-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px 20px;display:flex;flex-direction:column;gap:0;transition:border-color 0.15s}
+.shop-card:hover{border-color:var(--border-hover)}
+.shop-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:14px;flex-shrink:0}
+.shop-card-tag{font-family:var(--font-code);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:2px 8px;border-radius:999px}
+.shop-card-name{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.shop-card-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:16px;flex:1}
+.shop-features{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:5px}
+.shop-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);display:flex;align-items:baseline;gap:7px}
+.shop-features li::before{content:"→";color:var(--accent);flex-shrink:0;font-size:10px}
+.shop-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border)}
+.shop-price{font-family:var(--font-code);font-size:18px;font-weight:500;color:var(--text)}
+.shop-price span{font-size:11px;color:var(--text-dim);margin-left:3px}
+.shop-buy-btn{padding:8px 18px;font-size:12px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:7px;cursor:pointer;transition:opacity 0.15s;white-space:nowrap;text-decoration:none;display:inline-block}
+.shop-buy-btn:hover{opacity:0.85}
+.shop-buy-btn.coming{background:transparent;color:var(--text-dim);border:1px solid var(--border);cursor:default}
+.shop-buy-btn.coming:hover{opacity:1}
+/* bundle card */
+.shop-bundle-card{background:var(--bg2);border:1px solid rgba(200,255,95,0.18);border-radius:var(--radius);padding:26px 24px;position:relative;overflow:hidden}
+.shop-bundle-card::before{content:'';position:absolute;inset:0;background:rgba(200,255,95,0.025);pointer-events:none}
+.bundle-tag{font-family:var(--font-code);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(200,255,95,0.1);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:14px}
+.bundle-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.bundle-name{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px}
+.bundle-desc{font-size:13px;color:var(--text-muted);line-height:1.6;max-width:500px}
+.bundle-pricing{text-align:right;flex-shrink:0}
+.bundle-price{font-family:var(--font-code);font-size:26px;font-weight:500;color:var(--accent);line-height:1}
+.bundle-was{font-family:var(--font-code);font-size:12px;color:var(--text-dim);text-decoration:line-through;margin-top:3px}
+.bundle-save{font-family:var(--font-code);font-size:10px;color:#5DCAA5;margin-top:2px;letter-spacing:0.05em}
+.bundle-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:5px;margin-bottom:20px}
+.bundle-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);list-style:none;display:flex;align-items:baseline;gap:7px}
+.bundle-features li::before{content:"✓";color:var(--accent);flex-shrink:0;font-size:10px}
+.bundle-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bundle-buy-btn{padding:11px 28px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s;text-decoration:none;display:inline-block}
+.bundle-buy-btn:hover{opacity:0.85}
+.bundle-note{font-family:var(--font-code);font-size:11px;color:var(--text-dim)}
+
+@media(max-width:580px){.bundle-pricing{text-align:left}.bundle-top{flex-direction:column}}
+
 .screen{display:none}.screen.active{display:block}
 
 @media(max-width:580px){.container{padding:2rem 1rem 4rem}h1{font-size:1.8rem}.card-desc{display:none}}
@@ -221,10 +278,17 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
 <div class="noise"></div>
 <div class="container">
 
+<div class="safari-tip" id="safariTip">
+    <span class="safari-tip-icon">⌘</span>
+    <span class="safari-tip-text">On a Mac? Open this in Safari, go to <strong>File → Add to Dock</strong> — it'll sit in your dock like a native app, one click away whenever you're working in After Effects.</span>
+    <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">✕</button>
+  </div>
+
   <!-- MODE TABS -->
   <div class="mode-bar">
     <button class="mode-tab active" id="modeGuide" onclick="setMode('guide')">// Reference Guide</button>
     <button class="mode-tab" id="modeQuiz" onclick="setMode('quiz')">// Expression Quiz</button>
+    <button class="mode-tab" id="modeShop" onclick="setMode('shop')">// Shop</button>
   </div>
 
   <!-- SHARED HEADER -->
@@ -267,7 +331,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
     </div>
     <p class="count" id="count"></p>
     <div class="cards" id="cards"></div>
-    <footer><span>ae-expressions-guide</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span></footer>
+    <footer><span>ae-expressions-guide</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════ QUIZ SCREENS -->
@@ -311,6 +375,22 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border);di
     </div>
 
   </div><!-- /screenQuiz -->
+
+  <!-- ═══════════════════════════════════════════════════════ SHOP SCREEN -->
+  <div class="screen" id="screenShop">
+
+    <div class="shop-banner">
+      <p class="shop-banner-label">// expression controls · after effects plugins</p>
+      <h2 class="shop-banner-title">Save hours.<br><em>Write it once.</em></h2>
+      <p class="shop-banner-sub">Production-ready After Effects scripts. Drop them in, connect a slider, and get straight to animating.</p>
+    </div>
+
+    <div class="shop-grid" id="shopGrid"></div>
+
+    <div class="shop-bundle" id="shopBundle"></div>
+
+    <footer><span>ae-expressions-guide</span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
+  </div><!-- /screenShop -->
 
 </div><!-- /container -->
 <script>
@@ -364,17 +444,26 @@ function setMode(mode){
   currentMode=mode;
   document.getElementById("modeGuide").classList.toggle("active",mode==="guide");
   document.getElementById("modeQuiz").classList.toggle("active",mode==="quiz");
+  document.getElementById("modeShop").classList.toggle("active",mode==="shop");
   document.getElementById("screenGuide").classList.toggle("active",mode==="guide");
   document.getElementById("screenQuiz").classList.toggle("active",mode==="quiz");
+  document.getElementById("screenShop").classList.toggle("active",mode==="shop");
+  // hide settings btn on shop (not needed there)
+  document.getElementById("settingsBtn").style.display=mode==="shop"?"none":"flex";
   if(mode==="guide"){
     document.getElementById("headerEyebrow").textContent="// motion design reference";
     document.getElementById("headerTitle").innerHTML='After Effects<br><em>Expressions Guide</em>';
     document.getElementById("headerSub").textContent="Automate workflows, link compositions, and build dynamic rigs. Advanced expressions include full setup notes.";
-  }else{
+  } else if(mode==="quiz"){
     document.getElementById("headerEyebrow").textContent="// interactive training";
     document.getElementById("headerTitle").innerHTML='After Effects<br><em>Expressions Quiz</em>';
     document.getElementById("headerSub").textContent="Five stages from beginner to pro. Learn by doing — write real expressions, spot bugs, and predict outputs.";
     buildStageHome();
+  } else {
+    document.getElementById("headerEyebrow").textContent="// after effects plugins";
+    document.getElementById("headerTitle").innerHTML='Expression<br><em>Plugins</em>';
+    document.getElementById("headerSub").textContent="One-click scripts that install directly into After Effects. No copy-pasting, no setup — just animate.";
+    renderShop();
   }
 }
 
@@ -388,6 +477,7 @@ const DATA=[
 {cat:"E",title:"Loop out",desc:"Loop keyframes from the out-point",code:'loopOut("cycle");',notes:[{type:"info",text:'Also try "pingpong" to reverse each cycle, or "continue" to extrapolate beyond the last keyframe.'}]},
 {cat:"E",title:"Loop in",desc:"Loop keyframes from the in-point",code:'loopIn("cycle");',notes:[{type:"info",text:"Loops the in-point instead of the out-point. Combine with loopOut for a fully seamless infinite loop."}]},
 {cat:"E",title:"Loop in + out combined",desc:"Seamless infinite loop in both directions",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[{type:"info",text:'Second argument = keyframes to include. 0 = use all. Both lines go in the same expression field.'}]},
+{cat:"E",title:"Loop out (continue)",desc:"Extrapolate velocity beyond the last keyframe",code:'loopOut("continue");',notes:[{type:"info",text:'Unlike "cycle", continue doesn\'t repeat — it extrapolates the velocity from the last keyframe indefinitely. Great for spinning, sliding, or any motion that should carry on at the same rate after the last key.'}]},
 {cat:"E",title:"Constant motion",desc:"Continuous movement without keyframes",code:"time * 100;",notes:[{type:"info",text:"Multiplier controls speed. Negative values reverse direction. Works on position, rotation, or any numeric property."}]},
 {cat:"E",title:"Posterize time",desc:"Force a lower frame rate on any property",code:"posterizeTime(12); value;",notes:[{type:"info",text:"12fps gives a stop-motion feel. Pair with wiggle for choppy animated noise."}]},
 {cat:"E",title:"Clamp",desc:"Prevent a value going out of bounds",code:"clamp(value, 0, 100);",notes:[{type:"info",text:"Essential for opacity, scale, or any slider-driven property that shouldn't exceed its bounds."}]},
@@ -479,7 +569,7 @@ const DATA=[
 ];
 
 /* ── GUIDE RENDER ── */
-document.getElementById("ftotal").textContent=DATA.length+" expressions";
+document.getElementById("ftotal").textContent="94 expressions";
 const tabLabels={All:"All",E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
 const tabsEl=document.getElementById("tabs"),cardsEl=document.getElementById("cards"),countEl=document.getElementById("count");
 let activeTab="All",query="";
@@ -776,6 +866,137 @@ function finishStage(){
   const nb=document.getElementById("resNext");
   if(nextS){nb.textContent=`Next: ${nextS.name} →`;nb.onclick=()=>startStage(nextS.id);nb.style.display="inline-block";}
   else{nb.textContent="🎉 All stages done!";nb.onclick=showStageHome;nb.style.display="inline-block";}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHOP
+═══════════════════════════════════════════════════════════════════════════ */
+const PLUGINS=[
+  {
+    id:"stroke",
+    icon:"✦",
+    iconBg:"rgba(93,202,165,0.12)",iconColor:"#5DCAA5",
+    tag:"Shape & Layout",tagBg:"rgba(93,202,165,0.1)",tagColor:"#5DCAA5",
+    name:"Maintain Stroke Width",
+    desc:"Keeps your stroke pixel-perfect at any scale. Works with uniform and non-uniform scaling — no more manually correcting stroke weight.",
+    features:["Uniform & non-uniform scale modes","Works with parented layers","Zero-setup — drop in and go","Supports 3D layers"],
+    price:"£5",
+    gumroad:"#",
+    available:true
+  },
+  {
+    id:"counter",
+    icon:"01",
+    iconBg:"rgba(133,183,235,0.12)",iconColor:"#85B7EB",
+    tag:"Text & Counters",tagBg:"rgba(133,183,235,0.1)",tagColor:"#85B7EB",
+    name:"Smart Counter",
+    desc:"Animated number counter with currency, percentage, leading zeros, comma formatting and decimal precision — all from a single slider.",
+    features:["Currency, %, K/M/B shorthand","Leading zeros & decimal modes","Comma-separated thousands","Typewriter & scramble modes"],
+    price:"£5",
+    gumroad:"#",
+    available:true
+  },
+  {
+    id:"text",
+    icon:"Tt",
+    iconBg:"rgba(239,159,39,0.12)",iconColor:"#EF9F27",
+    tag:"Text Tools",tagBg:"rgba(239,159,39,0.1)",tagColor:"#EF9F27",
+    name:"Text Expression Pack",
+    desc:"Every text expression you'll ever need in one script — SMPTE timecode, auto-fit scale, smart backgrounds, typewriter cursor, scramble, and more.",
+    features:["SMPTE timecode display","Auto-fit scale for translations","Smart background with padding","Typing cursor & scramble effect"],
+    price:"£9",
+    gumroad:"#",
+    available:true
+  },
+  {
+    id:"essentials",
+    icon:"⚡",
+    iconBg:"rgba(175,169,236,0.12)",iconColor:"#AFA9EC",
+    tag:"Essentials",tagBg:"rgba(175,169,236,0.1)",tagColor:"#AFA9EC",
+    name:"Essentials Pack",
+    desc:"The must-have expressions every motion designer reaches for daily — wiggle, loops, inertia bounce, easing, clamp and more, all wired up and ready to go.",
+    features:["Wiggle & safe opacity wiggle","Loop in, out & continue","Inertia bounce with controls","Linear, ease & clamp remaps"],
+    price:"£9",
+    gumroad:"#",
+    available:true
+  },
+  {
+    id:"datafinance",
+    icon:"$K",
+    iconBg:"rgba(240,98,146,0.12)",iconColor:"#F06292",
+    tag:"Data & Finance",tagBg:"rgba(240,98,146,0.1)",tagColor:"#F06292",
+    name:"Data & Finance Pack",
+    desc:"Built for B2B and financial motion work — currency formatting, shorthand numbers, animated deltas, heatmap bars, sparklines and rolling averages.",
+    features:["Currency & shorthand (K/M/B)","Animated +/- delta display","Colour heatmap bar charts","Sparkline dot & rolling average"],
+    price:"£9",
+    gumroad:"#",
+    available:true
+  },
+];
+
+const BUNDLE={
+  name:"Master Expression Bundle",
+  desc:"Every plugin in one package — plus 94 ready-to-use expressions wired up with one-click install. Everything in the Reference Guide, but you never have to type a line.",
+  features:[
+    "Maintain Stroke Width plugin","Smart Counter plugin","Text Expression Pack",
+    "Essentials Pack","Data & Finance Pack","94 expressions, one-click install",
+    "Master controller null setup","Lifetime updates included",
+    "Priority support","Compatible with AE 2022+"
+  ],
+  individualTotal:"£37",
+  bundlePrice:"£27",
+  saving:"Save £10 — 27% off",
+  gumroad:"#",
+  available:false
+};
+
+function renderShop(){
+  const grid=document.getElementById("shopGrid");
+  grid.innerHTML="";
+  PLUGINS.forEach(p=>{
+    const featuresHtml=p.features.map(f=>`<li>${f}</li>`).join("");
+    const buyBtn=p.available
+      ?`<a class="shop-buy-btn" href="${p.gumroad}" target="_blank">Buy on Gumroad</a>`
+      :`<span class="shop-buy-btn coming">Coming soon</span>`;
+    grid.innerHTML+=`
+      <div class="shop-card">
+        <div class="shop-card-icon" style="background:${p.iconBg};color:${p.iconColor};font-family:var(--font-code);font-weight:500">${p.icon}</div>
+        <span class="shop-card-tag" style="background:${p.tagBg};color:${p.tagColor}">${p.tag}</span>
+        <div class="shop-card-name">${p.name}</div>
+        <div class="shop-card-desc">${p.desc}</div>
+        <ul class="shop-features">${featuresHtml}</ul>
+        <div class="shop-card-footer">
+          <div class="shop-price">${p.price} <span>GBP</span></div>
+          ${buyBtn}
+        </div>
+      </div>`;
+  });
+
+  const bundle=document.getElementById("shopBundle");
+  const bFeaturesHtml=BUNDLE.features.map(f=>`<li>${f}</li>`).join("");
+  const bBtn=BUNDLE.available
+    ?`<a class="bundle-buy-btn" href="${BUNDLE.gumroad}" target="_blank">Buy Bundle on Gumroad</a>`
+    :`<button class="bundle-buy-btn" style="opacity:0.45;cursor:default">Coming Soon</button>`;
+  bundle.innerHTML=`
+    <div class="shop-bundle-card">
+      <span class="bundle-tag">// best value · complete bundle</span>
+      <div class="bundle-top">
+        <div>
+          <div class="bundle-name">${BUNDLE.name}</div>
+          <div class="bundle-desc">${BUNDLE.desc}</div>
+        </div>
+        <div class="bundle-pricing">
+          <div class="bundle-price">${BUNDLE.bundlePrice}</div>
+          <div class="bundle-was">${BUNDLE.individualTotal} individually</div>
+          <div class="bundle-save">${BUNDLE.saving}</div>
+        </div>
+      </div>
+      <ul class="bundle-features">${bFeaturesHtml}</ul>
+      <div class="bundle-actions">
+        ${bBtn}
+        <span class="bundle-note">// one purchase · all future updates included</span>
+      </div>
+    </div>`;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
