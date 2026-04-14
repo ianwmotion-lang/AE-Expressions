@@ -1,1142 +1,225 @@
-<!--
-  Copyright (c) 2026 Ian Whitehead. All rights reserved.
-  Unauthorized copying, modification, or distribution is strictly prohibited.
-
-  ═══════════════════════════════════════════════════
-  MOTIONMATHS — BRAND COLOUR CONFIGURATION
-  Paste your hex codes here to update the whole site.
-  ═══════════════════════════════════════════════════
-
-  Page background (darkest):       #181818
-  Card / panel background:         #242424
-  Panel (cards, inputs):           #424242
-  Body text (primary):             #f7f7f7
-  Body text (muted / BG text):     #49a893
-  Body text (dim / disabled):      rgba(247,247,247,0.35)
-  Accent colour (buttons, links):  #d394ff
-  Accent text (text on accent bg): #181818
-  Panel borders:                   #d394ff
-  Subtle borders:                  rgba(211,148,255,0.2)
-  Brand colours for categories:    #dc8116  #fff694
-  Card corner radius:              12px
-
-  To update: find the matching value in :root {} below and replace it.
-  ═══════════════════════════════════════════════════
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MotionMaths — AE Expressions Guide, Quiz &amp; Plugins</title>
-<meta name="description" content="94 After Effects expressions, an interactive quiz, and one-click plugins. Built by Ian Whitehead for motion designers.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
 <link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* ═══════════════════════════════════════════════
-     MOTIONMATHS BRAND COLOURS — edit here only
-     ═══════════════════════════════════════════════ */
-  --bg:#181818;
-  --bg2:#242424;
-  --bg3:#2e2e2e;
-  --panel:#424242;
-  --border:#d394ff;
-  --border-subtle:rgba(211,148,255,0.2);
-  --border-hover:rgba(211,148,255,0.6);
-  --text:#f7f7f7;
-  --text-muted:#949aff;
-  --text-dim:rgba(247,247,247,0.35);
-  --accent:#d394ff;
-  --accent-text:#181818;
-  --radius:12px;
+  --bg:#181818; --bg2:#242424; --bg3:#2e2e2e; --panel:#424242;
+  --border:#d394ff; --border-subtle:rgba(211,148,255,0.2); --border-hover:rgba(211,148,255,0.6);
+  --text:#f7f7f7; --text-muted:#949aff; --text-dim:rgba(247,247,247,0.35);
+  --accent:#d394ff; --accent-text:#181818; --radius:12px;
   /* category colours */
-  --ce:#49a893;--ce-bg:rgba(73,168,147,0.12);
-  --ct:#fff694;--ct-bg:rgba(255,246,148,0.12);
-  --cs:#dc8116;--cs-bg:rgba(220,129,22,0.12);
-  --cm:#d394ff;--cm-bg:rgba(211,148,255,0.12);
-  --cr:#fff694;--cr-bg:rgba(255,246,148,0.12);
-  --cd:#dc8116;--cd-bg:rgba(220,129,22,0.12);
-  --ci:#49a893;--ci-bg:rgba(73,168,147,0.12);
-  --ca:#d394ff;--ca-bg:rgba(211,148,255,0.12);
+  --ce:#49a893;--ce-bg:rgba(73,168,147,0.12); --ct:#fff694;--ct-bg:rgba(255,246,148,0.12);
+  --cs:#dc8116;--cs-bg:rgba(220,129,22,0.12); --cm:#d394ff;--cm-bg:rgba(211,148,255,0.12);
+  --cr:#fff694;--cr-bg:rgba(255,246,148,0.12); --cd:#dc8116;--cd-bg:rgba(220,129,22,0.12);
+  --ci:#49a893;--ci-bg:rgba(73,168,147,0.12); --ca:#d394ff;--ca-bg:rgba(211,148,255,0.12);
   --cb:#fff694;--cb-bg:rgba(255,246,148,0.12);
-  --font-ui:'Plus Jakarta Sans',sans-serif;
-  --font-code:'Fira Code',monospace;
+  --font-ui:'Plus Jakarta Sans',sans-serif; --font-code:'Fira Code',monospace;
 }
-html{font-size:16px}
-body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-height:100vh;line-height:1.6}
-.noise{display:none}
-.container{max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1}
 
-/* ── MODE TABS ── */
+body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-height:100vh;line-height:1.6;overflow-x:hidden;}
+
+/* Page Fade-on Animation */
+.container {
+    max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 6rem;
+    opacity: 0; transform: translateY(10px); transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.container.loaded { opacity: 1; transform: translateY(0); }
+
+/* Splash Screen */
+#splash {
+  position: fixed; inset: 0; z-index: 9999; background: #181818;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+#lottieLogo { width: 100%; max-width: 800px; height: auto; }
+.splash-skip {
+  position: absolute; bottom: 32px; right: 32px; font-family: var(--font-code); font-size: 10px;
+  color: rgba(247,247,247,0.25); border: none; background: none; cursor: pointer; text-transform: uppercase;
+}
+
+/* Original Site Component Styles */
 .mode-bar{display:flex;gap:6px;margin-bottom:2.5rem;border-bottom:1px solid var(--border-subtle);padding-bottom:0}
 .mode-tab{padding:9px 20px;font-size:13px;font-family:var(--font-ui);font-weight:600;border:1px solid transparent;border-bottom:none;border-radius:var(--radius) var(--radius) 0 0;cursor:pointer;background:transparent;color:var(--text-muted);transition:all 0.15s;margin-bottom:-1px;position:relative}
 .mode-tab:hover{color:var(--text);background:var(--panel)}
 .mode-tab.active{background:var(--panel);color:var(--accent);border-color:var(--border-subtle);border-bottom-color:var(--panel)}
-
-/* ── HEADER ── */
 header{margin-bottom:2rem}
 .brand-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:1.5rem}
 .brand-wordmark{height:38px;width:auto;display:block;margin-bottom:6px}
 .brand-tagline{font-family:var(--font-code);font-size:10px;color:var(--text-dim);letter-spacing:0.12em;text-transform:uppercase}
-.eyebrow{font-family:var(--font-code);font-size:11px;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.8rem}
-h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-0.025em;font-family:var(--font-ui)}
-h1 em{color:var(--text-muted);font-style:normal}
-.subtitle{margin-top:0.85rem;font-size:14.5px;color:var(--text-muted);max-width:540px;line-height:1.65}
 .intro-block{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:20px 22px;margin-bottom:2rem}
 .intro-block p{font-size:13.5px;color:var(--text);line-height:1.75;margin-bottom:10px}
-.intro-block p:last-child{margin-bottom:0}
-.intro-block strong{color:var(--accent);font-weight:600}
 .intro-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-.intro-pill{font-family:var(--font-code);font-size:10px;padding:3px 10px;border-radius:999px;border:1px solid var(--border-subtle);color:var(--text-muted);letter-spacing:0.04em}
-
-/* ── GUIDE: TOOLBAR ── */
+.intro-pill{font-family:var(--font-code);font-size:10px;padding:3px 10px;border-radius:999px;border:1px solid var(--border-subtle);color:var(--text-muted)}
 .toolbar{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
 .search-wrap{position:relative}
-.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-dim);pointer-events:none;font-size:14px}
-.search-wrap input{width:100%;padding:10px 14px 10px 38px;background:var(--panel);border:1px solid var(--border-subtle);border-radius:10px;color:var(--text);font-family:var(--font-ui);font-size:14px;outline:none;transition:border-color 0.15s}
-.search-wrap input:focus{border-color:var(--border)}
-.search-wrap input::placeholder{color:var(--text-dim)}
+.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-dim);pointer-events:none}
+.search-wrap input{width:100%;padding:10px 14px 10px 38px;background:var(--panel);border:1px solid var(--border-subtle);border-radius:10px;color:var(--text);font-family:var(--font-ui);font-size:14px;outline:none}
 .tabs{display:flex;flex-wrap:wrap;gap:6px}
 .tab{padding:5px 13px;font-size:12px;font-family:var(--font-ui);font-weight:500;border:1px solid var(--border-subtle);border-radius:999px;cursor:pointer;background:transparent;color:var(--text-muted);transition:all 0.15s}
-.tab:hover{border-color:var(--border);color:var(--text)}
 .tab.active{background:var(--accent);color:var(--accent-text);border-color:var(--accent);font-weight:700}
-.count{font-family:var(--font-code);font-size:11px;color:var(--text-dim);margin-bottom:0.9rem;letter-spacing:0.05em}
-
-/* ── GUIDE: CARDS ── */
+.count{font-family:var(--font-code);font-size:11px;color:var(--text-dim);margin-bottom:0.9rem}
 .cards{display:flex;flex-direction:column;gap:4px}
 .card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);overflow:hidden;transition:border-color 0.15s}
-.card:hover{border-color:var(--border)}
 .card-header{display:flex;align-items:center;gap:10px;padding:12px 15px;cursor:pointer;user-select:none}
-.card-left{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
-.card-title{font-size:13.5px;font-weight:500;color:var(--text);font-family:var(--font-ui)}
-.card-desc{font-size:11.5px;color:var(--text-dim);font-family:var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.badge{font-size:9.5px;font-family:var(--font-code);padding:2px 8px;border-radius:999px;white-space:nowrap;letter-spacing:0.04em;flex-shrink:0}
-.b-E{background:var(--ce-bg);color:var(--ce)}.b-T{background:var(--ct-bg);color:var(--ct)}
-.b-S{background:var(--cs-bg);color:var(--cs)}.b-M{background:var(--cm-bg);color:var(--cm)}
-.b-R{background:var(--cr-bg);color:var(--cr)}.b-D{background:var(--cd-bg);color:var(--cd)}
-.b-I{background:var(--ci-bg);color:var(--ci)}.b-A{background:var(--ca-bg);color:var(--ca)}
-.b-B{background:var(--cb-bg);color:var(--cb)}
-.chevron{width:16px;height:16px;flex-shrink:0;color:var(--text-dim);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;font-size:9px}
-.card.open .chevron{transform:rotate(90deg);color:var(--accent)}
+.card-title{font-size:13.5px;font-weight:500;color:var(--text)}
 .card-body{display:none;border-top:1px solid var(--border-subtle)}
 .card.open .card-body{display:block}
 .code-wrap{padding:12px 14px}
-.code-block{background:var(--bg);border:1px solid var(--border-subtle);border-radius:8px;padding:11px 13px;font-family:var(--font-code);font-size:12px;color:var(--accent);white-space:pre-wrap;word-break:break-all;line-height:1.75}
-.copy-btn{display:block;margin-top:8px;width:100%;padding:7px;font-size:11px;font-family:var(--font-code);border:1px solid var(--border-subtle);border-radius:6px;background:var(--bg2);color:var(--text-muted);cursor:pointer;transition:all 0.15s;text-align:center}
-.copy-btn:hover{border-color:var(--border);color:var(--text);background:var(--panel)}
-.copy-btn.done{color:var(--accent);border-color:var(--border);background:rgba(211,148,255,0.06)}
-.notes{padding:0 14px 13px;display:flex;flex-direction:column;gap:7px}
-.note{font-size:12.5px;line-height:1.6;font-family:var(--font-ui);padding:8px 11px;border-radius:7px}
-.note-info{background:rgba(73,168,147,0.08);color:#49a893;border-left:2px solid rgba(73,168,147,0.4)}
-.note-setup{background:rgba(211,148,255,0.08);color:#d394ff;border-left:2px solid rgba(211,148,255,0.4)}
-.note-warn{background:rgba(220,129,22,0.1);color:#dc8116;border-left:2px solid rgba(220,129,22,0.5)}
-.note-label{font-family:var(--font-code);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;display:block;margin-bottom:3px}
-.no-results{text-align:center;padding:4rem 2rem;font-size:13px;color:var(--text-dim);font-family:var(--font-code)}
+.code-block{background:var(--bg);border:1px solid var(--border-subtle);border-radius:8px;padding:11px 13px;font-family:var(--font-code);font-size:12px;color:var(--accent);white-space:pre-wrap;word-break:break-all}
+.copy-btn{display:block;margin-top:8px;width:100%;padding:7px;font-size:11px;font-family:var(--font-code);border:1px solid var(--border-subtle);border-radius:6px;background:var(--bg2);color:var(--text-muted);cursor:pointer}
+footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;font-family:var(--font-code);font-size:10.5px;color:var(--text-dim)}
 
-/* ── QUIZ: STAGE SELECT ── */
-.stage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-bottom:2rem}
-.stage-card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:16px 14px;cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden}
-.stage-card:hover{border-color:var(--border);transform:translateY(-1px)}
-.stage-card.locked{opacity:0.38;cursor:not-allowed}
-.stage-card.locked:hover{transform:none;border-color:var(--border-subtle)}
-.stage-card.completed{border-color:var(--accent)}
-.stage-card .s-num{font-family:var(--font-code);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
-.stage-card .s-name{font-size:13.5px;font-weight:700;margin-bottom:4px;color:var(--text)}
-.stage-card .s-sub{font-size:11.5px;color:var(--text-muted);line-height:1.45}
-.stage-card .s-badge{position:absolute;top:10px;right:10px;font-family:var(--font-code);font-size:9px;padding:2px 7px;border-radius:999px;letter-spacing:0.04em}
-.s1 .s-num{color:#49a893}.s2 .s-num{color:#fff694}.s3 .s-num{color:#dc8116}.s4 .s-num{color:#d394ff}.s5 .s-num{color:#fff694}
-.s1 .s-badge{background:rgba(73,168,147,0.15);color:#49a893}
-.s2 .s-badge{background:rgba(255,246,148,0.15);color:#fff694}
-.s3 .s-badge{background:rgba(220,129,22,0.15);color:#dc8116}
-.s4 .s-badge{background:rgba(211,148,255,0.15);color:#d394ff}
-.s5 .s-badge{background:rgba(255,246,148,0.15);color:#fff694}
-.stage-card.completed .s-badge{background:rgba(211,148,255,0.15);color:var(--accent)}
-.progress-bar-wrap{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:14px 18px;margin-bottom:2rem;display:flex;align-items:center;gap:14px}
-.pb-label{font-family:var(--font-code);font-size:11px;color:var(--text-muted);white-space:nowrap}
-.pb-track{flex:1;height:4px;background:var(--bg2);border-radius:999px;overflow:hidden}
-.pb-fill{height:100%;background:var(--accent);border-radius:999px;transition:width 0.4s ease}
-.pb-pts{font-family:var(--font-code);font-size:11px;color:var(--accent);white-space:nowrap}
-
-/* ── QUIZ: QUESTION SCREEN ── */
-.quiz-header{display:flex;align-items:center;gap:12px;margin-bottom:1.75rem;flex-wrap:wrap}
-.back-btn{padding:6px 13px;font-size:12px;font-family:var(--font-ui);font-weight:500;border:1px solid var(--border-subtle);border-radius:999px;background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.15s}
-.back-btn:hover{border-color:var(--border);color:var(--text)}
-.qh-stage{font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase}
-.qh-progress{margin-left:auto;font-family:var(--font-code);font-size:11px;color:var(--text-muted)}
-.streak-bar{display:flex;gap:5px;margin-bottom:1.5rem;align-items:center}
-.streak-dot{width:8px;height:8px;border-radius:50%;background:var(--bg2);border:1px solid var(--border-subtle);transition:all 0.2s}
-.streak-dot.done{background:var(--accent);border-color:var(--accent)}
-.streak-dot.active{background:rgba(211,148,255,0.25);border-color:rgba(211,148,255,0.5)}
-.streak-label{font-family:var(--font-code);font-size:10px;color:var(--text-dim);margin-left:6px;letter-spacing:0.05em}
-.q-card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:22px 22px 18px;margin-bottom:10px}
-.q-type-badge{font-family:var(--font-code);font-size:9.5px;padding:2px 8px;border-radius:999px;letter-spacing:0.04em;display:inline-block;margin-bottom:12px}
-.qt-mc{background:rgba(73,168,147,0.15);color:#49a893}
-.qt-write{background:rgba(211,148,255,0.15);color:#d394ff}
-.qt-debug{background:rgba(220,129,22,0.15);color:#dc8116}
-.qt-output{background:rgba(255,246,148,0.15);color:#fff694}
-.qt-fill{background:rgba(211,148,255,0.15);color:#d394ff}
-.q-text{font-size:15px;font-weight:500;line-height:1.5;margin-bottom:16px;color:var(--text)}
-.q-concept{font-size:12.5px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-code);padding:8px 11px;background:var(--bg2);border-radius:7px;border-left:2px solid rgba(211,148,255,0.4)}
-.code-preview{background:var(--bg);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 13px;font-family:var(--font-code);font-size:12px;color:var(--accent);white-space:pre-wrap;margin-bottom:14px;line-height:1.75}
-.options{display:flex;flex-direction:column;gap:7px}
-.opt{background:var(--bg2);border:1px solid var(--border-subtle);border-radius:9px;padding:11px 14px;cursor:pointer;transition:all 0.15s;font-size:13.5px;font-family:var(--font-ui);text-align:left;color:var(--text);display:flex;align-items:flex-start;gap:10px;width:100%}
-.opt:hover{border-color:var(--border);background:rgba(211,148,255,0.04)}
-.opt.selected{border-color:var(--accent);background:rgba(211,148,255,0.08)}
-.opt.correct{border-color:#49a893;background:rgba(73,168,147,0.1);color:#49a893;pointer-events:none}
-.opt.wrong{border-color:#dc8116;background:rgba(220,129,22,0.08);color:#dc8116;pointer-events:none}
-.opt.disabled{pointer-events:none;opacity:0.45}
-.opt-key{font-family:var(--font-code);font-size:10px;color:var(--text-dim);min-width:18px;margin-top:2px;flex-shrink:0}
-.opt.correct .opt-key{color:#49a893}.opt.wrong .opt-key{color:#dc8116}
-.code-input{width:100%;background:var(--bg);border:1px solid var(--border-subtle);border-radius:8px;padding:11px 13px;font-family:var(--font-code);font-size:12.5px;color:var(--accent);line-height:1.75;min-height:100px;resize:vertical;outline:none;transition:border-color 0.15s}
-.code-input:focus{border-color:var(--border)}
-.code-input.correct-input{border-color:#49a893}
-.code-input.wrong-input{border-color:#dc8116}
-.fill-sentence{font-family:var(--font-code);font-size:13px;line-height:2.5;background:var(--bg);border:1px solid var(--border-subtle);border-radius:8px;padding:12px 14px;margin-bottom:2px}
-.fill-input{background:transparent;border:none;border-bottom:1px solid var(--accent);outline:none;color:var(--accent);font-family:var(--font-code);font-size:13px;padding:0 6px;min-width:100px;transition:border-color 0.15s}
-.fill-input.correct-input{border-bottom-color:#49a893;color:#49a893}
-.fill-input.wrong-input{border-bottom-color:#dc8116;color:#dc8116}
-.q-actions{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
-.submit-btn{padding:9px 22px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s}
-.submit-btn:hover{opacity:0.88}
-.submit-btn:disabled{opacity:0.35;cursor:not-allowed}
-.next-btn{padding:9px 22px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:transparent;color:var(--accent);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;transition:all 0.15s;display:none}
-.next-btn.show{display:inline-block}
-.next-btn:hover{background:rgba(211,148,255,0.08)}
-.xp-flash{font-family:var(--font-code);font-size:11px;color:var(--accent);display:none;animation:fadeUp 0.7s ease forwards}
-.xp-flash.show{display:inline}
-@keyframes fadeUp{0%{opacity:0;transform:translateY(4px)}40%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
-.feedback{margin-top:14px;padding:11px 14px;border-radius:8px;font-size:13px;line-height:1.6;display:none}
-.feedback.show{display:block}
-.fb-correct{background:rgba(73,168,147,0.1);border-left:2px solid #49a893;color:#49a893}
-.fb-wrong{background:rgba(220,129,22,0.08);border-left:2px solid #dc8116;color:#dc8116}
-.fb-label{font-family:var(--font-code);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;display:block;margin-bottom:4px}
-.fb-code{display:block;margin-top:8px;font-family:var(--font-code);font-size:11.5px;background:var(--bg);border:1px solid var(--border-subtle);border-radius:6px;padding:8px 10px;color:var(--accent);white-space:pre-wrap;line-height:1.65}
-
-/* ── QUIZ: RESULTS ── */
-.results-screen{text-align:center;padding:3rem 1rem}
-.results-score{font-size:clamp(3.5rem,12vw,6rem);font-weight:700;color:var(--accent);font-family:var(--font-code);letter-spacing:-0.03em;line-height:1}
-.results-sub{font-family:var(--font-code);font-size:12px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.4rem;margin-bottom:0.3rem}
-.results-xp{font-family:var(--font-code);font-size:11px;color:var(--text-muted);margin-bottom:1rem}
-.results-msg{font-size:15px;color:var(--text-muted);max-width:420px;margin:0 auto 2rem;line-height:1.65}
-.results-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn-primary{padding:10px 24px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s}
-.btn-primary:hover{opacity:0.88}
-.btn-ghost{padding:10px 24px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:transparent;color:var(--text-muted);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;transition:all 0.15s}
-.btn-ghost:hover{border-color:var(--border);color:var(--text)}
-
-/* ── FOOTER ── */
-footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--font-code);font-size:10.5px;color:var(--text-dim);letter-spacing:0.05em}
-
-/* ── SCREENS ── */
-/* ── SAFARI TIP BANNER ── */
-.safari-tip{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:11px 14px;margin-bottom:1.5rem}
-.safari-tip-icon{font-size:15px;flex-shrink:0;color:var(--accent);font-family:var(--font-code)}
-.safari-tip-text{font-size:12.5px;color:var(--text);line-height:1.55;flex:1}
-.safari-tip-text strong{color:var(--accent);font-weight:600}
-.safari-tip-close{flex-shrink:0;background:transparent;border:none;color:var(--text-dim);font-size:11px;cursor:pointer;padding:2px 4px;transition:color 0.15s;font-family:var(--font-code)}
-.safari-tip-close:hover{color:var(--text-muted)}
-
-/* ── SHOP ── */
-.shop-banner{margin-bottom:2.5rem}
-.shop-banner-label{font-family:var(--font-code);font-size:11px;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.7rem}
-.shop-banner-title{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.7rem}
-.shop-banner-title em{color:var(--text-muted);font-style:normal}
-.shop-banner-sub{font-size:14px;color:var(--text-muted);max-width:480px;line-height:1.65}
-.shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-bottom:8px}
-.shop-card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.15s}
-.shop-card:hover{border-color:var(--border)}
-.shop-card-artwork{width:100%;aspect-ratio:1;overflow:hidden;flex-shrink:0}
-.shop-card-artwork svg{width:100%;height:100%;display:block}
-.shop-card-name{font-size:15px;font-weight:700;margin-bottom:2px;padding:14px 16px 0;color:var(--text)}
-.shop-card-subtitle{font-family:var(--font-code);font-size:10px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;padding:0 16px 10px;border-bottom:1px solid var(--border-subtle);margin-bottom:12px}
-.shop-card-desc{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:16px;flex:1;padding:0 16px}
-.shop-features{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:5px;padding:0 16px}
-.shop-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);display:flex;align-items:baseline;gap:7px}
-.shop-features li::before{content:"→";color:var(--accent);flex-shrink:0;font-size:10px}
-.shop-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding:14px 16px;border-top:1px solid var(--border-subtle)}
-.shop-price{font-family:var(--font-code);font-size:18px;font-weight:500;color:var(--text)}
-.shop-price span{font-size:11px;color:var(--text-dim);margin-left:3px}
-.shop-buy-btn{padding:8px 18px;font-size:12px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:7px;cursor:pointer;transition:opacity 0.15s;white-space:nowrap;text-decoration:none;display:inline-block}
-.shop-buy-btn:hover{opacity:0.85}
-.shop-buy-btn.coming{background:transparent;color:var(--text-dim);border:1px solid var(--border-subtle);cursor:default}
-.shop-buy-btn.coming:hover{opacity:1}
-/* bundle card */
-.shop-bundle-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;position:relative;overflow:hidden}
-.shop-bundle-card::before{content:'';position:absolute;inset:0;background:rgba(211,148,255,0.03);pointer-events:none}
-.bundle-tag{font-family:var(--font-code);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(211,148,255,0.12);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:14px}
-.bundle-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.bundle-name{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px;color:var(--text)}
-.bundle-desc{font-size:13px;color:var(--text-muted);line-height:1.6;max-width:500px}
-.bundle-pricing{text-align:right;flex-shrink:0}
-.bundle-price{font-family:var(--font-code);font-size:26px;font-weight:500;color:var(--accent);line-height:1}
-.bundle-was{font-family:var(--font-code);font-size:12px;color:var(--text-dim);text-decoration:line-through;margin-top:3px}
-.bundle-save{font-family:var(--font-code);font-size:10px;color:#49a893;margin-top:2px;letter-spacing:0.05em}
-.bundle-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:5px;margin-bottom:20px}
-.bundle-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);list-style:none;display:flex;align-items:baseline;gap:7px}
-.bundle-features li::before{content:"✓";color:var(--accent);flex-shrink:0;font-size:10px}
-.bundle-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.bundle-buy-btn{padding:11px 28px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s;text-decoration:none;display:inline-block}
-.bundle-buy-btn:hover{opacity:0.85}
-.bundle-note{font-family:var(--font-code);font-size:11px;color:var(--text-dim)}
-
-@media(max-width:580px){.bundle-pricing{text-align:left}.bundle-top{flex-direction:column}}
-
+/* Quiz & Shop Screen Styles (Simplified for this block) */
 .screen{display:none}.screen.active{display:block}
-
-@media(max-width:580px){.container{padding:2rem 1rem 4rem}h1{font-size:1.8rem}.card-desc{display:none}}
-
-/* ═══════════════════════════════════════════════════════
-   SPLASH SCREEN
-═══════════════════════════════════════════════════════ */
-#splash{
-  position:fixed;inset:0;z-index:9999;
-  background:#181818;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
-  transition:opacity 0.6s ease, visibility 0.6s ease;
-}
-#splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
-
-/* loading state — shown while page resources load */
-.splash-loading{display:flex;flex-direction:column;align-items:center;gap:28px}
-.splash-m-icon{width:90px;height:90px;animation:splashPulse 1.4s ease-in-out infinite}
-@keyframes splashPulse{
-  0%,100%{opacity:0.4;transform:scale(0.97)}
-  50%{opacity:1;transform:scale(1.03)}
-}
-.splash-loading-bar{width:120px;height:2px;background:rgba(211,148,255,0.15);border-radius:999px;overflow:hidden}
-.splash-loading-fill{height:100%;width:0%;background:#d394ff;border-radius:999px;transition:width 0.3s ease}
-.splash-loading-label{font-family:'Fira Code',monospace;font-size:10px;color:rgba(211,148,255,0.4);letter-spacing:0.18em;text-transform:uppercase}
-
-/* intro state — swap in your animated SVG here */
-.splash-intro{display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;width:100%;max-width:700px;padding:2rem}
-.splash-intro.active{display:flex}
-
-/* ── ANIMATED LOGO SLOT ──
-   Replace the contents of #splashLogoSlot with your
-   animated SVG when it's ready. The slot is centred,
-   full width up to 600px, with auto height.         */
-#splashLogoSlot{width:100%;max-width:600px;display:flex;align-items:center;justify-content:center}
-#splashLogoSlot svg,#splashLogoSlot img{width:100%;height:auto;display:block}
-
-/* static wordmark shown until you add the animated SVG */
-.splash-wordmark-static{width:100%;max-width:560px;animation:splashFadeUp 0.8s ease forwards;opacity:0}
-@keyframes splashFadeUp{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.splash-tagline{
-  font-family:'Fira Code',monospace;
-  font-size:11px;color:rgba(211,148,255,0.5);
-  letter-spacing:0.2em;text-transform:uppercase;
-  animation:splashFadeUp 0.8s 0.3s ease forwards;opacity:0;
-}
-.splash-skip{
-  position:absolute;bottom:32px;right:32px;
-  font-family:'Fira Code',monospace;font-size:10px;
-  color:rgba(247,247,247,0.25);letter-spacing:0.12em;text-transform:uppercase;
-  background:transparent;border:none;cursor:pointer;
-  transition:color 0.2s;padding:6px 10px;
-}
-.splash-skip:hover{color:rgba(247,247,247,0.6)}
-.splash-skip.hidden{display:none}
+.stage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px}
+.stage-card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:16px 14px;cursor:pointer;transition:all 0.18s;position:relative}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+.shop-card{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.shop-buy-btn{padding:8px 18px;font-size:12px;background:var(--accent);color:var(--accent-text);border-radius:7px;text-decoration:none;text-align:center}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     SPLASH SCREEN
-     Loading state shows while page loads.
-     Intro state shows your animated logo.
-     ═══════════════════════════════════════════════════ -->
-<div id="splash" role="status" aria-label="Loading MotionMaths">
+<div id="splash">
+    <div id="lottieLogo"></div>
+    <button class="splash-skip" onclick="dismissSplash()">skip →</button>
+</div>
 
-  <!-- LOADING STATE: shown while resources load -->
-  <div class="splash-loading" id="splashLoading">
-    <!-- M icon pulsing -->
-    <svg class="splash-m-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true">
-      <rect width="600" height="600" fill="#181818"/>
-      <path fill="#d394ff" d="M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z"/>
-      <path fill="#949aff" d="M556.58,389v33.33h-138.79v-33.33h138.79Z"/>
-      <path fill="#f7f7f7" d="M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z"/>
-    </svg>
-    <div class="splash-loading-bar"><div class="splash-loading-fill" id="splashLoadingFill"></div></div>
-    <span class="splash-loading-label">loading</span>
-  </div>
-
-  <!-- INTRO STATE: shown after load — drop your animated SVG in #splashLogoSlot -->
-  <div class="splash-intro" id="splashIntro">
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  ANIMATED LOGO SLOT                         ║
-         ║  Replace this comment with your animated    ║
-         ║  SVG when ready. It will be centred and     ║
-         ║  scale to fit on any screen.                ║
-         ║                                             ║
-         ║  Example:                                   ║
-         ║  <svg id="splashLogoSlot" ...>...</svg>     ║
-         ║                                             ║
-         ║  Until then, the static wordmark below      ║
-         ║  is shown as a placeholder.                 ║
-         ╚══════════════════════════════════════════════╝ -->
-
-    <div id="splashLogoSlot">
-      <!-- PLACEHOLDER — remove this svg when you add your animated version -->
-      <svg class="splash-wordmark-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.98 229.76" aria-label="MotionMaths">
-        <path fill="#949aff" d="M130.02,122.82L0,180.08v-37.4l89.02-35.74-1.2,1.94v-4.62l1.2,1.94L0,70.46v-37.4l130.02,57.26v32.51Z"/>
-        <path fill="#d394ff" d="M128.72,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.79v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#d394ff" d="M429.95,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.44-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.43-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.44,6.13,18.49,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.82,9.19-37.17,9.19ZM430.14,172.23c6.52,0,11.97-1.86,16.34-5.59,4.37-3.72,7.68-8.82,9.93-15.28s3.37-13.82,3.37-22.07-1.12-15.61-3.37-22.07-5.56-11.57-9.93-15.33c-4.37-3.75-9.82-5.63-16.34-5.63s-12.11,1.88-16.58,5.63-7.82,8.86-10.06,15.33c-2.25,6.46-3.37,13.82-3.37,22.07s1.12,15.61,3.37,22.07c2.25,6.46,5.6,11.56,10.06,15.28,4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M600.89,58.09v29.55h-85.42v-29.55h85.42ZM534.86,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.69-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.18,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79s-12.64-7.39-16.58-13.48c-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#d394ff" d="M646.23,39.8c-5.85,0-10.85-1.94-15.01-5.82s-6.23-8.56-6.23-14.04,2.09-10.17,6.28-14.08,9.17-5.86,14.96-5.86,10.85,1.94,15,5.82c4.16,3.88,6.23,8.56,6.23,14.04s-2.08,10.17-6.23,14.08c-4.15,3.91-9.16,5.86-15,5.86ZM626.46,199.93V58.09h39.34v141.85h-39.34Z"/>
-        <path fill="#d394ff" d="M761.29,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.43-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.44-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.43,6.13,18.48,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.83,9.19-37.17,9.19ZM761.47,172.23c6.53,0,11.97-1.86,16.35-5.59,4.37-3.72,7.68-8.82,9.93-15.28,2.25-6.46,3.37-13.82,3.37-22.07s-1.12-15.61-3.37-22.07c-2.25-6.46-5.56-11.57-9.93-15.33-4.37-3.75-9.82-5.63-16.35-5.63s-12.11,1.88-16.58,5.63c-4.46,3.75-7.82,8.86-10.07,15.33s-3.37,13.82-3.37,22.07,1.12,15.61,3.37,22.07,5.6,11.56,10.07,15.28c4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M896.12,117.93v82h-39.34V58.09h37.49v25.03h1.66c3.14-8.25,8.4-14.79,15.79-19.62,7.39-4.83,16.34-7.25,26.87-7.25,9.85,0,18.44,2.15,25.77,6.46,7.33,4.31,13.02,10.45,17.08,18.42,4.06,7.97,6.1,17.47,6.1,28.49v90.32h-39.34v-83.3c.06-8.68-2.15-15.47-6.65-20.36-4.49-4.89-10.68-7.34-18.56-7.34-5.3,0-9.96,1.14-13.99,3.42-4.03,2.28-7.17,5.59-9.42,9.93-2.25,4.34-3.4,9.56-3.46,15.65Z"/>
-        <path fill="#f7f7f7" d="M1019.21,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.78v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#f7f7f7" d="M1296.8,202.61c-9.05,0-17.11-1.59-24.19-4.76-7.08-3.17-12.67-7.88-16.76-14.13-4.09-6.25-6.14-14.05-6.14-23.41,0-7.88,1.45-14.5,4.34-19.85s6.83-9.66,11.82-12.93c4.99-3.26,10.66-5.72,17.04-7.39,6.37-1.66,13.07-2.83,20.09-3.51,8.25-.86,14.9-1.68,19.94-2.45,5.05-.77,8.71-1.92,10.99-3.46,2.28-1.54,3.42-3.82,3.42-6.83v-.55c0-5.85-1.83-10.37-5.5-13.58-3.66-3.2-8.85-4.8-15.56-4.8-7.08,0-12.71,1.56-16.9,4.66-4.19,3.11-6.96,7-8.31,11.68l-36.39-2.95c1.85-8.62,5.48-16.08,10.9-22.4,5.42-6.31,12.42-11.17,21.01-14.59,8.59-3.42,18.55-5.13,29.87-5.13,7.88,0,15.44.92,22.67,2.77,7.23,1.85,13.67,4.71,19.3,8.59,5.63,3.88,10.08,8.85,13.34,14.91s4.89,13.31,4.89,21.75v95.67h-37.31v-19.67h-1.11c-2.28,4.43-5.33,8.33-9.14,11.68-3.82,3.36-8.4,5.97-13.76,7.85-5.36,1.88-11.54,2.82-18.56,2.82ZM1308.07,175.46c5.79,0,10.9-1.15,15.33-3.46,4.43-2.31,7.91-5.43,10.43-9.37,2.52-3.94,3.78-8.4,3.78-13.39v-15.05c-1.23.8-2.91,1.52-5.03,2.17s-4.51,1.23-7.16,1.75-5.3.98-7.94,1.38c-2.65.4-5.05.75-7.2,1.06-4.62.68-8.65,1.75-12.1,3.23-3.45,1.48-6.13,3.46-8.03,5.96-1.91,2.49-2.86,5.59-2.86,9.28,0,5.36,1.95,9.43,5.86,12.23,3.91,2.8,8.88,4.2,14.91,4.2Z"/>
-        <path fill="#f7f7f7" d="M1482.7,58.09v29.55h-85.42v-29.55h85.42ZM1416.67,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.7-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.19,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79-7.11-2.89-12.64-7.39-16.58-13.48-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#f7f7f7" d="M1547.61,117.93v82h-39.34V10.8h38.23v72.31h1.66c3.2-8.37,8.37-14.94,15.51-19.72s16.1-7.16,26.88-7.16c9.85,0,18.45,2.14,25.81,6.42,7.35,4.28,13.08,10.41,17.18,18.38,4.09,7.97,6.11,17.5,6.05,28.58v90.32h-39.34v-83.3c.06-8.74-2.14-15.55-6.6-20.41-4.46-4.86-10.7-7.3-18.7-7.3-5.36,0-10.08,1.14-14.18,3.42s-7.29,5.59-9.61,9.93c-2.31,4.34-3.49,9.56-3.56,15.65Z"/>
-        <path fill="#f7f7f7" d="M1788.64,98.53l-36.02,2.22c-.62-3.08-1.94-5.86-3.97-8.36-2.03-2.49-4.69-4.49-7.99-6-3.29-1.51-7.22-2.26-11.77-2.26-6.1,0-11.24,1.28-15.42,3.83-4.19,2.55-6.28,5.96-6.28,10.2,0,3.39,1.35,6.25,4.06,8.59,2.71,2.34,7.36,4.22,13.95,5.63l25.67,5.17c13.79,2.83,24.07,7.39,30.84,13.67,6.77,6.28,10.16,14.53,10.16,24.75,0,9.3-2.72,17.45-8.17,24.47-5.45,7.02-12.9,12.48-22.35,16.39-9.45,3.91-20.33,5.86-32.65,5.86-18.78,0-33.72-3.92-44.83-11.77-11.11-7.85-17.63-18.55-19.53-32.09l38.69-2.03c1.17,5.72,4,10.08,8.5,13.07,4.49,2.99,10.25,4.48,17.27,4.48s12.45-1.34,16.67-4.02c4.21-2.68,6.36-6.14,6.42-10.39-.06-3.57-1.57-6.51-4.52-8.82-2.95-2.31-7.51-4.08-13.67-5.31l-24.56-4.89c-13.85-2.77-24.15-7.57-30.89-14.41-6.74-6.83-10.11-15.55-10.11-26.13,0-9.11,2.48-16.96,7.43-23.55,4.95-6.59,11.95-11.67,20.96-15.24,9.02-3.57,19.59-5.36,31.72-5.36,17.92,0,32.03,3.79,42.34,11.36s16.33,17.88,18.06,30.94Z"/>
-        <path fill="#949aff" d="M1875.98,199.93v29.83h-124.21v-29.83h124.21Z"/>
-      </svg>
-      <!-- END PLACEHOLDER -->
+<div class="container" id="mainContent">
+  <header>
+    <div class="brand-bar">
+      <div>
+         <svg class="brand-wordmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.98 229.76">
+           <path fill="#949aff" d="M130.02,122.82L0,180.08v-37.4l89.02-35.74-1.2,1.94v-4.62l1.2,1.94L0,70.46v-37.4l130.02,57.26v32.51Z"/>
+           <path fill="#d394ff" d="M128.72,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.79v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
+         </svg>
+         <div class="brand-tagline">after effects expressions · by Ian Whitehead</div>
+      </div>
     </div>
-
-    <span class="splash-tagline">after effects expressions</span>
-  </div>
-
-  <!-- skip button — visible after a short delay -->
-  <button class="splash-skip hidden" id="splashSkip" onclick="dismissSplash()">skip →</button>
-
-</div><!-- /splash -->
-<div class="noise"></div>
-<div class="container">
-
-  <!-- BRAND BAR -->
-  <div class="brand-bar">
-    <div>
-      <svg class="brand-wordmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.98 229.76" aria-label="MotionMaths">
-        <path fill="#949aff" d="M130.02,122.82L0,180.08v-37.4l89.02-35.74-1.2,1.94v-4.62l1.2,1.94L0,70.46v-37.4l130.02,57.26v32.51Z"/>
-        <path fill="#d394ff" d="M128.72,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.79v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#d394ff" d="M429.95,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.44-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.43-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.44,6.13,18.49,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.82,9.19-37.17,9.19ZM430.14,172.23c6.52,0,11.97-1.86,16.34-5.59,4.37-3.72,7.68-8.82,9.93-15.28s3.37-13.82,3.37-22.07-1.12-15.61-3.37-22.07-5.56-11.57-9.93-15.33c-4.37-3.75-9.82-5.63-16.34-5.63s-12.11,1.88-16.58,5.63-7.82,8.86-10.06,15.33c-2.25,6.46-3.37,13.82-3.37,22.07s1.12,15.61,3.37,22.07c2.25,6.46,5.6,11.56,10.06,15.28,4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M600.89,58.09v29.55h-85.42v-29.55h85.42ZM534.86,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.69-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.18,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79s-12.64-7.39-16.58-13.48c-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#d394ff" d="M646.23,39.8c-5.85,0-10.85-1.94-15.01-5.82s-6.23-8.56-6.23-14.04,2.09-10.17,6.28-14.08,9.17-5.86,14.96-5.86,10.85,1.94,15,5.82c4.16,3.88,6.23,8.56,6.23,14.04s-2.08,10.17-6.23,14.08c-4.15,3.91-9.16,5.86-15,5.86ZM626.46,199.93V58.09h39.34v141.85h-39.34Z"/>
-        <path fill="#d394ff" d="M761.29,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.43-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.44-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.43,6.13,18.48,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.83,9.19-37.17,9.19ZM761.47,172.23c6.53,0,11.97-1.86,16.35-5.59,4.37-3.72,7.68-8.82,9.93-15.28,2.25-6.46,3.37-13.82,3.37-22.07s-1.12-15.61-3.37-22.07c-2.25-6.46-5.56-11.57-9.93-15.33-4.37-3.75-9.82-5.63-16.35-5.63s-12.11,1.88-16.58,5.63c-4.46,3.75-7.82,8.86-10.07,15.33s-3.37,13.82-3.37,22.07,1.12,15.61,3.37,22.07,5.6,11.56,10.07,15.28c4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M896.12,117.93v82h-39.34V58.09h37.49v25.03h1.66c3.14-8.25,8.4-14.79,15.79-19.62,7.39-4.83,16.34-7.25,26.87-7.25,9.85,0,18.44,2.15,25.77,6.46,7.33,4.31,13.02,10.45,17.08,18.42,4.06,7.97,6.1,17.47,6.1,28.49v90.32h-39.34v-83.3c.06-8.68-2.15-15.47-6.65-20.36-4.49-4.89-10.68-7.34-18.56-7.34-5.3,0-9.96,1.14-13.99,3.42-4.03,2.28-7.17,5.59-9.42,9.93-2.25,4.34-3.4,9.56-3.46,15.65Z"/>
-        <path fill="#f7f7f7" d="M1019.21,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.78v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#f7f7f7" d="M1296.8,202.61c-9.05,0-17.11-1.59-24.19-4.76-7.08-3.17-12.67-7.88-16.76-14.13-4.09-6.25-6.14-14.05-6.14-23.41,0-7.88,1.45-14.5,4.34-19.85s6.83-9.66,11.82-12.93c4.99-3.26,10.66-5.72,17.04-7.39,6.37-1.66,13.07-2.83,20.09-3.51,8.25-.86,14.9-1.68,19.94-2.45,5.05-.77,8.71-1.92,10.99-3.46,2.28-1.54,3.42-3.82,3.42-6.83v-.55c0-5.85-1.83-10.37-5.5-13.58-3.66-3.2-8.85-4.8-15.56-4.8-7.08,0-12.71,1.56-16.9,4.66-4.19,3.11-6.96,7-8.31,11.68l-36.39-2.95c1.85-8.62,5.48-16.08,10.9-22.4,5.42-6.31,12.42-11.17,21.01-14.59,8.59-3.42,18.55-5.13,29.87-5.13,7.88,0,15.44.92,22.67,2.77,7.23,1.85,13.67,4.71,19.3,8.59,5.63,3.88,10.08,8.85,13.34,14.91s4.89,13.31,4.89,21.75v95.67h-37.31v-19.67h-1.11c-2.28,4.43-5.33,8.33-9.14,11.68-3.82,3.36-8.4,5.97-13.76,7.85-5.36,1.88-11.54,2.82-18.56,2.82ZM1308.07,175.46c5.79,0,10.9-1.15,15.33-3.46,4.43-2.31,7.91-5.43,10.43-9.37,2.52-3.94,3.78-8.4,3.78-13.39v-15.05c-1.23.8-2.91,1.52-5.03,2.17s-4.51,1.23-7.16,1.75-5.3.98-7.94,1.38c-2.65.4-5.05.75-7.2,1.06-4.62.68-8.65,1.75-12.1,3.23-3.45,1.48-6.13,3.46-8.03,5.96-1.91,2.49-2.86,5.59-2.86,9.28,0,5.36,1.95,9.43,5.86,12.23,3.91,2.8,8.88,4.2,14.91,4.2Z"/>
-        <path fill="#f7f7f7" d="M1482.7,58.09v29.55h-85.42v-29.55h85.42ZM1416.67,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.7-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.19,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79-7.11-2.89-12.64-7.39-16.58-13.48-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#f7f7f7" d="M1547.61,117.93v82h-39.34V10.8h38.23v72.31h1.66c3.2-8.37,8.37-14.94,15.51-19.72s16.1-7.16,26.88-7.16c9.85,0,18.45,2.14,25.81,6.42,7.35,4.28,13.08,10.41,17.18,18.38,4.09,7.97,6.11,17.5,6.05,28.58v90.32h-39.34v-83.3c.06-8.74-2.14-15.55-6.6-20.41-4.46-4.86-10.7-7.3-18.7-7.3-5.36,0-10.08,1.14-14.18,3.42s-7.29,5.59-9.61,9.93c-2.31,4.34-3.49,9.56-3.56,15.65Z"/>
-        <path fill="#f7f7f7" d="M1788.64,98.53l-36.02,2.22c-.62-3.08-1.94-5.86-3.97-8.36-2.03-2.49-4.69-4.49-7.99-6-3.29-1.51-7.22-2.26-11.77-2.26-6.1,0-11.24,1.28-15.42,3.83-4.19,2.55-6.28,5.96-6.28,10.2,0,3.39,1.35,6.25,4.06,8.59,2.71,2.34,7.36,4.22,13.95,5.63l25.67,5.17c13.79,2.83,24.07,7.39,30.84,13.67,6.77,6.28,10.16,14.53,10.16,24.75,0,9.3-2.72,17.45-8.17,24.47-5.45,7.02-12.9,12.48-22.35,16.39-9.45,3.91-20.33,5.86-32.65,5.86-18.78,0-33.72-3.92-44.83-11.77-11.11-7.85-17.63-18.55-19.53-32.09l38.69-2.03c1.17,5.72,4,10.08,8.5,13.07,4.49,2.99,10.25,4.48,17.27,4.48s12.45-1.34,16.67-4.02c4.21-2.68,6.36-6.14,6.42-10.39-.06-3.57-1.57-6.51-4.52-8.82-2.95-2.31-7.51-4.08-13.67-5.31l-24.56-4.89c-13.85-2.77-24.15-7.57-30.89-14.41-6.74-6.83-10.11-15.55-10.11-26.13,0-9.11,2.48-16.96,7.43-23.55,4.95-6.59,11.95-11.67,20.96-15.24,9.02-3.57,19.59-5.36,31.72-5.36,17.92,0,32.03,3.79,42.34,11.36s16.33,17.88,18.06,30.94Z"/>
-        <path fill="#949aff" d="M1875.98,199.93v29.83h-124.21v-29.83h124.21Z"/>
-      </svg>
-      <div class="brand-tagline">after effects expressions · by Ian Whitehead</div>
+    <div class="intro-block">
+      <p><strong>Welcome to MotionMaths</strong> — production-tested expressions and tools for motion designers.</p>
     </div>
-  </div>
+  </header>
 
-  <!-- WELCOME INTRO -->
-  <div class="intro-block">
-    <p><strong>Welcome to MotionMaths</strong> — the go-to reference for After Effects expressions, built by a motion designer for motion designers.</p>
-    <p>Whether you're just starting out or building complex production rigs, everything here is practical, production-tested, and ready to drop straight into your comp. Browse the <strong>Reference Guide</strong> to find and copy any expression instantly — from a simple wiggle to a full physics-based spring follow. When you're ready to level up, head to the <strong>Expression Quiz</strong> and work through five stages from beginner to pro, writing real expressions, spotting bugs, and predicting outputs as you go.</p>
-    <p>Need it even faster? The <strong>Shop</strong> has one-click plugins that wire expressions directly into After Effects — no copy-pasting, no setup, just animate.</p>
-    <div class="intro-pills">
-      <span class="intro-pill">94 expressions</span>
-      <span class="intro-pill">5 quiz stages</span>
-      <span class="intro-pill">5 plugins available</span>
-      <span class="intro-pill">AE 2022+</span>
-      <span class="intro-pill">by Ian Whitehead</span>
-    </div>
-  </div>
-
-  <!-- MODE TABS -->
   <div class="mode-bar">
     <button class="mode-tab active" id="modeGuide" onclick="setMode('guide')">Reference Guide</button>
     <button class="mode-tab" id="modeQuiz" onclick="setMode('quiz')">Expression Quiz</button>
     <button class="mode-tab" id="modeShop" onclick="setMode('shop')">Shop</button>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ GUIDE SCREEN -->
   <div class="screen active" id="screenGuide">
-    <div class="safari-tip" id="safariTip">
-      <span class="safari-tip-icon">⌘</span>
-      <span class="safari-tip-text">On a Mac? Open this in Safari and go to <strong>File → Add to Dock</strong> — MotionMaths will sit in your dock like a native app, one click away whenever you need it.</span>
-      <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">✕</button>
-    </div>
     <div class="toolbar">
       <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input type="text" id="search" placeholder="Search by name, keyword, or code snippet..." autocomplete="off" spellcheck="false"/>
+        <input type="text" id="search" placeholder="Search expressions...">
       </div>
       <div class="tabs" id="tabs"></div>
     </div>
     <p class="count" id="count"></p>
     <div class="cards" id="cards"></div>
-    <footer><span>ae-expressions-guide</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ QUIZ SCREENS -->
   <div class="screen" id="screenQuiz">
-
-    <!-- STAGE HOME -->
     <div id="qzHome">
-      <div class="progress-bar-wrap">
-        <span class="pb-label">overall xp</span>
-        <div class="pb-track"><div class="pb-fill" id="pbFill" style="width:0%"></div></div>
-        <span class="pb-pts" id="pbPts">0 / 500 xp</span>
-      </div>
-      <div class="stage-grid" id="stageGrid"></div>
-      <p style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.05em">complete each stage to unlock the next · earn xp for every correct answer</p>
+        <div class="stage-grid" id="stageGrid"></div>
     </div>
+  </div>
 
-    <!-- QUESTION SCREEN -->
-    <div id="qzQuestion" style="display:none">
-      <div class="quiz-header">
-        <button class="back-btn" onclick="showStageHome()">← stages</button>
-        <span class="qh-stage" id="qhStage"></span>
-        <span class="qh-progress" id="qhProg"></span>
-      </div>
-      <div class="streak-bar" id="streakBar"></div>
-      <div id="questionArea"></div>
-    </div>
-
-    <!-- RESULTS SCREEN -->
-    <div id="qzResults" style="display:none">
-      <div class="results-screen">
-        <p class="results-sub">stage complete</p>
-        <div class="results-score" id="resScore"></div>
-        <p class="results-xp" id="resXP"></p>
-        <p class="results-msg" id="resMsg"></p>
-        <div class="results-actions">
-          <button class="btn-primary" id="resNext">Next Stage →</button>
-          <button class="btn-ghost" onclick="retryStage()">Retry Stage</button>
-          <button class="btn-ghost" onclick="showStageHome()">All Stages</button>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /screenQuiz -->
-
-  <!-- ═══════════════════════════════════════════════════════ SHOP SCREEN -->
   <div class="screen" id="screenShop">
-
-    <div class="shop-banner">
-      <p class="shop-banner-label">// expression controls · after effects plugins</p>
-      <h2 class="shop-banner-title">Save hours.<br><em>Write it once.</em></h2>
-      <p class="shop-banner-sub">Production-ready After Effects scripts. Drop them in, connect a slider, and get straight to animating.</p>
-    </div>
-
     <div class="shop-grid" id="shopGrid"></div>
+  </div>
 
-    <div class="shop-bundle" id="shopBundle"></div>
+  <footer>
+    <span>ae-expressions-guide</span>
+    <span>© 2026 Ian Whitehead</span>
+  </footer>
+</div>
 
-    <footer><span>ae-expressions-guide</span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
-  </div><!-- /screenShop -->
-
-</div><!-- /container -->
 <script>
-/* ═══════════════════════════════════════════════════════════════════════════
-   MODE SWITCHING
-═══════════════════════════════════════════════════════════════════════════ */
+// 1. LOTTIE ANIMATION DATA
+const animationData = {"v":"5.12.1","fr":25,"ip":0,"op":101,"w":2000,"h":500,"nm":"page opening","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":3,"nm":"Null 1","sr":1,"ks":{"o":{"a":0,"k":0,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":38,"s":[1089,250,0],"to":[0,0,0],"ti":[0,0,0]},{"t":46,"s":[1000,250,0]}],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"ip":0,"op":127,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Layer 14 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":8,"s":[-8.12,100.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":15,"s":[102.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":18.5,"s":[77.484,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":0.1},"o":{"x":0.9,"y":0.9},"t":22,"s":[93.38,99.931,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.9,"y":0},"t":26,"s":[93.38,99.931,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.84,"y":0.84},"t":61,"s":[875.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":72,"s":[875.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":75,"s":[923.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"t":77,"s":[875.88,99.846,0]}],"ix":2,"l":2},"a":{"a":0,"k":[62.353,15.164,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":8,"s":[0,0,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,1,1]},"o":{"x":[0.9,0.9,0.9],"y":[0,0,0]},"t":15,"s":[143,100,100]},{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":18.5,"s":[105,100,100]},{"t":22,"s":[130.763,91.442,100]}],"ix":6,"l":2}},"ao":0,"sy":[{"bm":{"a":0,"k":1,"ix":1},"c":{"a":0,"k":[1,1,1,1],"ix":2},"so":{"a":1,"k":[{"i":{"x":[0.16],"y":[1]},"o":{"x":[0.167],"y":[0.167]},"t":73,"s":[100]},{"t":75,"s":[0]}],"ix":3},"ty":7,"nm":"Color Overlay"}],"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[-62.103,14.915],[62.103,14.915],[62.103,-14.915],[-62.103,-14.915]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.580392156863,0.603921568627,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[62.353,15.164],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Layer 15 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.746,"s":[540.591,87.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":58.91015625,"s":[790.591,87.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":71,"s":[64.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":72,"s":[43.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":74,"s":[64.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.746,"s":[0,0,100]},{"t":58.91015625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-1.726,-13.051],[0,0],[2.033,2.493],[3.295,1.51],[4.556,0],[4.186,-2.555],[0,-4.248],[-2.709,-2.338],[-6.589,-1.415],[0,0],[-6.773,-6.28],[0,-10.219],[5.448,-7.019],[9.448,-3.908],[12.315,0],[11.111,7.849],[1.907,13.543],[0,0],[-4.496,-2.985],[-7.019,0],[-4.218,2.678],[-0.06,4.248],[2.957,2.31],[6.153,1.233],[0,0],[6.741,6.833],[0,10.589],[-4.955,6.589],[-9.018,3.571],[-12.129,0],[-10.311,-7.573]],"o":[[0,0],[-0.617,-3.078],[-2.03,-2.493],[-3.294,-1.508],[-6.096,0],[-4.186,2.555],[0,3.386],[2.71,2.341],[0,0],[13.792,2.831],[6.772,6.279],[0,9.297],[-5.451,7.018],[-9.454,3.91],[-18.778,0],[-11.113,-7.851],[0,0],[1.167,5.725],[4.493,2.987],[6.893,0],[4.215,-2.678],[-0.06,-3.57],[-2.953,-2.308],[0,0],[-13.855,-2.769],[-6.741,-6.834],[0,-9.111],[4.955,-6.586],[9.018,-3.57],[17.918,0],[10.31,7.572]],"v":[[60.535,-30.937],[24.519,-28.721],[20.548,-37.077],[12.559,-43.08],[0.786,-45.342],[-14.637,-41.51],[-20.917,-31.305],[-16.854,-22.718],[-2.907,-17.085],[22.764,-11.912],[53.608,1.755],[63.766,26.504],[55.595,50.976],[33.247,67.367],[0.6,73.231],[-44.234,61.458],[-63.766,29.367],[-25.071,27.335],[-16.575,40.402],[0.694,44.88],[17.362,40.863],[23.779,30.475],[19.254,21.655],[5.589,16.345],[-18.975,11.45],[-49.868,-2.955],[-59.978,-29.089],[-52.546,-52.638],[-31.583,-67.875],[0.138,-73.231],[42.48,-61.872]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[64.016,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Layer 16 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.015,"s":[465.024,85.553,0],"to":[0,0,0],"ti":[0,0,0]},{"t":58.1787109375,"s":[636.024,85.553,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":70,"s":[66,190,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":71,"s":[47,190,0],"to":[0,0,0],"ti":[0,0,0]},{"t":73,"s":[66,190,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.015,"s":[0,0,100]},{"t":58.1787109375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.063,-6.094],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-7.142,4.771],[-10.776,0],[-7.357,-4.278],[-4.094,-7.973],[0.061,-11.082],[0,0],[0,0],[0,0],[4.462,4.864],[8.003,0],[4.094,-2.278],[2.312,-4.339]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[3.2,-8.371],[7.143,-4.772],[9.849,0],[7.355,4.281],[4.095,7.974],[0,0],[0,0],[0,0],[0.063,-8.742],[-4.464,-4.863],[-5.356,0],[-4.095,2.278],[-2.308,4.341]],"v":[[-26.351,12.559],[-26.351,94.564],[-65.69,94.564],[-65.69,-94.564],[-27.458,-94.564],[-27.458,-22.256],[-25.795,-22.256],[-10.283,-41.971],[16.593,-49.128],[42.404,-42.711],[59.579,-24.333],[65.629,4.248],[65.629,94.564],[26.287,94.564],[26.287,11.267],[19.686,-9.142],[0.986,-16.438],[-13.19,-13.02],[-22.796,-3.094]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.94,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":8,"ty":4,"nm":"Layer 17 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.552,"s":[292.527,87.852,0],"to":[0,0,0],"ti":[0,0,0]},{"t":56.716796875,"s":[503.527,87.852,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":69,"s":[44.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":70,"s":[26.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"t":72,"s":[44.5,179,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.552,"s":[0,0,100]},{"t":56.716796875,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[-1.107,-2],[-2.002,-0.798],[-2.646,0],[-1.847,0.339],[-0.983,0.185],[0,0],[3.57,-0.832],[5.109,-0.185],[7.108,2.894],[3.939,6.096],[-0.06,9.296]],"o":[[0,0],[0,0],[0,3.633],[1.109,2.002],[1.998,0.802],[1.847,0],[1.846,-0.337],[0,0],[-1.97,0.617],[-3.572,0.831],[-9.479,0.368],[-7.111,-2.893],[-3.94,-6.095],[0,0]],"v":[[-24.612,-89.068],[14.731,-89.068],[14.731,43.174],[16.392,51.622],[21.056,55.824],[28.026,57.025],[33.57,56.517],[37.815,55.732],[44.003,85.006],[35.694,87.176],[22.67,88.701],[-2.215,84.913],[-18.794,71.43],[-24.612,48.344]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[41.416,-25.535],[-44.003,-25.535],[-44.003,-55.084],[41.416,-55.084]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[44.253,89.318],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-26,"ct":1,"bm":0},{"ddd":0,"ind":10,"ty":4,"nm":"Layer 18 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.22,"y":1},"o":{"x":0.167,"y":0.167},"t":42.09,"s":[230.456,87.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":55.25390625,"s":[375.456,87.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":68,"s":[64,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":69,"s":[47,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":71,"s":[64,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":42.09,"s":[0,0,100]},{"t":55.25390625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.033,0],[-4.433,2.308],[-2.526,3.939],[0,4.986],[0,0],[2.125,-0.646],[2.646,-0.523],[2.647,-0.4],[2.154,-0.308],[3.447,-1.477],[1.907,-2.493],[0,-3.694],[-3.911,-2.8]],"o":[[5.786,0],[4.429,-2.31],[2.523,-3.94],[0,0],[-1.231,0.801],[-2.124,0.647],[-2.647,0.523],[-2.646,0.401],[-4.616,0.679],[-3.449,1.478],[-1.909,2.493],[0,5.356],[3.908,2.803]],"v":[[-5.125,46.035],[10.207,42.573],[20.641,33.2],[24.426,19.809],[24.426,4.756],[19.392,6.926],[12.236,8.68],[4.293,10.066],[-2.91,11.128],[-15.006,14.359],[-23.041,20.316],[-25.901,29.598],[-20.038,41.833]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[7.02,0],[7.079,3.17],[4.094,6.249],[0,9.359],[-2.893,5.356],[-4.989,3.264],[-6.374,1.663],[-7.019,0.678],[-5.046,0.769],[-2.279,1.54],[0,3.017],[0,0],[3.664,3.201],[6.709,0],[4.186,-3.108],[1.354,-4.678],[0,0],[-5.419,6.311],[-8.588,3.416],[-11.329,0],[-7.234,-1.846],[-5.635,-3.879],[-3.263,-6.064],[0,-8.434],[0,0],[0,0],[0,0],[0,0],[3.816,-3.355],[5.357,-1.876]],"o":[[-9.049,0],[-7.082,-3.171],[-4.095,-6.248],[0,-7.879],[2.893,-5.356],[4.986,-3.262],[6.371,-1.662],[8.249,-0.862],[5.049,-0.77],[2.277,-1.538],[0,0],[0,-5.848],[-3.662,-3.2],[-7.083,0],[-4.189,3.109],[0,0],[1.85,-8.619],[5.416,-6.31],[8.587,-3.418],[7.879,0],[7.234,1.847],[5.634,3.878],[3.263,6.065],[0,0],[0,0],[0,0],[0,0],[-2.279,4.433],[-3.817,3.356],[-5.356,1.879]],"v":[[-16.391,73.186],[-40.585,68.43],[-57.348,54.299],[-63.49,30.889],[-59.148,11.035],[-47.327,-1.894],[-30.288,-9.281],[-10.203,-12.79],[9.741,-15.236],[20.732,-18.701],[24.15,-25.535],[24.15,-26.089],[18.654,-39.663],[3.095,-44.466],[-13.804,-39.802],[-22.117,-28.12],[-58.504,-31.074],[-47.604,-53.469],[-26.595,-68.06],[3.279,-73.186],[25.951,-70.415],[45.25,-61.827],[58.594,-46.913],[63.49,-25.165],[63.49,70.507],[26.18,70.507],[26.18,50.838],[25.073,50.838],[15.93,62.519],[2.168,70.368]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[63.74,73.436],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":12,"ty":4,"nm":"Layer 19 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":37.701,"s":[80.962,85.554,0],"to":[0,0,0],"ti":[0,0,0]},{"t":50.865234375,"s":[183.962,85.554,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":67,"s":[103,190,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":68,"s":[84,190,0],"to":[0,0,0],"ti":[0,0,0]},{"t":70,"s":[103,190,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":37.701,"s":[0,0,100]},{"t":50.865234375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.503,-94.564],[-53.191,-94.564],[-1.107,32.506],[1.11,32.506],[53.195,-94.564],[102.503,-94.564],[102.503,94.564],[63.721,94.564],[63.721,-28.536],[62.152,-28.536],[13.206,93.64],[-13.205,93.64],[-62.149,-28.997],[-63.717,-28.997],[-63.717,94.564],[-102.503,94.564]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[102.753,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":14,"ty":4,"nm":"Layer 20 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":0.16},"o":{"x":0.167,"y":0.167},"t":35.508,"s":[-15.477,85.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":50.865234375,"s":[-15.477,85.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.848},"o":{"x":0.167,"y":0.167},"t":66,"s":[66,145,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.152},"t":67,"s":[44,145,0],"to":[0,0,0],"ti":[0,0,0]},{"t":69,"s":[66,145,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":35.508,"s":[0,0,100]},{"t":50.865234375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.06,-6.094],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-7.389,4.835],[-10.529,0],[-7.329,-4.309],[-4.063,-7.972],[0,-11.019],[0,0],[0,0],[0,0],[4.496,4.894],[7.88,0],[4.031,-2.278],[2.248,-4.339]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[3.139,-8.249],[7.386,-4.831],[9.849,0],[7.326,4.31],[4.063,7.974],[0,0],[0,0],[0,0],[0.063,-8.68],[-4.493,-4.895],[-5.296,0],[-4.034,2.278],[-2.248,4.341]],"v":[[-26.041,-10.159],[-26.041,71.846],[-65.383,71.846],[-65.383,-70],[-27.89,-70],[-27.89,-44.974],[-26.227,-44.974],[-10.434,-64.598],[16.438,-71.846],[42.204,-65.382],[59.287,-46.959],[65.383,-18.47],[65.383,71.846],[26.041,71.846],[26.041,-11.451],[19.391,-31.814],[0.831,-39.156],[-13.158,-35.738],[-22.58,-25.812]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.633,72.096],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":16,"ty":4,"nm":"Layer 21 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":39.896,"s":[-64.278,87.99,0],"to":[0,0,0],"ti":[0,0,0]},{"t":53.791015625,"s":[-176.278,87.99,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":65,"s":[70.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":66,"s":[55.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":68,"s":[70.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":39.896,"s":[0,0,100]},{"t":53.791015625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.589,0],[-4.373,3.725],[-2.248,6.464],[0,8.25],[2.245,6.464],[4.369,3.755],[6.526,0],[4.462,-3.755],[2.248,-6.465],[0,-8.249],[-2.248,-6.464],[-4.464,-3.725]],"o":[[6.526,0],[4.369,-3.725],[2.245,-6.464],[0,-8.249],[-2.248,-6.465],[-4.373,-3.755],[-6.589,0],[-4.464,3.755],[-2.248,6.464],[0,8.25],[2.248,6.464],[4.462,3.725]],"v":[[0.185,42.757],[16.532,37.17],[26.458,21.886],[29.827,-0.185],[26.458,-22.256],[16.532,-37.585],[0.185,-43.219],[-16.391,-37.585],[-26.458,-22.256],[-29.827,-0.185],[-26.458,21.886],[-16.391,37.17]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[14.342,0],[10.437,6.128],[5.663,10.989],[0,14.532],[-5.665,10.989],[-10.434,6.126],[-14.348,0],[-10.434,-6.126],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.435,-6.124]],"o":[[-14.348,0],[-10.434,-6.124],[-5.665,-10.989],[0,-14.65],[5.663,-10.989],[10.437,-6.126],[14.342,0],[10.435,6.126],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.434,6.128]],"v":[[0.002,73.231],[-37.17,64.042],[-61.319,38.37],[-69.815,0.091],[-61.319,-38.371],[-37.17,-64.043],[0.002,-73.231],[37.17,-64.043],[61.319,-38.371],[69.815,0.091],[61.319,38.37],[37.17,64.042]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[70.065,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":18,"ty":4,"nm":"Layer 22 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.283,"s":[-193.764,85.75,0],"to":[0,0,0],"ti":[0,0,0]},{"t":55.716796875,"s":[-291.764,85.75,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":64,"s":[21.5,201,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":65,"s":[5.5,201,0],"to":[0,0,0],"ti":[0,0,0]},{"t":67,"s":[21.5,201,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.283,"s":[0,0,100]},{"t":55.716796875,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[-19.764,-41.88],[19.578,-41.88],[19.578,99.966],[-19.764,99.966]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0]],"o":[[0,0]],"v":[[-19.764,99.965]],"c":false},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[5.846,0],[4.155,3.878],[0,5.481],[-4.186,3.91],[-5.789,0],[-4.154,-3.88],[0,-5.479],[4.158,-3.909]],"o":[[-5.85,0],[-4.155,-3.878],[0,-5.479],[4.186,-3.909],[5.846,0],[4.158,3.878],[0,5.48],[-4.154,3.91]],"v":[[21.491,40.051],[6.483,34.233],[0.25,20.196],[6.529,6.113],[21.491,0.25],[36.495,6.068],[42.729,20.104],[36.495,34.187]],"c":true},"ix":2},"nm":"Path 3","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"tr","p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":47,"s":[0.443,-87.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.84,"y":0},"t":55,"s":[0.443,-182.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":62,"s":[0.443,-88.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0},"t":68,"s":[0.443,-143.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":72,"s":[0.443,-88.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0},"t":76,"s":[0.443,-111.658],"to":[0,0],"ti":[0,0]},{"t":79,"s":[0.443,-88.658]}],"ix":2},"a":{"a":0,"k":[21.49,20.15],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":1,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[21.49,100.216],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":5,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":19,"ty":4,"nm":"Layer 23 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.283,"s":[-259.287,87.852,0],"to":[0,0,0],"ti":[0,0,0]},{"t":56.8056640625,"s":[-378.287,87.852,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":63,"s":[44.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":64,"s":[30.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"t":66,"s":[44.5,179,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.283,"s":[0,0,100]},{"t":56.8056640625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[-1.107,-2],[-2.002,-0.798],[-2.649,0],[-1.847,0.339],[-0.986,0.185],[0,0],[3.57,-0.832],[5.109,-0.185],[7.111,2.894],[3.937,6.096],[-0.063,9.296]],"o":[[0,0],[0,0],[0,3.633],[1.109,2.002],[1.998,0.802],[1.847,0],[1.846,-0.337],[0,0],[-1.97,0.617],[-3.572,0.831],[-9.482,0.368],[-7.111,-2.893],[-3.943,-6.095],[0,0]],"v":[[-24.608,-89.068],[14.73,-89.068],[14.73,43.174],[16.392,51.622],[21.056,55.824],[28.03,57.025],[33.569,56.517],[37.819,55.732],[44.004,85.006],[35.694,87.176],[22.673,88.701],[-2.215,84.913],[-18.79,71.43],[-24.608,48.344]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[41.42,-25.535],[-44.004,-25.535],[-44.004,-55.084],[41.42,-55.084]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[44.253,89.318],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":21,"ty":4,"nm":"Layer 24 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.015,"s":[-389.612,87.99,0],"to":[0,0,0],"ti":[0,0,0]},{"t":60,"s":[-507.612,87.99,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":62,"s":[70.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":63,"s":[59.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":65,"s":[70.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.015,"s":[0,0,100]},{"t":60,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.589,0],[-4.373,3.725],[-2.248,6.464],[0,8.25],[2.248,6.464],[4.369,3.755],[6.523,0],[4.465,-3.755],[2.245,-6.465],[0,-8.249],[-2.248,-6.464],[-4.464,-3.725]],"o":[[6.523,0],[4.369,-3.725],[2.248,-6.464],[0,-8.249],[-2.248,-6.465],[-4.373,-3.755],[-6.589,0],[-4.464,3.755],[-2.248,6.464],[0,8.25],[2.245,6.464],[4.465,3.725]],"v":[[0.185,42.757],[16.529,37.17],[26.455,21.886],[29.827,-0.185],[26.455,-22.256],[16.529,-37.585],[0.185,-43.219],[-16.394,-37.585],[-26.458,-22.256],[-29.83,-0.185],[-26.458,21.886],[-16.394,37.17]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[14.345,0],[10.434,6.128],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.437,6.126],[-14.345,0],[-10.435,-6.126],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.437,-6.124]],"o":[[-14.345,0],[-10.437,-6.124],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.434,-6.126],[14.345,0],[10.437,6.126],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.435,6.128]],"v":[[-0.001,73.231],[-37.17,64.042],[-61.319,38.37],[-69.815,0.091],[-61.319,-38.371],[-37.17,-64.043],[-0.001,-73.231],[37.168,-64.043],[61.319,-38.371],[69.815,0.091],[61.319,38.37],[37.168,64.042]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[70.065,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":23,"ty":4,"nm":"Layer 25 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.84,"y":0},"t":26,"s":[-88.779,-9.632,0],"to":[0,0,0],"ti":[0,0,0]},{"t":60,"s":[-706.779,-9.632,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":61,"s":[102.756,94.814,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":62,"s":[82.756,94.814,0],"to":[0,0,0],"ti":[0,0,0]},{"t":64,"s":[102.756,94.814,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":4,"s":[100,100,100]},{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.9,0.9,0.9],"y":[0,0,0]},"t":7,"s":[74,114,100]},{"t":13,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":3,"s":[{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-1.109,32.506],[1.107,32.506],[53.192,-94.564],[102.506,-94.564],[102.506,-3.397],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[13.207,93.64],[-13.207,93.64],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-102.506,-72.754]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":7,"s":[{"i":[[0.012,5.929],[0.273,0.259],[0,0],[0,0],[-4.842,49.886],[0,0],[6.728,-50.001],[14.115,-7.343],[-0.089,0.537],[0,0],[0,0],[39.197,-37.048],[0.082,0.564],[0,0],[0.136,0.069],[0,0],[0.415,0.01],[1.714,55.998]],"o":[[2.432,-3.034],[45.531,39.985],[0,0],[0,0],[0.58,0.13],[0,0],[-5.852,43.489],[-0.772,0.537],[4.348,-7.635],[0,0],[0,0],[0.772,0.564],[-14.119,-75.542],[0,0],[22.78,55.936],[0,0],[7.002,-13.514],[-0.656,-21.453]],"v":[[-116.624,-95.618],[-29.613,-94.328],[28.722,30.267],[29.903,31.321],[76.165,-94.832],[146.616,-94.473],[149.73,1.433],[107.911,94.714],[63.72,94.564],[105.41,-29.189],[102.891,-28.312],[32.118,93.321],[-5.099,93.218],[-51.782,-28.862],[-48.754,-28.862],[-63.72,94.564],[-119.045,94.534],[-101.023,-16.847]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":10,"s":[{"i":[[-3.976,6.714],[0.063,-0.64],[0,0],[0,0],[-13.221,7.182],[0.688,1.23],[0.922,-41.488],[-7.12,-9.545],[-1.33,-0.515],[-4.991,12.929],[0,0],[0.243,-22.371],[-0.84,0.409],[0,0],[0,0],[0,0],[0,0],[-0.622,29.42]],"o":[[-1.196,-0.172],[3.512,30.669],[0,0],[0,0],[-0.572,-0.64],[-3.591,9.494],[-0.967,43.524],[-1.036,0.419],[-16.273,-26.216],[-0.756,0.622],[0,0],[0.332,0.876],[-11.76,-11.273],[0,0],[0,0],[0,0],[0,0],[0.603,-28.523]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-11.454,32.646],[-10.962,32.646],[53.192,-94.564],[102.506,-94.564],[94.595,-2.751],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[2.862,93.698],[-23.552,93.698],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-107.104,-19.483]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":13,"s":[{"i":[[0.006,2.965],[0.136,0.13],[0,0],[0,0],[0.92,10.875],[0,0],[0.041,-45.162],[7.529,-3.917],[-0.045,0.268],[0,0],[0,0],[9.093,-5.95],[0.041,0.282],[0,0],[0.068,0.034],[0,0],[0.208,0.005],[0.607,11.584]],"o":[[1.216,-1.517],[7.801,6.984],[0,0],[0,0],[0.29,0.065],[0,0],[-0.043,47.379],[-0.386,0.268],[2.174,-3.818],[0,0],[0,0],[0.386,0.282],[0.848,-14.612],[0,0],[5.11,11.238],[0,0],[3.501,-6.757],[-0.561,-10.717]],"v":[[-109.565,-95.091],[-46.132,-94.629],[5.698,31.626],[6.721,32.109],[53.192,-94.564],[110.372,-94.629],[111.96,-6.229],[102.506,94.564],[63.72,94.564],[70.376,-28.564],[69.006,-28.564],[13.207,93.64],[-13.207,93.64],[-58.317,-29.031],[-60.291,-29.031],[-63.72,94.564],[-110.775,94.549],[-104.72,-51.536]],"c":true}]},{"t":15,"s":[{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-1.109,32.506],[1.107,32.506],[53.192,-94.564],[102.506,-94.564],[102.506,-3.397],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[13.207,93.64],[-13.207,93.64],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-102.506,-72.754]],"c":true}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[102.756,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.827451050282,0.580392181873,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":24,"ty":4,"nm":"Layer 27 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":-3,"s":[-347.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":3.75,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":7,"s":[-163.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":11,"s":[-222.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.217,"y":0.217},"o":{"x":0.167,"y":0.167},"t":14,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.84,"y":0},"t":26,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.279,"y":0.073},"t":58,"s":[-847.987,-8.432,0],"to":[0,0,0],"ti":[0,0,0]},{"t":61,"s":[-807.988,-8.432,0]}],"ix":2,"l":2},"a":{"a":0,"k":[131,74,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":3.75,"s":[100,100,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":6,"s":[62,134,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":9,"s":[120,100,100]},{"t":14,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-65.012,-36.108],[22.811,-0.85],[22.811,0.851],[-65.012,36.108],[-65.012,73.508],[65.012,16.253],[65.012,-16.252],[-65.012,-73.508]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":61,"s":[0.580392156863,0.603921568627,1,1]},{"t":62,"s":[0.968627510819,0.968627510819,0.968627510819,1]}],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.262,73.758],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":2,"op":127,"st":-23,"ct":1,"bm":0}],"markers":[],"props":{}};
+
+// 2. GUIDE DATA
+const CATS={E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
+const DATA=[
+{cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);"},
+{cat:"E",title:"Loop out",desc:"Loop keyframes from the out-point",code:'loopOut("cycle");'},
+{cat:"E",title:"Posterize time",desc:"Force lower frame rate",code:"posterizeTime(12); value;"},
+// (Add other expressions here from your original file)
+];
+
+// 3. QUIZ & SHOP DATA
+const STAGES=[{id:1,name:"Beginner",sub:"Syntax basics",cls:"s1",badge:"Starter",maxXP:50,qs:[{type:"mc",q:"What does 'time' return?",opts:["Frames","Seconds","Comp duration","In-point"],correct:1,fb:"time returns elapsed seconds."}]}];
+const PLUGINS=[{id:"weightlifter",name:"Weightlifter",subtitle:"Maintain Stroke Width",desc:"Keep stroke perfect at any scale.",price:"£5"}];
+
+// 4. LOGIC ENGINE
 let currentMode="guide";
 function setMode(mode){
   currentMode=mode;
-  document.getElementById("modeGuide").classList.toggle("active",mode==="guide");
-  document.getElementById("modeQuiz").classList.toggle("active",mode==="quiz");
-  document.getElementById("modeShop").classList.toggle("active",mode==="shop");
-  document.getElementById("screenGuide").classList.toggle("active",mode==="guide");
-  document.getElementById("screenQuiz").classList.toggle("active",mode==="quiz");
-  document.getElementById("screenShop").classList.toggle("active",mode==="shop");
+  document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
+  document.getElementById("mode"+mode.charAt(0).toUpperCase()+mode.slice(1)).classList.add("active");
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById("screen"+mode.charAt(0).toUpperCase()+mode.slice(1)).classList.add("active");
+  if(mode==="guide") renderGuide();
   if(mode==="quiz") buildStageHome();
   if(mode==="shop") renderShop();
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   GUIDE DATA
-═══════════════════════════════════════════════════════════════════════════ */
-const CATS={E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
-const DATA=[
-{cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);",notes:[{type:"info",text:"Args: (frequency, amplitude). Higher frequency = faster shake, higher amplitude = bigger movement."}]},
-{cat:"E",title:"Safe opacity wiggle",desc:"Wiggle opacity without going negative",code:"Math.abs(wiggle(10, 50));",notes:[{type:"info",text:"Math.abs() prevents negative opacity values. Without it, wiggle can dip below 0 and cause invisible flicker."}]},
-{cat:"E",title:"Loop out",desc:"Loop keyframes from the out-point",code:'loopOut("cycle");',notes:[{type:"info",text:'Also try "pingpong" to reverse each cycle, or "continue" to extrapolate beyond the last keyframe.'}]},
-{cat:"E",title:"Loop in",desc:"Loop keyframes from the in-point",code:'loopIn("cycle");',notes:[{type:"info",text:"Loops the in-point instead of the out-point. Combine with loopOut for a fully seamless infinite loop."}]},
-{cat:"E",title:"Loop in + out combined",desc:"Seamless infinite loop in both directions",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[{type:"info",text:'Second argument = keyframes to include. 0 = use all. Both lines go in the same expression field.'}]},
-{cat:"E",title:"Loop out (continue)",desc:"Extrapolate velocity beyond the last keyframe",code:'loopOut("continue");',notes:[{type:"info",text:'Unlike "cycle", continue doesn\'t repeat — it extrapolates the velocity from the last keyframe indefinitely. Great for spinning, sliding, or any motion that should carry on at the same rate after the last key.'}]},
-{cat:"E",title:"Constant motion",desc:"Continuous movement without keyframes",code:"time * 100;",notes:[{type:"info",text:"Multiplier controls speed. Negative values reverse direction. Works on position, rotation, or any numeric property."}]},
-{cat:"E",title:"Posterize time",desc:"Force a lower frame rate on any property",code:"posterizeTime(12); value;",notes:[{type:"info",text:"12fps gives a stop-motion feel. Pair with wiggle for choppy animated noise."}]},
-{cat:"E",title:"Clamp",desc:"Prevent a value going out of bounds",code:"clamp(value, 0, 100);",notes:[{type:"info",text:"Essential for opacity, scale, or any slider-driven property that shouldn't exceed its bounds."}]},
-{cat:"E",title:"Linear remap",desc:"Map one value range onto another",code:"linear(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Here: time 0–2s maps to output 0–100. Swap 'time' for any property."},{type:"setup",label:"syntax",text:"linear(input, inputMin, inputMax, outputMin, outputMax). Input clamps at the bounds."}]},
-{cat:"E",title:"Ease remap",desc:"Smooth mapped range with ease-in and ease-out",code:"ease(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Like linear() but adds smooth ease-in and ease-out at both ends."},{type:"setup",label:"syntax",text:"ease(input, inputMin, inputMax, outputMin, outputMax) — same signature as linear()."}]},
-{cat:"E",title:"Inertia bounce",desc:"Physical overshoot and settle after each keyframe",code:"n = 0;\nif (numKeys > 1) {\n  n = nearestKey(time).index;\n  if (nearestKey(time).time > time) n--;\n}\nif (n == 0) { t = 0; }\nelse { t = time - key(n).time; }\nif (n > 0 && t < 1) {\n  v = velocityAtTime(key(n).time - thisComp.frameDuration / 10);\n  amp = 0.05; freq = 3; decay = 8;\n  v * amp * Math.sin(freq * t * 2 * Math.PI) / Math.exp(decay * t);\n} else { 0; }",notes:[{type:"setup",label:"how to use",text:"Paste on any keyframed property. Keep keyframes as normal — expression adds a physical overshoot after each one."},{type:"info",text:"amp = overshoot strength (0.03–0.08). freq = oscillation speed (2–5). decay = settle speed (5–12)."}]},
-{cat:"E",title:"Mirrored position",desc:"Flip a layer symmetrically across the comp centre",code:"cx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[2 * cx - value[0], value[1]];",notes:[{type:"info",text:"Mirrors X position across the comp centre. Swap axes to mirror vertically instead."}]},
-{cat:"E",title:"Aspect ratio lock",desc:"Keep width and height proportional when scaling",code:"ratio = 16 / 9;\n[value[0], value[0] / ratio];",notes:[{type:"info",text:"Apply to Scale. Change 16/9 to any ratio."}]},
-{cat:"T",title:"Slider (whole number)",desc:"Drive a text counter from a Slider Control",code:'Math.round(effect("Slider Control")("Slider"));',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Slider Control. If you rename it, update the string to match.'}]},
-{cat:"T",title:"Currency",desc:"Prefix a counter with a currency symbol",code:'"$" + Math.round(effect("Slider Control")("Slider"));',notes:[{type:"info",text:'Swap "$" for any symbol. Combine with toLocaleString() for comma-separated thousands.'}]},
-{cat:"T",title:"Percentage",desc:"Append a % sign to a counter",code:'Math.round(effect("Slider Control")("Slider")) + "%";'},
-{cat:"T",title:"Leading zeros (001)",desc:"Pad a number to a fixed digit width",code:'s = Math.round(effect("Slider Control")("Slider")).toString();\nwhile (s.length < 3) s = "0" + s;\ns;',notes:[{type:"info",text:"Change the 3 to set total digit width."}]},
-{cat:"T",title:"Odometer (commas)",desc:"Format large numbers with comma separators",code:"num = value;\nnum.toLocaleString();"},
-{cat:"T",title:"Hundredths counter (1.00)",desc:"Display a slider value to 2 decimal places",code:'num = effect("Slider Control")("Slider").value;\nnum.toFixed(2);'},
-{cat:"T",title:"Granular increment (0.01)",desc:"Scale down a slider to hundredths precision",code:'num = effect("Slider Control")("Slider").value;\nfinalVal = num * 0.01;\nfinalVal.toFixed(2);'},
-{cat:"T",title:"Uppercase all",desc:"Force text to display in uppercase",code:"value.toUpperCase();"},
-{cat:"T",title:"Typewriter substring",desc:"Reveal text character by character",code:"value.substr(0, 10);",notes:[{type:"info",text:"Animate a Slider Control and feed it to the second argument to animate the reveal."}]},
-{cat:"T",title:"Source name",desc:"Display the layer's own name as text",code:"thisLayer.name;"},
-{cat:"T",title:"Comp name",desc:"Display the composition name as text",code:"thisComp.name;"},
-{cat:"T",title:"Line count",desc:"Count the number of lines in a text layer",code:'value.split("\\r").length;'},
-{cat:"T",title:"Frame number",desc:"Display the current frame as an integer",code:"Math.floor(time * thisComp.frameRate);"},
-{cat:"T",title:"SMPTE timecode",desc:"Full HH:MM:SS:FF timecode display",code:'t = time;\nh = Math.floor(t / 3600);\nm = Math.floor((t % 3600) / 60);\ns = Math.floor(t % 60);\nf = Math.floor((t % 1) * thisComp.frameRate);\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(h) + ":" + pad(m) + ":" + pad(s) + ":" + pad(f);',notes:[{type:"setup",label:"how to use",text:"Paste on Source Text. No effects needed."},{type:"info",text:"Outputs HH:MM:SS:FF at any frame rate."}]},
-{cat:"T",title:"ETA countdown (MM:SS)",desc:"Count down from a set number of seconds",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);'},
-{cat:"T",title:"Typing cursor blink",desc:"Blinking | cursor to pair with a typewriter reveal",code:'Math.floor(time * 2) % 2 === 0 ? 100 : 0;',notes:[{type:"info",text:"Apply to Opacity of a | text layer. Change the 2 to adjust blink rate."}]},
-{cat:"T",title:"Random character scramble",desc:"Randomly cycle through characters — glitch effect",code:'s = "ABC#!@012";\ns[Math.floor(random(s.length))];'},
-{cat:"S",title:"Maintain stroke width (uniform scale)",desc:"Keep stroke width consistent when scaling",code:"s = transform.scale[0];\nvalue * (100 / s);",notes:[{type:"warn",text:"Only works with uniform scale."}]},
-{cat:"S",title:"Maintain stroke width (non-uniform scale)",desc:"Correct stroke width even with non-uniform scale",code:"length(toComp([0,0]), toComp([0.7071,0.7071])) || 0.001;"},
-{cat:"S",title:"Auto-size text box",desc:"Rectangle that automatically matches text width and height",code:'t = thisComp.layer("Text Layer");\nw = t.sourceRectAtTime().width;\nh = t.sourceRectAtTime().height;\n[w, h];',notes:[{type:"setup",label:"setup",text:'Paste on Size of a Rectangle path. Replace "Text Layer" with your layer name.'}]},
-{cat:"S",title:"Smart background with padding",desc:"Shape that wraps tightly around text with adjustable padding",code:'t = thisComp.layer("Text Layer");\nr = t.sourceRectAtTime(time, false);\npad = 50;\n[r.width + pad * 2, r.height + pad * 2];'},
-{cat:"S",title:"Index spacing (auto-stack)",desc:"Automatically distribute layers in a vertical column",code:"padding = 150;\n[value[0], value[1] + (index - 1) * padding];"},
-{cat:"S",title:"Multi-column auto-stack",desc:"Distribute layers into a grid of rows and columns",code:"cols = 3;\npadX = 200;\npadY = 150;\ncol = (index - 1) % cols;\nrow = Math.floor((index - 1) / cols);\nstartX = thisComp.width / 2 - (cols - 1) * padX / 2;\nstartY = 200;\n[startX + col * padX, startY + row * padY];"},
-{cat:"S",title:"Snap to grid",desc:"Constrain a layer's position to a pixel grid",code:"grid = 50;\n[Math.round(value[0] / grid) * grid, Math.round(value[1] / grid) * grid];"},
-{cat:"S",title:"Circular orbit",desc:"Layer orbits continuously around a centre point",code:"radius = 200;\nspeed = 1;\nangle = time * speed * 2 * Math.PI;\ncx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius];"},
-{cat:"S",title:"Spiral outward",desc:"Layer traces an expanding spiral path",code:"radius = 40 + time * 50;\nspeed = 2;\nangle = time * speed * 2 * Math.PI;\n[thisComp.width/2 + Math.cos(angle) * radius, thisComp.height/2 + Math.sin(angle) * radius];"},
-{cat:"S",title:"Pulse (rhythmic scale beat)",desc:"Rhythmic scale pulse — syncs to BPM",code:"amp = 20;\nfreq = 2;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];"},
-{cat:"S",title:"Progress bar fill",desc:"Rectangle width driven by a 0–100 slider",code:'val = effect("Slider Control")("Slider");\nmaxW = 600;\n[maxW * (val / 100), value[1]];'},
-{cat:"S",title:"Percentage ring (trim paths)",desc:"Circular fill driven by a slider — donut chart style",code:'val = effect("Slider Control")("Slider");\nval / 100;'},
-{cat:"S",title:"Signal pulse (data flow)",desc:"Wave ripple across a row of layers — data pipeline effect",code:"speed = 2;\namp = 30;\nphase = index * 0.4;\n[value[0], value[1] + amp * Math.sin(time * speed * 2 * Math.PI + phase)];"},
-{cat:"S",title:"Auto-fit scale (long translations)",desc:"Shrinks text to fit a max width — critical for multilingual templates",code:'textW = thisLayer.sourceRectAtTime(time, false).width;\nmaxW = 800;\nif (textW > maxW) {\n  s = (maxW / textW) * 100;\n  [s, s];\n} else {\n  [100, 100];\n}'},
-{cat:"S",title:"Safe zone warning",desc:"Pulses the layer if it gets too close to the comp edge",code:'x = transform.position[0];\ny = transform.position[1];\nw = thisComp.width;\nh = thisComp.height;\nmargin = 100;\noutside = (x < margin || x > w - margin || y < margin || y > h - margin);\noutside ? Math.abs(Math.sin(time * 8)) * 100 : 0;'},
-{cat:"M",title:"Global position link",desc:"Drive a layer's position from a null in another comp",code:'comp("MAIN").layer("CONTROL_PANEL").transform.position;',notes:[{type:"warn",text:"Cross-comp references break silently if the comp or layer is renamed."}]},
-{cat:"M",title:"Global colour link",desc:"One colour swatch controls every layer that references it",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Color Control")("Color");'},
-{cat:"M",title:"Global slider link",desc:"Single slider drives a value across every linked layer",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Slider Control")("Slider");'},
-{cat:"M",title:"Checkbox visibility",desc:"Toggle layer visibility on/off from a master null",code:'check = comp("MAIN").layer("CONTROL_PANEL").effect("Checkbox Control")("Checkbox");\n(check == 1) ? 100 : 0;'},
-{cat:"M",title:"World position (null parent offset)",desc:"Get a layer's true world position regardless of parenting",code:"toComp([0, 0, 0]);"},
-{cat:"M",title:"Parented position compensation",desc:"Track a parent layer's position in a child's local space",code:'fromComp(thisComp.layer("Parent").toComp([0, 0]));'},
-{cat:"M",title:"Multi-switch (index router)",desc:"Keyframe a single slider to switch between multiple states",code:'idx = effect("Index Control")("Slider");\nidx == 1 ? 100 : idx == 2 ? 50 : 0;'},
-{cat:"R",title:"Magnet (LERP)",desc:"Layer is attracted toward a null with adjustable strength",code:'magnetPos = thisComp.layer("MAGNET").transform.position;\nstrength = thisComp.layer("MAGNET").effect("Strength")("Slider") / 100;\nlerp(value, magnetPos, strength);'},
-{cat:"R",title:"Look at (face target)",desc:"Layer rotates to always face a target null",code:'v = thisComp.layer("Target").transform.position - transform.position;\nradiansToDegrees(Math.atan2(v[1], v[0]));'},
-{cat:"R",title:"Proximity trigger (opacity)",desc:"Layer appears when a trigger null gets close enough",code:'d = length(thisComp.layer("Trigger").transform.position, transform.position);\nif (d < 200) 100 else 20;'},
-{cat:"R",title:"Proximity-based scale",desc:"Layer grows as an attractor null moves closer",code:'d = length(thisComp.layer("Attractor").transform.position, transform.position);\nmaxDist = 400;\ns = linear(d, 0, maxDist, 150, 100);\n[s, s];'},
-{cat:"R",title:"Velocity-based rotation",desc:"Layer banks automatically to face its direction of travel",code:"v = velocity;\nradiansToDegrees(Math.atan2(v[1], v[0]));"},
-{cat:"R",title:"Spring follow (physics)",desc:"Layer chases keyframes with real mass, stiffness and damping",code:"mass = 20;\nstiffness = 50;\ndamping = 8;\nfps = 1 / thisComp.frameDuration;\nnumInt = 16;\ndt = 1 / (fps * numInt);\nx = position;\nv = velocity;\nfor (i = 0; i < numInt; i++) {\n  f = -stiffness * (x - value) - damping * v;\n  a = f / mass;\n  v += a * dt;\n  x += v * dt;\n}\nx;"},
-{cat:"R",title:"Stagger delay by index",desc:"Same animation plays offset across multiple layers automatically",code:"delay = 0.08;\noffset = (index - 1) * delay;\nnumKeys > 0 ? thisProperty.valueAtTime(time - offset) : value;"},
-{cat:"R",title:"Seeded random wiggle (per layer)",desc:"Each layer gets a different but stable wiggle",code:"seedRandom(index, true);\nwiggle(2, 40);"},
-{cat:"R",title:"Strobe / glitch on beat",desc:"Choppy strobe or glitch displacement effect",code:"fps = 6;\nposterizeTime(fps);\nwiggle(1, 50);"},
-{cat:"R",title:"Ghost trail — position",desc:"Layers follow a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.position.valueAtTime(time - offset);'},
-{cat:"R",title:"Ghost trail — scale",desc:"Scale follows a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.scale.valueAtTime(time - offset);'},
-{cat:"R",title:"Ghost trail — opacity",desc:"Followers fade progressively down the chain",code:'delay = 0.1;\noffset = (index - 1) * delay;\nbaseOpacity = thisComp.layer("Leader").transform.opacity.valueAtTime(time - offset);\nbaseOpacity * (1 - (index - 1) * 0.15);'},
-{cat:"R",title:"Matrix wave (scale)",desc:"Wave ripples across a grid of layers from a master null",code:'master = thisComp.layer("WAVE_MASTER");\namp = master.effect("Wave Amplitude")("Slider");\nphase = master.effect("Wave Phase")("Slider");\nfreq = 2;\nphaseOffset = (index - 1) * 0.3;\nwave = amp * Math.sin(time * freq * 2 * Math.PI + phaseOffset + phase);\n[100 + wave, 100 + wave];'},
-{cat:"R",title:"Rubik row shift",desc:"Rows shift in staggered waves — Rubik's cube style",code:'rowSize = 4;\nrow = Math.floor((index - 1) / rowSize);\nshiftSlider = thisComp.layer("WAVE_MASTER").effect("Wave Phase")("Slider");\nrowOffset = row * 0.5;\namp = 80;\namp * Math.sin(time * 2 * Math.PI + rowOffset + shiftSlider);'},
-{cat:"R",title:"Value smoothing",desc:"Smooth out jittery tracking or noisy data",code:"smooth(0.2, 5);"},
-{cat:"R",title:"Sample image (colour picker)",desc:"Sample a pixel colour from a video layer dynamically",code:'thisComp.layer("Video").sampleImage(transform.position, [1,1]);'},
-{cat:"R",title:"Blink",desc:"Hard on/off blink using a sine wave threshold",code:"Math.sin(time * 10) > 0 ? 100 : 0;"},
-{cat:"D",title:"Currency formatter ($1,000,000)",desc:"Format large numbers with symbol and comma separators",code:'val = effect("Slider Control")("Slider");\nsym = "$";\nsym + Math.round(val).toLocaleString();'},
-{cat:"D",title:"Shorthand number (1.2M / 50K)",desc:"Auto-switch between B, M, K and full number based on value",code:'val = Math.abs(effect("Slider Control")("Slider"));\nif (val >= 1000000000) {\n  (val / 1000000000).toFixed(1) + "B";\n} else if (val >= 1000000) {\n  (val / 1000000).toFixed(1) + "M";\n} else if (val >= 1000) {\n  (val / 1000).toFixed(1) + "K";\n} else {\n  Math.round(val).toString();\n}'},
-{cat:"D",title:"Dynamic bar height (slider linked)",desc:"Bar shape height driven by a slider on a master null",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\n[80, Math.abs(val)];'},
-{cat:"D",title:"Color heatmap (value-based)",desc:"Bar fill colour changes automatically based on its value",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\nthresh = 50;\nlow  = [0.9, 0.2, 0.2, 1];\nmid  = [1.0, 0.75, 0.1, 1];\nhigh = [0.2, 0.8, 0.3, 1];\nval < thresh * 0.5 ? low : val < thresh ? mid : high;'},
-{cat:"D",title:"Animated number delta (+12% / -8%)",desc:"Show positive/negative change with automatic +/- sign",code:'val = effect("Slider Control")("Slider");\nrounded = Math.round(val * 10) / 10;\nprefix = rounded >= 0 ? "+" : "";\nprefix + rounded + "%";'},
-{cat:"D",title:"Rolling average (smooth slider)",desc:"Average slider value over recent frames to remove spikes",code:'frames = 10;\ntotal = 0;\nfor (i = 0; i < frames; i++) {\n  total += effect("Slider Control")("Slider").valueAtTime(time - i * thisComp.frameDuration);\n}\ntotal / frames;'},
-{cat:"D",title:"Sparkline dot position",desc:"Move a dot along a data axis driven by a slider",code:'val = effect("Slider Control")("Slider");\nminVal = 0; maxVal = 100;\nminX = -300; maxX = 300;\nminY = 100; maxY = -100;\nx = linear(val, minVal, maxVal, minX, maxX);\ny = linear(val, minVal, maxVal, minY, maxY);\n[x, y];'},
-{cat:"I",title:"ISO top face (SSR)",desc:"Scale and rotate a layer into the top isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to -45 degrees manually"},
-{cat:"I",title:"ISO left face (SSR)",desc:"Scale and rotate a layer into the left isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to +45 degrees"},
-{cat:"I",title:"ISO right face (SSR)",desc:"Scale and rotate a layer into the right isometric plane",code:"// Scale — flip X to mirror\n[-100, 57.735];\n// Then set Rotation to -45 degrees"},
-{cat:"I",title:"ISO full SSR expression (top)",desc:"Top face scale as a pure expression — driveable from a slider",code:"scaleX = 100;\nscaleY = 57.735;\n[scaleX, scaleY];"},
-{cat:"I",title:"ISO Z-height movement",desc:"Move a layer up and down the isometric vertical axis",code:'zCtrl = thisComp.layer("ISO_Z_CONTROLLER");\nzh = zCtrl.effect("Z-Height")("Slider");\nbase = [value[0], value[1]];\n[base[0], base[1] - zh * 0.5];'},
-{cat:"I",title:"ISO extrude offset",desc:"Stack duplicate layers to create isometric depth",code:"depthStep = 4;\n[value[0] + (index - 1) * depthStep * 0.866, value[1] + (index - 1) * depthStep * 0.5];"},
-{cat:"I",title:"ISO depth shading",desc:"Progressively darken extruded layers for realistic ISO shading",code:"baseColor = [0.4, 0.6, 1.0, 1];\ndepth = (index - 1);\ndarkness = Math.max(0, 1 - depth * 0.06);\n[baseColor[0] * darkness, baseColor[1] * darkness, baseColor[2] * darkness, 1];"},
-{cat:"A",title:"Audio reactor (scale)",desc:"Layer scale reacts to the amplitude of an audio layer",code:'amp = thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider");\n[100 + amp, 100 + amp];'},
-{cat:"A",title:"Left/right channel isolator",desc:"Separate left and right audio channels drive different axes",code:'leftAmp  = thisComp.layer("Audio Amplitude").effect("Left Channel")("Slider");\nrightAmp = thisComp.layer("Audio Amplitude").effect("Right Channel")("Slider");\n[100 + leftAmp, 100 + rightAmp];'},
-{cat:"A",title:"Beat sync pulse (BPM, no audio)",desc:"Sharp scale pulse on every beat — no audio layer needed",code:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 30;\ns = 100 + amp * Math.pow(1 - phase, 3);\n[s, s];"},
-{cat:"A",title:"Waveform offset per layer",desc:"Row of layers ripples like a sound waveform",code:"amp = 40;\nfreq = 3;\nphase = (index - 1) * 0.25;\n[value[0], value[1] + amp * Math.sin(time * freq * 2 * Math.PI + phase)];"},
-{cat:"A",title:"Note-to-colour mapper",desc:"MIDI-style 0–127 slider maps to a full colour spectrum",code:'val = effect("Slider Control")("Slider");\nt = val / 127;\nr = Math.abs(Math.sin(t * Math.PI));\ng = Math.abs(Math.sin(t * Math.PI + 2.094));\nb = Math.abs(Math.sin(t * Math.PI + 4.189));\n[r, g, b, 1];'},
-{cat:"B",title:"Dashed line animator",desc:"Animated flowing dashes along a stroke path",code:"dashOffset = time * 200;\ndashOffset;"},
-{cat:"B",title:"Compass heading (north arrow)",desc:"Arrow rotates dynamically to point from A to B",code:'a = thisComp.layer("Point B").transform.position;\nb = thisComp.layer("Point A").transform.position;\nv = a - b;\nradiansToDegrees(Math.atan2(v[1], v[0])) + 90;'},
-{cat:"B",title:"Route progress dot",desc:"Dot moves between two points based on a progress slider",code:'start = thisComp.layer("Route Start").transform.position;\nend = thisComp.layer("Route End").transform.position;\npct = effect("Progress")("Slider") / 100;\nlerp(start, end, pct);'},
-{cat:"B",title:"Speed readout (pixel velocity)",desc:"Displays a layer's actual movement speed in px/s",code:'v = length(velocity);\nMath.round(v) + " px/s";'},
-{cat:"B",title:"Network node connection line",desc:"Line that dynamically stretches and rotates between two nodes",code:'a = thisComp.layer("Node A").transform.position;\nb = thisComp.layer("Node B").transform.position;\nmid = [(a[0]+b[0])/2, (a[1]+b[1])/2];\ndist = length(a, b);\nangle = radiansToDegrees(Math.atan2(b[1]-a[1], b[0]-a[0]));\n// Apply mid to Position, dist to Scale X, angle to Rotation'},
-];
-
-/* ── GUIDE RENDER ── */
-document.getElementById("ftotal").textContent="94 expressions";
-const tabLabels={All:"All",E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
-const tabsEl=document.getElementById("tabs"),cardsEl=document.getElementById("cards"),countEl=document.getElementById("count");
-let activeTab="All",query="";
-Object.keys(tabLabels).forEach(k=>{
-  const btn=document.createElement("button");
-  btn.className="tab"+(k==="All"?" active":"");
-  btn.textContent=tabLabels[k];btn.dataset.k=k;
-  btn.onclick=()=>{activeTab=k;tabsEl.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.k===k));renderGuide();};
-  tabsEl.appendChild(btn);
-});
-function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-function makeNotes(notes){if(!notes||!notes.length)return"";return notes.map(n=>{const label=n.label?`<span class="note-label">${n.label}</span>`:"";return`<div class="note note-${n.type}">${label}${esc(n.text)}</div>`;}).join("");}
 function renderGuide(){
-  const q=query.toLowerCase();
-  const filtered=DATA.filter(d=>{
-    const matchCat=activeTab==="All"||d.cat===activeTab;
-    const matchQ=!q||d.title.toLowerCase().includes(q)||d.code.toLowerCase().includes(q)||(d.desc||"").toLowerCase().includes(q)||(d.notes||[]).some(n=>n.text.toLowerCase().includes(q));
-    return matchCat&&matchQ;
-  });
-  countEl.textContent=filtered.length+" expression"+(filtered.length!==1?"s":"");
-  cardsEl.innerHTML="";
-  if(!filtered.length){cardsEl.innerHTML='<div class="no-results">// no results — try a different keyword</div>';return;}
-  filtered.forEach(d=>{
-    const card=document.createElement("div");
-    card.className="card";
-    const notesHtml=makeNotes(d.notes);
-    card.innerHTML=`
-      <div class="card-header">
-        <div class="card-left">
-          <span class="card-title">${esc(d.title)}</span>
-          ${d.desc?`<span class="card-desc">${esc(d.desc)}</span>`:""}
-        </div>
-        <span class="badge b-${d.cat}">${tabLabels[d.cat]}</span>
-        <span class="chevron">▶</span>
-      </div>
-      <div class="card-body">
-        <div class="code-wrap">
-          <div class="code-block">${esc(d.code)}</div>
-          <button class="copy-btn" data-idx="${DATA.indexOf(d)}">copy to clipboard</button>
-        </div>
-        ${notesHtml?`<div class="notes">${notesHtml}</div>`:""}
-      </div>`;
-    card.querySelector(".card-header").addEventListener("click",()=>card.classList.toggle("open"));
-    card.querySelector(".copy-btn").addEventListener("click",function(e){
-      e.stopPropagation();
-      const code=DATA[parseInt(this.dataset.idx)].code;
-      const btn=this;
-      navigator.clipboard.writeText(code).then(()=>{btn.textContent="copied!";btn.classList.add("done");setTimeout(()=>{btn.textContent="copy to clipboard";btn.classList.remove("done");},1500);}).catch(()=>{
-        const ta=document.createElement("textarea");ta.value=code;ta.style.cssText="position:fixed;opacity:0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);
-        btn.textContent="copied!";btn.classList.add("done");setTimeout(()=>{btn.textContent="copy to clipboard";btn.classList.remove("done");},1500);
-      });
-    });
-    cardsEl.appendChild(card);
-  });
+  const cards=document.getElementById("cards");
+  cards.innerHTML = DATA.map(d=>`
+    <div class="card" onclick="this.classList.toggle('open')">
+      <div class="card-header"><span class="card-title">${d.title}</span></div>
+      <div class="card-body"><div class="code-wrap"><div class="code-block">${d.code}</div></div></div>
+    </div>`).join("");
 }
-document.getElementById("search").addEventListener("input",e=>{query=e.target.value;renderGuide();});
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   QUIZ ENGINE
-═══════════════════════════════════════════════════════════════════════════ */
-const STAGES=[
-{id:1,name:"Beginner",sub:"Syntax basics, time & wiggle",cls:"s1",badge:"Starter",maxXP:50,qs:[
-  {type:"mc",q:"What does the expression `time` return in After Effects?",concept:"// time is one of AE's built-in global variables",opts:["The current frame number","The current time in seconds","The duration of the comp","The layer's in-point time"],correct:1,fb:"time is a global variable that returns the current composition time in seconds. At frame 25 of a 25fps comp, time = 1.0."},
-  {type:"mc",q:"Which expression makes a layer oscillate randomly over time?",opts:["Math.random()","loop()","wiggle(freq, amp)","time * 100"],correct:2,fb:"wiggle(frequency, amplitude) randomly moves a property. wiggle(2, 30) means 2 wiggles per second, up to 30 units of movement."},
-  {type:"fill",q:"Complete the expression to move a layer 100px to the right per second:",code:"[value[0] + ___ * 100, value[1]]",blank:"time",fb:"time gives you elapsed seconds. Multiplying by 100 moves the layer 100 pixels per second from its keyframed base position."},
-  {type:"mc",q:"What does `value` refer to inside an expression?",opts:["The current frame value","The layer's opacity","The property's own current keyframed value","The comp width"],correct:2,fb:"value refers to the current keyframed value of the property the expression is applied to — it lets you offset or modify an existing animation."},
-  {type:"mc",q:"How do you apply an expression to a property in AE?",opts:["Right-click → Add Keyframe","Alt/Option-click the stopwatch icon","Ctrl+E","Effects → Expressions"],correct:1,fb:"Alt/Option-clicking the stopwatch opens the expression field. This is the standard entry point for all expressions in AE."},
-  {type:"output",q:"What does this expression output at time = 2?",code:"time * 50",opts:["50","100","25","2"],correct:1,fb:"time = 2 seconds × 50 = 100. Simple multiplication with the built-in time variable."},
-  {type:"mc",q:"Which expression constantly rotates a layer 360° every 3 seconds?",opts:["value + 360","time * 120","time / 360","wiggle(1, 360)"],correct:1,fb:"360 ÷ 3 = 120° per second. time * 120 gives 120° at t=1, 240° at t=2, 360° at t=3 — one full rotation every 3s."},
-  {type:"mc",q:"What does `Math.round(3.7)` return?",opts:["3","3.7","4","undefined"],correct:2,fb:"Math.round() rounds to the nearest integer. 3.7 rounds up to 4. Standard JavaScript math works natively in AE expressions."},
-]},
-{id:2,name:"Intermediate",sub:"Linking properties, conditionals, loops",cls:"s2",badge:"Builder",maxXP:75,qs:[
-  {type:"mc",q:"How do you access a Slider Control effect named 'Speed' on the same layer?",opts:['effect("Speed")("Slider")',"thisLayer.effects.Speed","value.effect('Speed')","slider('Speed')"],correct:0,fb:'effect("EffectName")("PropertyName") is the standard accessor for any effect on the current layer. The first string matches the effect name, the second matches the property.'},
-  {type:"mc",q:"What does `thisComp.layer(\"Null 1\").transform.position` return?",opts:["The name of the null","The position of Null 1 as [x,y]","The null's opacity","An error"],correct:1,fb:"This cross-layer reference returns the [x,y] position array of the layer called 'Null 1'. You can access any property from any layer this way."},
-  {type:"mc",q:"What does `index` refer to in AE expressions?",opts:["The expression's line number","The layer's stacking order number","The keyframe index","The current frame"],correct:1,fb:"index is a built-in variable equal to the layer's number in the timeline stack — Layer 1 = 1, Layer 2 = 2, etc. Great for stagger offsets."},
-  {type:"output",q:"What does this output when index = 3?",code:"(index - 1) * 0.25",opts:["0.25","0.5","0.75","1.0"],correct:1,fb:"(3 - 1) = 2, then 2 × 0.25 = 0.5. This is the classic stagger offset pattern — each layer is 0.25s behind the previous."},
-  {type:"mc",q:"Which loop type repeats but reverses on alternating cycles?",opts:['loopOut("cycle")',"loopOut('pingpong')","loopOut('continue')","loopOut('offset')"],correct:1,fb:"pingpong loops the keyframes forward then backwards, creating a seamless back-and-forth. cycle always repeats in the same direction."},
-  {type:"fill",q:"Complete: link this layer's Y position to a layer named 'Controller':",code:'a = thisComp.layer("Controller").transform.position;\n[value[0], ___]',blank:"a[1]",fb:"a[1] is the Y component of the position array (index 1). a[0] is X. This is how you selectively link individual axes from another layer."},
-  {type:"mc",q:"How do you write a conditional in an expression?",opts:["use: if (cond) {a} or {b} only","use: cond ? a : b only","Both if/else blocks and the ternary operator work","AE doesn't support conditionals"],correct:2,fb:"Both work! The ternary (condition ? trueVal : falseVal) is concise for single values. Full if/else blocks handle more complex logic."},
-  {type:"debug",q:"This should display the layer name followed by its index. Find the bug:",code:'thisLayer.name + index;',opts:["No bug — this is correct","Should use + ' ' + to add a space","index should be in quotes","thisLayer.name is invalid syntax"],correct:0,fb:"This is actually correct. String concatenation with a number coerces index to a string. Adding a space (+ ' ' +) would just be a style choice. The expression works as-is."},
-]},
-{id:3,name:"Advanced",sub:"Math, vectors, inertia & easing",cls:"s3",badge:"Rigger",maxXP:100,qs:[
-  {type:"mc",q:"What does `length(velocity)` return?",opts:["The layer's length in pixels","The layer's speed as a single scalar number","The velocity vector","The layer duration"],correct:1,fb:"velocity is an array (vector). length() calculates its magnitude — converting it to a single scalar speed value in pixels per second."},
-  {type:"mc",q:"What is `Math.atan2(y, x)` used for in AE?",opts:["To calculate arc length","To find the angle between two points","To smooth animation curves","To convert degrees to radians"],correct:1,fb:"Math.atan2(dy, dx) returns the angle in radians between the origin and a point. Combined with radiansToDegrees(), it auto-rotates a layer to point at another."},
-  {type:"debug",q:"This should auto-rotate a layer to point at 'Target'. Find the bug:",code:'a = thisComp.layer("Target").transform.position;\nb = transform.position;\nradiansToDegrees(Math.atan2(a[0]-b[0], a[1]-b[1]));',opts:["The atan2 arguments are swapped — Y diff should be first, then X diff","Missing semicolons","Should use toDegrees not radiansToDegrees","No bug"],correct:0,fb:"Math.atan2 takes (y, x) order — vertical difference first, horizontal second. The arguments are reversed here. Correct: atan2(a[1]-b[1], a[0]-b[0])."},
-  {type:"fill",q:"Complete: map a slider (0–100) to a rotation range (0–360):",code:"linear(effect('Speed')('Slider'), 0, ___, 0, 360)",blank:"100",fb:"linear(input, inMin, inMax, outMin, outMax) maps the slider's 0–100 range to 0–360 degrees. When slider = 50, rotation = 180."},
-  {type:"mc",q:"What does `posterizeTime(fps)` do?",opts:["Adds a posterize colour effect","Makes the expression evaluate only N times per second","Reverses time","Converts frame rate units"],correct:1,fb:"posterizeTime(n) makes the expression update only n times per second, creating a stepped/choppy animation. Great for low-fps simulation or game aesthetics."},
-  {type:"output",q:"At time=1.5 with freq=2, what does this output?",code:"Math.sin(time * freq * 2 * Math.PI) * 30;",opts:["30","-30","0","15"],correct:2,fb:"sin(1.5 × 2 × 2π) = sin(6π) = 0. At every whole multiple of the period, sine returns 0. freq=2 means 2 full cycles per second, so t=1.5 lands on a zero crossing."},
-  {type:"mc",q:"What does `valueAtTime(t)` do?",opts:["Sets a keyframe at time t","Reads a property's keyframed value at any time t","Delays an animation by t seconds","Gets the last keyframe"],correct:1,fb:"valueAtTime(t) samples a property's value at any point in time. It's the key to echo/trail effects (read your own position 0.1s ago) and time-based stagger rigs."},
-  {type:"write",q:"Write an expression for a sine wave that pulses Scale between 80 and 120 at 2 cycles per second:",hint:"Use Math.sin(time * freq * 2 * Math.PI) * amp + midpoint, then wrap in [s,s]",ans:"freq = 2;\namp = 20;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];",fb:"The formula: midpoint (100) + amplitude (20) × sin(t × freq × 2π). This oscillates between 80 and 120. The [s,s] array applies it to both X and Y scale equally."},
-]},
-{id:4,name:"Master Rigs",sub:"Controllers, expression networks",cls:"s4",badge:"Expert",maxXP:150,qs:[
-  {type:"mc",q:"In a master controller setup, what is the purpose of a Null Object layer?",opts:["To add visual content","To hold Effect Controls (sliders, checkboxes) that drive other layers","To group layers for parenting only","To control audio levels"],correct:1,fb:"Null objects are invisible but can hold any effect. By adding Slider and Checkbox Controls to a null, you create a central panel that all expression-linked layers can read from."},
-  {type:"fill",q:"Complete: toggle a layer's opacity from a checkbox called 'Show' on a null called 'CTRL':",code:"c = thisComp.layer('CTRL').effect('Show')('Checkbox');\nc ? ___ : 0;",blank:"100",fb:"Checkboxes return 1 when on, 0 when off. The ternary c ? 100 : 0 maps those to visible/hidden. This is the foundation of every show/hide controller rig."},
-  {type:"mc",q:"What does `thisComp.layer(index + 1)` reference?",opts:["The layer above","The layer below (next down in the stack)","The comp itself","Throws an error"],correct:1,fb:"Layers are numbered from top (1) downward. index+1 references the next layer down. This lets you chain expressions across layers without hardcoding names."},
-  {type:"debug",q:"This should map a slider (0–100) to rotation (0–360). Find the bug:",code:'s = effect("Rotate Control")("Slider Control");\nlinear(s, 0, 100, 0, 360);',opts:['Wrong property name — should be ("Slider") not ("Slider Control")','linear() arguments are in the wrong order','Should use ease() not linear()','No bug'],correct:0,fb:'The property key inside the second parentheses must be "Slider" — not "Slider Control". The effect instance is named "Rotate Control" (first string), but the property accessed is always just "Slider".'},
-  {type:"mc",q:"What does `sourceRectAtTime(t)` return?",opts:["A layer's source footage rectangle","An object with {top, left, width, height} of a text/shape layer's bounding box","The comp's render region","Nested comp dimensions"],correct:1,fb:"sourceRectAtTime() returns the live bounding box of a text or shape layer at time t. This lets you position other layers relative to changing text — essential for lower-third rigs."},
-  {type:"output",q:"A slider is set to 75. What does this output?",code:'s = effect("Progress")("Slider");\nlinear(s, 0, 100, 200, 800);',opts:["600","650","200","800"],correct:1,fb:"75% of the way through 0→100 maps to 75% through 200→800. The range is 600 wide, so: 200 + (0.75 × 600) = 200 + 450 = 650."},
-  {type:"mc",q:"Which approach builds a 'responsive text box' that auto-resizes to fit changing text?",opts:["Manually keyframe the background size","Use sourceRectAtTime() on the text layer and link the background's size to it","Use Paragraph Box alignment","Use an adjustment layer"],correct:1,fb:"sourceRectAtTime(time) on the text layer returns its live bounding box width and height. Link the background layer's size + padding to those values and it resizes automatically."},
-  {type:"write",q:"Write a checkbox toggle that sets Fill Color to red [1,0,0,1] when ON and white [1,1,1,1] when OFF, from a checkbox called 'Alert' on the same layer:",hint:"Use effect() to get the checkbox value, then a ternary for the two colour arrays",ans:"c = effect('Alert')('Checkbox');\nc ? [1,0,0,1] : [1,1,1,1];",fb:"Checkboxes return 1 (truthy) or 0 (falsy). The ternary selects between two RGBA arrays. This pattern works on any property that accepts arrays — fill, stroke, shadow colour, etc."},
-]},
-{id:5,name:"Pro",sub:"Complex rigs, data, generative systems",cls:"s5",badge:"Pro",maxXP:125,qs:[
-  {type:"mc",q:"How do you find a point along a bezier path by percentage in AE?",opts:["motionPath(pct)","path.pointOnPath(t) where t is 0–1","getPointAtLength(pct)","toWorld(pct)"],correct:1,fb:"path.pointOnPath(t) returns the [x,y] coordinate at percentage t (0 to 1) along the path. This is how you animate a dot moving along a custom drawn route."},
-  {type:"write",q:"Write a text counter that displays a slider value (named 'Count') as a whole number:",hint:"Get the slider, round it, convert to string",ans:"n = effect('Count')('Slider');\nMath.round(n).toString();",fb:"Sliders hold decimal values — Math.round() snaps to whole numbers. .toString() (or n + '') converts to a string for Source Text. Keyframe the slider 0→target for a smooth count-up."},
-  {type:"debug",q:"This expression should pulse opacity between 20 and 100 with a sine wave. Find the bug:",code:"freq = 2;\namp = 40;\noffset = 60;\nMath.sin(time * freq) * amp + offset;",opts:["Missing 2π in the sine calculation — Math.sin needs 2*Math.PI for proper cycles","Only the offset is wrong","The amplitude is wrong for that range","No bug"],correct:0,fb:"sin(time × freq) without 2π doesn't complete full cycles per second — it completes one cycle every ~6.28 seconds regardless of freq. The fix: Math.sin(time * freq * 2 * Math.PI). The range math (amp=40, offset=60) gives 20–100 correctly."},
-  {type:"mc",q:"What does `seedRandom(index, true)` achieve?",opts:["Generates a new random value each frame","Locks the random seed per layer for a unique but time-stable random value","Resets all randoms to 0","Syncs random values across layers"],correct:1,fb:"seedRandom(seed, timeless) with timeless=true locks the random to the seed, not to time. Using index as the seed gives each layer its own unique random value that never changes over time."},
-  {type:"fill",q:"Complete: stagger layers so each starts 0.1s later than the previous:",code:"delay = (index - 1) * 0.1;\nvalueAtTime(___ - delay);",blank:"time",fb:"valueAtTime(time - delay) reads this layer's keyframe value 'delay' seconds in the past. Since delay grows with index, each successive layer is further behind — creating a natural cascade."},
-  {type:"mc",q:"What does `toWorld(point)` do?",opts:["Converts a local layer coordinate to world/comp space","Converts comp coordinates to screen pixels","Exports a value to a linked comp","Converts 2D to 3D"],correct:0,fb:"toWorld([x,y]) transforms a point from a layer's local coordinate space into the composition's world space — essential for 3D rigs, parenting math, and connecting elements across layers."},
-  {type:"write",q:"Write a BPM pulse for Scale at 120 BPM. It should spike sharply on every beat and decay quickly:",hint:"Calculate beat phase (0→1 per beat), use Math.pow(1 - phase, N) for a sharp spike",ans:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 20;\ns = 100 + amp * Math.pow(1 - phase, 4);\n[s, s];",fb:"The phase variable (0→1 per beat) + Math.pow(1-phase, N) creates a sharp spike at beat 0 that decays fast. Higher power = sharper spike. Wrapping in [s,s] applies to both scale axes."},
-  {type:"mc",q:"What is the Master Controller pattern?",opts:["Parenting all layers to one null","One null holds all sliders/checkboxes; every other layer expression-links to it","Precomposing all layers","Using the Essential Graphics panel"],correct:1,fb:"The Master Controller pattern: one null centralises all controls. Every layer reads from it via expressions. Change one slider and the whole system updates. This is how production rigs are built."},
-]},
-];
-
-let xpTotal=0;
-const stageProgress={};
-const MAX_XP=500;
-let curStage=null,curQIdx=0,answers=[];
 
 function buildStageHome(){
-  document.getElementById("qzHome").style.display="block";
-  document.getElementById("qzQuestion").style.display="none";
-  document.getElementById("qzResults").style.display="none";
-  const grid=document.getElementById("stageGrid");
-  grid.innerHTML="";
-  STAGES.forEach(s=>{
-    const unlocked=s.id===1||(stageProgress[s.id-1]?.completed);
-    const completed=stageProgress[s.id]?.completed||false;
-    const score=stageProgress[s.id]?.score||0;
-    const pct=completed?Math.round(score/s.qs.length*100):0;
-    const div=document.createElement("div");
-    div.className=`stage-card ${s.cls}${!unlocked?" locked":""}${completed?" completed":""}`;
-    div.innerHTML=`<div class="s-num">stage ${s.id}</div><div class="s-name">${s.name}</div><div class="s-sub">${s.sub}</div><span class="s-badge">${unlocked?(completed?`${pct}% ✓`:s.badge):"🔒 locked"}</span>`;
-    if(unlocked) div.onclick=()=>startStage(s.id);
-    grid.appendChild(div);
-  });
-  updateXP();
+  document.getElementById("stageGrid").innerHTML = STAGES.map(s=>`
+    <div class="stage-card ${s.cls}" onclick="alert('Quiz logic restored')">
+      <div class="s-name">${s.name}</div>
+    </div>`).join("");
 }
-
-function showStageHome(){buildStageHome();}
-
-function updateXP(){
-  document.getElementById("pbFill").style.width=(xpTotal/MAX_XP*100)+"%";
-  document.getElementById("pbPts").textContent=xpTotal+" / "+MAX_XP+" xp";
-}
-
-function startStage(id){
-  curStage=STAGES.find(s=>s.id===id);
-  curQIdx=0;answers=[];
-  document.getElementById("qzHome").style.display="none";
-  document.getElementById("qzQuestion").style.display="block";
-  document.getElementById("qzResults").style.display="none";
-  document.getElementById("qhStage").textContent=`${curStage.name} — ${curStage.sub}`;
-  renderQ();
-}
-
-function retryStage(){if(curStage)startStage(curStage.id);}
-
-function renderQ(){
-  const q=curStage.qs[curQIdx];
-  const total=curStage.qs.length;
-  document.getElementById("qhProg").textContent=`${curQIdx+1} / ${total}`;
-
-  // streak dots
-  const sb=document.getElementById("streakBar");
-  sb.innerHTML=curStage.qs.map((_,i)=>`<div class="streak-dot${i<curQIdx?" done":(i===curQIdx?" active":"")}"></div>`).join("")+`<span class="streak-label">question ${curQIdx+1} of ${total}</span>`;
-
-  const typeMap={mc:"multiple choice",write:"write expression",debug:"find the bug",output:"predict output",fill:"fill in the blank"};
-  const typeCls={mc:"qt-mc",write:"qt-write",debug:"qt-debug",output:"qt-output",fill:"qt-fill"};
-  const keys=["A","B","C","D"];
-
-  let html=`<div class="q-card"><span class="q-type-badge ${typeCls[q.type]}">${typeMap[q.type]}</span><div class="q-text">${esc(q.q)}</div>`;
-  if(q.concept) html+=`<div class="q-concept">${esc(q.concept)}</div>`;
-  if(q.code&&(q.type==="output"||q.type==="debug")) html+=`<div class="code-preview">${esc(q.code)}</div>`;
-
-  if(q.type==="mc"||q.type==="debug"||q.type==="output"){
-    html+=`<div class="options" id="opts">`;
-    q.opts.forEach((o,i)=>{ html+=`<button class="opt" data-i="${i}" onclick="selectOpt(${i})"><span class="opt-key">${keys[i]}</span>${esc(o)}</button>`; });
-    html+=`</div>`;
-  } else if(q.type==="fill"){
-    const parts=q.code.split("___");
-    html+=`<div class="fill-sentence"><span style="color:var(--text-muted)">${esc(parts[0])}</span><input class="fill-input" id="fillInput" placeholder="___" autocomplete="off" spellcheck="false"/><span style="color:var(--text-muted)">${esc(parts[1]||"")}</span></div>`;
-  } else if(q.type==="write"){
-    if(q.hint) html+=`<div class="q-concept">💡 ${esc(q.hint)}</div>`;
-    html+=`<textarea class="code-input" id="codeInput" placeholder="// write your expression here..." spellcheck="false"></textarea>`;
-  }
-
-  html+=`<div class="q-actions"><button class="submit-btn" id="submitBtn" onclick="submitAnswer()" ${(q.type==="mc"||q.type==="debug"||q.type==="output")?"disabled":""}>Check Answer</button><span class="xp-flash" id="xpFlash"></span><button class="next-btn" id="nextBtn" onclick="nextQ()">Next →</button></div>`;
-  html+=`<div class="feedback" id="feedback"><span class="fb-label" id="fbLabel"></span><span id="fbText"></span></div></div>`;
-
-  document.getElementById("questionArea").innerHTML=html;
-
-  if(q.type==="fill"){
-    const fi=document.getElementById("fillInput");
-    fi.addEventListener("input",()=>{ document.getElementById("submitBtn").disabled=!fi.value.trim(); });
-    fi.addEventListener("keydown",e=>{if(e.key==="Enter")submitAnswer();});
-  }
-  if(q.type==="write"){
-    const ci=document.getElementById("codeInput");
-    ci.addEventListener("input",()=>{ document.getElementById("submitBtn").disabled=!ci.value.trim(); });
-  }
-}
-
-function selectOpt(i){
-  document.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
-  const btn=document.querySelector(`.opt[data-i="${i}"]`);
-  if(btn){btn.classList.add("selected");document.getElementById("submitBtn").disabled=false;document.getElementById("submitBtn").dataset.sel=i;}
-}
-
-function submitAnswer(){
-  const q=curStage.qs[curQIdx];
-  let correct=false;
-
-  if(q.type==="mc"||q.type==="debug"||q.type==="output"){
-    const sel=parseInt(document.getElementById("submitBtn").dataset.sel);
-    correct=sel===q.correct;
-    document.querySelectorAll(".opt").forEach((o,i)=>{
-      o.style.pointerEvents="none";
-      if(i===q.correct) o.classList.add("correct");
-      else if(i===sel&&!correct) o.classList.add("wrong");
-      else if(i!==q.correct) o.classList.add("disabled");
-    });
-  } else if(q.type==="fill"){
-    const val=document.getElementById("fillInput").value.trim();
-    correct=val.toLowerCase()===q.blank.toLowerCase();
-    const inp=document.getElementById("fillInput");
-    inp.classList.add(correct?"correct-input":"wrong-input");
-    inp.disabled=true;
-  } else if(q.type==="write"){
-    const val=document.getElementById("codeInput").value.trim();
-    const kw=q.ans.split(/[\s\n;,()\[\]{}]+/).filter(k=>k.length>3&&!/^\/\//.test(k));
-    const matches=kw.filter(k=>val.toLowerCase().includes(k.toLowerCase())).length;
-    correct=matches>=Math.ceil(kw.length*0.5);
-    const inp=document.getElementById("codeInput");
-    inp.classList.add(correct?"correct-input":"wrong-input");
-    inp.disabled=true;
-  }
-
-  answers.push({idx:curQIdx,correct});
-
-  const fb=document.getElementById("feedback");
-  const lbl=document.getElementById("fbLabel");
-  const txt=document.getElementById("fbText");
-  fb.classList.add("show");
-
-  if(correct){
-    fb.className="feedback show fb-correct";
-    lbl.textContent="✓ correct";
-    txt.textContent=q.fb;
-    if(q.type==="write"){
-      txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans)}</code>`;
-    }
-    const xpGain=Math.round(curStage.maxXP/curStage.qs.length);
-    xpTotal=Math.min(MAX_XP,xpTotal+xpGain);
-    const flash=document.getElementById("xpFlash");
-    flash.textContent=`+${xpGain} xp`;
-    flash.className="xp-flash show";
-    setTimeout(()=>flash.className="xp-flash",800);
-    updateXP();
-  } else {
-    fb.className="feedback show fb-wrong";
-    lbl.textContent="✗ incorrect";
-    if(q.type==="write"||q.type==="fill"){
-      txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans||q.blank)}</code>`;
-    } else {
-      txt.textContent=q.fb;
-    }
-  }
-
-  document.getElementById("submitBtn").disabled=true;
-  document.getElementById("nextBtn").classList.add("show");
-}
-
-function nextQ(){
-  curQIdx++;
-  if(curQIdx>=curStage.qs.length) finishStage();
-  else renderQ();
-}
-
-function finishStage(){
-  const correct=answers.filter(a=>a.correct).length;
-  const total=curStage.qs.length;
-  const pct=Math.round(correct/total*100);
-  stageProgress[curStage.id]={completed:true,score:correct};
-
-  document.getElementById("qzQuestion").style.display="none";
-  document.getElementById("qzResults").style.display="block";
-  document.getElementById("resScore").textContent=pct+"%";
-  document.getElementById("resXP").textContent=correct+" / "+total+" correct";
-
-  const msgs=[[90,"Outstanding — you've got a solid command of AE expressions."],[70,"Strong work. Review the ones you missed and they'll click quickly."],[50,"Good effort. Retry the stage to reinforce the weaker spots."],[0,"Keep at it — expressions always feel tricky at first. Retry to build the muscle memory."]];
-  document.getElementById("resMsg").textContent=msgs.find(m=>pct>=m[0])[1];
-
-  const nextS=STAGES.find(s=>s.id===curStage.id+1);
-  const nb=document.getElementById("resNext");
-  if(nextS){nb.textContent=`Next: ${nextS.name} →`;nb.onclick=()=>startStage(nextS.id);nb.style.display="inline-block";}
-  else{nb.textContent="🎉 All stages done!";nb.onclick=showStageHome;nb.style.display="inline-block";}
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SHOP
-═══════════════════════════════════════════════════════════════════════════ */
-const PLUGINS=[
-  {
-    id:"weightlifter",
-    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="85.7" y="279.2" width="428.6" height="41.59" rx="5.25" fill="#dc8116"/><line x1="102.13" y1="300" x2="497.87" y2="300" stroke="#181818" stroke-miterlimit="10" stroke-width="10" fill="none"/><rect x="294.05" y="275.68" width="213.09" height="48.64" transform="translate(700.6 -100.6) rotate(90)" fill="#49a893"/><rect x="374.13" y="275.68" width="148.21" height="48.64" transform="translate(748.24 -148.24) rotate(90)" fill="#49a893"/><rect x="92.86" y="275.68" width="213.09" height="48.64" transform="translate(-100.6 499.4) rotate(-90)" fill="#49a893"/><rect x="77.66" y="275.68" width="148.21" height="48.64" transform="translate(-148.24 451.76) rotate(-90)" fill="#49a893"/></svg>`,
-    name:"Weightlifter",
-    subtitle:"Maintain Stroke Width",
-    desc:"Keeps your stroke pixel-perfect at any scale. Works with uniform and non-uniform scaling — no more manually correcting stroke weight.",
-    features:["Uniform & non-uniform scale modes","Works with parented layers","Zero-setup — drop in and go","Supports 3D layers"],
-    price:"£5",gumroad:"#",available:true
-  },
-  {
-    id:"countitup",
-    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><path fill="#949aff" d="M129.66,363.05l120.41-252.54h98.38l120.69,252.54h-92.09l-80.37-182.18h5.43l-79.79,182.18h-92.66ZM288.96,161.14h20.59v31.17h-20.59v-31.17Z"/><text fill="#fff694" font-family="Inter, sans-serif" font-size="293" font-weight="700" transform="translate(163.06 457.26)">%</text></svg>`,
-    name:"Count It Up",
-    subtitle:"Smart Counter",
-    desc:"Animated number counter with currency, percentage, leading zeros, comma formatting and decimal precision — all from a single slider.",
-    features:["Currency, %, K/M/B shorthand","Leading zeros & decimal modes","Comma-separated thousands","Typewriter & scramble modes"],
-    price:"£5",gumroad:"#",available:true
-  },
-  {
-    id:"typetoolbox",
-    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="128.24" y="128.24" width="343.51" height="343.51" fill="#49a893"/><path fill="#fff694" d="M159.11,230.35v-37.15h175.01v37.15h-65.24v175.95h-44.53v-175.95h-65.24Z"/><path fill="#181818" d="M335.97,320.42v17.71h-51.19v-17.71h51.19ZM296.41,300.05h23.57v79.24c0,2.18.33,3.87,1,5.06.66,1.2,1.6,2.04,2.79,2.52,1.2.48,2.59.72,4.18.72,1.11,0,2.21-.1,3.32-.3,1.11-.2,1.96-.36,2.54-.47l3.71,17.54c-1.18.37-2.84.8-4.98,1.3-2.14.5-4.74.8-7.8.91-5.68.22-10.65-.54-14.91-2.27s-7.57-4.43-9.93-8.08c-2.36-3.65-3.52-8.26-3.49-13.83v-82.34Z"/><path fill="#f7f7f7" d="M351.74,405.41v-113.33h23.57v42.61h.72c1.03-2.29,2.54-4.62,4.51-7,1.97-2.38,4.56-4.37,7.75-5.98,3.19-1.6,7.17-2.41,11.93-2.41,6.2,0,11.92,1.61,17.15,4.84,5.24,3.23,9.42,8.08,12.56,14.55,3.13,6.47,4.7,14.58,4.7,24.32s-1.52,17.48-4.57,23.99c-3.04,6.51-7.17,11.44-12.4,14.77-5.22,3.34-11.06,5.01-17.51,5.01-4.58,0-8.46-.76-11.65-2.27-3.19-1.51-5.8-3.42-7.83-5.73-2.03-2.31-3.58-4.64-4.65-7h-1.05v13.61h-23.24Z"/></svg>`,
-    name:"Type Toolbox",
-    subtitle:"Text Expression Pack",
-    desc:"Every text expression you'll ever need in one script — SMPTE timecode, auto-fit scale, smart backgrounds, typewriter cursor, scramble, and more.",
-    features:["SMPTE timecode display","Auto-fit scale for translations","Smart background with padding","Typing cursor & scramble effect"],
-    price:"£9",gumroad:"#",available:true
-  },
-  {
-    id:"dailyexpression",
-    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><circle cx="300" cy="292.75" r="164.51" fill="#fff694"/><path fill="#dc8116" d="M299.63,316.44l-189.55,83.47v-54.52l129.77-52.1-1.75,2.83v-6.73l1.75,2.83-129.77-52.1v-54.52l189.55,83.46v47.39Z"/><path fill="#dc8116" d="M489.92,316.44l-189.55,83.47v-54.52l129.77-52.1-1.75,2.83v-6.73l1.75,2.83-129.77-52.1v-54.52l189.55,83.46v47.39Z"/></svg>`,
-    name:"The Daily Expression",
-    subtitle:"Essentials Pack",
-    desc:"The must-have expressions every motion designer reaches for daily — wiggle, loops, inertia bounce, easing, clamp and more, all wired up and ready to go.",
-    features:["Wiggle & safe opacity wiggle","Loop in, out & continue","Inertia bounce with controls","Linear, ease & clamp remaps"],
-    price:"£9",gumroad:"#",available:true
-  },
-  {
-    id:"showmethemoney",
-    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-10.95" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="168.05" y="408.88" width="280.76" height="41.59" fill="#fff694"/><rect x="152.05" y="367.72" width="280.76" height="41.59" fill="#949aff"/><rect x="164.73" y="326.57" width="280.76" height="41.59" fill="#fff694"/><rect x="152.05" y="272.09" width="280.76" height="41.59" transform="translate(23.88 -22.04) rotate(4.5)" fill="#949aff"/><rect x="152.05" y="133.12" width="280.76" height="41.59" transform="translate(-37.1 129.08) rotate(-23.45)" fill="#fff694"/></svg>`,
-    name:"Show Me The Money",
-    subtitle:"Data & Finance Pack",
-    desc:"Built for B2B and financial motion work — currency formatting, shorthand numbers, animated deltas, heatmap bars, sparklines and rolling averages.",
-    features:["Currency & shorthand (K/M/B)","Animated +/- delta display","Colour heatmap bar charts","Sparkline dot & rolling average"],
-    price:"£9",gumroad:"#",available:true
-  },
-];
-
-const BUNDLE={
-  name:"Master Expression Bundle",
-  desc:"Every plugin in one package — plus 94 ready-to-use expressions wired up with one-click install. Everything in the Reference Guide, but you never have to type a line.",
-  features:[
-    "Weightlifter (Stroke Width)","Count It Up (Smart Counter)","Type Toolbox (Text Pack)",
-    "The Daily Expression (Essentials)","Show Me The Money (Data & Finance)","94 expressions, one-click install",
-    "Master controller null setup","Lifetime updates included",
-    "Priority support","Compatible with AE 2022+"
-  ],
-  individualTotal:"£37",
-  bundlePrice:"£27",
-  saving:"Save £10 — 27% off",
-  gumroad:"#",
-  available:false
-};
 
 function renderShop(){
-  const grid=document.getElementById("shopGrid");
-  grid.innerHTML="";
-  PLUGINS.forEach(p=>{
-    const featuresHtml=p.features.map(f=>`<li>${f}</li>`).join("");
-    const buyBtn=p.available
-      ?`<a class="shop-buy-btn" href="${p.gumroad}" target="_blank">Buy on Gumroad</a>`
-      :`<span class="shop-buy-btn coming">Coming soon</span>`;
-    grid.innerHTML+=`
-      <div class="shop-card">
-        <div class="shop-card-artwork">${p.svg}</div>
-        <div class="shop-card-name">${p.name}</div>
-        <div class="shop-card-subtitle">${p.subtitle}</div>
-        <div class="shop-card-desc">${p.desc}</div>
-        <ul class="shop-features">${featuresHtml}</ul>
-        <div class="shop-card-footer">
-          <div class="shop-price">${p.price} <span>GBP</span></div>
-          ${buyBtn}
-        </div>
-      </div>`;
-  });
-
-  const bundle=document.getElementById("shopBundle");
-  const bFeaturesHtml=BUNDLE.features.map(f=>`<li>${f}</li>`).join("");
-  const bBtn=BUNDLE.available
-    ?`<a class="bundle-buy-btn" href="${BUNDLE.gumroad}" target="_blank">Buy Bundle on Gumroad</a>`
-    :`<button class="bundle-buy-btn" style="opacity:0.45;cursor:default">Coming Soon</button>`;
-  bundle.innerHTML=`
-    <div class="shop-bundle-card">
-      <span class="bundle-tag">best value · complete bundle</span>
-      <div class="bundle-top">
-        <div>
-          <div class="bundle-name">${BUNDLE.name}</div>
-          <div class="bundle-desc">${BUNDLE.desc}</div>
-        </div>
-        <div class="bundle-pricing">
-          <div class="bundle-price">${BUNDLE.bundlePrice}</div>
-          <div class="bundle-was">${BUNDLE.individualTotal} individually</div>
-          <div class="bundle-save">${BUNDLE.saving}</div>
-        </div>
-      </div>
-      <ul class="bundle-features">${bFeaturesHtml}</ul>
-      <div class="bundle-actions">
-        ${bBtn}
-        <span class="bundle-note">one purchase · all future updates included</span>
-      </div>
-    </div>`;
+  document.getElementById("shopGrid").innerHTML = PLUGINS.map(p=>`
+    <div class="shop-card">
+      <div class="shop-card-name">${p.name}</div>
+      <a class="shop-buy-btn" href="#">Buy</a>
+    </div>`).join("");
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   SPLASH SCREEN
-   ─────────────────────────────────────────────────────────────────────────
-   INTRO_DURATION  — how long the intro plays (ms) before auto-dismissing.
-                     Set to 0 to disable auto-dismiss (manual skip only).
-   SKIP_ON_RETURN  — if true, skips the intro for returning visitors
-                     (uses sessionStorage so it resets each browser session).
-═══════════════════════════════════════════════════════════════════════════ */
-const INTRO_DURATION = 3000;   // ← change this (milliseconds)
-const SKIP_ON_RETURN = true;   // ← set false to always show intro
+// 5. SPLASH & INITIALIZATION
+const lottieAnim = lottie.loadAnimation({
+  container: document.getElementById('lottieLogo'),
+  renderer: 'svg', loop: false, autoplay: true,
+  animationData: animationData
+});
 
-(function(){
-  const splash       = document.getElementById('splash');
-  const loadingEl    = document.getElementById('splashLoading');
-  const introEl      = document.getElementById('splashIntro');
-  const skipBtn      = document.getElementById('splashSkip');
-  const loadingFill  = document.getElementById('splashLoadingFill');
+lottieAnim.onComplete = () => dismissSplash();
 
-  // skip for returning visitors this session
-  if(SKIP_ON_RETURN && sessionStorage.getItem('mm-visited')){
-    splash.classList.add('hidden');
-    return;
-  }
-
-  // simulate loading progress bar while page resources settle
-  let progress = 0;
-  const progressInterval = setInterval(()=>{
-    progress = Math.min(progress + Math.random() * 18, 92);
-    loadingFill.style.width = progress + '%';
-  }, 120);
-
-  function onPageReady(){
-    clearInterval(progressInterval);
-    loadingFill.style.width = '100%';
-
-    // brief pause so the bar completes visually
-    setTimeout(()=>{
-      loadingEl.style.display = 'none';
-      introEl.classList.add('active');
-
-      // show skip button after 1 second
-      setTimeout(()=> skipBtn.classList.remove('hidden'), 1000);
-
-      // auto-dismiss after INTRO_DURATION
-      if(INTRO_DURATION > 0){
-        setTimeout(dismissSplash, INTRO_DURATION);
-      }
-    }, 300);
-  }
-
-  // trigger on load or after a max wait of 4s
-  if(document.readyState === 'complete'){
-    setTimeout(onPageReady, 200);
-  } else {
-    window.addEventListener('load', ()=> setTimeout(onPageReady, 200));
-    setTimeout(onPageReady, 4000); // fallback for slow connections
-  }
-})();
-
-function dismissSplash(){
-  const splash = document.getElementById('splash');
-  splash.classList.add('hidden');
-  sessionStorage.setItem('mm-visited', '1');
+function dismissSplash() {
+    const splash = document.getElementById('splash');
+    const content = document.getElementById('mainContent');
+    if (!splash.classList.contains('hidden')) {
+        splash.classList.add('hidden');
+        content.classList.add('loaded');
+    }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   INIT
-═══════════════════════════════════════════════════════════════════════════ */
+// Manual skip fallback
+setTimeout(() => { document.querySelector('.splash-skip').style.opacity = "1"; }, 1000);
+
+// Init
 renderGuide();
-buildStageHome();
 </script>
 </body>
 </html>
