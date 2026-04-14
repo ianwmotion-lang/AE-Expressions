@@ -288,6 +288,129 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 
 @media(max-width:580px){.container{padding:2rem 1rem 4rem}h1{font-size:1.8rem}.card-desc{display:none}}
 
+/* ═══════════════════════════════════════════════════════
+   SPLASH SCREEN
+═══════════════════════════════════════════════════════ */
+#splash{
+  position:fixed;inset:0;z-index:9999;
+  background:#181818;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  transition:opacity 0.6s ease, visibility 0.6s ease;
+}
+#splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
+
+/* loading state — shown while page resources load */
+.splash-loading{display:flex;flex-direction:column;align-items:center;gap:28px}
+.splash-m-icon{width:90px;height:90px;animation:splashPulse 1.4s ease-in-out infinite}
+@keyframes splashPulse{
+  0%,100%{opacity:0.4;transform:scale(0.97)}
+  50%{opacity:1;transform:scale(1.03)}
+}
+.splash-loading-bar{width:120px;height:2px;background:rgba(211,148,255,0.15);border-radius:999px;overflow:hidden}
+.splash-loading-fill{height:100%;width:0%;background:#d394ff;border-radius:999px;transition:width 0.3s ease}
+.splash-loading-label{font-family:'Fira Code',monospace;font-size:10px;color:rgba(211,148,255,0.4);letter-spacing:0.18em;text-transform:uppercase}
+
+/* intro state — swap in your animated SVG here */
+.splash-intro{display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;width:100%;max-width:700px;padding:2rem}
+.splash-intro.active{display:flex}
+
+/* ── ANIMATED LOGO SLOT ──
+   Replace the contents of #splashLogoSlot with your
+   animated SVG when it's ready. The slot is centred,
+   full width up to 600px, with auto height.         */
+#splashLogoSlot{width:100%;max-width:600px;display:flex;align-items:center;justify-content:center}
+#splashLogoSlot svg,#splashLogoSlot img{width:100%;height:auto;display:block}
+
+/* static wordmark shown until you add the animated SVG */
+.splash-wordmark-static{width:100%;max-width:560px;animation:splashFadeUp 0.8s ease forwards;opacity:0}
+@keyframes splashFadeUp{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.splash-tagline{
+  font-family:'Fira Code',monospace;
+  font-size:11px;color:rgba(211,148,255,0.5);
+  letter-spacing:0.2em;text-transform:uppercase;
+  animation:splashFadeUp 0.8s 0.3s ease forwards;opacity:0;
+}
+.splash-skip{
+  position:absolute;bottom:32px;right:32px;
+  font-family:'Fira Code',monospace;font-size:10px;
+  color:rgba(247,247,247,0.25);letter-spacing:0.12em;text-transform:uppercase;
+  background:transparent;border:none;cursor:pointer;
+  transition:color 0.2s;padding:6px 10px;
+}
+.splash-skip:hover{color:rgba(247,247,247,0.6)}
+.splash-skip.hidden{display:none}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     SPLASH SCREEN
+     Loading state shows while page loads.
+     Intro state shows your animated logo.
+     ═══════════════════════════════════════════════════ -->
+<div id="splash" role="status" aria-label="Loading MotionMaths">
+
+  <!-- LOADING STATE: shown while resources load -->
+  <div class="splash-loading" id="splashLoading">
+    <!-- M icon pulsing -->
+    <svg class="splash-m-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true">
+      <rect width="600" height="600" fill="#181818"/>
+      <path fill="#d394ff" d="M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z"/>
+      <path fill="#949aff" d="M556.58,389v33.33h-138.79v-33.33h138.79Z"/>
+      <path fill="#f7f7f7" d="M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z"/>
+    </svg>
+    <div class="splash-loading-bar"><div class="splash-loading-fill" id="splashLoadingFill"></div></div>
+    <span class="splash-loading-label">loading</span>
+  </div>
+
+  <!-- INTRO STATE: shown after load — drop your animated SVG in #splashLogoSlot -->
+  <div class="splash-intro" id="splashIntro">
+
+    <!-- ╔══════════════════════════════════════════════╗
+         ║  ANIMATED LOGO SLOT                         ║
+         ║  Replace this comment with your animated    ║
+         ║  SVG when ready. It will be centred and     ║
+         ║  scale to fit on any screen.                ║
+         ║                                             ║
+         ║  Example:                                   ║
+         ║  <svg id="splashLogoSlot" ...>...</svg>     ║
+         ║                                             ║
+         ║  Until then, the static wordmark below      ║
+         ║  is shown as a placeholder.                 ║
+         ╚══════════════════════════════════════════════╝ -->
+
+    <div id="splashLogoSlot">
+      <!-- PLACEHOLDER — remove this svg when you add your animated version -->
+      <svg class="splash-wordmark-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.98 229.76" aria-label="MotionMaths">
+        <path fill="#949aff" d="M130.02,122.82L0,180.08v-37.4l89.02-35.74-1.2,1.94v-4.62l1.2,1.94L0,70.46v-37.4l130.02,57.26v32.51Z"/>
+        <path fill="#d394ff" d="M128.72,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.79v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
+        <path fill="#d394ff" d="M429.95,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.44-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.43-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.44,6.13,18.49,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.82,9.19-37.17,9.19ZM430.14,172.23c6.52,0,11.97-1.86,16.34-5.59,4.37-3.72,7.68-8.82,9.93-15.28s3.37-13.82,3.37-22.07-1.12-15.61-3.37-22.07-5.56-11.57-9.93-15.33c-4.37-3.75-9.82-5.63-16.34-5.63s-12.11,1.88-16.58,5.63-7.82,8.86-10.06,15.33c-2.25,6.46-3.37,13.82-3.37,22.07s1.12,15.61,3.37,22.07c2.25,6.46,5.6,11.56,10.06,15.28,4.46,3.72,9.99,5.59,16.58,5.59Z"/>
+        <path fill="#d394ff" d="M600.89,58.09v29.55h-85.42v-29.55h85.42ZM534.86,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.69-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.18,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79s-12.64-7.39-16.58-13.48c-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
+        <path fill="#d394ff" d="M646.23,39.8c-5.85,0-10.85-1.94-15.01-5.82s-6.23-8.56-6.23-14.04,2.09-10.17,6.28-14.08,9.17-5.86,14.96-5.86,10.85,1.94,15,5.82c4.16,3.88,6.23,8.56,6.23,14.04s-2.08,10.17-6.23,14.08c-4.15,3.91-9.16,5.86-15,5.86ZM626.46,199.93V58.09h39.34v141.85h-39.34Z"/>
+        <path fill="#d394ff" d="M761.29,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.43-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.44-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.43,6.13,18.48,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.83,9.19-37.17,9.19ZM761.47,172.23c6.53,0,11.97-1.86,16.35-5.59,4.37-3.72,7.68-8.82,9.93-15.28,2.25-6.46,3.37-13.82,3.37-22.07s-1.12-15.61-3.37-22.07c-2.25-6.46-5.56-11.57-9.93-15.33-4.37-3.75-9.82-5.63-16.35-5.63s-12.11,1.88-16.58,5.63c-4.46,3.75-7.82,8.86-10.07,15.33s-3.37,13.82-3.37,22.07,1.12,15.61,3.37,22.07,5.6,11.56,10.07,15.28c4.46,3.72,9.99,5.59,16.58,5.59Z"/>
+        <path fill="#d394ff" d="M896.12,117.93v82h-39.34V58.09h37.49v25.03h1.66c3.14-8.25,8.4-14.79,15.79-19.62,7.39-4.83,16.34-7.25,26.87-7.25,9.85,0,18.44,2.15,25.77,6.46,7.33,4.31,13.02,10.45,17.08,18.42,4.06,7.97,6.1,17.47,6.1,28.49v90.32h-39.34v-83.3c.06-8.68-2.15-15.47-6.65-20.36-4.49-4.89-10.68-7.34-18.56-7.34-5.3,0-9.96,1.14-13.99,3.42-4.03,2.28-7.17,5.59-9.42,9.93-2.25,4.34-3.4,9.56-3.46,15.65Z"/>
+        <path fill="#f7f7f7" d="M1019.21,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.78v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
+        <path fill="#f7f7f7" d="M1296.8,202.61c-9.05,0-17.11-1.59-24.19-4.76-7.08-3.17-12.67-7.88-16.76-14.13-4.09-6.25-6.14-14.05-6.14-23.41,0-7.88,1.45-14.5,4.34-19.85s6.83-9.66,11.82-12.93c4.99-3.26,10.66-5.72,17.04-7.39,6.37-1.66,13.07-2.83,20.09-3.51,8.25-.86,14.9-1.68,19.94-2.45,5.05-.77,8.71-1.92,10.99-3.46,2.28-1.54,3.42-3.82,3.42-6.83v-.55c0-5.85-1.83-10.37-5.5-13.58-3.66-3.2-8.85-4.8-15.56-4.8-7.08,0-12.71,1.56-16.9,4.66-4.19,3.11-6.96,7-8.31,11.68l-36.39-2.95c1.85-8.62,5.48-16.08,10.9-22.4,5.42-6.31,12.42-11.17,21.01-14.59,8.59-3.42,18.55-5.13,29.87-5.13,7.88,0,15.44.92,22.67,2.77,7.23,1.85,13.67,4.71,19.3,8.59,5.63,3.88,10.08,8.85,13.34,14.91s4.89,13.31,4.89,21.75v95.67h-37.31v-19.67h-1.11c-2.28,4.43-5.33,8.33-9.14,11.68-3.82,3.36-8.4,5.97-13.76,7.85-5.36,1.88-11.54,2.82-18.56,2.82ZM1308.07,175.46c5.79,0,10.9-1.15,15.33-3.46,4.43-2.31,7.91-5.43,10.43-9.37,2.52-3.94,3.78-8.4,3.78-13.39v-15.05c-1.23.8-2.91,1.52-5.03,2.17s-4.51,1.23-7.16,1.75-5.3.98-7.94,1.38c-2.65.4-5.05.75-7.2,1.06-4.62.68-8.65,1.75-12.1,3.23-3.45,1.48-6.13,3.46-8.03,5.96-1.91,2.49-2.86,5.59-2.86,9.28,0,5.36,1.95,9.43,5.86,12.23,3.91,2.8,8.88,4.2,14.91,4.2Z"/>
+        <path fill="#f7f7f7" d="M1482.7,58.09v29.55h-85.42v-29.55h85.42ZM1416.67,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.7-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.19,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79-7.11-2.89-12.64-7.39-16.58-13.48-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
+        <path fill="#f7f7f7" d="M1547.61,117.93v82h-39.34V10.8h38.23v72.31h1.66c3.2-8.37,8.37-14.94,15.51-19.72s16.1-7.16,26.88-7.16c9.85,0,18.45,2.14,25.81,6.42,7.35,4.28,13.08,10.41,17.18,18.38,4.09,7.97,6.11,17.5,6.05,28.58v90.32h-39.34v-83.3c.06-8.74-2.14-15.55-6.6-20.41-4.46-4.86-10.7-7.3-18.7-7.3-5.36,0-10.08,1.14-14.18,3.42s-7.29,5.59-9.61,9.93c-2.31,4.34-3.49,9.56-3.56,15.65Z"/>
+        <path fill="#f7f7f7" d="M1788.64,98.53l-36.02,2.22c-.62-3.08-1.94-5.86-3.97-8.36-2.03-2.49-4.69-4.49-7.99-6-3.29-1.51-7.22-2.26-11.77-2.26-6.1,0-11.24,1.28-15.42,3.83-4.19,2.55-6.28,5.96-6.28,10.2,0,3.39,1.35,6.25,4.06,8.59,2.71,2.34,7.36,4.22,13.95,5.63l25.67,5.17c13.79,2.83,24.07,7.39,30.84,13.67,6.77,6.28,10.16,14.53,10.16,24.75,0,9.3-2.72,17.45-8.17,24.47-5.45,7.02-12.9,12.48-22.35,16.39-9.45,3.91-20.33,5.86-32.65,5.86-18.78,0-33.72-3.92-44.83-11.77-11.11-7.85-17.63-18.55-19.53-32.09l38.69-2.03c1.17,5.72,4,10.08,8.5,13.07,4.49,2.99,10.25,4.48,17.27,4.48s12.45-1.34,16.67-4.02c4.21-2.68,6.36-6.14,6.42-10.39-.06-3.57-1.57-6.51-4.52-8.82-2.95-2.31-7.51-4.08-13.67-5.31l-24.56-4.89c-13.85-2.77-24.15-7.57-30.89-14.41-6.74-6.83-10.11-15.55-10.11-26.13,0-9.11,2.48-16.96,7.43-23.55,4.95-6.59,11.95-11.67,20.96-15.24,9.02-3.57,19.59-5.36,31.72-5.36,17.92,0,32.03,3.79,42.34,11.36s16.33,17.88,18.06,30.94Z"/>
+        <path fill="#949aff" d="M1875.98,199.93v29.83h-124.21v-29.83h124.21Z"/>
+      </svg>
+      <!-- END PLACEHOLDER -->
+    </div>
+
+    <span class="splash-tagline">after effects expressions</span>
+  </div>
+
+  <!-- skip button — visible after a short delay -->
+  <button class="splash-skip hidden" id="splashSkip" onclick="dismissSplash()">skip →</button>
+
+</div><!-- /splash -->
+<div class="noise"></div>
+<div class="container">
 
   <!-- BRAND BAR -->
   <div class="brand-bar">
@@ -944,27 +1067,76 @@ function renderShop(){
     </div>`;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPLASH SCREEN
+   ─────────────────────────────────────────────────────────────────────────
+   INTRO_DURATION  — how long the intro plays (ms) before auto-dismissing.
+                     Set to 0 to disable auto-dismiss (manual skip only).
+   SKIP_ON_RETURN  — if true, skips the intro for returning visitors
+                     (uses sessionStorage so it resets each browser session).
+═══════════════════════════════════════════════════════════════════════════ */
+const INTRO_DURATION = 3000;   // ← change this (milliseconds)
+const SKIP_ON_RETURN = true;   // ← set false to always show intro
 
-/* 3. LOTTIE TRANSITION ENGINE */
-const lottieAnim = lottie.loadAnimation({
-  container: document.getElementById('lottieLogo'),
-  renderer: 'svg', loop: false, autoplay: true,
-  animationData: animationData
-});
+(function(){
+  const splash       = document.getElementById('splash');
+  const loadingEl    = document.getElementById('splashLoading');
+  const introEl      = document.getElementById('splashIntro');
+  const skipBtn      = document.getElementById('splashSkip');
+  const loadingFill  = document.getElementById('splashLoadingFill');
 
-lottieAnim.onComplete = () => dismissSplash();
+  // skip for returning visitors this session
+  if(SKIP_ON_RETURN && sessionStorage.getItem('mm-visited')){
+    splash.classList.add('hidden');
+    return;
+  }
+
+  // simulate loading progress bar while page resources settle
+  let progress = 0;
+  const progressInterval = setInterval(()=>{
+    progress = Math.min(progress + Math.random() * 18, 92);
+    loadingFill.style.width = progress + '%';
+  }, 120);
+
+  function onPageReady(){
+    clearInterval(progressInterval);
+    loadingFill.style.width = '100%';
+
+    // brief pause so the bar completes visually
+    setTimeout(()=>{
+      loadingEl.style.display = 'none';
+      introEl.classList.add('active');
+
+      // show skip button after 1 second
+      setTimeout(()=> skipBtn.classList.remove('hidden'), 1000);
+
+      // auto-dismiss after INTRO_DURATION
+      if(INTRO_DURATION > 0){
+        setTimeout(dismissSplash, INTRO_DURATION);
+      }
+    }, 300);
+  }
+
+  // trigger on load or after a max wait of 4s
+  if(document.readyState === 'complete'){
+    setTimeout(onPageReady, 200);
+  } else {
+    window.addEventListener('load', ()=> setTimeout(onPageReady, 200));
+    setTimeout(onPageReady, 4000); // fallback for slow connections
+  }
+})();
 
 function dismissSplash(){
   const splash = document.getElementById('splash');
-  const content = document.getElementById('mainContent');
-  if(!splash.classList.contains('hidden')){
-    splash.classList.add('hidden');
-    content.classList.add('loaded'); // Page fades on here
-  }
+  splash.classList.add('hidden');
+  sessionStorage.setItem('mm-visited', '1');
 }
 
-// Initializations
+/* ═══════════════════════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════════════════════ */
 renderGuide();
+buildStageHome();
 </script>
 </body>
 </html>
