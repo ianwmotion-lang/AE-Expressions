@@ -1,27 +1,6 @@
 <!--
   Copyright (c) 2026 Ian Whitehead. All rights reserved.
   Unauthorized copying, modification, or distribution is strictly prohibited.
-
-  ═══════════════════════════════════════════════════
-  MOTIONMATHS — BRAND COLOUR CONFIGURATION
-  Paste your hex codes here to update the whole site.
-  ═══════════════════════════════════════════════════
-
-  Page background (darkest):       #181818
-  Card / panel background:         #242424
-  Panel (cards, inputs):           #424242
-  Body text (primary):             #f7f7f7
-  Body text (muted / BG text):     #49a893
-  Body text (dim / disabled):      rgba(247,247,247,0.35)
-  Accent colour (buttons, links):  #d394ff
-  Accent text (text on accent bg): #181818
-  Panel borders:                   #d394ff
-  Subtle borders:                  rgba(211,148,255,0.2)
-  Brand colours for categories:    #dc8116  #fff694
-  Card corner radius:              12px
-
-  To update: find the matching value in :root {} below and replace it.
-  ═══════════════════════════════════════════════════
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +12,10 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
 <link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* ═══════════════════════════════════════════════
-     MOTIONMATHS BRAND COLOURS — edit here only
-     ═══════════════════════════════════════════════ */
   --bg:#181818;
   --bg2:#242424;
   --bg3:#2e2e2e;
@@ -52,7 +29,6 @@
   --accent:#d394ff;
   --accent-text:#181818;
   --radius:12px;
-  /* category colours */
   --ce:#49a893;--ce-bg:rgba(73,168,147,0.12);
   --ct:#fff694;--ct-bg:rgba(255,246,148,0.12);
   --cs:#dc8116;--cs-bg:rgba(220,129,22,0.12);
@@ -68,7 +44,12 @@
 html{font-size:16px}
 body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-height:100vh;line-height:1.6}
 .noise{display:none}
-.container{max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1}
+.container{
+  max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 0.8s ease,transform 0.8s ease;
+}
+.container.loaded{opacity:1;transform:translateY(0)}
 
 /* ── MODE TABS ── */
 .mode-bar{display:flex;gap:6px;margin-bottom:2.5rem;border-bottom:1px solid var(--border-subtle);padding-bottom:0}
@@ -230,7 +211,6 @@ h1 em{color:var(--text-muted);font-style:normal}
 /* ── FOOTER ── */
 footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--font-code);font-size:10.5px;color:var(--text-dim);letter-spacing:0.05em}
 
-/* ── SCREENS ── */
 /* ── SAFARI TIP BANNER ── */
 .safari-tip{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:11px 14px;margin-bottom:1.5rem}
 .safari-tip-icon{font-size:15px;flex-shrink:0;color:var(--accent);font-family:var(--font-code)}
@@ -255,7 +235,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 .shop-card-desc{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:16px;flex:1;padding:0 16px}
 .shop-features{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:5px;padding:0 16px}
 .shop-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);display:flex;align-items:baseline;gap:7px}
-.shop-features li::before{content:"→";color:var(--accent);flex-shrink:0;font-size:10px}
+.shop-features li::before{content:"\2192";color:var(--accent);flex-shrink:0;font-size:10px}
 .shop-card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding:14px 16px;border-top:1px solid var(--border-subtle)}
 .shop-price{font-family:var(--font-code);font-size:18px;font-weight:500;color:var(--text)}
 .shop-price span{font-size:11px;color:var(--text-dim);margin-left:3px}
@@ -263,7 +243,6 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 .shop-buy-btn:hover{opacity:0.85}
 .shop-buy-btn.coming{background:transparent;color:var(--text-dim);border:1px solid var(--border-subtle);cursor:default}
 .shop-buy-btn.coming:hover{opacity:1}
-/* bundle card */
 .shop-bundle-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;position:relative;overflow:hidden}
 .shop-bundle-card::before{content:'';position:absolute;inset:0;background:rgba(211,148,255,0.03);pointer-events:none}
 .bundle-tag{font-family:var(--font-code);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(211,148,255,0.12);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:14px}
@@ -276,7 +255,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 .bundle-save{font-family:var(--font-code);font-size:10px;color:#49a893;margin-top:2px;letter-spacing:0.05em}
 .bundle-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:5px;margin-bottom:20px}
 .bundle-features li{font-size:12px;color:var(--text-muted);font-family:var(--font-code);list-style:none;display:flex;align-items:baseline;gap:7px}
-.bundle-features li::before{content:"✓";color:var(--accent);flex-shrink:0;font-size:10px}
+.bundle-features li::before{content:"\2713";color:var(--accent);flex-shrink:0;font-size:10px}
 .bundle-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .bundle-buy-btn{padding:11px 28px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s;text-decoration:none;display:inline-block}
 .bundle-buy-btn:hover{opacity:0.85}
@@ -294,45 +273,11 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 #splash{
   position:fixed;inset:0;z-index:9999;
   background:#181818;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
-  transition:opacity 0.6s ease, visibility 0.6s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity 0.6s ease,visibility 0.6s ease;
 }
 #splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
-
-/* loading state — shown while page resources load */
-.splash-loading{display:flex;flex-direction:column;align-items:center;gap:28px}
-.splash-m-icon{width:90px;height:90px;animation:splashPulse 1.4s ease-in-out infinite}
-@keyframes splashPulse{
-  0%,100%{opacity:0.4;transform:scale(0.97)}
-  50%{opacity:1;transform:scale(1.03)}
-}
-.splash-loading-bar{width:120px;height:2px;background:rgba(211,148,255,0.15);border-radius:999px;overflow:hidden}
-.splash-loading-fill{height:100%;width:0%;background:#d394ff;border-radius:999px;transition:width 0.3s ease}
-.splash-loading-label{font-family:'Fira Code',monospace;font-size:10px;color:rgba(211,148,255,0.4);letter-spacing:0.18em;text-transform:uppercase}
-
-/* intro state — swap in your animated SVG here */
-.splash-intro{display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;width:100%;max-width:700px;padding:2rem}
-.splash-intro.active{display:flex}
-
-/* ── ANIMATED LOGO SLOT ──
-   Replace the contents of #splashLogoSlot with your
-   animated SVG when it's ready. The slot is centred,
-   full width up to 600px, with auto height.         */
-#splashLogoSlot{width:100%;max-width:600px;display:flex;align-items:center;justify-content:center}
-#splashLogoSlot svg,#splashLogoSlot img{width:100%;height:auto;display:block}
-
-/* static wordmark shown until you add the animated SVG */
-.splash-wordmark-static{width:100%;max-width:560px;animation:splashFadeUp 0.8s ease forwards;opacity:0}
-@keyframes splashFadeUp{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.splash-tagline{
-  font-family:'Fira Code',monospace;
-  font-size:11px;color:rgba(211,148,255,0.5);
-  letter-spacing:0.2em;text-transform:uppercase;
-  animation:splashFadeUp 0.8s 0.3s ease forwards;opacity:0;
-}
+#lottieLogo{width:100%;max-width:1000px;padding:0 2rem}
 .splash-skip{
   position:absolute;bottom:32px;right:32px;
   font-family:'Fira Code',monospace;font-size:10px;
@@ -341,74 +286,15 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
   transition:color 0.2s;padding:6px 10px;
 }
 .splash-skip:hover{color:rgba(247,247,247,0.6)}
-.splash-skip.hidden{display:none}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     SPLASH SCREEN
-     Loading state shows while page loads.
-     Intro state shows your animated logo.
-     ═══════════════════════════════════════════════════ -->
 <div id="splash" role="status" aria-label="Loading MotionMaths">
+  <div id="lottieLogo"></div>
+  <button class="splash-skip" onclick="dismissSplash()">skip &#x2192;</button>
+</div>
 
-  <!-- LOADING STATE: shown while resources load -->
-  <div class="splash-loading" id="splashLoading">
-    <!-- M icon pulsing -->
-    <svg class="splash-m-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true">
-      <rect width="600" height="600" fill="#181818"/>
-      <path fill="#d394ff" d="M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z"/>
-      <path fill="#949aff" d="M556.58,389v33.33h-138.79v-33.33h138.79Z"/>
-      <path fill="#f7f7f7" d="M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z"/>
-    </svg>
-    <div class="splash-loading-bar"><div class="splash-loading-fill" id="splashLoadingFill"></div></div>
-    <span class="splash-loading-label">loading</span>
-  </div>
-
-  <!-- INTRO STATE: shown after load — drop your animated SVG in #splashLogoSlot -->
-  <div class="splash-intro" id="splashIntro">
-
-    <!-- ╔══════════════════════════════════════════════╗
-         ║  ANIMATED LOGO SLOT                         ║
-         ║  Replace this comment with your animated    ║
-         ║  SVG when ready. It will be centred and     ║
-         ║  scale to fit on any screen.                ║
-         ║                                             ║
-         ║  Example:                                   ║
-         ║  <svg id="splashLogoSlot" ...>...</svg>     ║
-         ║                                             ║
-         ║  Until then, the static wordmark below      ║
-         ║  is shown as a placeholder.                 ║
-         ╚══════════════════════════════════════════════╝ -->
-
-    <div id="splashLogoSlot">
-      <!-- PLACEHOLDER — remove this svg when you add your animated version -->
-      <svg class="splash-wordmark-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1875.98 229.76" aria-label="MotionMaths">
-        <path fill="#949aff" d="M130.02,122.82L0,180.08v-37.4l89.02-35.74-1.2,1.94v-4.62l1.2,1.94L0,70.46v-37.4l130.02,57.26v32.51Z"/>
-        <path fill="#d394ff" d="M128.72,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.79v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#d394ff" d="M429.95,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.44-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.43-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.44,6.13,18.49,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.82,9.19-37.17,9.19ZM430.14,172.23c6.52,0,11.97-1.86,16.34-5.59,4.37-3.72,7.68-8.82,9.93-15.28s3.37-13.82,3.37-22.07-1.12-15.61-3.37-22.07-5.56-11.57-9.93-15.33c-4.37-3.75-9.82-5.63-16.34-5.63s-12.11,1.88-16.58,5.63-7.82,8.86-10.06,15.33c-2.25,6.46-3.37,13.82-3.37,22.07s1.12,15.61,3.37,22.07c2.25,6.46,5.6,11.56,10.06,15.28,4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M600.89,58.09v29.55h-85.42v-29.55h85.42ZM534.86,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.69-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.18,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79s-12.64-7.39-16.58-13.48c-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#d394ff" d="M646.23,39.8c-5.85,0-10.85-1.94-15.01-5.82s-6.23-8.56-6.23-14.04,2.09-10.17,6.28-14.08,9.17-5.86,14.96-5.86,10.85,1.94,15,5.82c4.16,3.88,6.23,8.56,6.23,14.04s-2.08,10.17-6.23,14.08c-4.15,3.91-9.16,5.86-15,5.86ZM626.46,199.93V58.09h39.34v141.85h-39.34Z"/>
-        <path fill="#d394ff" d="M761.29,202.7c-14.35,0-26.73-3.06-37.17-9.19-10.43-6.12-18.49-14.68-24.15-25.67-5.67-10.99-8.5-23.75-8.5-38.28s2.83-27.47,8.5-38.46c5.66-10.99,13.71-19.55,24.15-25.67,10.44-6.13,22.82-9.19,37.17-9.19s26.73,3.06,37.17,9.19c10.43,6.13,18.48,14.68,24.15,25.67,5.66,10.99,8.5,23.81,8.5,38.46s-2.83,27.29-8.5,38.28c-5.67,10.99-13.71,19.55-24.15,25.67-10.43,6.13-22.83,9.19-37.17,9.19ZM761.47,172.23c6.53,0,11.97-1.86,16.35-5.59,4.37-3.72,7.68-8.82,9.93-15.28,2.25-6.46,3.37-13.82,3.37-22.07s-1.12-15.61-3.37-22.07c-2.25-6.46-5.56-11.57-9.93-15.33-4.37-3.75-9.82-5.63-16.35-5.63s-12.11,1.88-16.58,5.63c-4.46,3.75-7.82,8.86-10.07,15.33s-3.37,13.82-3.37,22.07,1.12,15.61,3.37,22.07,5.6,11.56,10.07,15.28c4.46,3.72,9.99,5.59,16.58,5.59Z"/>
-        <path fill="#d394ff" d="M896.12,117.93v82h-39.34V58.09h37.49v25.03h1.66c3.14-8.25,8.4-14.79,15.79-19.62,7.39-4.83,16.34-7.25,26.87-7.25,9.85,0,18.44,2.15,25.77,6.46,7.33,4.31,13.02,10.45,17.08,18.42,4.06,7.97,6.1,17.47,6.1,28.49v90.32h-39.34v-83.3c.06-8.68-2.15-15.47-6.65-20.36-4.49-4.89-10.68-7.34-18.56-7.34-5.3,0-9.96,1.14-13.99,3.42-4.03,2.28-7.17,5.59-9.42,9.93-2.25,4.34-3.4,9.56-3.46,15.65Z"/>
-        <path fill="#f7f7f7" d="M1019.21,10.8h49.31l52.08,127.07h2.22l52.08-127.07h49.31v189.13h-38.78v-123.1h-1.57l-48.94,122.18h-26.41l-48.94-122.64h-1.57v123.56h-38.79V10.8Z"/>
-        <path fill="#f7f7f7" d="M1296.8,202.61c-9.05,0-17.11-1.59-24.19-4.76-7.08-3.17-12.67-7.88-16.76-14.13-4.09-6.25-6.14-14.05-6.14-23.41,0-7.88,1.45-14.5,4.34-19.85s6.83-9.66,11.82-12.93c4.99-3.26,10.66-5.72,17.04-7.39,6.37-1.66,13.07-2.83,20.09-3.51,8.25-.86,14.9-1.68,19.94-2.45,5.05-.77,8.71-1.92,10.99-3.46,2.28-1.54,3.42-3.82,3.42-6.83v-.55c0-5.85-1.83-10.37-5.5-13.58-3.66-3.2-8.85-4.8-15.56-4.8-7.08,0-12.71,1.56-16.9,4.66-4.19,3.11-6.96,7-8.31,11.68l-36.39-2.95c1.85-8.62,5.48-16.08,10.9-22.4,5.42-6.31,12.42-11.17,21.01-14.59,8.59-3.42,18.55-5.13,29.87-5.13,7.88,0,15.44.92,22.67,2.77,7.23,1.85,13.67,4.71,19.3,8.59,5.63,3.88,10.08,8.85,13.34,14.91s4.89,13.31,4.89,21.75v95.67h-37.31v-19.67h-1.11c-2.28,4.43-5.33,8.33-9.14,11.68-3.82,3.36-8.4,5.97-13.76,7.85-5.36,1.88-11.54,2.82-18.56,2.82ZM1308.07,175.46c5.79,0,10.9-1.15,15.33-3.46,4.43-2.31,7.91-5.43,10.43-9.37,2.52-3.94,3.78-8.4,3.78-13.39v-15.05c-1.23.8-2.91,1.52-5.03,2.17s-4.51,1.23-7.16,1.75-5.3.98-7.94,1.38c-2.65.4-5.05.75-7.2,1.06-4.62.68-8.65,1.75-12.1,3.23-3.45,1.48-6.13,3.46-8.03,5.96-1.91,2.49-2.86,5.59-2.86,9.28,0,5.36,1.95,9.43,5.86,12.23,3.91,2.8,8.88,4.2,14.91,4.2Z"/>
-        <path fill="#f7f7f7" d="M1482.7,58.09v29.55h-85.42v-29.55h85.42ZM1416.67,24.1h39.34v132.24c0,3.63.55,6.45,1.66,8.45,1.11,2,2.66,3.4,4.67,4.2,2,.8,4.32,1.2,6.97,1.2,1.85,0,3.7-.17,5.54-.51,1.85-.34,3.26-.6,4.25-.78l6.19,29.27c-1.97.62-4.74,1.34-8.31,2.17-3.57.83-7.91,1.34-13.02,1.52-9.48.37-17.78-.89-24.89-3.79-7.11-2.89-12.64-7.39-16.58-13.48-3.94-6.09-5.88-13.79-5.82-23.09V24.1Z"/>
-        <path fill="#f7f7f7" d="M1547.61,117.93v82h-39.34V10.8h38.23v72.31h1.66c3.2-8.37,8.37-14.94,15.51-19.72s16.1-7.16,26.88-7.16c9.85,0,18.45,2.14,25.81,6.42,7.35,4.28,13.08,10.41,17.18,18.38,4.09,7.97,6.11,17.5,6.05,28.58v90.32h-39.34v-83.3c.06-8.74-2.14-15.55-6.6-20.41-4.46-4.86-10.7-7.3-18.7-7.3-5.36,0-10.08,1.14-14.18,3.42s-7.29,5.59-9.61,9.93c-2.31,4.34-3.49,9.56-3.56,15.65Z"/>
-        <path fill="#f7f7f7" d="M1788.64,98.53l-36.02,2.22c-.62-3.08-1.94-5.86-3.97-8.36-2.03-2.49-4.69-4.49-7.99-6-3.29-1.51-7.22-2.26-11.77-2.26-6.1,0-11.24,1.28-15.42,3.83-4.19,2.55-6.28,5.96-6.28,10.2,0,3.39,1.35,6.25,4.06,8.59,2.71,2.34,7.36,4.22,13.95,5.63l25.67,5.17c13.79,2.83,24.07,7.39,30.84,13.67,6.77,6.28,10.16,14.53,10.16,24.75,0,9.3-2.72,17.45-8.17,24.47-5.45,7.02-12.9,12.48-22.35,16.39-9.45,3.91-20.33,5.86-32.65,5.86-18.78,0-33.72-3.92-44.83-11.77-11.11-7.85-17.63-18.55-19.53-32.09l38.69-2.03c1.17,5.72,4,10.08,8.5,13.07,4.49,2.99,10.25,4.48,17.27,4.48s12.45-1.34,16.67-4.02c4.21-2.68,6.36-6.14,6.42-10.39-.06-3.57-1.57-6.51-4.52-8.82-2.95-2.31-7.51-4.08-13.67-5.31l-24.56-4.89c-13.85-2.77-24.15-7.57-30.89-14.41-6.74-6.83-10.11-15.55-10.11-26.13,0-9.11,2.48-16.96,7.43-23.55,4.95-6.59,11.95-11.67,20.96-15.24,9.02-3.57,19.59-5.36,31.72-5.36,17.92,0,32.03,3.79,42.34,11.36s16.33,17.88,18.06,30.94Z"/>
-        <path fill="#949aff" d="M1875.98,199.93v29.83h-124.21v-29.83h124.21Z"/>
-      </svg>
-      <!-- END PLACEHOLDER -->
-    </div>
-
-    <span class="splash-tagline">after effects expressions</span>
-  </div>
-
-  <!-- skip button — visible after a short delay -->
-  <button class="splash-skip hidden" id="splashSkip" onclick="dismissSplash()">skip →</button>
-
-</div><!-- /splash -->
 <div class="noise"></div>
 <div class="container">
 
@@ -455,29 +341,27 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
     <button class="mode-tab" id="modeShop" onclick="setMode('shop')">Shop</button>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ GUIDE SCREEN -->
+  <!-- GUIDE SCREEN -->
   <div class="screen active" id="screenGuide">
     <div class="safari-tip" id="safariTip">
-      <span class="safari-tip-icon">⌘</span>
-      <span class="safari-tip-text">On a Mac? Open this in Safari and go to <strong>File → Add to Dock</strong> — MotionMaths will sit in your dock like a native app, one click away whenever you need it.</span>
-      <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">✕</button>
+      <span class="safari-tip-icon">&#x2318;</span>
+      <span class="safari-tip-text">On a Mac? Open this in Safari and go to <strong>File &#x2192; Add to Dock</strong> &#x2014; MotionMaths will sit in your dock like a native app, one click away whenever you need it.</span>
+      <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">&#x2715;</button>
     </div>
     <div class="toolbar">
       <div class="search-wrap">
-        <span class="search-icon">⌕</span>
+        <span class="search-icon">&#x2315;</span>
         <input type="text" id="search" placeholder="Search by name, keyword, or code snippet..." autocomplete="off" spellcheck="false"/>
       </div>
       <div class="tabs" id="tabs"></div>
     </div>
     <p class="count" id="count"></p>
     <div class="cards" id="cards"></div>
-    <footer><span>ae-expressions-guide</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
+    <footer><span>ae-expressions-guide</span><span id="ftotal"></span><span>made by Ian Whitehead &#xB7; April 2026</span><span>&#xA9; 2026 Ian Whitehead. All rights reserved.</span></footer>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ QUIZ SCREENS -->
+  <!-- QUIZ SCREENS -->
   <div class="screen" id="screenQuiz">
-
-    <!-- STAGE HOME -->
     <div id="qzHome">
       <div class="progress-bar-wrap">
         <span class="pb-label">overall xp</span>
@@ -485,21 +369,17 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
         <span class="pb-pts" id="pbPts">0 / 500 xp</span>
       </div>
       <div class="stage-grid" id="stageGrid"></div>
-      <p style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.05em">complete each stage to unlock the next · earn xp for every correct answer</p>
+      <p style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.05em">complete each stage to unlock the next &#xB7; earn xp for every correct answer</p>
     </div>
-
-    <!-- QUESTION SCREEN -->
     <div id="qzQuestion" style="display:none">
       <div class="quiz-header">
-        <button class="back-btn" onclick="showStageHome()">← stages</button>
+        <button class="back-btn" onclick="showStageHome()">&#x2190; stages</button>
         <span class="qh-stage" id="qhStage"></span>
         <span class="qh-progress" id="qhProg"></span>
       </div>
       <div class="streak-bar" id="streakBar"></div>
       <div id="questionArea"></div>
     </div>
-
-    <!-- RESULTS SCREEN -->
     <div id="qzResults" style="display:none">
       <div class="results-screen">
         <p class="results-sub">stage complete</p>
@@ -507,36 +387,58 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
         <p class="results-xp" id="resXP"></p>
         <p class="results-msg" id="resMsg"></p>
         <div class="results-actions">
-          <button class="btn-primary" id="resNext">Next Stage →</button>
+          <button class="btn-primary" id="resNext">Next Stage &#x2192;</button>
           <button class="btn-ghost" onclick="retryStage()">Retry Stage</button>
           <button class="btn-ghost" onclick="showStageHome()">All Stages</button>
         </div>
       </div>
     </div>
+  </div>
 
-  </div><!-- /screenQuiz -->
-
-  <!-- ═══════════════════════════════════════════════════════ SHOP SCREEN -->
+  <!-- SHOP SCREEN -->
   <div class="screen" id="screenShop">
-
     <div class="shop-banner">
-      <p class="shop-banner-label">// expression controls · after effects plugins</p>
+      <p class="shop-banner-label">// expression controls &#xB7; after effects plugins</p>
       <h2 class="shop-banner-title">Save hours.<br><em>Write it once.</em></h2>
       <p class="shop-banner-sub">Production-ready After Effects scripts. Drop them in, connect a slider, and get straight to animating.</p>
     </div>
-
     <div class="shop-grid" id="shopGrid"></div>
-
     <div class="shop-bundle" id="shopBundle"></div>
-
-    <footer><span>ae-expressions-guide</span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
-  </div><!-- /screenShop -->
+    <footer><span>ae-expressions-guide</span><span>made by Ian Whitehead &#xB7; April 2026</span><span>&#xA9; 2026 Ian Whitehead. All rights reserved.</span></footer>
+  </div>
 
 </div><!-- /container -->
+
 <script>
-/* ═══════════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
+   SPLASH — LOTTIE ENGINE
+═══════════════════════════════════════════════════════ */
+var _lottieData = {"v":"5.12.1","fr":25,"ip":0,"op":101,"w":2000,"h":500,"nm":"page opening","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":3,"nm":"Null 1","sr":1,"ks":{"o":{"a":0,"k":0,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":38,"s":[1089,250,0],"to":[0,0,0],"ti":[0,0,0]},{"t":46,"s":[1000,250,0]}],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"ip":0,"op":127,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Layer 14 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":8,"s":[-8.12,100.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":15,"s":[102.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":18.5,"s":[77.484,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":0.1},"o":{"x":0.9,"y":0.9},"t":22,"s":[93.38,99.931,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.9,"y":0},"t":26,"s":[93.38,99.931,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.84,"y":0.84},"t":61,"s":[875.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":72,"s":[875.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":74,"s":[923.88,99.846,0],"to":[0,0,0],"ti":[0,0,0]},{"t":77,"s":[875.88,99.846,0]}],"ix":2,"l":2},"a":{"a":0,"k":[62.353,15.164,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":8,"s":[0,0,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,1,1]},"o":{"x":[0.9,0.9,0.9],"y":[0,0,0]},"t":15,"s":[143,100,100]},{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":18.5,"s":[105,100,100]},{"t":22,"s":[130.763,91.442,100]}],"ix":6,"l":2}},"ao":0,"sy":[{"bm":{"a":0,"k":1,"ix":1},"c":{"a":0,"k":[1,1,1,1],"ix":2},"so":{"a":0,"k":0,"ix":3},"ty":7,"nm":"Color Overlay"}],"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[-62.103,14.915],[62.103,14.915],[62.103,-14.915],[-62.103,-14.915]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.580392156863,0.603921568627,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[62.353,15.164],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Layer 15 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.746,"s":[540.591,87.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":58.91015625,"s":[790.591,87.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":71,"s":[64.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":72,"s":[43.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":74,"s":[64.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.746,"s":[0,0,100]},{"t":58.91015625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-1.726,-13.051],[0,0],[2.033,2.493],[3.295,1.51],[4.556,0],[4.186,-2.555],[0,-4.248],[-2.709,-2.338],[-6.589,-1.415],[0,0],[-6.773,-6.28],[0,-10.219],[5.448,-7.019],[9.448,-3.908],[12.315,0],[11.111,7.849],[1.907,13.543],[0,0],[-4.496,-2.985],[-7.019,0],[-4.218,2.678],[-0.06,4.248],[2.957,2.31],[6.153,1.233],[0,0],[6.741,6.833],[0,10.589],[-4.955,6.589],[-9.018,3.571],[-12.129,0],[-10.311,-7.573]],"o":[[0,0],[-0.617,-3.078],[-2.03,-2.493],[-3.294,-1.508],[-6.096,0],[-4.186,2.555],[0,3.386],[2.71,2.341],[0,0],[13.792,2.831],[6.772,6.279],[0,9.297],[-5.451,7.018],[-9.454,3.91],[-18.778,0],[-11.113,-7.851],[0,0],[1.167,5.725],[4.493,2.987],[6.893,0],[4.215,-2.678],[-0.06,-3.57],[-2.953,-2.308],[0,0],[-13.855,-2.769],[-6.741,-6.834],[0,-9.111],[4.955,-6.586],[9.018,-3.57],[17.918,0],[10.31,7.572]],"v":[[60.535,-30.937],[24.519,-28.721],[20.548,-37.077],[12.559,-43.08],[0.786,-45.342],[-14.637,-41.51],[-20.917,-31.305],[-16.854,-22.718],[-2.907,-17.085],[22.764,-11.912],[53.608,1.755],[63.766,26.504],[55.595,50.976],[33.247,67.367],[0.6,73.231],[-44.234,61.458],[-63.766,29.367],[-25.071,27.335],[-16.575,40.402],[0.694,44.88],[17.362,40.863],[23.779,30.475],[19.254,21.655],[5.589,16.345],[-18.975,11.45],[-49.868,-2.955],[-59.978,-29.089],[-52.546,-52.638],[-31.583,-67.875],[0.138,-73.231],[42.48,-61.872]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[64.016,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Layer 16 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.015,"s":[465.024,85.553,0],"to":[0,0,0],"ti":[0,0,0]},{"t":58.1787109375,"s":[636.024,85.553,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":70,"s":[66,190,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":71,"s":[47,190,0],"to":[0,0,0],"ti":[0,0,0]},{"t":73,"s":[66,190,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.015,"s":[0,0,100]},{"t":58.1787109375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.063,-6.094],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-7.142,4.771],[-10.776,0],[-7.357,-4.278],[-4.094,-7.973],[0.061,-11.082],[0,0],[0,0],[0,0],[4.462,4.864],[8.003,0],[4.094,-2.278],[2.312,-4.339]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[3.2,-8.371],[7.143,-4.772],[9.849,0],[7.355,4.281],[4.095,7.974],[0,0],[0,0],[0,0],[0.063,-8.742],[-4.464,-4.863],[-5.356,0],[-4.095,2.278],[-2.308,4.341]],"v":[[-26.351,12.559],[-26.351,94.564],[-65.69,94.564],[-65.69,-94.564],[-27.458,-94.564],[-27.458,-22.256],[-25.795,-22.256],[-10.283,-41.971],[16.593,-49.128],[42.404,-42.711],[59.579,-24.333],[65.629,4.248],[65.629,94.564],[26.287,94.564],[26.287,11.267],[19.686,-9.142],[0.986,-16.438],[-13.19,-13.02],[-22.796,-3.094]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.94,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":8,"ty":4,"nm":"Layer 17 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.552,"s":[292.527,87.852,0],"to":[0,0,0],"ti":[0,0,0]},{"t":56.716796875,"s":[503.527,87.852,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":69,"s":[44.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":70,"s":[26.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"t":72,"s":[44.5,179,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.552,"s":[0,0,100]},{"t":56.716796875,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[-1.107,-2],[-2.002,-0.798],[-2.646,0],[-1.847,0.339],[-0.983,0.185],[0,0],[3.57,-0.832],[5.109,-0.185],[7.108,2.894],[3.939,6.096],[-0.06,9.296]],"o":[[0,0],[0,0],[0,3.633],[1.109,2.002],[1.998,0.802],[1.847,0],[1.846,-0.337],[0,0],[-1.97,0.617],[-3.572,0.831],[-9.479,0.368],[-7.111,-2.893],[-3.94,-6.095],[0,0]],"v":[[-24.612,-89.068],[14.731,-89.068],[14.731,43.174],[16.392,51.622],[21.056,55.824],[28.026,57.025],[33.57,56.517],[37.815,55.732],[44.003,85.006],[35.694,87.176],[22.67,88.701],[-2.215,84.913],[-18.794,71.43],[-24.612,48.344]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[41.416,-25.535],[-44.003,-25.535],[-44.003,-55.084],[41.416,-55.084]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[44.253,89.318],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-26,"ct":1,"bm":0},{"ddd":0,"ind":10,"ty":4,"nm":"Layer 18 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.22,"y":1},"o":{"x":0.167,"y":0.167},"t":42.09,"s":[230.456,87.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":55.25390625,"s":[375.456,87.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":68,"s":[64,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":69,"s":[47,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":71,"s":[64,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":42.09,"s":[0,0,100]},{"t":55.25390625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.033,0],[-4.433,2.308],[-2.526,3.939],[0,4.986],[0,0],[2.125,-0.646],[2.646,-0.523],[2.647,-0.4],[2.154,-0.308],[3.447,-1.477],[1.907,-2.493],[0,-3.694],[-3.911,-2.8]],"o":[[5.786,0],[4.429,-2.31],[2.523,-3.94],[0,0],[-1.231,0.801],[-2.124,0.647],[-2.647,0.523],[-2.646,0.401],[-4.616,0.679],[-3.449,1.478],[-1.909,2.493],[0,5.356],[3.908,2.803]],"v":[[-5.125,46.035],[10.207,42.573],[20.641,33.2],[24.426,19.809],[24.426,4.756],[19.392,6.926],[12.236,8.68],[4.293,10.066],[-2.91,11.128],[-15.006,14.359],[-23.041,20.316],[-25.901,29.598],[-20.038,41.833]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[7.02,0],[7.079,3.17],[4.094,6.249],[0,9.359],[-2.893,5.356],[-4.989,3.264],[-6.374,1.663],[-7.019,0.678],[-5.046,0.769],[-2.279,1.54],[0,3.017],[0,0],[3.664,3.201],[6.709,0],[4.186,-3.108],[1.354,-4.678],[0,0],[-5.419,6.311],[-8.588,3.416],[-11.329,0],[-7.234,-1.846],[-5.635,-3.879],[-3.263,-6.064],[0,-8.434],[0,0],[0,0],[0,0],[0,0],[3.816,-3.355],[5.357,-1.876]],"o":[[-9.049,0],[-7.082,-3.171],[-4.095,-6.248],[0,-7.879],[2.893,-5.356],[4.986,-3.262],[6.371,-1.662],[8.249,-0.862],[5.049,-0.77],[2.277,-1.538],[0,0],[0,-5.848],[-3.662,-3.2],[-7.083,0],[-4.189,3.109],[0,0],[1.85,-8.619],[5.416,-6.31],[8.587,-3.418],[7.879,0],[7.234,1.847],[5.634,3.878],[3.263,6.065],[0,0],[0,0],[0,0],[0,0],[-2.279,4.433],[-3.817,3.356],[-5.356,1.879]],"v":[[-16.391,73.186],[-40.585,68.43],[-57.348,54.299],[-63.49,30.889],[-59.148,11.035],[-47.327,-1.894],[-30.288,-9.281],[-10.203,-12.79],[9.741,-15.236],[20.732,-18.701],[24.15,-25.535],[24.15,-26.089],[18.654,-39.663],[3.095,-44.466],[-13.804,-39.802],[-22.117,-28.12],[-58.504,-31.074],[-47.604,-53.469],[-26.595,-68.06],[3.279,-73.186],[25.951,-70.415],[45.25,-61.827],[58.594,-46.913],[63.49,-25.165],[63.49,70.507],[26.18,70.507],[26.18,50.838],[25.073,50.838],[15.93,62.519],[2.168,70.368]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[63.74,73.436],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":12,"ty":4,"nm":"Layer 19 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":37.701,"s":[80.962,85.554,0],"to":[0,0,0],"ti":[0,0,0]},{"t":50.865234375,"s":[183.962,85.554,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":67,"s":[103,190,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":68,"s":[84,190,0],"to":[0,0,0],"ti":[0,0,0]},{"t":70,"s":[103,190,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":37.701,"s":[0,0,100]},{"t":50.865234375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.503,-94.564],[-53.191,-94.564],[-1.107,32.506],[1.11,32.506],[53.195,-94.564],[102.503,-94.564],[102.503,94.564],[63.721,94.564],[63.721,-28.536],[62.152,-28.536],[13.206,93.64],[-13.205,93.64],[-62.149,-28.997],[-63.717,-28.997],[-63.717,94.564],[-102.503,94.564]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.968627510819,0.968627510819,0.968627510819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[102.753,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":14,"ty":4,"nm":"Layer 20 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":0.16},"o":{"x":0.167,"y":0.167},"t":35.508,"s":[-15.477,85.989,0],"to":[0,0,0],"ti":[0,0,0]},{"t":50.865234375,"s":[-15.477,85.989,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.848},"o":{"x":0.167,"y":0.167},"t":66,"s":[66,145,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.152},"t":67,"s":[44,145,0],"to":[0,0,0],"ti":[0,0,0]},{"t":69,"s":[66,145,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":35.508,"s":[0,0,100]},{"t":50.865234375,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.06,-6.094],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-7.389,4.835],[-10.529,0],[-7.329,-4.309],[-4.063,-7.972],[0,-11.019],[0,0],[0,0],[0,0],[4.496,4.894],[7.88,0],[4.031,-2.278],[2.248,-4.339]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[3.139,-8.249],[7.386,-4.831],[9.849,0],[7.326,4.31],[4.063,7.974],[0,0],[0,0],[0,0],[0.063,-8.68],[-4.493,-4.895],[-5.296,0],[-4.034,2.278],[-2.248,4.341]],"v":[[-26.041,-10.159],[-26.041,71.846],[-65.383,71.846],[-65.383,-70],[-27.89,-70],[-27.89,-44.974],[-26.227,-44.974],[-10.434,-64.598],[16.438,-71.846],[42.204,-65.382],[59.287,-46.959],[65.383,-18.47],[65.383,71.846],[26.041,71.846],[26.041,-11.451],[19.391,-31.814],[0.831,-39.156],[-13.158,-35.738],[-22.58,-25.812]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.633,72.096],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":16,"ty":4,"nm":"Layer 21 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":39.896,"s":[-64.278,87.99,0],"to":[0,0,0],"ti":[0,0,0]},{"t":53.791015625,"s":[-176.278,87.99,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":65,"s":[70.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":66,"s":[55.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":68,"s":[70.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":39.896,"s":[0,0,100]},{"t":53.791015625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.589,0],[-4.373,3.725],[-2.248,6.464],[0,8.25],[2.245,6.464],[4.369,3.755],[6.526,0],[4.462,-3.755],[2.248,-6.465],[0,-8.249],[-2.248,-6.464],[-4.464,-3.725]],"o":[[6.526,0],[4.369,-3.725],[2.245,-6.464],[0,-8.249],[-2.248,-6.465],[-4.373,-3.755],[-6.589,0],[-4.464,3.755],[-2.248,6.464],[0,8.25],[2.248,6.464],[4.462,3.725]],"v":[[0.185,42.757],[16.532,37.17],[26.458,21.886],[29.827,-0.185],[26.458,-22.256],[16.532,-37.585],[0.185,-43.219],[-16.391,-37.585],[-26.458,-22.256],[-29.827,-0.185],[-26.458,21.886],[-16.391,37.17]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[14.342,0],[10.437,6.128],[5.663,10.989],[0,14.532],[-5.665,10.989],[-10.434,6.126],[-14.348,0],[-10.434,-6.126],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.435,-6.124]],"o":[[-14.348,0],[-10.434,-6.124],[-5.665,-10.989],[0,-14.65],[5.663,-10.989],[10.437,-6.126],[14.342,0],[10.435,6.126],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.434,6.128]],"v":[[0.002,73.231],[-37.17,64.042],[-61.319,38.37],[-69.815,0.091],[-61.319,-38.371],[-37.17,-64.043],[0.002,-73.231],[37.17,-64.043],[61.319,-38.371],[69.815,0.091],[61.319,38.37],[37.17,64.042]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[70.065,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":18,"ty":4,"nm":"Layer 22 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.283,"s":[-193.764,85.75,0],"to":[0,0,0],"ti":[0,0,0]},{"t":55.716796875,"s":[-291.764,85.75,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":64,"s":[21.5,201,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":65,"s":[5.5,201,0],"to":[0,0,0],"ti":[0,0,0]},{"t":67,"s":[21.5,201,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.283,"s":[0,0,100]},{"t":55.716796875,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[-19.764,-41.88],[19.578,-41.88],[19.578,99.966],[-19.764,99.966]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0]],"o":[[0,0]],"v":[[-19.764,99.965]],"c":false},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[5.846,0],[4.155,3.878],[0,5.481],[-4.186,3.91],[-5.789,0],[-4.154,-3.88],[0,-5.479],[4.158,-3.909]],"o":[[-5.85,0],[-4.155,-3.878],[0,-5.479],[4.186,-3.909],[5.846,0],[4.158,3.878],[0,5.48],[-4.154,3.91]],"v":[[21.491,40.051],[6.483,34.233],[0.25,20.196],[6.529,6.113],[21.491,0.25],[36.495,6.068],[42.729,20.104],[36.495,34.187]],"c":true},"ix":2},"nm":"Path 3","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"tr","p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":47,"s":[0.443,-87.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.84,"y":0},"t":55,"s":[0.443,-182.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":62,"s":[0.443,-88.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0},"t":68,"s":[0.443,-143.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":72,"s":[0.443,-88.658],"to":[0,0],"ti":[0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0},"t":76,"s":[0.443,-111.658],"to":[0,0],"ti":[0,0]},{"t":79,"s":[0.443,-88.658]}],"ix":2},"a":{"a":0,"k":[21.49,20.15],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":1,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[21.49,100.216],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":5,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":19,"ty":4,"nm":"Layer 23 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":43.283,"s":[-259.287,87.852,0],"to":[0,0,0],"ti":[0,0,0]},{"t":56.8056640625,"s":[-378.287,87.852,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":63,"s":[44.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":64,"s":[30.5,179,0],"to":[0,0,0],"ti":[0,0,0]},{"t":66,"s":[44.5,179,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":43.283,"s":[0,0,100]},{"t":56.8056640625,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[-1.107,-2],[-2.002,-0.798],[-2.649,0],[-1.847,0.339],[-0.986,0.185],[0,0],[3.57,-0.832],[5.109,-0.185],[7.111,2.894],[3.937,6.096],[-0.063,9.296]],"o":[[0,0],[0,0],[0,3.633],[1.109,2.002],[1.998,0.802],[1.847,0],[1.846,-0.337],[0,0],[-1.97,0.617],[-3.572,0.831],[-9.482,0.368],[-7.111,-2.893],[-3.943,-6.095],[0,0]],"v":[[-24.608,-89.068],[14.73,-89.068],[14.73,43.174],[16.392,51.622],[21.056,55.824],[28.03,57.025],[33.569,56.517],[37.819,55.732],[44.004,85.006],[35.694,87.176],[22.673,88.701],[-2.215,84.913],[-18.79,71.43],[-24.608,48.344]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[41.42,-25.535],[-44.004,-25.535],[-44.004,-55.084],[41.42,-55.084]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[44.253,89.318],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":21,"ty":4,"nm":"Layer 24 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.167,"y":0.167},"t":45.015,"s":[-389.612,87.99,0],"to":[0,0,0],"ti":[0,0,0]},{"t":60,"s":[-507.612,87.99,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":62,"s":[70.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":63,"s":[59.5,147,0],"to":[0,0,0],"ti":[0,0,0]},{"t":65,"s":[70.5,147,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.16,0.16,0.16],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":45.015,"s":[0,0,100]},{"t":60,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-6.589,0],[-4.373,3.725],[-2.248,6.464],[0,8.25],[2.248,6.464],[4.369,3.755],[6.523,0],[4.465,-3.755],[2.245,-6.465],[0,-8.249],[-2.248,-6.464],[-4.464,-3.725]],"o":[[6.523,0],[4.369,-3.725],[2.248,-6.464],[0,-8.249],[-2.248,-6.465],[-4.373,-3.755],[-6.589,0],[-4.464,3.755],[-2.248,6.464],[0,8.25],[2.245,6.464],[4.465,3.725]],"v":[[0.185,42.757],[16.529,37.17],[26.455,21.886],[29.827,-0.185],[26.455,-22.256],[16.529,-37.585],[0.185,-43.219],[-16.394,-37.585],[-26.458,-22.256],[-29.83,-0.185],[-26.458,21.886],[-16.394,37.17]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[14.345,0],[10.434,6.128],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.437,6.126],[-14.345,0],[-10.435,-6.126],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.437,-6.124]],"o":[[-14.345,0],[-10.437,-6.124],[-5.666,-10.989],[0,-14.65],[5.663,-10.989],[10.434,-6.126],[14.345,0],[10.437,6.126],[5.663,10.989],[0,14.532],[-5.666,10.989],[-10.435,6.128]],"v":[[-0.001,73.231],[-37.17,64.042],[-61.319,38.37],[-69.815,0.091],[-61.319,-38.371],[-37.17,-64.043],[-0.001,-73.231],[37.168,-64.043],[61.319,-38.371],[69.815,0.091],[61.319,38.37],[37.168,64.042]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[70.065,73.481],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":127,"st":-24,"ct":1,"bm":0},{"ddd":0,"ind":23,"ty":4,"nm":"Layer 25 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.16,"y":1},"o":{"x":0.84,"y":0},"t":26,"s":[-88.779,-9.632,0],"to":[0,0,0],"ti":[0,0,0]},{"t":60,"s":[-706.779,-9.632,0]}],"ix":2,"l":2},"a":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":61,"s":[102.756,94.814,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":62,"s":[82.756,94.814,0],"to":[0,0,0],"ti":[0,0,0]},{"t":64,"s":[102.756,94.814,0]}],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0]},"t":4,"s":[100,100,100]},{"i":{"x":[0.1,0.1,0.1],"y":[1,1,1]},"o":{"x":[0.9,0.9,0.9],"y":[0,0,0]},"t":7,"s":[74,114,100]},{"t":13,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":3,"s":[{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-1.109,32.506],[1.107,32.506],[53.192,-94.564],[102.506,-94.564],[102.506,-3.397],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[13.207,93.64],[-13.207,93.64],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-102.506,-72.754]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":7,"s":[{"i":[[0.012,5.929],[0.273,0.259],[0,0],[0,0],[-4.842,49.886],[0,0],[6.728,-50.001],[14.115,-7.343],[-0.089,0.537],[0,0],[0,0],[39.197,-37.048],[0.082,0.564],[0,0],[0.136,0.069],[0,0],[0.415,0.01],[1.714,55.998]],"o":[[2.432,-3.034],[45.531,39.985],[0,0],[0,0],[0.58,0.13],[0,0],[-5.852,43.489],[-0.772,0.537],[4.348,-7.635],[0,0],[0,0],[0.772,0.564],[-14.119,-75.542],[0,0],[22.78,55.936],[0,0],[7.002,-13.514],[-0.656,-21.453]],"v":[[-116.624,-95.618],[-29.613,-94.328],[28.722,30.267],[29.903,31.321],[76.165,-94.832],[146.616,-94.473],[149.73,1.433],[107.911,94.714],[63.72,94.564],[105.41,-29.189],[102.891,-28.312],[32.118,93.321],[-5.099,93.218],[-51.782,-28.862],[-48.754,-28.862],[-63.72,94.564],[-119.045,94.534],[-101.023,-16.847]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":10,"s":[{"i":[[-3.976,6.714],[0.063,-0.64],[0,0],[0,0],[-13.221,7.182],[0.688,1.23],[0.922,-41.488],[-7.12,-9.545],[-1.33,-0.515],[-4.991,12.929],[0,0],[0.243,-22.371],[-0.84,0.409],[0,0],[0,0],[0,0],[0,0],[-0.622,29.42]],"o":[[-1.196,-0.172],[3.512,30.669],[0,0],[0,0],[-0.572,-0.64],[-3.591,9.494],[-0.967,43.524],[-1.036,0.419],[-16.273,-26.216],[-0.756,0.622],[0,0],[0.332,0.876],[-11.76,-11.273],[0,0],[0,0],[0,0],[0,0],[0.603,-28.523]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-11.454,32.646],[-10.962,32.646],[53.192,-94.564],[102.506,-94.564],[94.595,-2.751],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[2.862,93.698],[-23.552,93.698],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-107.104,-19.483]],"c":true}]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":13,"s":[{"i":[[0.006,2.965],[0.136,0.13],[0,0],[0,0],[0.92,10.875],[0,0],[0.041,-45.162],[7.529,-3.917],[-0.045,0.268],[0,0],[0,0],[9.093,-5.95],[0.041,0.282],[0,0],[0.068,0.034],[0,0],[0.208,0.005],[0.607,11.584]],"o":[[1.216,-1.517],[7.801,6.984],[0,0],[0,0],[0.29,0.065],[0,0],[-0.043,47.379],[-0.386,0.268],[2.174,-3.818],[0,0],[0,0],[0.386,0.282],[0.848,-14.612],[0,0],[5.11,11.238],[0,0],[3.501,-6.757],[-0.561,-10.717]],"v":[[-109.565,-95.091],[-46.132,-94.629],[5.698,31.626],[6.721,32.109],[53.192,-94.564],[110.372,-94.629],[111.96,-6.229],[102.506,94.564],[63.72,94.564],[70.376,-28.564],[69.006,-28.564],[13.207,93.64],[-13.207,93.64],[-58.317,-29.031],[-60.291,-29.031],[-63.72,94.564],[-110.775,94.549],[-104.72,-51.536]],"c":true}]},{"t":15,"s":[{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-102.506,-94.564],[-53.191,-94.564],[-1.109,32.506],[1.107,32.506],[53.192,-94.564],[102.506,-94.564],[102.506,-3.397],[102.506,94.564],[63.72,94.564],[63.72,-28.536],[62.149,-28.536],[13.207,93.64],[-13.207,93.64],[-62.149,-28.997],[-63.72,-28.997],[-63.72,94.564],[-102.506,94.564],[-102.506,-72.754]],"c":true}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.827451040231,0.580392156863,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[102.756,94.814],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.827451050282,0.580392181873,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false}],"ip":0,"op":127,"st":-23,"ct":1,"bm":0},{"ddd":0,"ind":24,"ty":4,"nm":"Layer 27 Outlines","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":-3,"s":[-347.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.1,"y":1},"o":{"x":0.167,"y":0.167},"t":3.75,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":7,"s":[-163.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.9,"y":0},"t":11,"s":[-222.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.217,"y":0.217},"o":{"x":0.167,"y":0.167},"t":14,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.16,"y":1},"o":{"x":0.84,"y":0},"t":26,"s":[-189.25,-8.19,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.279,"y":0.073},"t":58,"s":[-847.987,-8.432,0],"to":[0,0,0],"ti":[0,0,0]},{"t":61,"s":[-807.988,-8.432,0]}],"ix":2,"l":2},"a":{"a":0,"k":[131,74,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":3.75,"s":[100,100,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":6,"s":[62,134,100]},{"i":{"x":[0.833,0.833,0.833],"y":[0.833,0.833,0.833]},"o":{"x":[0.167,0.167,0.167],"y":[0.167,0.167,0.167]},"t":9,"s":[120,100,100]},{"t":14,"s":[100,100,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-65.012,-36.108],[22.811,-0.85],[22.811,0.851],[-65.012,36.108],[-65.012,73.508],[65.012,16.253],[65.012,-16.252],[-65.012,-73.508]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":61,"s":[0.968627510819,0.968627510819,0.968627510819,1]},{"t":62,"s":[0.580392156863,0.603921568627,1,1]}],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[65.262,73.758],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":2,"op":127,"st":-23,"ct":1,"bm":0}],"markers":[],"props":{}};
+
+var lottieAnim = lottie.loadAnimation({
+  container: document.getElementById('lottieLogo'),
+  renderer: 'svg',
+  loop: false,
+  autoplay: true,
+  animationData: _lottieData
+});
+
+lottieAnim.addEventListener('complete', function() {
+  dismissSplash();
+});
+
+function dismissSplash() {
+  var splash = document.getElementById('splash');
+  var content = document.querySelector('.container');
+  if (!splash.classList.contains('hidden')) {
+    splash.classList.add('hidden');
+    content.classList.add('loaded');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
    MODE SWITCHING
-═══════════════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 let currentMode="guide";
 function setMode(mode){
   currentMode=mode;
@@ -550,9 +452,9 @@ function setMode(mode){
   if(mode==="shop") renderShop();
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    GUIDE DATA
-═══════════════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 const CATS={E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
 const DATA=[
 {cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);",notes:[{type:"info",text:"Args: (frequency, amplitude). Higher frequency = faster shake, higher amplitude = bigger movement."}]},
@@ -686,7 +588,7 @@ function renderGuide(){
           ${d.desc?`<span class="card-desc">${esc(d.desc)}</span>`:""}
         </div>
         <span class="badge b-${d.cat}">${tabLabels[d.cat]}</span>
-        <span class="chevron">▶</span>
+        <span class="chevron">&#x25B6;</span>
       </div>
       <div class="card-body">
         <div class="code-wrap">
@@ -710,9 +612,9 @@ function renderGuide(){
 }
 document.getElementById("search").addEventListener("input",e=>{query=e.target.value;renderGuide();});
 
-/* ═══════════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    QUIZ ENGINE
-═══════════════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 const STAGES=[
 {id:1,name:"Beginner",sub:"Syntax basics, time & wiggle",cls:"s1",badge:"Starter",maxXP:50,qs:[
   {type:"mc",q:"What does the expression `time` return in After Effects?",concept:"// time is one of AE's built-in global variables",opts:["The current frame number","The current time in seconds","The duration of the comp","The layer's in-point time"],correct:1,fb:"time is a global variable that returns the current composition time in seconds. At frame 25 of a 25fps comp, time = 1.0."},
@@ -784,7 +686,7 @@ function buildStageHome(){
     const pct=completed?Math.round(score/s.qs.length*100):0;
     const div=document.createElement("div");
     div.className=`stage-card ${s.cls}${!unlocked?" locked":""}${completed?" completed":""}`;
-    div.innerHTML=`<div class="s-num">stage ${s.id}</div><div class="s-name">${s.name}</div><div class="s-sub">${s.sub}</div><span class="s-badge">${unlocked?(completed?`${pct}% ✓`:s.badge):"🔒 locked"}</span>`;
+    div.innerHTML=`<div class="s-num">stage ${s.id}</div><div class="s-name">${s.name}</div><div class="s-sub">${s.sub}</div><span class="s-badge">${unlocked?(completed?`${pct}% &#x2713;`:s.badge):"&#x1F512; locked"}</span>`;
     if(unlocked) div.onclick=()=>startStage(s.id);
     grid.appendChild(div);
   });
@@ -814,19 +716,14 @@ function renderQ(){
   const q=curStage.qs[curQIdx];
   const total=curStage.qs.length;
   document.getElementById("qhProg").textContent=`${curQIdx+1} / ${total}`;
-
-  // streak dots
   const sb=document.getElementById("streakBar");
   sb.innerHTML=curStage.qs.map((_,i)=>`<div class="streak-dot${i<curQIdx?" done":(i===curQIdx?" active":"")}"></div>`).join("")+`<span class="streak-label">question ${curQIdx+1} of ${total}</span>`;
-
   const typeMap={mc:"multiple choice",write:"write expression",debug:"find the bug",output:"predict output",fill:"fill in the blank"};
   const typeCls={mc:"qt-mc",write:"qt-write",debug:"qt-debug",output:"qt-output",fill:"qt-fill"};
   const keys=["A","B","C","D"];
-
   let html=`<div class="q-card"><span class="q-type-badge ${typeCls[q.type]}">${typeMap[q.type]}</span><div class="q-text">${esc(q.q)}</div>`;
   if(q.concept) html+=`<div class="q-concept">${esc(q.concept)}</div>`;
   if(q.code&&(q.type==="output"||q.type==="debug")) html+=`<div class="code-preview">${esc(q.code)}</div>`;
-
   if(q.type==="mc"||q.type==="debug"||q.type==="output"){
     html+=`<div class="options" id="opts">`;
     q.opts.forEach((o,i)=>{ html+=`<button class="opt" data-i="${i}" onclick="selectOpt(${i})"><span class="opt-key">${keys[i]}</span>${esc(o)}</button>`; });
@@ -835,15 +732,12 @@ function renderQ(){
     const parts=q.code.split("___");
     html+=`<div class="fill-sentence"><span style="color:var(--text-muted)">${esc(parts[0])}</span><input class="fill-input" id="fillInput" placeholder="___" autocomplete="off" spellcheck="false"/><span style="color:var(--text-muted)">${esc(parts[1]||"")}</span></div>`;
   } else if(q.type==="write"){
-    if(q.hint) html+=`<div class="q-concept">💡 ${esc(q.hint)}</div>`;
+    if(q.hint) html+=`<div class="q-concept">&#x1F4A1; ${esc(q.hint)}</div>`;
     html+=`<textarea class="code-input" id="codeInput" placeholder="// write your expression here..." spellcheck="false"></textarea>`;
   }
-
-  html+=`<div class="q-actions"><button class="submit-btn" id="submitBtn" onclick="submitAnswer()" ${(q.type==="mc"||q.type==="debug"||q.type==="output")?"disabled":""}>Check Answer</button><span class="xp-flash" id="xpFlash"></span><button class="next-btn" id="nextBtn" onclick="nextQ()">Next →</button></div>`;
+  html+=`<div class="q-actions"><button class="submit-btn" id="submitBtn" onclick="submitAnswer()" ${(q.type==="mc"||q.type==="debug"||q.type==="output")?"disabled":""}>Check Answer</button><span class="xp-flash" id="xpFlash"></span><button class="next-btn" id="nextBtn" onclick="nextQ()">Next &#x2192;</button></div>`;
   html+=`<div class="feedback" id="feedback"><span class="fb-label" id="fbLabel"></span><span id="fbText"></span></div></div>`;
-
   document.getElementById("questionArea").innerHTML=html;
-
   if(q.type==="fill"){
     const fi=document.getElementById("fillInput");
     fi.addEventListener("input",()=>{ document.getElementById("submitBtn").disabled=!fi.value.trim(); });
@@ -864,7 +758,6 @@ function selectOpt(i){
 function submitAnswer(){
   const q=curStage.qs[curQIdx];
   let correct=false;
-
   if(q.type==="mc"||q.type==="debug"||q.type==="output"){
     const sel=parseInt(document.getElementById("submitBtn").dataset.sel);
     correct=sel===q.correct;
@@ -889,14 +782,11 @@ function submitAnswer(){
     inp.classList.add(correct?"correct-input":"wrong-input");
     inp.disabled=true;
   }
-
   answers.push({idx:curQIdx,correct});
-
   const fb=document.getElementById("feedback");
   const lbl=document.getElementById("fbLabel");
   const txt=document.getElementById("fbText");
   fb.classList.add("show");
-
   if(correct){
     fb.className="feedback show fb-correct";
     lbl.textContent="✓ correct";
@@ -920,7 +810,6 @@ function submitAnswer(){
       txt.textContent=q.fb;
     }
   }
-
   document.getElementById("submitBtn").disabled=true;
   document.getElementById("nextBtn").classList.add("show");
 }
@@ -936,30 +825,26 @@ function finishStage(){
   const total=curStage.qs.length;
   const pct=Math.round(correct/total*100);
   stageProgress[curStage.id]={completed:true,score:correct};
-
   document.getElementById("qzQuestion").style.display="none";
   document.getElementById("qzResults").style.display="block";
   document.getElementById("resScore").textContent=pct+"%";
   document.getElementById("resXP").textContent=correct+" / "+total+" correct";
-
   const msgs=[[90,"Outstanding — you've got a solid command of AE expressions."],[70,"Strong work. Review the ones you missed and they'll click quickly."],[50,"Good effort. Retry the stage to reinforce the weaker spots."],[0,"Keep at it — expressions always feel tricky at first. Retry to build the muscle memory."]];
   document.getElementById("resMsg").textContent=msgs.find(m=>pct>=m[0])[1];
-
   const nextS=STAGES.find(s=>s.id===curStage.id+1);
   const nb=document.getElementById("resNext");
   if(nextS){nb.textContent=`Next: ${nextS.name} →`;nb.onclick=()=>startStage(nextS.id);nb.style.display="inline-block";}
   else{nb.textContent="🎉 All stages done!";nb.onclick=showStageHome;nb.style.display="inline-block";}
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    SHOP
-═══════════════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 const PLUGINS=[
   {
     id:"weightlifter",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="85.7" y="279.2" width="428.6" height="41.59" rx="5.25" fill="#dc8116"/><line x1="102.13" y1="300" x2="497.87" y2="300" stroke="#181818" stroke-miterlimit="10" stroke-width="10" fill="none"/><rect x="294.05" y="275.68" width="213.09" height="48.64" transform="translate(700.6 -100.6) rotate(90)" fill="#49a893"/><rect x="374.13" y="275.68" width="148.21" height="48.64" transform="translate(748.24 -148.24) rotate(90)" fill="#49a893"/><rect x="92.86" y="275.68" width="213.09" height="48.64" transform="translate(-100.6 499.4) rotate(-90)" fill="#49a893"/><rect x="77.66" y="275.68" width="148.21" height="48.64" transform="translate(-148.24 451.76) rotate(-90)" fill="#49a893"/></svg>`,
-    name:"Weightlifter",
-    subtitle:"Maintain Stroke Width",
+    name:"Weightlifter",subtitle:"Maintain Stroke Width",
     desc:"Keeps your stroke pixel-perfect at any scale. Works with uniform and non-uniform scaling — no more manually correcting stroke weight.",
     features:["Uniform & non-uniform scale modes","Works with parented layers","Zero-setup — drop in and go","Supports 3D layers"],
     price:"£5",gumroad:"#",available:true
@@ -967,8 +852,7 @@ const PLUGINS=[
   {
     id:"countitup",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><path fill="#949aff" d="M129.66,363.05l120.41-252.54h98.38l120.69,252.54h-92.09l-80.37-182.18h5.43l-79.79,182.18h-92.66ZM288.96,161.14h20.59v31.17h-20.59v-31.17Z"/><text fill="#fff694" font-family="Inter, sans-serif" font-size="293" font-weight="700" transform="translate(163.06 457.26)">%</text></svg>`,
-    name:"Count It Up",
-    subtitle:"Smart Counter",
+    name:"Count It Up",subtitle:"Smart Counter",
     desc:"Animated number counter with currency, percentage, leading zeros, comma formatting and decimal precision — all from a single slider.",
     features:["Currency, %, K/M/B shorthand","Leading zeros & decimal modes","Comma-separated thousands","Typewriter & scramble modes"],
     price:"£5",gumroad:"#",available:true
@@ -976,8 +860,7 @@ const PLUGINS=[
   {
     id:"typetoolbox",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="128.24" y="128.24" width="343.51" height="343.51" fill="#49a893"/><path fill="#fff694" d="M159.11,230.35v-37.15h175.01v37.15h-65.24v175.95h-44.53v-175.95h-65.24Z"/><path fill="#181818" d="M335.97,320.42v17.71h-51.19v-17.71h51.19ZM296.41,300.05h23.57v79.24c0,2.18.33,3.87,1,5.06.66,1.2,1.6,2.04,2.79,2.52,1.2.48,2.59.72,4.18.72,1.11,0,2.21-.1,3.32-.3,1.11-.2,1.96-.36,2.54-.47l3.71,17.54c-1.18.37-2.84.8-4.98,1.3-2.14.5-4.74.8-7.8.91-5.68.22-10.65-.54-14.91-2.27s-7.57-4.43-9.93-8.08c-2.36-3.65-3.52-8.26-3.49-13.83v-82.34Z"/><path fill="#f7f7f7" d="M351.74,405.41v-113.33h23.57v42.61h.72c1.03-2.29,2.54-4.62,4.51-7,1.97-2.38,4.56-4.37,7.75-5.98,3.19-1.6,7.17-2.41,11.93-2.41,6.2,0,11.92,1.61,17.15,4.84,5.24,3.23,9.42,8.08,12.56,14.55,3.13,6.47,4.7,14.58,4.7,24.32s-1.52,17.48-4.57,23.99c-3.04,6.51-7.17,11.44-12.4,14.77-5.22,3.34-11.06,5.01-17.51,5.01-4.58,0-8.46-.76-11.65-2.27-3.19-1.51-5.8-3.42-7.83-5.73-2.03-2.31-3.58-4.64-4.65-7h-1.05v13.61h-23.24Z"/></svg>`,
-    name:"Type Toolbox",
-    subtitle:"Text Expression Pack",
+    name:"Type Toolbox",subtitle:"Text Expression Pack",
     desc:"Every text expression you'll ever need in one script — SMPTE timecode, auto-fit scale, smart backgrounds, typewriter cursor, scramble, and more.",
     features:["SMPTE timecode display","Auto-fit scale for translations","Smart background with padding","Typing cursor & scramble effect"],
     price:"£9",gumroad:"#",available:true
@@ -985,8 +868,7 @@ const PLUGINS=[
   {
     id:"dailyexpression",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><circle cx="300" cy="292.75" r="164.51" fill="#fff694"/><path fill="#dc8116" d="M299.63,316.44l-189.55,83.47v-54.52l129.77-52.1-1.75,2.83v-6.73l1.75,2.83-129.77-52.1v-54.52l189.55,83.46v47.39Z"/><path fill="#dc8116" d="M489.92,316.44l-189.55,83.47v-54.52l129.77-52.1-1.75,2.83v-6.73l1.75,2.83-129.77-52.1v-54.52l189.55,83.46v47.39Z"/></svg>`,
-    name:"The Daily Expression",
-    subtitle:"Essentials Pack",
+    name:"The Daily Expression",subtitle:"Essentials Pack",
     desc:"The must-have expressions every motion designer reaches for daily — wiggle, loops, inertia bounce, easing, clamp and more, all wired up and ready to go.",
     features:["Wiggle & safe opacity wiggle","Loop in, out & continue","Inertia bounce with controls","Linear, ease & clamp remaps"],
     price:"£9",gumroad:"#",available:true
@@ -994,8 +876,7 @@ const PLUGINS=[
   {
     id:"showmethemoney",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-10.95" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="168.05" y="408.88" width="280.76" height="41.59" fill="#fff694"/><rect x="152.05" y="367.72" width="280.76" height="41.59" fill="#949aff"/><rect x="164.73" y="326.57" width="280.76" height="41.59" fill="#fff694"/><rect x="152.05" y="272.09" width="280.76" height="41.59" transform="translate(23.88 -22.04) rotate(4.5)" fill="#949aff"/><rect x="152.05" y="133.12" width="280.76" height="41.59" transform="translate(-37.1 129.08) rotate(-23.45)" fill="#fff694"/></svg>`,
-    name:"Show Me The Money",
-    subtitle:"Data & Finance Pack",
+    name:"Show Me The Money",subtitle:"Data & Finance Pack",
     desc:"Built for B2B and financial motion work — currency formatting, shorthand numbers, animated deltas, heatmap bars, sparklines and rolling averages.",
     features:["Currency & shorthand (K/M/B)","Animated +/- delta display","Colour heatmap bar charts","Sparkline dot & rolling average"],
     price:"£9",gumroad:"#",available:true
@@ -1005,17 +886,8 @@ const PLUGINS=[
 const BUNDLE={
   name:"Master Expression Bundle",
   desc:"Every plugin in one package — plus 94 ready-to-use expressions wired up with one-click install. Everything in the Reference Guide, but you never have to type a line.",
-  features:[
-    "Weightlifter (Stroke Width)","Count It Up (Smart Counter)","Type Toolbox (Text Pack)",
-    "The Daily Expression (Essentials)","Show Me The Money (Data & Finance)","94 expressions, one-click install",
-    "Master controller null setup","Lifetime updates included",
-    "Priority support","Compatible with AE 2022+"
-  ],
-  individualTotal:"£37",
-  bundlePrice:"£27",
-  saving:"Save £10 — 27% off",
-  gumroad:"#",
-  available:false
+  features:["Weightlifter (Stroke Width)","Count It Up (Smart Counter)","Type Toolbox (Text Pack)","The Daily Expression (Essentials)","Show Me The Money (Data & Finance)","94 expressions, one-click install","Master controller null setup","Lifetime updates included","Priority support","Compatible with AE 2022+"],
+  individualTotal:"£37",bundlePrice:"£27",saving:"Save £10 — 27% off",gumroad:"#",available:false
 };
 
 function renderShop(){
@@ -1039,7 +911,6 @@ function renderShop(){
         </div>
       </div>`;
   });
-
   const bundle=document.getElementById("shopBundle");
   const bFeaturesHtml=BUNDLE.features.map(f=>`<li>${f}</li>`).join("");
   const bBtn=BUNDLE.available
@@ -1067,74 +938,9 @@ function renderShop(){
     </div>`;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   SPLASH SCREEN
-   ─────────────────────────────────────────────────────────────────────────
-   INTRO_DURATION  — how long the intro plays (ms) before auto-dismissing.
-                     Set to 0 to disable auto-dismiss (manual skip only).
-   SKIP_ON_RETURN  — if true, skips the intro for returning visitors
-                     (uses sessionStorage so it resets each browser session).
-═══════════════════════════════════════════════════════════════════════════ */
-const INTRO_DURATION = 3000;   // ← change this (milliseconds)
-const SKIP_ON_RETURN = true;   // ← set false to always show intro
-
-(function(){
-  const splash       = document.getElementById('splash');
-  const loadingEl    = document.getElementById('splashLoading');
-  const introEl      = document.getElementById('splashIntro');
-  const skipBtn      = document.getElementById('splashSkip');
-  const loadingFill  = document.getElementById('splashLoadingFill');
-
-  // skip for returning visitors this session
-  if(SKIP_ON_RETURN && sessionStorage.getItem('mm-visited')){
-    splash.classList.add('hidden');
-    return;
-  }
-
-  // simulate loading progress bar while page resources settle
-  let progress = 0;
-  const progressInterval = setInterval(()=>{
-    progress = Math.min(progress + Math.random() * 18, 92);
-    loadingFill.style.width = progress + '%';
-  }, 120);
-
-  function onPageReady(){
-    clearInterval(progressInterval);
-    loadingFill.style.width = '100%';
-
-    // brief pause so the bar completes visually
-    setTimeout(()=>{
-      loadingEl.style.display = 'none';
-      introEl.classList.add('active');
-
-      // show skip button after 1 second
-      setTimeout(()=> skipBtn.classList.remove('hidden'), 1000);
-
-      // auto-dismiss after INTRO_DURATION
-      if(INTRO_DURATION > 0){
-        setTimeout(dismissSplash, INTRO_DURATION);
-      }
-    }, 300);
-  }
-
-  // trigger on load or after a max wait of 4s
-  if(document.readyState === 'complete'){
-    setTimeout(onPageReady, 200);
-  } else {
-    window.addEventListener('load', ()=> setTimeout(onPageReady, 200));
-    setTimeout(onPageReady, 4000); // fallback for slow connections
-  }
-})();
-
-function dismissSplash(){
-  const splash = document.getElementById('splash');
-  splash.classList.add('hidden');
-  sessionStorage.setItem('mm-visited', '1');
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    INIT
-═══════════════════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════ */
 renderGuide();
 buildStageHome();
 </script>
