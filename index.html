@@ -8,47 +8,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MotionMaths</title>
-<meta name="description" content="94 After Effects expressions, an interactive quiz, and one-click plugins. Built by Ian Whitehead for motion designers.">
+<meta name="description" content="100 After Effects expressions, an interactive quiz, and one-click plugins. Built by Ian Whitehead for motion designers.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23181818'/%3E%3Cpath fill='%23d394ff' d='M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z'/%3E%3Cpath fill='%23949aff' d='M556.58,389v33.33h-138.79v-33.33h138.79Z'/%3E%3Cpath fill='%23f7f7f7' d='M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z'/%3E%3C/svg%3E">
 <link id="font-link" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#181818;
-  --bg2:#242424;
-  --bg3:#2e2e2e;
-  --panel:#424242;
-  --border:#d394ff;
-  --border-subtle:rgba(211,148,255,0.2);
-  --border-hover:rgba(211,148,255,0.6);
-  --text:#f7f7f7;
-  --text-muted:#949aff;
-  --text-dim:rgba(247,247,247,0.35);
-  --accent:#d394ff;
-  --accent-text:#181818;
-  --radius:12px;
-  --ce:#49a893;--ce-bg:rgba(73,168,147,0.12);
-  --ct:#fff694;--ct-bg:rgba(255,246,148,0.12);
-  --cs:#dc8116;--cs-bg:rgba(220,129,22,0.12);
-  --cm:#d394ff;--cm-bg:rgba(211,148,255,0.12);
-  --cr:#fff694;--cr-bg:rgba(255,246,148,0.12);
-  --cd:#dc8116;--cd-bg:rgba(220,129,22,0.12);
-  --ci:#49a893;--ci-bg:rgba(73,168,147,0.12);
-  --ca:#d394ff;--ca-bg:rgba(211,148,255,0.12);
+  --bg:#181818;--bg2:#242424;--bg3:#2e2e2e;--panel:#424242;
+  --border:#d394ff;--border-subtle:rgba(211,148,255,0.2);--border-hover:rgba(211,148,255,0.6);
+  --text:#f7f7f7;--text-muted:#949aff;--text-dim:rgba(247,247,247,0.35);
+  --accent:#d394ff;--accent-text:#181818;--radius:12px;
+  --ce:#49a893;--ce-bg:rgba(73,168,147,0.12);--ct:#fff694;--ct-bg:rgba(255,246,148,0.12);
+  --cs:#dc8116;--cs-bg:rgba(220,129,22,0.12);--cm:#d394ff;--cm-bg:rgba(211,148,255,0.12);
+  --cr:#fff694;--cr-bg:rgba(255,246,148,0.12);--cd:#dc8116;--cd-bg:rgba(220,129,22,0.12);
+  --ci:#49a893;--ci-bg:rgba(73,168,147,0.12);--ca:#d394ff;--ca-bg:rgba(211,148,255,0.12);
   --cb:#fff694;--cb-bg:rgba(255,246,148,0.12);
-  --font-ui:'Plus Jakarta Sans',sans-serif;
-  --font-code:'Fira Code',monospace;
+  --font-ui:'Plus Jakarta Sans',sans-serif;--font-code:'Fira Code',monospace;
 }
 html{font-size:16px}
 body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-height:100vh;line-height:1.6}
 .noise{display:none}
-.container{
-  max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1;
-  opacity:0;transform:translateY(10px);
-  transition:opacity 0.8s ease,transform 0.8s ease;
-}
+.container{max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1;opacity:0;transform:translateY(10px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .container.loaded{opacity:1;transform:translateY(0)}
 
 /* ── MODE TABS ── */
@@ -62,10 +43,6 @@ header{margin-bottom:2rem}
 .brand-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:1.5rem}
 .brand-wordmark{height:38px;width:auto;display:block;margin-bottom:6px}
 .brand-tagline{font-family:var(--font-code);font-size:10px;color:var(--text-dim);letter-spacing:0.12em;text-transform:uppercase}
-.eyebrow{font-family:var(--font-code);font-size:11px;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.8rem}
-h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-0.025em;font-family:var(--font-ui)}
-h1 em{color:var(--text-muted);font-style:normal}
-.subtitle{margin-top:0.85rem;font-size:14.5px;color:var(--text-muted);max-width:540px;line-height:1.65}
 .intro-block{background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:20px 22px;margin-bottom:2rem}
 .intro-block p{font-size:13.5px;color:var(--text);line-height:1.75;margin-bottom:10px}
 .intro-block p:last-child{margin-bottom:0}
@@ -214,6 +191,8 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 /* ── SAFARI TIP BANNER ── */
 .safari-tip{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:11px 14px;margin-bottom:1.5rem}
 .safari-tip-icon{font-size:15px;flex-shrink:0;color:var(--accent);font-family:var(--font-code)}
+.safari-open-btn{flex-shrink:0;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:opacity 0.15s;}
+.safari-open-btn:hover{opacity:0.75;}
 .safari-tip-text{font-size:12.5px;color:var(--text);line-height:1.55;flex:1}
 .safari-tip-text strong{color:var(--accent);font-weight:600}
 .safari-tip-close{flex-shrink:0;background:transparent;border:none;color:var(--text-dim);font-size:11px;cursor:pointer;padding:2px 4px;transition:color 0.15s;font-family:var(--font-code)}
@@ -243,6 +222,9 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 .shop-buy-btn:hover{opacity:0.85}
 .shop-buy-btn.coming{background:transparent;color:var(--text-dim);border:1px solid var(--border-subtle);cursor:default}
 .shop-buy-btn.coming:hover{opacity:1}
+/* ── BUY LINK PLACEHOLDER (hidden — replace gumroad:"#..." values in JS) ── */
+.buy-link-placeholder{display:none;}
+/* ── BUNDLE ── */
 .shop-bundle-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;position:relative;overflow:hidden}
 .shop-bundle-card::before{content:'';position:absolute;inset:0;background:rgba(211,148,255,0.03);pointer-events:none}
 .bundle-tag{font-family:var(--font-code);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(211,148,255,0.12);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:14px}
@@ -260,31 +242,16 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
 .bundle-buy-btn{padding:11px 28px;font-size:13px;font-family:var(--font-ui);font-weight:700;background:var(--accent);color:var(--accent-text);border:none;border-radius:8px;cursor:pointer;transition:opacity 0.15s;text-decoration:none;display:inline-block}
 .bundle-buy-btn:hover{opacity:0.85}
 .bundle-note{font-family:var(--font-code);font-size:11px;color:var(--text-dim)}
-
 @media(max-width:580px){.bundle-pricing{text-align:left}.bundle-top{flex-direction:column}}
 
 .screen{display:none}.screen.active{display:block}
-
 @media(max-width:580px){.container{padding:2rem 1rem 4rem}h1{font-size:1.8rem}.card-desc{display:none}}
 
-/* ═══════════════════════════════════════════════════════
-   SPLASH SCREEN
-═══════════════════════════════════════════════════════ */
-#splash{
-  position:fixed;inset:0;z-index:9999;
-  background:#181818;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  transition:opacity 0.6s ease,visibility 0.6s ease;
-}
+/* ── SPLASH ── */
+#splash{position:fixed;inset:0;z-index:9999;background:#181818;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s ease,visibility 0.6s ease;}
 #splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
 #lottieLogo{width:100%;max-width:1000px;padding:0 2rem}
-.splash-skip{
-  position:absolute;bottom:32px;right:32px;
-  font-family:'Fira Code',monospace;font-size:10px;
-  color:rgba(247,247,247,0.25);letter-spacing:0.12em;text-transform:uppercase;
-  background:transparent;border:none;cursor:pointer;
-  transition:color 0.2s;padding:6px 10px;
-}
+.splash-skip{position:absolute;bottom:32px;right:32px;font-family:'Fira Code',monospace;font-size:10px;color:rgba(247,247,247,0.25);letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:none;cursor:pointer;transition:color 0.2s;padding:6px 10px;}
 .splash-skip:hover{color:rgba(247,247,247,0.6)}
 </style>
 </head>
@@ -323,12 +290,11 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
   <!-- WELCOME INTRO -->
   <div class="intro-block">
     <p><strong>Welcome to MotionMaths</strong> — the go-to reference for After Effects expressions, built by a motion designer for motion designers.</p>
-    <p>Whether you're just starting out or building complex production rigs, everything here is practical, production-tested, and ready to drop straight into your comp. Browse the <strong>Reference Guide</strong> to find and copy any expression instantly — from a simple wiggle to a full physics-based spring follow. When you're ready to level up, head to the <strong>Expression Quiz</strong> and work through five stages from beginner to pro, writing real expressions, spotting bugs, and predicting outputs as you go.</p>
-    <p>Need it even faster? The <strong>Shop</strong> has one-click plugins that wire expressions directly into After Effects — no copy-pasting, no setup, just animate.</p>
+    <p>Whether you're just starting out or building complex production rigs, everything here is practical, production-tested, and ready to drop straight into your comp. Browse the <strong>Reference Guide</strong> to find and copy any expression instantly. When you're ready to level up, head to the <strong>Expression Quiz</strong> and work through five stages from beginner to pro. Need it even faster? The <strong>Shop</strong> has one-click plugins that wire expressions directly into After Effects.</p>
     <div class="intro-pills">
-      <span class="intro-pill">94 expressions</span>
+      <span class="intro-pill">101 expressions</span>
       <span class="intro-pill">5 quiz stages</span>
-      <span class="intro-pill">5 plugins available</span>
+      <span class="intro-pill">6 plugins available</span>
       <span class="intro-pill">AE 2022+</span>
     </div>
   </div>
@@ -343,8 +309,15 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
   <!-- GUIDE SCREEN -->
   <div class="screen active" id="screenGuide">
     <div class="safari-tip" id="safariTip">
-      <span class="safari-tip-icon">&#x2318;</span>
-      <span class="safari-tip-text">On a Mac? Open this in Safari and go to <strong>File &#x2192; Add to Dock</strong> &#x2014; MotionMaths will sit in your dock like a native app, one click away whenever you need it.</span>
+      <a class="safari-open-btn" href="motionmaths.html" title="Open as desktop app">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="36" height="36" style="border-radius:6px">
+          <rect x="-8.29" width="630.21" height="613.45" fill="#181818"/>
+          <path fill="#d394ff" d="M188.71,177.67h55.1l58.2,141.99h2.48l58.2-141.99h55.1v211.33h-43.34v-137.55h-1.75l-54.69,136.52h-29.51l-54.69-137.04h-1.75v138.07h-43.34v-211.33Z"/>
+          <path fill="#949aff" d="M556.58,389v33.33h-138.79v-33.33h138.79Z"/>
+          <path fill="#f7f7f7" d="M188.71,302.84l-145.29,63.98v-41.79l99.47-39.93-1.34,2.17v-5.16l1.34,2.17-99.47-39.93v-41.79l145.29,63.98v36.32Z"/>
+        </svg>
+      </a>
+      <span class="safari-tip-text">Open on desktop &#x2014; or on a Mac, open in Safari and go to <strong>File &#x2192; Add to Dock</strong> to keep MotionMaths one click away like a native app.</span>
       <button class="safari-tip-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">&#x2715;</button>
     </div>
     <div class="toolbar">
@@ -356,7 +329,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
     </div>
     <p class="count" id="count"></p>
     <div class="cards" id="cards"></div>
-    <footer><span>MotionMaths</span><span id="ftotal"></span><span>made by Ian Whitehead &#xB7; April 2026</span><span>&#xA9; 2026 Ian Whitehead. All rights reserved.</span></footer>
+    <footer><span>MotionMaths</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
   </div>
 
   <!-- QUIZ SCREENS -->
@@ -368,7 +341,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
         <span class="pb-pts" id="pbPts">0 / 500 xp</span>
       </div>
       <div class="stage-grid" id="stageGrid"></div>
-      <p style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.05em">complete each stage to unlock the next &#xB7; earn xp for every correct answer</p>
+      <p style="font-family:var(--font-code);font-size:11px;color:var(--text-dim);letter-spacing:0.05em">complete each stage to unlock the next · earn xp for every correct answer</p>
     </div>
     <div id="qzQuestion" style="display:none">
       <div class="quiz-header">
@@ -397,13 +370,13 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
   <!-- SHOP SCREEN -->
   <div class="screen" id="screenShop">
     <div class="shop-banner">
-      <p class="shop-banner-label">// expression controls &#xB7; after effects plugins</p>
-      <h2 class="shop-banner-title">Save hours.<br><em>Expressions added at a click of a button!.</em></h2>
+      <p class="shop-banner-label">// expression controls · after effects plugins</p>
+      <h2 class="shop-banner-title">Save hours.<br><em>Expressions added at a click of a button.</em></h2>
       <p class="shop-banner-sub">Production-ready After Effects scripts. Drop them in, connect a slider, and get straight to animating.</p>
     </div>
     <div class="shop-grid" id="shopGrid"></div>
     <div class="shop-bundle" id="shopBundle"></div>
-    <footer><span>ae-expressions-guide</span><span>made by Ian Whitehead &#xB7; April 2026</span><span>&#xA9; 2026 Ian Whitehead. All rights reserved.</span></footer>
+    <footer><span>MotionMaths</span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
   </div>
 
 </div><!-- /container -->
@@ -421,11 +394,7 @@ var lottieAnim = lottie.loadAnimation({
   autoplay: true,
   animationData: _lottieData
 });
-
-lottieAnim.addEventListener('complete', function() {
-  dismissSplash();
-});
-
+lottieAnim.addEventListener('complete', function() { dismissSplash(); });
 function dismissSplash() {
   var splash = document.getElementById('splash');
   var content = document.querySelector('.container');
@@ -452,108 +421,441 @@ function setMode(mode){
 }
 
 /* ═══════════════════════════════════════════════════════
-   GUIDE DATA
+   GUIDE DATA — 100 EXPRESSIONS
+   Each entry: { cat, title, desc, code, notes[] }
+   notes[]: { type: "info"|"setup"|"warn", label?: string, text: string }
 ═══════════════════════════════════════════════════════ */
 const CATS={E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
 const DATA=[
-{cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);",notes:[{type:"info",text:"Args: (frequency, amplitude). Higher frequency = faster shake, higher amplitude = bigger movement."}]},
-{cat:"E",title:"Safe opacity wiggle",desc:"Wiggle opacity without going negative",code:"Math.abs(wiggle(10, 50));",notes:[{type:"info",text:"Math.abs() prevents negative opacity values. Without it, wiggle can dip below 0 and cause invisible flicker."}]},
-{cat:"E",title:"Loop out",desc:"Loop keyframes from the out-point",code:'loopOut("cycle");',notes:[{type:"info",text:'Also try "pingpong" to reverse each cycle, or "continue" to extrapolate beyond the last keyframe.'}]},
-{cat:"E",title:"Loop in",desc:"Loop keyframes from the in-point",code:'loopIn("cycle");',notes:[{type:"info",text:"Loops the in-point instead of the out-point. Combine with loopOut for a fully seamless infinite loop."}]},
-{cat:"E",title:"Loop in + out combined",desc:"Seamless infinite loop in both directions",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[{type:"info",text:'Second argument = keyframes to include. 0 = use all. Both lines go in the same expression field.'}]},
-{cat:"E",title:"Loop out (continue)",desc:"Extrapolate velocity beyond the last keyframe",code:'loopOut("continue");',notes:[{type:"info",text:'Unlike "cycle", continue doesn\'t repeat — it extrapolates the velocity from the last keyframe indefinitely. Great for spinning, sliding, or any motion that should carry on at the same rate after the last key.'}]},
-{cat:"E",title:"Constant motion",desc:"Continuous movement without keyframes",code:"time * 100;",notes:[{type:"info",text:"Multiplier controls speed. Negative values reverse direction. Works on position, rotation, or any numeric property."}]},
-{cat:"E",title:"Posterize time",desc:"Force a lower frame rate on any property",code:"posterizeTime(12); value;",notes:[{type:"info",text:"12fps gives a stop-motion feel. Pair with wiggle for choppy animated noise."}]},
-{cat:"E",title:"Clamp",desc:"Prevent a value going out of bounds",code:"clamp(value, 0, 100);",notes:[{type:"info",text:"Essential for opacity, scale, or any slider-driven property that shouldn't exceed its bounds."}]},
-{cat:"E",title:"Linear remap",desc:"Map one value range onto another",code:"linear(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Here: time 0–2s maps to output 0–100. Swap 'time' for any property."},{type:"setup",label:"syntax",text:"linear(input, inputMin, inputMax, outputMin, outputMax). Input clamps at the bounds."}]},
-{cat:"E",title:"Ease remap",desc:"Smooth mapped range with ease-in and ease-out",code:"ease(time, 0, 2, 0, 100);",notes:[{type:"info",text:"Like linear() but adds smooth ease-in and ease-out at both ends."},{type:"setup",label:"syntax",text:"ease(input, inputMin, inputMax, outputMin, outputMax) — same signature as linear()."}]},
-{cat:"E",title:"Inertia bounce",desc:"Physical overshoot and settle after each keyframe",code:"n = 0;\nif (numKeys > 1) {\n  n = nearestKey(time).index;\n  if (nearestKey(time).time > time) n--;\n}\nif (n == 0) { t = 0; }\nelse { t = time - key(n).time; }\nif (n > 0 && t < 1) {\n  v = velocityAtTime(key(n).time - thisComp.frameDuration / 10);\n  amp = 0.05; freq = 3; decay = 8;\n  v * amp * Math.sin(freq * t * 2 * Math.PI) / Math.exp(decay * t);\n} else { 0; }",notes:[{type:"setup",label:"how to use",text:"Paste on any keyframed property. Keep keyframes as normal — expression adds a physical overshoot after each one."},{type:"info",text:"amp = overshoot strength (0.03–0.08). freq = oscillation speed (2–5). decay = settle speed (5–12)."}]},
-{cat:"E",title:"Mirrored position",desc:"Flip a layer symmetrically across the comp centre",code:"cx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[2 * cx - value[0], value[1]];",notes:[{type:"info",text:"Mirrors X position across the comp centre. Swap axes to mirror vertically instead."}]},
-{cat:"E",title:"Aspect ratio lock",desc:"Keep width and height proportional when scaling",code:"ratio = 16 / 9;\n[value[0], value[0] / ratio];",notes:[{type:"info",text:"Apply to Scale. Change 16/9 to any ratio."}]},
-{cat:"T",title:"Slider (whole number)",desc:"Drive a text counter from a Slider Control",code:'Math.round(effect("Slider Control")("Slider"));',notes:[{type:"setup",label:"setup",text:'Add Effect > Expression Controls > Slider Control. If you rename it, update the string to match.'}]},
-{cat:"T",title:"Currency",desc:"Prefix a counter with a currency symbol",code:'"$" + Math.round(effect("Slider Control")("Slider"));',notes:[{type:"info",text:'Swap "$" for any symbol. Combine with toLocaleString() for comma-separated thousands.'}]},
-{cat:"T",title:"Percentage",desc:"Append a % sign to a counter",code:'Math.round(effect("Slider Control")("Slider")) + "%";'},
-{cat:"T",title:"Leading zeros (001)",desc:"Pad a number to a fixed digit width",code:'s = Math.round(effect("Slider Control")("Slider")).toString();\nwhile (s.length < 3) s = "0" + s;\ns;',notes:[{type:"info",text:"Change the 3 to set total digit width."}]},
-{cat:"T",title:"Odometer (commas)",desc:"Format large numbers with comma separators",code:"num = value;\nnum.toLocaleString();"},
-{cat:"T",title:"Hundredths counter (1.00)",desc:"Display a slider value to 2 decimal places",code:'num = effect("Slider Control")("Slider").value;\nnum.toFixed(2);'},
-{cat:"T",title:"Granular increment (0.01)",desc:"Scale down a slider to hundredths precision",code:'num = effect("Slider Control")("Slider").value;\nfinalVal = num * 0.01;\nfinalVal.toFixed(2);'},
-{cat:"T",title:"Uppercase all",desc:"Force text to display in uppercase",code:"value.toUpperCase();"},
-{cat:"T",title:"Typewriter substring",desc:"Reveal text character by character",code:"value.substr(0, 10);",notes:[{type:"info",text:"Animate a Slider Control and feed it to the second argument to animate the reveal."}]},
-{cat:"T",title:"Source name",desc:"Display the layer's own name as text",code:"thisLayer.name;"},
-{cat:"T",title:"Comp name",desc:"Display the composition name as text",code:"thisComp.name;"},
-{cat:"T",title:"Line count",desc:"Count the number of lines in a text layer",code:'value.split("\\r").length;'},
-{cat:"T",title:"Frame number",desc:"Display the current frame as an integer",code:"Math.floor(time * thisComp.frameRate);"},
-{cat:"T",title:"SMPTE timecode",desc:"Full HH:MM:SS:FF timecode display",code:'t = time;\nh = Math.floor(t / 3600);\nm = Math.floor((t % 3600) / 60);\ns = Math.floor(t % 60);\nf = Math.floor((t % 1) * thisComp.frameRate);\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(h) + ":" + pad(m) + ":" + pad(s) + ":" + pad(f);',notes:[{type:"setup",label:"how to use",text:"Paste on Source Text. No effects needed."},{type:"info",text:"Outputs HH:MM:SS:FF at any frame rate."}]},
-{cat:"T",title:"ETA countdown (MM:SS)",desc:"Count down from a set number of seconds",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);'},
-{cat:"T",title:"Typing cursor blink",desc:"Blinking | cursor to pair with a typewriter reveal",code:'Math.floor(time * 2) % 2 === 0 ? 100 : 0;',notes:[{type:"info",text:"Apply to Opacity of a | text layer. Change the 2 to adjust blink rate."}]},
-{cat:"T",title:"Random character scramble",desc:"Randomly cycle through characters — glitch effect",code:'s = "ABC#!@012";\ns[Math.floor(random(s.length))];'},
-{cat:"S",title:"Maintain stroke width (uniform scale)",desc:"Keep stroke width consistent when scaling",code:"s = transform.scale[0];\nvalue * (100 / s);",notes:[{type:"warn",text:"Only works with uniform scale."}]},
-{cat:"S",title:"Maintain stroke width (non-uniform scale)",desc:"Correct stroke width even with non-uniform scale",code:"length(toComp([0,0]), toComp([0.7071,0.7071])) || 0.001;"},
-{cat:"S",title:"Auto-size text box",desc:"Rectangle that automatically matches text width and height",code:'t = thisComp.layer("Text Layer");\nw = t.sourceRectAtTime().width;\nh = t.sourceRectAtTime().height;\n[w, h];',notes:[{type:"setup",label:"setup",text:'Paste on Size of a Rectangle path. Replace "Text Layer" with your layer name.'}]},
-{cat:"S",title:"Smart background with padding",desc:"Shape that wraps tightly around text with adjustable padding",code:'t = thisComp.layer("Text Layer");\nr = t.sourceRectAtTime(time, false);\npad = 50;\n[r.width + pad * 2, r.height + pad * 2];'},
-{cat:"S",title:"Index spacing (auto-stack)",desc:"Automatically distribute layers in a vertical column",code:"padding = 150;\n[value[0], value[1] + (index - 1) * padding];"},
-{cat:"S",title:"Multi-column auto-stack",desc:"Distribute layers into a grid of rows and columns",code:"cols = 3;\npadX = 200;\npadY = 150;\ncol = (index - 1) % cols;\nrow = Math.floor((index - 1) / cols);\nstartX = thisComp.width / 2 - (cols - 1) * padX / 2;\nstartY = 200;\n[startX + col * padX, startY + row * padY];"},
-{cat:"S",title:"Snap to grid",desc:"Constrain a layer's position to a pixel grid",code:"grid = 50;\n[Math.round(value[0] / grid) * grid, Math.round(value[1] / grid) * grid];"},
-{cat:"S",title:"Circular orbit",desc:"Layer orbits continuously around a centre point",code:"radius = 200;\nspeed = 1;\nangle = time * speed * 2 * Math.PI;\ncx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius];"},
-{cat:"S",title:"Spiral outward",desc:"Layer traces an expanding spiral path",code:"radius = 40 + time * 50;\nspeed = 2;\nangle = time * speed * 2 * Math.PI;\n[thisComp.width/2 + Math.cos(angle) * radius, thisComp.height/2 + Math.sin(angle) * radius];"},
-{cat:"S",title:"Pulse (rhythmic scale beat)",desc:"Rhythmic scale pulse — syncs to BPM",code:"amp = 20;\nfreq = 2;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];"},
-{cat:"S",title:"Progress bar fill",desc:"Rectangle width driven by a 0–100 slider",code:'val = effect("Slider Control")("Slider");\nmaxW = 600;\n[maxW * (val / 100), value[1]];'},
-{cat:"S",title:"Percentage ring (trim paths)",desc:"Circular fill driven by a slider — donut chart style",code:'val = effect("Slider Control")("Slider");\nval / 100;'},
-{cat:"S",title:"Signal pulse (data flow)",desc:"Wave ripple across a row of layers — data pipeline effect",code:"speed = 2;\namp = 30;\nphase = index * 0.4;\n[value[0], value[1] + amp * Math.sin(time * speed * 2 * Math.PI + phase)];"},
-{cat:"S",title:"Auto-fit scale (long translations)",desc:"Shrinks text to fit a max width — critical for multilingual templates",code:'textW = thisLayer.sourceRectAtTime(time, false).width;\nmaxW = 800;\nif (textW > maxW) {\n  s = (maxW / textW) * 100;\n  [s, s];\n} else {\n  [100, 100];\n}'},
-{cat:"S",title:"Safe zone warning",desc:"Pulses the layer if it gets too close to the comp edge",code:'x = transform.position[0];\ny = transform.position[1];\nw = thisComp.width;\nh = thisComp.height;\nmargin = 100;\noutside = (x < margin || x > w - margin || y < margin || y > h - margin);\noutside ? Math.abs(Math.sin(time * 8)) * 100 : 0;'},
-{cat:"M",title:"Global position link",desc:"Drive a layer's position from a null in another comp",code:'comp("MAIN").layer("CONTROL_PANEL").transform.position;',notes:[{type:"warn",text:"Cross-comp references break silently if the comp or layer is renamed."}]},
-{cat:"M",title:"Global colour link",desc:"One colour swatch controls every layer that references it",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Color Control")("Color");'},
-{cat:"M",title:"Global slider link",desc:"Single slider drives a value across every linked layer",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Slider Control")("Slider");'},
-{cat:"M",title:"Checkbox visibility",desc:"Toggle layer visibility on/off from a master null",code:'check = comp("MAIN").layer("CONTROL_PANEL").effect("Checkbox Control")("Checkbox");\n(check == 1) ? 100 : 0;'},
-{cat:"M",title:"World position (null parent offset)",desc:"Get a layer's true world position regardless of parenting",code:"toComp([0, 0, 0]);"},
-{cat:"M",title:"Parented position compensation",desc:"Track a parent layer's position in a child's local space",code:'fromComp(thisComp.layer("Parent").toComp([0, 0]));'},
-{cat:"M",title:"Multi-switch (index router)",desc:"Keyframe a single slider to switch between multiple states",code:'idx = effect("Index Control")("Slider");\nidx == 1 ? 100 : idx == 2 ? 50 : 0;'},
-{cat:"R",title:"Magnet (LERP)",desc:"Layer is attracted toward a null with adjustable strength",code:'magnetPos = thisComp.layer("MAGNET").transform.position;\nstrength = thisComp.layer("MAGNET").effect("Strength")("Slider") / 100;\nlerp(value, magnetPos, strength);'},
-{cat:"R",title:"Look at (face target)",desc:"Layer rotates to always face a target null",code:'v = thisComp.layer("Target").transform.position - transform.position;\nradiansToDegrees(Math.atan2(v[1], v[0]));'},
-{cat:"R",title:"Proximity trigger (opacity)",desc:"Layer appears when a trigger null gets close enough",code:'d = length(thisComp.layer("Trigger").transform.position, transform.position);\nif (d < 200) 100 else 20;'},
-{cat:"R",title:"Proximity-based scale",desc:"Layer grows as an attractor null moves closer",code:'d = length(thisComp.layer("Attractor").transform.position, transform.position);\nmaxDist = 400;\ns = linear(d, 0, maxDist, 150, 100);\n[s, s];'},
-{cat:"R",title:"Velocity-based rotation",desc:"Layer banks automatically to face its direction of travel",code:"v = velocity;\nradiansToDegrees(Math.atan2(v[1], v[0]));"},
-{cat:"R",title:"Spring follow (physics)",desc:"Layer chases keyframes with real mass, stiffness and damping",code:"mass = 20;\nstiffness = 50;\ndamping = 8;\nfps = 1 / thisComp.frameDuration;\nnumInt = 16;\ndt = 1 / (fps * numInt);\nx = position;\nv = velocity;\nfor (i = 0; i < numInt; i++) {\n  f = -stiffness * (x - value) - damping * v;\n  a = f / mass;\n  v += a * dt;\n  x += v * dt;\n}\nx;"},
-{cat:"R",title:"Stagger delay by index",desc:"Same animation plays offset across multiple layers automatically",code:"delay = 0.08;\noffset = (index - 1) * delay;\nnumKeys > 0 ? thisProperty.valueAtTime(time - offset) : value;"},
-{cat:"R",title:"Seeded random wiggle (per layer)",desc:"Each layer gets a different but stable wiggle",code:"seedRandom(index, true);\nwiggle(2, 40);"},
-{cat:"R",title:"Strobe / glitch on beat",desc:"Choppy strobe or glitch displacement effect",code:"fps = 6;\nposterizeTime(fps);\nwiggle(1, 50);"},
-{cat:"R",title:"Ghost trail — position",desc:"Layers follow a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.position.valueAtTime(time - offset);'},
-{cat:"R",title:"Ghost trail — scale",desc:"Scale follows a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.scale.valueAtTime(time - offset);'},
-{cat:"R",title:"Ghost trail — opacity",desc:"Followers fade progressively down the chain",code:'delay = 0.1;\noffset = (index - 1) * delay;\nbaseOpacity = thisComp.layer("Leader").transform.opacity.valueAtTime(time - offset);\nbaseOpacity * (1 - (index - 1) * 0.15);'},
-{cat:"R",title:"Matrix wave (scale)",desc:"Wave ripples across a grid of layers from a master null",code:'master = thisComp.layer("WAVE_MASTER");\namp = master.effect("Wave Amplitude")("Slider");\nphase = master.effect("Wave Phase")("Slider");\nfreq = 2;\nphaseOffset = (index - 1) * 0.3;\nwave = amp * Math.sin(time * freq * 2 * Math.PI + phaseOffset + phase);\n[100 + wave, 100 + wave];'},
-{cat:"R",title:"Rubik row shift",desc:"Rows shift in staggered waves — Rubik's cube style",code:'rowSize = 4;\nrow = Math.floor((index - 1) / rowSize);\nshiftSlider = thisComp.layer("WAVE_MASTER").effect("Wave Phase")("Slider");\nrowOffset = row * 0.5;\namp = 80;\namp * Math.sin(time * 2 * Math.PI + rowOffset + shiftSlider);'},
-{cat:"R",title:"Value smoothing",desc:"Smooth out jittery tracking or noisy data",code:"smooth(0.2, 5);"},
-{cat:"R",title:"Sample image (colour picker)",desc:"Sample a pixel colour from a video layer dynamically",code:'thisComp.layer("Video").sampleImage(transform.position, [1,1]);'},
-{cat:"R",title:"Blink",desc:"Hard on/off blink using a sine wave threshold",code:"Math.sin(time * 10) > 0 ? 100 : 0;"},
-{cat:"D",title:"Currency formatter ($1,000,000)",desc:"Format large numbers with symbol and comma separators",code:'val = effect("Slider Control")("Slider");\nsym = "$";\nsym + Math.round(val).toLocaleString();'},
-{cat:"D",title:"Shorthand number (1.2M / 50K)",desc:"Auto-switch between B, M, K and full number based on value",code:'val = Math.abs(effect("Slider Control")("Slider"));\nif (val >= 1000000000) {\n  (val / 1000000000).toFixed(1) + "B";\n} else if (val >= 1000000) {\n  (val / 1000000).toFixed(1) + "M";\n} else if (val >= 1000) {\n  (val / 1000).toFixed(1) + "K";\n} else {\n  Math.round(val).toString();\n}'},
-{cat:"D",title:"Dynamic bar height (slider linked)",desc:"Bar shape height driven by a slider on a master null",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\n[80, Math.abs(val)];'},
-{cat:"D",title:"Color heatmap (value-based)",desc:"Bar fill colour changes automatically based on its value",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\nthresh = 50;\nlow  = [0.9, 0.2, 0.2, 1];\nmid  = [1.0, 0.75, 0.1, 1];\nhigh = [0.2, 0.8, 0.3, 1];\nval < thresh * 0.5 ? low : val < thresh ? mid : high;'},
-{cat:"D",title:"Animated number delta (+12% / -8%)",desc:"Show positive/negative change with automatic +/- sign",code:'val = effect("Slider Control")("Slider");\nrounded = Math.round(val * 10) / 10;\nprefix = rounded >= 0 ? "+" : "";\nprefix + rounded + "%";'},
-{cat:"D",title:"Rolling average (smooth slider)",desc:"Average slider value over recent frames to remove spikes",code:'frames = 10;\ntotal = 0;\nfor (i = 0; i < frames; i++) {\n  total += effect("Slider Control")("Slider").valueAtTime(time - i * thisComp.frameDuration);\n}\ntotal / frames;'},
-{cat:"D",title:"Sparkline dot position",desc:"Move a dot along a data axis driven by a slider",code:'val = effect("Slider Control")("Slider");\nminVal = 0; maxVal = 100;\nminX = -300; maxX = 300;\nminY = 100; maxY = -100;\nx = linear(val, minVal, maxVal, minX, maxX);\ny = linear(val, minVal, maxVal, minY, maxY);\n[x, y];'},
-{cat:"I",title:"ISO top face (SSR)",desc:"Scale and rotate a layer into the top isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to -45 degrees manually"},
-{cat:"I",title:"ISO left face (SSR)",desc:"Scale and rotate a layer into the left isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to +45 degrees"},
-{cat:"I",title:"ISO right face (SSR)",desc:"Scale and rotate a layer into the right isometric plane",code:"// Scale — flip X to mirror\n[-100, 57.735];\n// Then set Rotation to -45 degrees"},
-{cat:"I",title:"ISO full SSR expression (top)",desc:"Top face scale as a pure expression — driveable from a slider",code:"scaleX = 100;\nscaleY = 57.735;\n[scaleX, scaleY];"},
-{cat:"I",title:"ISO Z-height movement",desc:"Move a layer up and down the isometric vertical axis",code:'zCtrl = thisComp.layer("ISO_Z_CONTROLLER");\nzh = zCtrl.effect("Z-Height")("Slider");\nbase = [value[0], value[1]];\n[base[0], base[1] - zh * 0.5];'},
-{cat:"I",title:"ISO extrude offset",desc:"Stack duplicate layers to create isometric depth",code:"depthStep = 4;\n[value[0] + (index - 1) * depthStep * 0.866, value[1] + (index - 1) * depthStep * 0.5];"},
-{cat:"I",title:"ISO depth shading",desc:"Progressively darken extruded layers for realistic ISO shading",code:"baseColor = [0.4, 0.6, 1.0, 1];\ndepth = (index - 1);\ndarkness = Math.max(0, 1 - depth * 0.06);\n[baseColor[0] * darkness, baseColor[1] * darkness, baseColor[2] * darkness, 1];"},
-{cat:"A",title:"Audio reactor (scale)",desc:"Layer scale reacts to the amplitude of an audio layer",code:'amp = thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider");\n[100 + amp, 100 + amp];'},
-{cat:"A",title:"Left/right channel isolator",desc:"Separate left and right audio channels drive different axes",code:'leftAmp  = thisComp.layer("Audio Amplitude").effect("Left Channel")("Slider");\nrightAmp = thisComp.layer("Audio Amplitude").effect("Right Channel")("Slider");\n[100 + leftAmp, 100 + rightAmp];'},
-{cat:"A",title:"Beat sync pulse (BPM, no audio)",desc:"Sharp scale pulse on every beat — no audio layer needed",code:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 30;\ns = 100 + amp * Math.pow(1 - phase, 3);\n[s, s];"},
-{cat:"A",title:"Waveform offset per layer",desc:"Row of layers ripples like a sound waveform",code:"amp = 40;\nfreq = 3;\nphase = (index - 1) * 0.25;\n[value[0], value[1] + amp * Math.sin(time * freq * 2 * Math.PI + phase)];"},
-{cat:"A",title:"Note-to-colour mapper",desc:"MIDI-style 0–127 slider maps to a full colour spectrum",code:'val = effect("Slider Control")("Slider");\nt = val / 127;\nr = Math.abs(Math.sin(t * Math.PI));\ng = Math.abs(Math.sin(t * Math.PI + 2.094));\nb = Math.abs(Math.sin(t * Math.PI + 4.189));\n[r, g, b, 1];'},
-{cat:"B",title:"Dashed line animator",desc:"Animated flowing dashes along a stroke path",code:"dashOffset = time * 200;\ndashOffset;"},
-{cat:"B",title:"Compass heading (north arrow)",desc:"Arrow rotates dynamically to point from A to B",code:'a = thisComp.layer("Point B").transform.position;\nb = thisComp.layer("Point A").transform.position;\nv = a - b;\nradiansToDegrees(Math.atan2(v[1], v[0])) + 90;'},
-{cat:"B",title:"Route progress dot",desc:"Dot moves between two points based on a progress slider",code:'start = thisComp.layer("Route Start").transform.position;\nend = thisComp.layer("Route End").transform.position;\npct = effect("Progress")("Slider") / 100;\nlerp(start, end, pct);'},
-{cat:"B",title:"Speed readout (pixel velocity)",desc:"Displays a layer's actual movement speed in px/s",code:'v = length(velocity);\nMath.round(v) + " px/s";'},
-{cat:"B",title:"Network node connection line",desc:"Line that dynamically stretches and rotates between two nodes",code:'a = thisComp.layer("Node A").transform.position;\nb = thisComp.layer("Node B").transform.position;\nmid = [(a[0]+b[0])/2, (a[1]+b[1])/2];\ndist = length(a, b);\nangle = radiansToDegrees(Math.atan2(b[1]-a[1], b[0]-a[0]));\n// Apply mid to Position, dist to Scale X, angle to Rotation'},
+
+/* ──────────────────  ESSENTIALS (22)  ────────────────── */
+{cat:"E",title:"Wiggle",desc:"Random shake on any property",code:"wiggle(5, 30);",notes:[
+  {type:"info",text:"Adds random oscillation to any property. wiggle(frequency, amplitude) — frequency is wiggles per second, amplitude is max units of movement. Higher frequency = faster shake; higher amplitude = bigger movement."},
+  {type:"setup",label:"how to use",text:"Alt/Option-click the stopwatch on any property (Position, Rotation, Scale, etc.) to open the expression field. Paste the code and press Enter. No keyframes needed — it runs automatically."}
+]},
+{cat:"E",title:"Safe opacity wiggle",desc:"Wiggle opacity without going negative",code:"Math.abs(wiggle(10, 50));",notes:[
+  {type:"info",text:"Standard wiggle can produce negative values, making opacity invisible or causing flicker. Math.abs() reflects any negative result to a positive, keeping opacity within a safe range."},
+  {type:"setup",label:"how to use",text:"Apply to the Opacity property. The amplitude here is 50, so opacity will swing roughly 0–100. Increase amplitude to push it harder."}
+]},
+{cat:"E",title:"Loop out",desc:"Loop animation keyframes from the out-point",code:'loopOut("cycle");',notes:[
+  {type:"info",text:"Repeats the keyframed animation indefinitely after the last keyframe. 'cycle' plays the same direction each time, 'pingpong' alternates direction, 'offset' shifts the value each cycle, 'continue' extrapolates velocity."},
+  {type:"setup",label:"how to use",text:"Set at least 2 keyframes on a property, then apply this expression. The animation will loop automatically. Works on Position, Scale, Rotation, Opacity — any keyframeable property."}
+]},
+{cat:"E",title:"Loop in",desc:"Loop keyframes before the in-point",code:'loopIn("cycle");',notes:[
+  {type:"info",text:"Loops keyframes before the first keyframe, mirroring the behaviour of loopOut. Useful when you want the animation to be active before it 'officially' starts."},
+  {type:"setup",label:"how to use",text:"Apply alongside regular keyframes. Combine with loopOut on the same property for a seamless infinite loop in both directions."}
+]},
+{cat:"E",title:"Loop in + out combined",desc:"Seamless infinite loop in both directions",code:'loopIn("cycle", 0);\nloopOut("cycle", 0);',notes:[
+  {type:"info",text:"Both lines go in the same expression field. The second argument (0) means 'use all keyframes'. Together they create a perfectly seamless infinite loop with no dead time."},
+  {type:"setup",label:"how to use",text:"Paste both lines into the expression field of a property that has 2+ keyframes. The loop will extend infinitely in both the forward and backward time directions."}
+]},
+{cat:"E",title:"Loop path",desc:"Loop keyframes seamlessly on any property — works where loopOut can't",code:"if (numKeys > 1 && time > key(numKeys).time) {\n  t1 = key(1).time;\n  t2 = key(numKeys).time;\n  span = t2 - t1;\n  delta = time - t2;\n  t = delta % span;\n  valueAtTime(t1 + t);\n} else {\n  value;\n}",notes:[
+  {type:"info",text:"Unlike loopOut(), this works on any property including ones where the built-in loop methods fail (e.g. path keyframes, paint effects, certain effects properties). It manually calculates where in the loop the current time falls and samples the value at that point."},
+  {type:"setup",label:"how to use",text:"Set at least 2 keyframes — key 1 is the loop start, the last key is the loop end. Paste this expression on the property. The animation will loop seamlessly after the last keyframe indefinitely."},
+  {type:"warn",text:"For a seamless loop the value at key 1 and the last key should ideally match, otherwise there will be a jump at each cycle boundary."}
+]},
+{cat:"E",title:"Loop out (continue)",desc:"Extrapolate velocity beyond the last keyframe",code:'loopOut("continue");',notes:[
+  {type:"info",text:"Unlike 'cycle', continue doesn't repeat — it extrapolates the velocity from the last pair of keyframes indefinitely. Great for spinning wheels, sliding elements, or any motion that should carry on at the same rate forever."},
+  {type:"setup",label:"how to use",text:"Set 2 keyframes to define a velocity (e.g. rotation 0° → 90°). Apply this expression and the layer will keep rotating at that same rate past the last keyframe."}
+]},
+{cat:"E",title:"Loop out (pingpong)",desc:"Loop that reverses direction each cycle",code:'loopOut("pingpong");',notes:[
+  {type:"info",text:"The animation plays forwards, then reverses back, then forwards again — creating a natural back-and-forth without needing extra keyframes. Ideal for pendulums, breathing effects, and pulsing scale."},
+  {type:"setup",label:"how to use",text:"Set 2 keyframes (start and end state). Apply loopOut(\"pingpong\") and the layer will bounce between them endlessly."}
+]},
+{cat:"E",title:"Wiggle + Loop combined",desc:"Wiggle that also loops via posterize — stable seeded noise",code:"freq = 2;\namp = 30;\ndur = 4;\nt = Math.floor(time / dur) * dur;\nseedRandom(Math.floor(time / dur), true);\nwiggle(freq, amp);",notes:[
+  {type:"info",text:"A standard wiggle can't be looped with loopOut. This pattern creates a wiggle that reseeds every 'dur' seconds, so the values snap seamlessly at each segment boundary. It's not a perfect loop but is effectively looping noise."},
+  {type:"setup",label:"how to use",text:"Adjust dur to set how many seconds before the random re-seeds. Use freq and amp to control the wiggle behaviour. Apply to Position or Rotation."}
+]},
+{cat:"E",title:"Posterize time",desc:"Force a lower frame rate on any property",code:"posterizeTime(12); value;",notes:[
+  {type:"info",text:"Forces the expression to update only N times per second, creating a step-frame or stop-motion effect. The 'value' after it ensures the keyframed value still applies between steps."},
+  {type:"setup",label:"how to use",text:"Paste onto any property. Change 12 to any FPS — 6 is very choppy, 24 is nearly smooth. Pair with wiggle(freq, amp) on the same property for a choppy randomised effect."}
+]},
+{cat:"E",title:"Posterize time + wiggle",desc:"Choppy frame-stepped wiggle — lo-fi animated feel",code:"posterizeTime(8);\nwiggle(3, 20);",notes:[
+  {type:"info",text:"Combines posterizeTime and wiggle in one expression. The posterize snapshots the wiggle at a low frame rate, making it feel like hand-drawn or stop-motion animation."},
+  {type:"setup",label:"how to use",text:"Apply to Position for a jittery hand-held feel, or to Rotation for a shaky camera. Adjust fps (8) and wiggle amplitude to taste."}
+]},
+{cat:"E",title:"Posterize time + loop",desc:"Looping animation with a forced low frame rate",code:"posterizeTime(12);\nloopOut('cycle');",notes:[
+  {type:"info",text:"Applies a low frame-rate snap to a looping animation. Great for making a smooth loop look like it was shot on 8mm or drawn frame-by-frame."},
+  {type:"setup",label:"how to use",text:"You need at least 2 keyframes on the property. posterizeTime updates the value in discrete steps, and loopOut repeats those stepped keyframes endlessly."}
+]},
+{cat:"E",title:"Clamp",desc:"Prevent a value going out of bounds",code:"clamp(value, 0, 100);",notes:[
+  {type:"info",text:"Ensures a property value stays within a defined minimum and maximum. Essential for opacity, scale, or slider-driven values that shouldn't exceed their bounds."},
+  {type:"setup",label:"how to use",text:"Apply to any numeric property. The first argument is the input (usually 'value'), second is the min, third is the max. Change 0 and 100 to whatever bounds you need."}
+]},
+{cat:"E",title:"Linear remap",desc:"Map one value range onto another",code:"linear(time, 0, 2, 0, 100);",notes:[
+  {type:"info",text:"Maps an input range to an output range linearly. Here: time 0–2s maps to output 0–100. Swap 'time' for any property value you want to use as the driver."},
+  {type:"setup",label:"syntax",text:"linear(input, inputMin, inputMax, outputMin, outputMax). The input clamps at the bounds, so it won't go below outputMin or above outputMax."}
+]},
+{cat:"E",title:"Ease remap",desc:"Smooth mapped range with ease-in and ease-out",code:"ease(time, 0, 2, 0, 100);",notes:[
+  {type:"info",text:"Like linear() but adds smooth ease-in/ease-out easing at both ends of the range, giving a polished feel without keyframes."},
+  {type:"setup",label:"syntax",text:"ease(input, inputMin, inputMax, outputMin, outputMax) — same signature as linear(). Try easeIn() or easeOut() for one-sided easing."}
+]},
+{cat:"E",title:"Constant motion",desc:"Continuous movement without keyframes",code:"time * 100;",notes:[
+  {type:"info",text:"Multiplies elapsed time by a speed value to produce continuous movement. No keyframes needed — the layer moves forever at a constant rate. Negative multiplier reverses direction."},
+  {type:"setup",label:"how to use",text:"Apply to a single axis of Position (e.g. value[0] + time * 100 for X only), to Rotation (time * 90 = 90°/sec), or any other numeric property."}
+]},
+{cat:"E",title:"Inertia bounce",desc:"Physical overshoot and settle after each keyframe",code:"n = 0;\nif (numKeys > 1) {\n  n = nearestKey(time).index;\n  if (nearestKey(time).time > time) n--;\n}\nif (n == 0) { t = 0; }\nelse { t = time - key(n).time; }\nif (n > 0 && t < 1) {\n  v = velocityAtTime(key(n).time - thisComp.frameDuration / 10);\n  amp = 0.05; freq = 3; decay = 8;\n  v * amp * Math.sin(freq * t * 2 * Math.PI) / Math.exp(decay * t);\n} else { 0; }",notes:[
+  {type:"setup",label:"how to use",text:"Paste onto any keyframed property (Position, Scale, Opacity). Your keyframes remain unchanged — the expression adds a physical overshoot that decays after each one."},
+  {type:"info",text:"Tune the three variables: amp = overshoot strength (try 0.03–0.08), freq = oscillation speed (2–5 cycles), decay = settle speed (5–12). Higher decay = settles faster."}
+]},
+{cat:"E",title:"Mirrored position",desc:"Flip a layer symmetrically across the comp centre",code:"cx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[2 * cx - value[0], value[1]];",notes:[
+  {type:"info",text:"Calculates the mirror point of this layer's X position across the comp's centre line. Useful for symmetrical lower thirds, pairs of elements, or background shapes."},
+  {type:"setup",label:"how to use",text:"Apply to Position on a duplicate layer. The original layer drives its own position normally; this duplicate reflects it. Swap value[0]/value[1] to mirror vertically instead."}
+]},
+{cat:"E",title:"Aspect ratio lock",desc:"Keep width and height proportional when scaling",code:"ratio = 16 / 9;\n[value[0], value[0] / ratio];",notes:[
+  {type:"info",text:"Ensures the Scale height is always derived from the Scale width, maintaining a fixed aspect ratio no matter how you adjust scale."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Only animate/adjust Scale X — the Y value will follow automatically. Change 16/9 to match your intended ratio (e.g. 4/3, 1/1, 9/16 for portrait)."}
+]},
+{cat:"E",title:"Random value (seeded)",desc:"A stable random number that doesn't flicker each frame",code:"seedRandom(index, true);\nrandom(50, 200);",notes:[
+  {type:"info",text:"seedRandom with timeless=true locks the random to the seed value rather than time, so the number stays constant each frame. Using 'index' as the seed gives each layer its own unique stable random value."},
+  {type:"setup",label:"how to use",text:"Apply to Scale, Opacity, or any numeric property where you want consistent random variation per layer. Change the range in random(min, max) to suit your needs."}
+]},
+{cat:"E",title:"Fade in on comp start",desc:"Layer fades from 0 to 100 opacity over a set duration",code:"dur = 0.5;\nlinear(time - inPoint, 0, dur, 0, 100);",notes:[
+  {type:"info",text:"Uses the layer's inPoint so the fade always starts exactly when the layer appears, regardless of where it sits on the timeline. No keyframes needed."},
+  {type:"setup",label:"how to use",text:"Apply to Opacity. Change dur to set the fade duration in seconds (0.5 = half a second). Combine with ease() instead of linear() for a smoother fade."}
+]},
+{cat:"E",title:"Auto-fade out before layer ends",desc:"Layer fades to 0 opacity in the final N seconds",code:"dur = 0.5;\nlinear(outPoint - time, 0, dur, 0, 100);",notes:[
+  {type:"info",text:"Automatically fades the layer out before its outPoint. The expression reads the layer's own outPoint so it always triggers at the right moment regardless of where the layer sits."},
+  {type:"setup",label:"how to use",text:"Apply to Opacity. Change dur to the desired fade-out length in seconds. Combine with the fade-in expression using Math.min() to run both simultaneously."}
+]},
+{cat:"E",title:"Smooth (reduce jitter)",desc:"Smooth out jittery tracking or noisy data",code:"smooth(0.2, 5);",notes:[
+  {type:"info",text:"smooth(width, samples) averages a property's value over a rolling window of time to remove noise. Useful on tracked data, linked positions, or any value that flickers."},
+  {type:"setup",label:"how to use",text:"Apply directly to a keyframed or expression-driven property. Increase width (seconds) for more smoothing, increase samples for better accuracy (at a small performance cost)."}
+]},
+
+/* ──────────────────  TEXT & COUNTERS (16)  ────────────────── */
+{cat:"T",title:"Slider (whole number)",desc:"Drive a text counter from a Slider Control",code:'Math.round(effect("Slider Control")("Slider"));',notes:[
+  {type:"info",text:"Reads a Slider Control effect and rounds its value to a whole number for display as a text counter. Keyframe the slider to animate the count-up."},
+  {type:"setup",label:"setup",text:'Add Effect > Expression Controls > Slider Control to your text layer. Apply this expression to Source Text. If you rename the effect, update the first string in effect("…") to match.'}
+]},
+{cat:"T",title:"Currency",desc:"Prefix a counter with a currency symbol",code:'"$" + Math.round(effect("Slider Control")("Slider"));',notes:[
+  {type:"info",text:'Concatenates a currency symbol in front of the rounded slider value. Swap "$" for "€", "£", "¥" etc. as needed.'},
+  {type:"setup",label:"setup",text:"Requires a Slider Control effect on the same layer. Apply to Source Text. Keyframe the slider 0 → target value."}
+]},
+{cat:"T",title:"Percentage",desc:"Append a % sign to a counter",code:'Math.round(effect("Slider Control")("Slider")) + "%";',notes:[
+  {type:"info",text:'Appends a % character after the rounded value. Works identically to the currency version — just swap the prefix for a suffix.'},
+  {type:"setup",label:"setup",text:"Requires a Slider Control effect on the same layer. Apply to Source Text."}
+]},
+{cat:"T",title:"Leading zeros (001)",desc:"Pad a number to a fixed digit width",code:'s = Math.round(effect("Slider Control")("Slider")).toString();\nwhile (s.length < 3) s = "0" + s;\ns;',notes:[
+  {type:"info",text:"Pads the number with leading zeros to always show a fixed number of digits. Used for scoreboards, frame counters, and technical readouts."},
+  {type:"setup",label:"how to use",text:"Change the 3 in the while loop condition to set the total digit count (e.g. 2 gives '01', 4 gives '0042'). Apply to Source Text."}
+]},
+{cat:"T",title:"Odometer (commas)",desc:"Format large numbers with comma separators",code:"num = value;\nnum.toLocaleString();",notes:[
+  {type:"info",text:"toLocaleString() automatically applies the user's locale number formatting — typically comma-separated thousands. Works on numeric values from sliders or direct keyframes."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text on a text layer whose value is a number. You can also replace 'value' with an effect slider reference."}
+]},
+{cat:"T",title:"Hundredths counter (1.00)",desc:"Display a slider value to 2 decimal places",code:'num = effect("Slider Control")("Slider").value;\nnum.toFixed(2);',notes:[
+  {type:"info",text:"toFixed(N) returns a string with exactly N decimal places. Useful for price counters, precise statistics, or stock tickers."},
+  {type:"setup",label:"how to use",text:"Requires a Slider Control. Change the 2 in toFixed() for more or fewer decimal places."}
+]},
+{cat:"T",title:"Granular increment (0.01)",desc:"Scale down a slider to hundredths precision",code:'num = effect("Slider Control")("Slider").value;\nfinalVal = num * 0.01;\nfinalVal.toFixed(2);',notes:[
+  {type:"info",text:"Slider Controls cap at 1,000,000 but you sometimes need values like 0.05. Multiply the raw slider by a small factor to scale it down."},
+  {type:"setup",label:"how to use",text:"Keyframe the slider from 0 to 100 to have the display go 0.00 → 1.00. Adjust the multiplier (0.01) to change the scale."}
+]},
+{cat:"T",title:"Uppercase all",desc:"Force text to display in uppercase",code:"value.toUpperCase();",notes:[
+  {type:"info",text:"Transforms whatever text is in the Source Text property to uppercase. Useful for consistent heading styles without relying on the font's caps setting."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text. Type normally in the text layer — the expression handles the transformation automatically."}
+]},
+{cat:"T",title:"Typewriter substring",desc:"Reveal text character by character",code:"value.substr(0, Math.round(effect('Slider Control')('Slider')));",notes:[
+  {type:"info",text:"substr(start, length) returns only the first N characters of the full string. Keyframe the slider from 0 to the total character count to animate the reveal."},
+  {type:"setup",label:"how to use",text:"Add a Slider Control. Count the characters in your text and keyframe the slider 0 → character count. Apply to Source Text."}
+]},
+{cat:"T",title:"Source name",desc:"Display the layer's own name as text",code:"thisLayer.name;",notes:[
+  {type:"info",text:"Outputs the layer's name as a live string. If you rename the layer, the text updates instantly — great for labelling rigs, auto-captions, or debug overlays."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text. No effects needed. Rename the layer in the timeline and the text updates automatically."}
+]},
+{cat:"T",title:"Comp name",desc:"Display the composition name as text",code:"thisComp.name;",notes:[
+  {type:"info",text:"Reads and displays the current composition's name. Useful for auto-labelling output comps in a templated pipeline."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text on any text layer. The text updates if the comp is renamed."}
+]},
+{cat:"T",title:"Frame number",desc:"Display the current frame as an integer",code:"Math.floor(time * thisComp.frameRate);",notes:[
+  {type:"info",text:"Calculates the current frame by multiplying time (seconds) by the comp frame rate. Works at any frame rate."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text. No setup required — it reads directly from the comp's built-in variables."}
+]},
+{cat:"T",title:"SMPTE timecode",desc:"Full HH:MM:SS:FF timecode display",code:'t = time;\nh = Math.floor(t / 3600);\nm = Math.floor((t % 3600) / 60);\ns = Math.floor(t % 60);\nf = Math.floor((t % 1) * thisComp.frameRate);\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(h) + ":" + pad(m) + ":" + pad(s) + ":" + pad(f);',notes:[
+  {type:"setup",label:"how to use",text:"Paste on Source Text. No effects needed. Works at any frame rate — reads thisComp.frameRate automatically."},
+  {type:"info",text:"Outputs HH:MM:SS:FF format. The pad() helper ensures double digits for all fields. The colons can be swapped for semicolons for drop-frame timecode notation."}
+]},
+{cat:"T",title:"ETA countdown (MM:SS)",desc:"Count down from a set number of seconds",code:'val = effect("Slider Control")("Slider");\ntotalSec = Math.max(0, Math.round(val));\nm = Math.floor(totalSec / 60);\ns = totalSec % 60;\nfunction pad(n) { return n < 10 ? "0" + n : "" + n; }\npad(m) + ":" + pad(s);',notes:[
+  {type:"info",text:"Formats a raw second count into MM:SS display. The Math.max(0,...) prevents negative display values. Keyframe the slider downward over the desired duration."},
+  {type:"setup",label:"how to use",text:"Add a Slider Control. Keyframe it from (total seconds) to 0 over the duration. The display will count down in MM:SS format."}
+]},
+{cat:"T",title:"Typing cursor blink",desc:"Blinking | cursor to pair with a typewriter reveal",code:'Math.floor(time * 2) % 2 === 0 ? 100 : 0;',notes:[
+  {type:"info",text:"Alternates opacity between 100 and 0 twice per second, simulating a text cursor blink. Change the multiplier (2) to speed up or slow down the blink."},
+  {type:"setup",label:"how to use",text:"Create a separate text layer with just a | character. Apply this expression to its Opacity property."}
+]},
+{cat:"T",title:"Random character scramble",desc:"Randomly cycle through characters — glitch effect",code:'s = "ABC#!@012";\ns[Math.floor(random(s.length))];',notes:[
+  {type:"info",text:"Picks a random character from the string on every frame, creating a fast scramble/glitch effect. Pair with posterizeTime to slow the scramble rate."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text. Change the string to include whatever characters fit your aesthetic. Add posterizeTime(12) on a line before for a calmer scramble speed."}
+]},
+
+/* ──────────────────  SHAPE & LAYOUT (14)  ────────────────── */
+{cat:"S",title:"Maintain stroke width (uniform scale)",desc:"Keep stroke width consistent when scaling",code:"s = transform.scale[0];\nvalue * (100 / s);",notes:[
+  {type:"info",text:"Reads the layer's current scale and compensates the stroke width inversely, so the stroke appears the same thickness regardless of scale."},
+  {type:"setup",label:"how to use",text:"Apply to the Stroke Width property of a shape layer. Only works correctly with uniform scale (X and Y scale are equal)."},
+  {type:"warn",text:"Only works with uniform scale (equal X and Y). For non-uniform, use the length() version below."}
+]},
+{cat:"S",title:"Maintain stroke width (non-uniform scale)",desc:"Correct stroke width even with non-uniform scale",code:"length(toComp([0,0]), toComp([0.7071,0.7071])) || 0.001;",notes:[
+  {type:"info",text:"Uses the length of a diagonal unit vector transformed to comp space to calculate a scale-compensating value. Works correctly even when X and Y scale are different."},
+  {type:"setup",label:"how to use",text:"Apply to Stroke Width. The 0.7071 values are 1/√2 — the diagonal unit vector. No other setup needed."}
+]},
+{cat:"S",title:"Auto-size text box",desc:"Rectangle that automatically matches text width and height",code:'t = thisComp.layer("Text Layer");\nw = t.sourceRectAtTime().width;\nh = t.sourceRectAtTime().height;\n[w, h];',notes:[
+  {type:"info",text:"sourceRectAtTime() returns the live bounding box of a text layer. Linking a rectangle's Size to it creates a background that auto-resizes to fit any text."},
+  {type:"setup",label:"setup",text:'Apply to the Size property of a Rectangle path. Replace "Text Layer" with your actual text layer name. The rectangle updates live as the text changes.'}
+]},
+{cat:"S",title:"Smart background with padding",desc:"Shape that wraps tightly around text with adjustable padding",code:'t = thisComp.layer("Text Layer");\nr = t.sourceRectAtTime(time, false);\npad = 50;\n[r.width + pad * 2, r.height + pad * 2];',notes:[
+  {type:"info",text:"Adds equal padding on all sides of the text bounding box. Change pad to control the gap between text and background edge."},
+  {type:"setup",label:"setup",text:'Apply to Size on a Rectangle path. You also need a Position expression to keep it centred: [r.left + r.width/2, r.top + r.height/2] using the same sourceRectAtTime() data.'}
+]},
+{cat:"S",title:"Index spacing (auto-stack)",desc:"Automatically distribute layers in a vertical column",code:"padding = 150;\n[value[0], value[1] + (index - 1) * padding];",notes:[
+  {type:"info",text:"Uses each layer's index (stacking number) to offset its vertical position, automatically distributing all layers with equal spacing. Add more layers and they space themselves."},
+  {type:"setup",label:"how to use",text:"Apply to Position on every layer you want to stack. All layers should have the same base Position Y value. Change padding to adjust the gap."}
+]},
+{cat:"S",title:"Multi-column auto-stack",desc:"Distribute layers into a grid of rows and columns",code:"cols = 3;\npadX = 200;\npadY = 150;\ncol = (index - 1) % cols;\nrow = Math.floor((index - 1) / cols);\nstartX = thisComp.width / 2 - (cols - 1) * padX / 2;\nstartY = 200;\n[startX + col * padX, startY + row * padY];",notes:[
+  {type:"info",text:"Automatically fills a grid from left to right, top to bottom based on each layer's index. Adjusting cols changes how many items fit per row."},
+  {type:"setup",label:"how to use",text:"Apply to Position on all layers in the grid. Adjust cols for columns, padX/padY for spacing, and startY for the vertical start position."}
+]},
+{cat:"S",title:"Snap to grid",desc:"Constrain a layer's position to a pixel grid",code:"grid = 50;\n[Math.round(value[0] / grid) * grid, Math.round(value[1] / grid) * grid];",notes:[
+  {type:"info",text:"Rounds position to the nearest grid increment. Change grid to set the grid cell size in pixels. Works on top of existing keyframes."},
+  {type:"setup",label:"how to use",text:"Apply to Position. Animate the layer normally — the expression will snap it to the nearest grid point on every frame."}
+]},
+{cat:"S",title:"Circular orbit",desc:"Layer orbits continuously around a centre point",code:"radius = 200;\nspeed = 1;\nangle = time * speed * 2 * Math.PI;\ncx = thisComp.width / 2;\ncy = thisComp.height / 2;\n[cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius];",notes:[
+  {type:"info",text:"Drives Position using a sine/cosine pair to produce a perfect circular orbit. radius controls orbit size, speed controls rotations per second."},
+  {type:"setup",label:"how to use",text:"Apply to Position. No keyframes needed. To orbit around a different centre, replace cx/cy with a layer position reference."}
+]},
+{cat:"S",title:"Spiral outward",desc:"Layer traces an expanding spiral path",code:"radius = 40 + time * 50;\nspeed = 2;\nangle = time * speed * 2 * Math.PI;\n[thisComp.width/2 + Math.cos(angle) * radius, thisComp.height/2 + Math.sin(angle) * radius];",notes:[
+  {type:"info",text:"Same as the circular orbit but the radius grows over time, creating an outward spiral. Adjust the time multiplier in the radius line to change spiral expansion speed."},
+  {type:"setup",label:"how to use",text:"Apply to Position. No keyframes needed. The starting radius (40) sets how tight the centre of the spiral is."}
+]},
+{cat:"S",title:"Pulse (rhythmic scale beat)",desc:"Rhythmic scale pulse synced to a frequency",code:"amp = 20;\nfreq = 2;\ns = 100 + amp * Math.sin(time * freq * 2 * Math.PI);\n[s, s];",notes:[
+  {type:"info",text:"A sine wave drives scale between (100-amp) and (100+amp) at a given frequency. freq=2 means 2 full pulses per second. No keyframes needed."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Adjust freq to match BPM (BPM/60 = Hz), amp for pulse size. Combine with audio reactor expressions for music-driven animation."}
+]},
+{cat:"S",title:"Progress bar fill",desc:"Rectangle width driven by a 0–100 slider",code:'val = effect("Slider Control")("Slider");\nmaxW = 600;\n[maxW * (val / 100), value[1]];',notes:[
+  {type:"info",text:"Scales the Rectangle's width proportionally to a slider value. At slider=50, width = 300 (half maxW). The Y dimension stays at its current value."},
+  {type:"setup",label:"setup",text:'Apply to the Size property of a Rectangle path inside a shape layer. Add a Slider Control effect. The anchor point of the shape should be at the left edge for correct alignment.'}
+]},
+{cat:"S",title:"Percentage ring (trim paths)",desc:"Circular fill driven by a slider — donut chart style",code:'val = effect("Slider Control")("Slider");\nval / 100;',notes:[
+  {type:"info",text:"Trim Paths End value works on a 0–1 scale. Dividing the slider (0–100) by 100 maps perfectly to it, filling the ring to match the percentage."},
+  {type:"setup",label:"setup",text:'Draw an ellipse shape. Add Trim Paths. Set Start to 0. Apply this expression to the End property. Add a Slider Control effect. Keyframe the slider 0 → 100 to animate the ring fill.'}
+]},
+{cat:"S",title:"Auto-fit scale (long translations)",desc:"Shrinks text to fit a max width — critical for multilingual templates",code:'textW = thisLayer.sourceRectAtTime(time, false).width;\nmaxW = 800;\nif (textW > maxW) {\n  s = (maxW / textW) * 100;\n  [s, s];\n} else {\n  [100, 100];\n}',notes:[
+  {type:"info",text:"Measures the live text width and automatically scales down if it exceeds maxW. Text that fits stays at 100%. Prevents overflow without needing manual adjustment per language."},
+  {type:"setup",label:"how to use",text:"Apply to Scale on a text layer. Change maxW to the maximum width in pixels the text is allowed to occupy. Essential for multilingual motion templates."}
+]},
+{cat:"S",title:"Safe zone warning",desc:"Pulses the layer if it gets too close to the comp edge",code:'x = transform.position[0];\ny = transform.position[1];\nw = thisComp.width;\nh = thisComp.height;\nmargin = 100;\noutside = (x < margin || x > w - margin || y < margin || y > h - margin);\noutside ? Math.abs(Math.sin(time * 8)) * 100 : 0;',notes:[
+  {type:"info",text:"Pulses the layer's opacity as a visual warning when it strays within the margin zone. Useful for building safe-zone-aware rigs for broadcast and social templates."},
+  {type:"setup",label:"how to use",text:"Apply to Opacity. Change margin to your safe zone distance in pixels. The layer will pulse when any part of its position anchor gets too close to the edge."}
+]},
+
+/* ──────────────────  MASTER CONTROLLERS (7)  ────────────────── */
+{cat:"M",title:"Global position link",desc:"Drive a layer's position from a null in another comp",code:'comp("MAIN").layer("CONTROL_PANEL").transform.position;',notes:[
+  {type:"info",text:"Reads the Position of a null in a different comp, enabling cross-comp control rigs. Every layer that references the same null moves in sync."},
+  {type:"setup",label:"how to use",text:'Replace "MAIN" with your comp name and "CONTROL_PANEL" with your null\'s layer name. Apply to Position. Warning: these links break silently if either the comp or layer is renamed.'},
+  {type:"warn",text:"Cross-comp references break silently if the comp or layer is renamed. Use Essential Graphics or a comment to document them."}
+]},
+{cat:"M",title:"Global colour link",desc:"One colour swatch controls every layer that references it",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Color Control")("Color");',notes:[
+  {type:"info",text:"Reads a Color Control effect on a centralised null so that changing one swatch updates every expression-linked fill, stroke, or shadow across the whole project."},
+  {type:"setup",label:"how to use",text:'Add Effect > Expression Controls > Color Control to a null layer named "CONTROL_PANEL". Apply this expression to any Fill or Stroke Color property.'}
+]},
+{cat:"M",title:"Global slider link",desc:"Single slider drives a value across every linked layer",code:'comp("MAIN").layer("CONTROL_PANEL").effect("Slider Control")("Slider");',notes:[
+  {type:"info",text:"Reads a centralised Slider Control so that one keyframed slider value propagates to every layer that references it. Ideal for speed, size, or animation intensity controls."},
+  {type:"setup",label:"how to use",text:'Add a Slider Control effect to your control null. Apply this expression to any numeric property. Change "Slider Control" to match your effect name if renamed.'}
+]},
+{cat:"M",title:"Checkbox visibility",desc:"Toggle layer visibility on/off from a master null",code:'check = comp("MAIN").layer("CONTROL_PANEL").effect("Checkbox Control")("Checkbox");\n(check == 1) ? 100 : 0;',notes:[
+  {type:"info",text:"Checkbox Controls return 1 (on) or 0 (off). The ternary maps those to Opacity 100/0 to show or hide the layer. More reliable than toggling the video switch."},
+  {type:"setup",label:"how to use",text:'Add a Checkbox Control to your control null. Apply to Opacity. Toggle the checkbox in the Effects panel to show/hide every linked layer.'}
+]},
+{cat:"M",title:"World position (null parent offset)",desc:"Get a layer's true world position regardless of parenting",code:"toComp([0, 0, 0]);",notes:[
+  {type:"info",text:"toComp() transforms a local point (0,0 = the layer's anchor point) into composition world space. Useful when you need a layer's actual position despite parenting chains."},
+  {type:"setup",label:"how to use",text:"Apply to Position, or use this result in other expressions as a driver. Often used as the source of data for other layers to track."}
+]},
+{cat:"M",title:"Parented position compensation",desc:"Track a parent layer's position in a child's local space",code:'fromComp(thisComp.layer("Parent").toComp([0, 0]));',notes:[
+  {type:"info",text:"Converts a parent layer's world position back into the local space of this layer. Useful for nullifying parent motion or writing counter-animation that holds a child in place."},
+  {type:"setup",label:"how to use",text:'Replace "Parent" with your parent layer\'s name. Apply to Position on the child layer.'}
+]},
+{cat:"M",title:"Multi-switch (index router)",desc:"Keyframe a single slider to switch between multiple states",code:'idx = effect("Index Control")("Slider");\nidx == 1 ? 100 : idx == 2 ? 50 : 0;',notes:[
+  {type:"info",text:"Uses nested ternaries to route a slider value to different output states. Keyframe the slider to switch between them over time — great for show/hide sequences."},
+  {type:"setup",label:"how to use",text:'Add a Slider Control and rename it "Index Control". Apply to Opacity (or any property). Extend the ternary chain for more states: idx == 3 ? 75 : ...'}
+]},
+
+/* ──────────────────  ADVANCED RIGS (16)  ────────────────── */
+{cat:"R",title:"Magnet (LERP)",desc:"Layer is attracted toward a null with adjustable strength",code:'magnetPos = thisComp.layer("MAGNET").transform.position;\nstrength = thisComp.layer("MAGNET").effect("Strength")("Slider") / 100;\nlerp(value, magnetPos, strength);',notes:[
+  {type:"info",text:"lerp() blends between this layer's current position and the magnet null's position by the strength fraction (0–1). strength=0 = no pull, strength=1 = snapped to magnet."},
+  {type:"setup",label:"how to use",text:'Create a null named "MAGNET" with a Slider Control effect named "Strength". Apply to Position. Keyframe the null to pull the layer around.'}
+]},
+{cat:"R",title:"Look at (face target)",desc:"Layer rotates to always face a target null",code:'v = thisComp.layer("Target").transform.position - transform.position;\nradiansToDegrees(Math.atan2(v[1], v[0]));',notes:[
+  {type:"info",text:"Calculates the angle between this layer and a target using atan2, then converts from radians to degrees. The layer always faces the target regardless of position."},
+  {type:"setup",label:"how to use",text:'Create a null named "Target". Apply to Rotation. Move the null around and the layer will track it continuously.'}
+]},
+{cat:"R",title:"Proximity trigger (opacity)",desc:"Layer appears when a trigger null gets close enough",code:'d = length(thisComp.layer("Trigger").transform.position, transform.position);\nif (d < 200) 100; else 20;',notes:[
+  {type:"info",text:"length() calculates the distance between two points. When the trigger null moves within 200px, the layer becomes fully visible. Useful for interactive map reveals or proximity tooltips."},
+  {type:"setup",label:"how to use",text:'Create a null named "Trigger". Apply to Opacity. Animate the null to move around the comp and watch layers appear as it approaches.'}
+]},
+{cat:"R",title:"Proximity-based scale",desc:"Layer grows as an attractor null moves closer",code:'d = length(thisComp.layer("Attractor").transform.position, transform.position);\nmaxDist = 400;\ns = linear(d, 0, maxDist, 150, 100);\n[s, s];',notes:[
+  {type:"info",text:"As the attractor null approaches, the distance decreases, which maps via linear() to a larger scale. The layer returns to normal size (100) at maxDist."},
+  {type:"setup",label:"how to use",text:'Create a null named "Attractor". Apply to Scale. Adjust maxDist and the 150 value to control how pronounced the effect is.'}
+]},
+{cat:"R",title:"Velocity-based rotation",desc:"Layer banks automatically to face its direction of travel",code:"v = velocity;\nradiansToDegrees(Math.atan2(v[1], v[0]));",notes:[
+  {type:"info",text:"velocity is the rate of change of the current property. On a Position property, it returns the direction vector. atan2 converts that to an angle for Rotation."},
+  {type:"setup",label:"how to use",text:"Apply to Rotation on a layer that has animated Position keyframes. The layer will bank to face wherever it's moving. Works with any smooth position animation."}
+]},
+{cat:"R",title:"Spring follow (physics)",desc:"Layer chases keyframes with real mass, stiffness and damping",code:"mass = 20;\nstiffness = 50;\ndamping = 8;\nfps = 1 / thisComp.frameDuration;\nnumInt = 16;\ndt = 1 / (fps * numInt);\nx = position;\nv = velocity;\nfor (i = 0; i < numInt; i++) {\n  f = -stiffness * (x - value) - damping * v;\n  a = f / mass;\n  v += a * dt;\n  x += v * dt;\n}\nx;",notes:[
+  {type:"info",text:"A physics simulation (Euler integration) that models a spring system. mass = inertia, stiffness = pull strength, damping = energy loss (prevents eternal oscillation)."},
+  {type:"setup",label:"how to use",text:"Apply to Position alongside existing keyframes. Tune the three physical parameters: higher stiffness = snappier, higher damping = less bounce, lower mass = more responsive."}
+]},
+{cat:"R",title:"Stagger delay by index",desc:"Same animation plays offset across multiple layers automatically",code:"delay = 0.08;\noffset = (index - 1) * delay;\nnumKeys > 0 ? thisProperty.valueAtTime(time - offset) : value;",notes:[
+  {type:"info",text:"Each layer reads its own keyframed animation, but shifted back in time by its index × delay. This creates a cascade with no extra keyframes — just change the delay value."},
+  {type:"setup",label:"how to use",text:"Apply the same expression to the same property on all layers (e.g. all their Opacity properties). They all share identical keyframes — the expression staggers them automatically."}
+]},
+{cat:"R",title:"Seeded random wiggle (per layer)",desc:"Each layer gets a different but stable wiggle",code:"seedRandom(index, true);\nwiggle(2, 40);",notes:[
+  {type:"info",text:"seedRandom(index, true) gives each layer a unique random seed that doesn't change over time. Wiggle then generates a unique but stable random path per layer."},
+  {type:"setup",label:"how to use",text:"Apply to Position or Rotation on multiple layers. Every layer wiggles independently — no two look the same, but they're always the same pattern each playthrough."}
+]},
+{cat:"R",title:"Strobe / glitch on beat",desc:"Choppy strobe or glitch displacement effect",code:"fps = 6;\nposterizeTime(fps);\nwiggle(1, 50);",notes:[
+  {type:"info",text:"Snaps the wiggle to a low frame rate, creating a harsh glitch strobe. Lower fps = more jarring. Apply to Position for displacement, Opacity for a flickering strobe."},
+  {type:"setup",label:"how to use",text:"Apply to Position or Opacity. Adjust fps for glitch frequency. For a harder strobe, replace wiggle with a Math.random() > 0.5 ? 100 : 0 ternary on Opacity."}
+]},
+{cat:"R",title:"Ghost trail — position",desc:"Layers follow a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.position.valueAtTime(time - offset);',notes:[
+  {type:"info",text:"Each layer reads the Leader's position from progressively further in the past, creating a tail. The further down the index, the further behind it lags."},
+  {type:"setup",label:"how to use",text:'Name your lead layer "Leader". Apply to Position on every follower layer. Set them all to the same position initially — the expression handles the offset automatically.'}
+]},
+{cat:"R",title:"Ghost trail — scale",desc:"Scale follows a leader with a cascading delay",code:'delay = 0.08;\noffset = (index - 1) * delay;\nthisComp.layer("Leader").transform.scale.valueAtTime(time - offset);',notes:[
+  {type:"info",text:"Like the position ghost trail but applied to Scale. Each layer echoes the leader's scale animation with an increasing delay."},
+  {type:"setup",label:"how to use",text:'Apply to Scale on follower layers. Pair with the position ghost trail for a full trailing clone effect.'}
+]},
+{cat:"R",title:"Ghost trail — opacity",desc:"Followers fade progressively down the chain",code:'delay = 0.1;\noffset = (index - 1) * delay;\nbaseOpacity = thisComp.layer("Leader").transform.opacity.valueAtTime(time - offset);\nbaseOpacity * (1 - (index - 1) * 0.15);',notes:[
+  {type:"info",text:"Each layer in the chain reads the leader's opacity with a delay and additionally multiplies it by a fade factor based on its index, so the tail progressively fades out."},
+  {type:"setup",label:"how to use",text:'Apply to Opacity on follower layers. The 0.15 factor controls how quickly the tail fades — increase for faster fade-out.'}
+]},
+{cat:"R",title:"Matrix wave (scale)",desc:"Wave ripples across a grid of layers from a master null",code:'master = thisComp.layer("WAVE_MASTER");\namp = master.effect("Wave Amplitude")("Slider");\nphase = master.effect("Wave Phase")("Slider");\nfreq = 2;\nphaseOffset = (index - 1) * 0.3;\nwave = amp * Math.sin(time * freq * 2 * Math.PI + phaseOffset + phase);\n[100 + wave, 100 + wave];',notes:[
+  {type:"info",text:"A centralised null drives the amplitude and phase of a wave that ripples across all layers based on their index offset. Great for data visualisations, grid animations, and waveform effects."},
+  {type:"setup",label:"how to use",text:'Create a null "WAVE_MASTER" with Slider Controls named "Wave Amplitude" and "Wave Phase". Apply to Scale across all grid layers.'}
+]},
+{cat:"R",title:"Rubik row shift",desc:"Rows shift in staggered waves — Rubik\'s cube style",code:'rowSize = 4;\nrow = Math.floor((index - 1) / rowSize);\nshiftSlider = thisComp.layer("WAVE_MASTER").effect("Wave Phase")("Slider");\nrowOffset = row * 0.5;\namp = 80;\namp * Math.sin(time * 2 * Math.PI + rowOffset + shiftSlider);',notes:[
+  {type:"info",text:"Groups layers into rows by index, then offsets each row's oscillation phase. Creates the distinctive Rubik's cube row-stagger animation with a single expression."},
+  {type:"setup",label:"how to use",text:'Set rowSize to match how many layers are in each row. Apply to Position Y (or Rotation). Connect the Wave Phase slider on WAVE_MASTER to control the scroll speed.'}
+]},
+{cat:"R",title:"Sample image (colour picker)",desc:"Sample a pixel colour from a video layer dynamically",code:'thisComp.layer("Video").sampleImage(transform.position, [1,1]);',notes:[
+  {type:"info",text:"sampleImage returns the RGBA colour of a pixel at the given position in a source layer. Use to drive a fill colour from live video footage or a rendered colour field."},
+  {type:"setup",label:"how to use",text:'Apply to a Fill Color property. Replace "Video" with your source layer name. The sampled position can be the current layer\'s position or any [x,y] coordinate.'}
+]},
+{cat:"R",title:"Blink",desc:"Hard on/off blink using a sine wave threshold",code:"Math.sin(time * 10) > 0 ? 100 : 0;",notes:[
+  {type:"info",text:"The sine wave crosses zero at regular intervals — using a > 0 threshold converts the smooth wave into a hard on/off switch, creating a perfect 50% duty-cycle blink."},
+  {type:"setup",label:"how to use",text:"Apply to Opacity. Change the 10 multiplier to adjust blink speed (higher = faster). For an asymmetric blink, change the 0 threshold (> 0.5 = more off time, > -0.5 = more on time)."}
+]},
+
+/* ──────────────────  DATA & FINANCE (8)  ────────────────── */
+{cat:"D",title:"Currency formatter ($1,000,000)",desc:"Format large numbers with symbol and comma separators",code:'val = effect("Slider Control")("Slider");\nsym = "$";\nsym + Math.round(val).toLocaleString();',notes:[
+  {type:"info",text:"Rounds the slider value and formats it with locale-appropriate comma separators, then prepends a currency symbol. Works for any currency — just change sym."},
+  {type:"setup",label:"how to use",text:'Add a Slider Control. Keyframe it from 0 to the target value. Apply to Source Text. For very large values, set the Slider Control maximum in Effect Controls > Edit Value Range.'}
+]},
+{cat:"D",title:"Shorthand number (1.2M / 50K)",desc:"Auto-switch between B, M, K and full number based on value",code:'val = Math.abs(effect("Slider Control")("Slider"));\nif (val >= 1000000000) {\n  (val / 1000000000).toFixed(1) + "B";\n} else if (val >= 1000000) {\n  (val / 1000000).toFixed(1) + "M";\n} else if (val >= 1000) {\n  (val / 1000).toFixed(1) + "K";\n} else {\n  Math.round(val).toString();\n}',notes:[
+  {type:"info",text:"Automatically selects the most readable unit for the current value. As the slider crosses each threshold (1K, 1M, 1B), the label switches — great for animating market cap or social follower counts."},
+  {type:"setup",label:"how to use",text:"Add a Slider Control. Apply to Source Text. The expression handles all unit switching automatically."}
+]},
+{cat:"D",title:"Dynamic bar height (slider linked)",desc:"Bar shape height driven by a slider on a master null",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\n[80, Math.abs(val)];',notes:[
+  {type:"info",text:"Links a rectangle's height directly to a slider, enabling data-driven bar charts that animate when you keyframe the slider. Math.abs prevents negative height values."},
+  {type:"setup",label:"how to use",text:'Create a null "GRAPH_MASTER" with Slider Controls for each bar (e.g. "Bar 1 Value", "Bar 2 Value"...). Apply each expression variant to the corresponding bar\'s Size property.'}
+]},
+{cat:"D",title:"Color heatmap (value-based)",desc:"Bar fill colour changes automatically based on its value",code:'master = thisComp.layer("GRAPH_MASTER");\nval = master.effect("Bar 1 Value")("Slider");\nthresh = 50;\nlow  = [0.9, 0.2, 0.2, 1];\nmid  = [1.0, 0.75, 0.1, 1];\nhigh = [0.2, 0.8, 0.3, 1];\nval < thresh * 0.5 ? low : val < thresh ? mid : high;',notes:[
+  {type:"info",text:"Uses the bar's own value to pick between three RGBA colour arrays: red for low, yellow for mid, green for high. Thresholds and colours are all adjustable."},
+  {type:"setup",label:"how to use",text:'Apply to Fill Color on a bar shape layer. The thresh variable is the mid/high boundary — values below 50% of thresh = red, 50–100% = yellow, above = green.'}
+]},
+{cat:"D",title:"Animated number delta (+12% / -8%)",desc:"Show positive/negative change with automatic +/- sign",code:'val = effect("Slider Control")("Slider");\nrounded = Math.round(val * 10) / 10;\nprefix = rounded >= 0 ? "+" : "";\nprefix + rounded + "%";',notes:[
+  {type:"info",text:"Automatically prepends a + sign for positive values (JavaScript omits it by default). The rounding to 1 decimal place keeps readability. Negative values already get a - sign naturally."},
+  {type:"setup",label:"how to use",text:"Keyframe the Slider Control from a starting value to an ending value (can be negative). Apply to Source Text."}
+]},
+{cat:"D",title:"Rolling average (smooth slider)",desc:"Average slider value over recent frames to remove spikes",code:'frames = 10;\ntotal = 0;\nfor (i = 0; i < frames; i++) {\n  total += effect("Slider Control")("Slider").valueAtTime(time - i * thisComp.frameDuration);\n}\ntotal / frames;',notes:[
+  {type:"info",text:"Samples the slider at the current frame and the previous N frames, then averages them. This removes sudden spikes — useful for live data visualisations or noisy tracker outputs."},
+  {type:"setup",label:"how to use",text:"Apply to a numeric property. Increase frames for more smoothing (at a performance cost). Decrease for more responsiveness."}
+]},
+{cat:"D",title:"Sparkline dot position",desc:"Move a dot along a data axis driven by a slider",code:'val = effect("Slider Control")("Slider");\nminVal = 0; maxVal = 100;\nminX = -300; maxX = 300;\nminY = 100; maxY = -100;\nx = linear(val, minVal, maxVal, minX, maxX);\ny = linear(val, minVal, maxVal, minY, maxY);\n[x, y];',notes:[
+  {type:"info",text:"Maps a single slider value to both X and Y coordinates simultaneously, driving a dot along a diagonal data axis. Adjust the min/max values to fit your layout."},
+  {type:"setup",label:"how to use",text:"Apply to Position on a dot layer. Change minX/maxX and minY/maxY to define the start and end positions of the data range on screen."}
+]},
+{cat:"D",title:"Stacked area fill (normalised)",desc:"Drive fill height as a fraction of a total for stacked charts",code:'total = effect("Total")("Slider");\npart  = effect("Part")("Slider");\nfrac  = total > 0 ? part / total : 0;\nmaxH  = 300;\n[80, maxH * frac];',notes:[
+  {type:"info",text:"Calculates what fraction of the total a part represents and scales a rectangle's height proportionally. Use multiple stacked bars each referencing their own Part slider against the same Total."},
+  {type:"setup",label:"how to use",text:'Add two Slider Controls: "Total" and "Part". Apply to a Rectangle Size property. Keyframe both sliders to animate the proportional fill.'}
+]},
+
+/* ──────────────────  ISOMETRIC (7)  ────────────────── */
+{cat:"I",title:"ISO top face (SSR)",desc:"Scale and rotate a layer into the top isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to -45 degrees manually",notes:[
+  {type:"info",text:"57.735 is tan(30°) × 100 — the correct vertical compression for an isometric top face at 30°. Apply to Scale and manually set Rotation to -45°."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Then manually key Rotation to -45°. This is the SSR (Scale, Skew, Rotate) technique for isometric in AE."}
+]},
+{cat:"I",title:"ISO left face (SSR)",desc:"Scale and rotate a layer into the left isometric plane",code:"// Scale\n[100, 57.735];\n// Then set Rotation to +45 degrees",notes:[
+  {type:"info",text:"Same vertical compression as the top face, but rotated +45° to face left. The pair of +45 and -45 create matching left and right walls."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Manually set Rotation to +45°."}
+]},
+{cat:"I",title:"ISO right face (SSR)",desc:"Scale and rotate a layer into the right isometric plane",code:"// Scale — flip X to mirror\n[-100, 57.735];\n// Then set Rotation to -45 degrees",notes:[
+  {type:"info",text:"Flipping Scale X to -100 mirrors the layer horizontally, converting the left face into a right face using the same -45° rotation."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Set Rotation to -45°. The negative X scale creates the mirror without needing a separate layer."}
+]},
+{cat:"I",title:"ISO full SSR expression (top)",desc:"Top face scale as a pure expression — driveable from a slider",code:"scaleX = 100;\nscaleY = 57.735;\n[scaleX, scaleY];",notes:[
+  {type:"info",text:"A purely expression-based version of the ISO top scale, so you can swap scaleX for a slider and make the isometric block responsive to width changes."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Replace 100 with effect(\"Width\")('Slider') to make the block width-driveable. Pair with a -45° rotation."}
+]},
+{cat:"I",title:"ISO Z-height movement",desc:"Move a layer up and down the isometric vertical axis",code:'zCtrl = thisComp.layer("ISO_Z_CONTROLLER");\nzh = zCtrl.effect("Z-Height")("Slider");\nbase = [value[0], value[1]];\n[base[0], base[1] - zh * 0.5];',notes:[
+  {type:"info",text:"In isometric projection, moving 'up' (Z axis) means moving straight up on screen. This offsets the Y position based on a Z-Height slider. The 0.5 factor gives a natural iso feel."},
+  {type:"setup",label:"how to use",text:'Create a null "ISO_Z_CONTROLLER" with a Slider Control named "Z-Height". Apply to Position on any ISO layer. Keyframe Z-Height to lift and lower the block.'}
+]},
+{cat:"I",title:"ISO extrude offset",desc:"Stack duplicate layers to create isometric depth",code:"depthStep = 4;\n[value[0] + (index - 1) * depthStep * 0.866, value[1] + (index - 1) * depthStep * 0.5];",notes:[
+  {type:"info",text:"0.866 and 0.5 are cos(30°) and sin(30°) — the isometric unit vectors. Each duplicate layer shifts along the correct ISO angle to simulate depth."},
+  {type:"setup",label:"how to use",text:"Duplicate your front face layer multiple times. Apply this to Position on all duplicates. Change depthStep to control how thick the extrusion appears."}
+]},
+{cat:"I",title:"ISO depth shading",desc:"Progressively darken extruded layers for realistic ISO shading",code:"baseColor = [0.4, 0.6, 1.0, 1];\ndepth = (index - 1);\ndarkness = Math.max(0, 1 - depth * 0.06);\n[baseColor[0] * darkness, baseColor[1] * darkness, baseColor[2] * darkness, 1];",notes:[
+  {type:"info",text:"Each extruded layer gets darker as its index increases, simulating light falling off into depth. Adjust 0.06 to control the shading rate."},
+  {type:"setup",label:"how to use",text:"Apply to Fill Color on extruded shape layers. Pair with ISO extrude offset for a complete 3D extrusion effect."}
+]},
+
+/* ──────────────────  AUDIO & MUSIC (5)  ────────────────── */
+{cat:"A",title:"Audio reactor (scale)",desc:"Layer scale reacts to the amplitude of an audio layer",code:'amp = thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider");\n[100 + amp, 100 + amp];',notes:[
+  {type:"info",text:"Reads the amplitude slider from an Audio Amplitude null (generated by AE's Convert Audio to Keyframes or an expression-based amplitude layer) and drives scale from it."},
+  {type:"setup",label:"how to use",text:'Select your audio layer and go to Animation > Keyframe Assistant > Convert Audio to Keyframes. This creates a null called "Audio Amplitude". Apply to Scale. Adjust the amp multiplier to taste.'}
+]},
+{cat:"A",title:"Left/right channel isolator",desc:"Separate left and right audio channels drive different axes",code:'leftAmp  = thisComp.layer("Audio Amplitude").effect("Left Channel")("Slider");\nrightAmp = thisComp.layer("Audio Amplitude").effect("Right Channel")("Slider");\n[100 + leftAmp, 100 + rightAmp];',notes:[
+  {type:"info",text:"Uses both the Left and Right Channel sliders from the Audio Amplitude null to drive X and Y scale independently, creating an asymmetric stereo-reactive animation."},
+  {type:"setup",label:"how to use",text:'Run Convert Audio to Keyframes to generate the "Audio Amplitude" null. Apply to Scale.'}
+]},
+{cat:"A",title:"Beat sync pulse (BPM, no audio)",desc:"Sharp scale pulse on every beat — no audio layer needed",code:"bpm = 120;\nfreq = bpm / 60;\nbeat = Math.floor(time * freq);\nphase = time * freq - beat;\namp = 30;\ns = 100 + amp * Math.pow(1 - phase, 3);\n[s, s];",notes:[
+  {type:"info",text:"Calculates beat position from BPM rather than audio, producing a sharp spike at each beat that decays quickly. Math.pow(1-phase, N) gives a sharp attack and fast decay — increase the power for a harder spike."},
+  {type:"setup",label:"how to use",text:"Apply to Scale. Set bpm to your track's tempo. No audio layer required — pure maths. Works perfectly for music videos, title cards, and rhythmic motion graphics."}
+]},
+{cat:"A",title:"Waveform offset per layer",desc:"Row of layers ripples like a sound waveform",code:"amp = 40;\nfreq = 3;\nphase = (index - 1) * 0.25;\n[value[0], value[1] + amp * Math.sin(time * freq * 2 * Math.PI + phase)];",notes:[
+  {type:"info",text:"Each layer receives a phase offset based on its index, creating a ripple wave across a row. The result looks like an audio waveform visualiser."},
+  {type:"setup",label:"how to use",text:"Apply to Position on a row of identical layers. Adjust phase offset (0.25) to control the wave spacing — larger values create a wider, lazier wave."}
+]},
+{cat:"A",title:"Note-to-colour mapper",desc:"MIDI-style 0–127 slider maps to a full colour spectrum",code:'val = effect("Slider Control")("Slider");\nt = val / 127;\nr = Math.abs(Math.sin(t * Math.PI));\ng = Math.abs(Math.sin(t * Math.PI + 2.094));\nb = Math.abs(Math.sin(t * Math.PI + 4.189));\n[r, g, b, 1];',notes:[
+  {type:"info",text:"Three sine waves, 120° apart (2.094 radians), create a full RGB colour cycle as the slider moves from 0 to 127. This maps the full hue spectrum to a MIDI note range."},
+  {type:"setup",label:"how to use",text:"Set your Slider Control range to 0–127. Apply to a Fill Color property. Keyframe the slider to any note values to create smooth colour transitions."}
+]},
+
+/* ──────────────────  B2B & TRANSPORT (5)  ────────────────── */
+{cat:"B",title:"Dashed line animator",desc:"Animated flowing dashes along a stroke path",code:"dashOffset = time * 200;\ndashOffset;",notes:[
+  {type:"info",text:"Drives the Dash Offset property of a dashed stroke, making the dashes appear to flow along the path. Change 200 to speed up or slow down; negative values reverse direction."},
+  {type:"setup",label:"how to use",text:'Select a shape layer with a stroke. In the stroke options, enable Dashes and set a Dash value. Apply this expression to the Offset property that appears.'}
+]},
+{cat:"B",title:"Compass heading (north arrow)",desc:"Arrow rotates dynamically to point from A to B",code:'a = thisComp.layer("Point B").transform.position;\nb = thisComp.layer("Point A").transform.position;\nv = a - b;\nradiansToDegrees(Math.atan2(v[1], v[0])) + 90;',notes:[
+  {type:"info",text:"Calculates the bearing angle between two point nulls. The +90 correction accounts for AE's default upward orientation of rotation 0°."},
+  {type:"setup",label:"how to use",text:'Create two nulls named "Point A" and "Point B". Apply to Rotation on your arrow layer. Move either null and the arrow updates its heading automatically.'}
+]},
+{cat:"B",title:"Route progress dot",desc:"Dot moves between two points based on a progress slider",code:'start = thisComp.layer("Route Start").transform.position;\nend = thisComp.layer("Route End").transform.position;\npct = effect("Progress")("Slider") / 100;\nlerp(start, end, pct);',notes:[
+  {type:"info",text:"lerp() blends between the start and end positions based on a 0–1 factor (derived from a 0–100 slider). Animate the slider to 100 to move the dot from start to end."},
+  {type:"setup",label:"how to use",text:'Create two nulls named "Route Start" and "Route End". Add a Slider Control named "Progress". Apply to Position on the dot layer. Keyframe Progress 0 → 100.'}
+]},
+{cat:"B",title:"Speed readout (pixel velocity)",desc:"Displays a layer\'s actual movement speed in px/s",code:'v = length(velocity);\nMath.round(v) + " px/s";',notes:[
+  {type:"info",text:"length(velocity) calculates the magnitude of the position velocity vector (speed). Rounding gives a clean integer readout in pixels per second."},
+  {type:"setup",label:"how to use",text:"Apply to Source Text on a text layer. Apply to the same layer as your animated object, or reference its velocity via a cross-layer expression."}
+]},
+{cat:"B",title:"Network node connection line",desc:"Line dynamically stretches and rotates between two nodes",code:'a = thisComp.layer("Node A").transform.position;\nb = thisComp.layer("Node B").transform.position;\nmid = [(a[0]+b[0])/2, (a[1]+b[1])/2];\ndist = length(a, b);\nangle = radiansToDegrees(Math.atan2(b[1]-a[1], b[0]-a[0]));\n// Apply mid to Position, dist to Scale X, angle to Rotation',notes:[
+  {type:"info",text:"Calculates the midpoint, distance, and angle between two nodes so a line shape can connect them dynamically. Nodes can be moved freely and the line follows."},
+  {type:"setup",label:"how to use",text:'Create two nulls ("Node A", "Node B") and a line shape layer. Apply separate expressions to: Position (use mid), Scale X (use dist, adjust base width), Rotation (use angle).'}
+]},
 ];
 
 /* ── GUIDE RENDER ── */
-document.getElementById("ftotal").textContent="94 expressions";
+document.getElementById("ftotal").textContent="101 expressions";
 const tabLabels={All:"All",E:"Essentials",T:"Text & Counters",S:"Shape & Layout",M:"Master Controllers",R:"Advanced Rigs",D:"Data & Finance",I:"Isometric",A:"Audio & Music",B:"B2B & Transport"};
 const tabsEl=document.getElementById("tabs"),cardsEl=document.getElementById("cards"),countEl=document.getElementById("count");
 let activeTab="All",query="";
@@ -565,7 +867,7 @@ Object.keys(tabLabels).forEach(k=>{
   tabsEl.appendChild(btn);
 });
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-function makeNotes(notes){if(!notes||!notes.length)return"";return notes.map(n=>{const label=n.label?`<span class="note-label">${n.label}</span>`:"";return`<div class="note note-${n.type}">${label}${esc(n.text)}</div>`;}).join("");}
+function makeNotes(notes){if(!notes||!notes.length)return"";return notes.map(n=>{const label=n.label?`<span class="note-label">${esc(n.label)}</span>`:"";return`<div class="note note-${n.type}">${label}${esc(n.text)}</div>`;}).join("");}
 function renderGuide(){
   const q=query.toLowerCase();
   const filtered=DATA.filter(d=>{
@@ -630,10 +932,10 @@ const STAGES=[
   {type:"mc",q:"What does `thisComp.layer(\"Null 1\").transform.position` return?",opts:["The name of the null","The position of Null 1 as [x,y]","The null's opacity","An error"],correct:1,fb:"This cross-layer reference returns the [x,y] position array of the layer called 'Null 1'. You can access any property from any layer this way."},
   {type:"mc",q:"What does `index` refer to in AE expressions?",opts:["The expression's line number","The layer's stacking order number","The keyframe index","The current frame"],correct:1,fb:"index is a built-in variable equal to the layer's number in the timeline stack — Layer 1 = 1, Layer 2 = 2, etc. Great for stagger offsets."},
   {type:"output",q:"What does this output when index = 3?",code:"(index - 1) * 0.25",opts:["0.25","0.5","0.75","1.0"],correct:1,fb:"(3 - 1) = 2, then 2 × 0.25 = 0.5. This is the classic stagger offset pattern — each layer is 0.25s behind the previous."},
-  {type:"mc",q:"Which loop type repeats but reverses on alternating cycles?",opts:['loopOut("cycle")',"loopOut('pingpong')","loopOut('continue')","loopOut('offset')"],correct:1,fb:"pingpong loops the keyframes forward then backwards, creating a seamless back-and-forth. cycle always repeats in the same direction."},
+  {type:"mc",q:"Which loop type reverses direction on alternating cycles?",opts:['loopOut("cycle")',"loopOut('pingpong')","loopOut('continue')","loopOut('offset')"],correct:1,fb:"pingpong loops the keyframes forward then backwards, creating a seamless back-and-forth. cycle always repeats in the same direction."},
   {type:"fill",q:"Complete: link this layer's Y position to a layer named 'Controller':",code:'a = thisComp.layer("Controller").transform.position;\n[value[0], ___]',blank:"a[1]",fb:"a[1] is the Y component of the position array (index 1). a[0] is X. This is how you selectively link individual axes from another layer."},
   {type:"mc",q:"How do you write a conditional in an expression?",opts:["use: if (cond) {a} or {b} only","use: cond ? a : b only","Both if/else blocks and the ternary operator work","AE doesn't support conditionals"],correct:2,fb:"Both work! The ternary (condition ? trueVal : falseVal) is concise for single values. Full if/else blocks handle more complex logic."},
-  {type:"debug",q:"This should display the layer name followed by its index. Find the bug:",code:'thisLayer.name + index;',opts:["No bug — this is correct","Should use + ' ' + to add a space","index should be in quotes","thisLayer.name is invalid syntax"],correct:0,fb:"This is actually correct. String concatenation with a number coerces index to a string. Adding a space (+ ' ' +) would just be a style choice. The expression works as-is."},
+  {type:"debug",q:"This should display the layer name followed by its index. Find the bug:",code:'thisLayer.name + index;',opts:["No bug — this is correct","Should use + ' ' + to add a space","index should be in quotes","thisLayer.name is invalid syntax"],correct:0,fb:"This is actually correct. String concatenation with a number coerces index to a string. Adding a space would just be a style choice. The expression works as-is."},
 ]},
 {id:3,name:"Advanced",sub:"Math, vectors, inertia & easing",cls:"s3",badge:"Rigger",maxXP:100,qs:[
   {type:"mc",q:"What does `length(velocity)` return?",opts:["The layer's length in pixels","The layer's speed as a single scalar number","The velocity vector","The layer duration"],correct:1,fb:"velocity is an array (vector). length() calculates its magnitude — converting it to a single scalar speed value in pixels per second."},
@@ -691,14 +993,11 @@ function buildStageHome(){
   });
   updateXP();
 }
-
 function showStageHome(){buildStageHome();}
-
 function updateXP(){
   document.getElementById("pbFill").style.width=(xpTotal/MAX_XP*100)+"%";
   document.getElementById("pbPts").textContent=xpTotal+" / "+MAX_XP+" xp";
 }
-
 function startStage(id){
   curStage=STAGES.find(s=>s.id===id);
   curQIdx=0;answers=[];
@@ -708,9 +1007,7 @@ function startStage(id){
   document.getElementById("qhStage").textContent=`${curStage.name} — ${curStage.sub}`;
   renderQ();
 }
-
 function retryStage(){if(curStage)startStage(curStage.id);}
-
 function renderQ(){
   const q=curStage.qs[curQIdx];
   const total=curStage.qs.length;
@@ -731,7 +1028,7 @@ function renderQ(){
     const parts=q.code.split("___");
     html+=`<div class="fill-sentence"><span style="color:var(--text-muted)">${esc(parts[0])}</span><input class="fill-input" id="fillInput" placeholder="___" autocomplete="off" spellcheck="false"/><span style="color:var(--text-muted)">${esc(parts[1]||"")}</span></div>`;
   } else if(q.type==="write"){
-    if(q.hint) html+=`<div class="q-concept">&#x1F4A1; ${esc(q.hint)}</div>`;
+    if(q.hint) html+=`<div class="q-concept">💡 ${esc(q.hint)}</div>`;
     html+=`<textarea class="code-input" id="codeInput" placeholder="// write your expression here..." spellcheck="false"></textarea>`;
   }
   html+=`<div class="q-actions"><button class="submit-btn" id="submitBtn" onclick="submitAnswer()" ${(q.type==="mc"||q.type==="debug"||q.type==="output")?"disabled":""}>Check Answer</button><span class="xp-flash" id="xpFlash"></span><button class="next-btn" id="nextBtn" onclick="nextQ()">Next &#x2192;</button></div>`;
@@ -747,13 +1044,11 @@ function renderQ(){
     ci.addEventListener("input",()=>{ document.getElementById("submitBtn").disabled=!ci.value.trim(); });
   }
 }
-
 function selectOpt(i){
   document.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
   const btn=document.querySelector(`.opt[data-i="${i}"]`);
   if(btn){btn.classList.add("selected");document.getElementById("submitBtn").disabled=false;document.getElementById("submitBtn").dataset.sel=i;}
 }
-
 function submitAnswer(){
   const q=curStage.qs[curQIdx];
   let correct=false;
@@ -790,9 +1085,7 @@ function submitAnswer(){
     fb.className="feedback show fb-correct";
     lbl.textContent="✓ correct";
     txt.textContent=q.fb;
-    if(q.type==="write"){
-      txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans)}</code>`;
-    }
+    if(q.type==="write"){txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans)}</code>`;}
     const xpGain=Math.round(curStage.maxXP/curStage.qs.length);
     xpTotal=Math.min(MAX_XP,xpTotal+xpGain);
     const flash=document.getElementById("xpFlash");
@@ -803,22 +1096,17 @@ function submitAnswer(){
   } else {
     fb.className="feedback show fb-wrong";
     lbl.textContent="✗ incorrect";
-    if(q.type==="write"||q.type==="fill"){
-      txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans||q.blank)}</code>`;
-    } else {
-      txt.textContent=q.fb;
-    }
+    if(q.type==="write"||q.type==="fill"){txt.innerHTML=esc(q.fb)+`<code class="fb-code">${esc(q.ans||q.blank)}</code>`;}
+    else{txt.textContent=q.fb;}
   }
   document.getElementById("submitBtn").disabled=true;
   document.getElementById("nextBtn").classList.add("show");
 }
-
 function nextQ(){
   curQIdx++;
   if(curQIdx>=curStage.qs.length) finishStage();
   else renderQ();
 }
-
 function finishStage(){
   const correct=answers.filter(a=>a.correct).length;
   const total=curStage.qs.length;
@@ -838,15 +1126,47 @@ function finishStage(){
 
 /* ═══════════════════════════════════════════════════════
    SHOP
+   ▲▲▲ BUY LINK INSTRUCTIONS ▲▲▲
+   Each plugin has a `gumroad` field. Replace the "#" placeholder
+   with your actual Gumroad product URL, e.g.:
+     gumroad: "https://yourname.gumroad.com/l/product-slug"
+   The bundle also has a `gumroad` field — update that too.
+   Set `available: true` to enable the Buy button (removes "Coming soon").
 ═══════════════════════════════════════════════════════ */
-const PLUGINS=[
+// ── Swiss Army Script SVG artwork ──
+const SWISS_ARMY_SVG = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .sas-1 { stroke: #d394ff; }
+      .sas-1, .sas-2, .sas-3 { fill: none; stroke-miterlimit: 10; stroke-width: 41px; }
+      .sas-4 { fill: #d394ff; }
+      .sas-2 { stroke: #f7f7f7; }
+      .sas-5 { fill: #949aff; }
+      .sas-6 { fill: #fff694; }
+      .sas-7 { fill: #181818; }
+      .sas-8 { fill: #f7f7f7; }
+      .sas-3 { stroke: #949aff; }
+    </style>
+  </defs>
+  <rect class="sas-7" x="-9.86" y="-24.6" width="619.72" height="634.7"/>
+  <line class="sas-2" x1="354.92" y1="436.47" x2="431.04" y2="332.2"/>
+  <line class="sas-3" x1="246.9" y1="436.42" x2="170.78" y2="332.15"/>
+  <line class="sas-1" x1="301.35" y1="230.62" x2="301.35" y2="389.55"/>
+  <path class="sas-5" d="M140.41,235.91c-4.1-4.73-9.07-7.16-14.88-7.27-5.82-.11-12.01,2.15-18.57,6.79-4.46,3.15-7.79,6.44-9.98,9.85-2.19,3.41-3.33,6.78-3.4,10.12-.07,3.33.87,6.39,2.83,9.16,1.55,2.37,3.47,4.04,5.76,5.01,2.29.97,4.82,1.4,7.59,1.3,2.77-.1,5.72-.57,8.84-1.42,3.12-.85,6.31-1.96,9.58-3.32l13.57-5.43c6.53-2.72,12.89-4.7,19.09-5.92,6.2-1.23,12.11-1.52,17.73-.89,5.62.63,10.86,2.36,15.72,5.17,4.86,2.81,9.21,6.9,13.06,12.25,5.55,7.94,8.38,16.21,8.49,24.8.11,8.59-2.44,17.12-7.66,25.57-5.22,8.45-13.09,16.4-23.61,23.83-10.43,7.37-20.64,12.19-30.62,14.45-9.98,2.26-19.35,1.77-28.1-1.47-8.76-3.24-16.53-9.43-23.31-18.58l26.44-18.69c3.36,4.13,7.16,6.85,11.4,8.17,4.25,1.32,8.74,1.39,13.49.21,4.75-1.18,9.48-3.44,14.19-6.77s8.18-6.79,10.66-10.56c2.48-3.77,3.81-7.52,4.01-11.26.2-3.74-.8-7.16-3-10.27-2.05-2.9-4.63-4.74-7.73-5.51-3.1-.77-6.77-.7-11.01.21-4.24.92-9.12,2.47-14.63,4.67l-16.57,6.41c-12.77,5.05-24.3,6.99-34.59,5.81-10.29-1.18-18.8-6.55-25.5-16.13-5.57-7.79-8.31-16.11-8.22-24.95.1-8.84,2.68-17.51,7.77-26.03,5.08-8.51,12.34-16.1,21.76-22.76,9.59-6.78,19.13-11.06,28.62-12.85,9.49-1.79,18.3-1.17,26.43,1.85,8.13,3.02,14.98,8.34,20.55,15.95l-26.19,18.51Z"/>
+  <path class="sas-8" d="M504.34,259.75c2.95-5.53,3.43-11.03,1.46-16.5-1.98-5.47-6.31-10.44-12.99-14.91-4.54-3.03-8.8-4.96-12.77-5.79-3.97-.83-7.53-.68-10.66.45-3.14,1.13-5.65,3.1-7.54,5.93-1.66,2.3-2.53,4.69-2.61,7.18-.08,2.49.42,5.01,1.5,7.56,1.08,2.55,2.58,5.13,4.49,7.74,1.91,2.61,4.09,5.2,6.53,7.76l9.93,10.73c4.88,5.12,9,10.35,12.37,15.7,3.37,5.35,5.76,10.76,7.18,16.23,1.42,5.47,1.69,10.98.81,16.52-.89,5.54-3.14,11.07-6.76,16.58-5.43,8.02-12.13,13.63-20.11,16.81-7.98,3.18-16.86,3.85-26.62,2-9.76-1.85-20-6.35-30.71-13.5s-18.77-14.9-24.46-23.41c-5.69-8.51-8.58-17.43-8.69-26.77-.11-9.34,2.89-18.81,9-28.42l26.92,17.99c-2.65,4.61-3.83,9.14-3.54,13.57.29,4.44,1.83,8.66,4.64,12.67,2.8,4.01,6.6,7.62,11.4,10.83,4.71,3.15,9.27,5.2,13.68,6.17,4.41.96,8.39.87,11.95-.29,3.56-1.15,6.4-3.31,8.52-6.48,1.98-2.96,2.77-6.02,2.38-9.19-.39-3.17-1.77-6.57-4.15-10.21-2.37-3.63-5.57-7.63-9.6-11.99l-11.92-13.17c-9.29-10.11-15.23-20.18-17.82-30.22-2.59-10.03-.61-19.9,5.93-29.59,5.28-7.99,12.06-13.53,20.35-16.61,8.28-3.08,17.31-3.77,27.08-2.07,9.77,1.7,19.45,5.75,29.05,12.16,9.77,6.53,17.18,13.9,22.25,22.12,5.07,8.22,7.65,16.67,7.74,25.34.09,8.67-2.42,16.97-7.53,24.89l-26.66-17.82Z"/>
+  <path class="sas-4" d="M261.14,286.96h-36.38l55.44-160.59h43.76l55.36,160.59h-36.38l-40.23-123.9h-1.25l-40.31,123.9ZM258.86,223.84h85.94v26.5h-85.94v-26.5Z"/>
+  <path class="sas-6" d="M376.64,380.77c0-41.58-33.71-75.29-75.29-75.29h0c-41.58,0-75.29,33.71-75.29,75.29v92.87h150.59v-92.87Z"/>
+</svg>`;
+
+// All 6 products including Swiss Army Script — rendered uniformly in the grid
+const ALL_PRODUCTS=[
   {
     id:"weightlifter",
     svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="85.7" y="279.2" width="428.6" height="41.59" rx="5.25" fill="#dc8116"/><line x1="102.13" y1="300" x2="497.87" y2="300" stroke="#181818" stroke-miterlimit="10" stroke-width="10" fill="none"/><rect x="294.05" y="275.68" width="213.09" height="48.64" transform="translate(700.6 -100.6) rotate(90)" fill="#49a893"/><rect x="374.13" y="275.68" width="148.21" height="48.64" transform="translate(748.24 -148.24) rotate(90)" fill="#49a893"/><rect x="92.86" y="275.68" width="213.09" height="48.64" transform="translate(-100.6 499.4) rotate(-90)" fill="#49a893"/><rect x="77.66" y="275.68" width="148.21" height="48.64" transform="translate(-148.24 451.76) rotate(-90)" fill="#49a893"/></svg>`,
     name:"Weightlifter",subtitle:"Maintain Stroke Width",
     desc:"Keeps your stroke pixel-perfect at any scale. Works with uniform and non-uniform scaling — no more manually correcting stroke weight.",
     features:["Uniform & non-uniform scale modes","Works with parented layers","Zero-setup — drop in and go","Supports 3D layers"],
-    price:"£5",gumroad:"#",available:true
+    price:"£5",gumroad:"#WEIGHTLIFTER_GUMROAD_URL",available:true
   },
   {
     id:"countitup",
@@ -854,41 +1174,15 @@ const PLUGINS=[
     name:"Count It Up",subtitle:"Smart Counter",
     desc:"Animated number counter with currency, percentage, leading zeros, comma formatting and decimal precision — all from a single slider.",
     features:["Currency, %, K/M/B shorthand","Leading zeros & decimal modes","Comma-separated thousands","Typewriter & scramble modes"],
-    price:"£5",gumroad:"#",available:true
+    price:"£5",gumroad:"#COUNTITUP_GUMROAD_URL",available:true
   },
   {
     id:"typetoolbox",
-    svg:`<xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #49a893;
-      }
-
-      .cls-2 {
-        fill: #fff694;
-      }
-
-      .cls-3 {
-        fill: #181818;
-      }
-    </style>
-  </defs>
-  <g id="Layer_29" data-name="Layer 29">
-    <rect class="cls-3" x="-9.86" y="-24.6" width="619.72" height="634.7"/>
-  </g>
-  <g id="Layer_28" data-name="Layer 28">
-    <rect class="cls-1" x="128.24" y="128.24" width="343.51" height="343.51"/>
-  </g>
-  <g id="Layer_4" data-name="Layer 4">
-    <path class="cls-2" d="M387.5,202.15v-37.15h-175.01v37.15h65.24v126.72c-20.65,8.7-35.14,29.12-35.14,52.93s14.81,44.66,35.81,53.19v-38.18c0-11.93,9.67-21.6,21.6-21.6s21.6,9.67,21.6,21.6v38.18c21-8.53,35.81-29.13,35.81-53.19s-14.5-44.23-35.14-52.93v-126.72h65.24Z"/>
-  </g>
-</svg>`,
+    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-9.86" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="128.24" y="128.24" width="343.51" height="343.51" fill="#49a893"/><path fill="#fff694" d="M387.5,202.15v-37.15h-175.01v37.15h65.24v126.72c-20.65,8.7-35.14,29.12-35.14,52.93s14.81,44.66,35.81,53.19v-38.18c0-11.93,9.67-21.6,21.6-21.6s21.6,9.67,21.6,21.6v38.18c21-8.53,35.81-29.13,35.81-53.19s-14.5-44.23-35.14-52.93v-126.72h65.24Z"/></svg>`,
     name:"Type Toolbox",subtitle:"Text Expression Pack",
     desc:"Every text expression you'll ever need in one script — SMPTE timecode, auto-fit scale, smart backgrounds, typewriter cursor, scramble, and more.",
     features:["SMPTE timecode display","Auto-fit scale for translations","Smart background with padding","Typing cursor & scramble effect"],
-    price:"£9",gumroad:"#",available:true
+    price:"£9",gumroad:"#TYPETOOLBOX_GUMROAD_URL",available:true
   },
   {
     id:"dailyexpression",
@@ -896,63 +1190,38 @@ const PLUGINS=[
     name:"The Daily Expression",subtitle:"Essentials Pack",
     desc:"The must-have expressions every motion designer reaches for daily — wiggle, loops, inertia bounce, easing, clamp and more, all wired up and ready to go.",
     features:["Wiggle & safe opacity wiggle","Loop in, out & continue","Inertia bounce with controls","Linear, ease & clamp remaps"],
-    price:"£9",gumroad:"#",available:true
+    price:"£9",gumroad:"#DAILYEXPRESSION_GUMROAD_URL",available:true
   },
   {
     id:"showmethemoney",
-    svg:`<svg xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #949aff;
-      }
-
-      .cls-2 {
-        fill: #fff694;
-      }
-
-      .cls-3 {
-        fill: #181818;
-      }
-    </style>
-  </defs>
-  <g id="Layer_8" data-name="Layer 8">
-    <rect class="cls-3" x="-10.95" y="-24.6" width="619.72" height="634.7"/>
-  </g>
-  <g id="Layer_6" data-name="Layer 6">
-    <g>
-      <rect class="cls-1" x="153.88" y="423.58" width="280.76" height="41.59"/>
-      <rect class="cls-2" x="166.56" y="382.42" width="280.76" height="41.59"/>
-      <rect class="cls-1" x="153.88" y="327.95" width="280.76" height="41.59" transform="translate(28.27 -22.01) rotate(4.5)"/>
-      <rect class="cls-2" x="153.88" y="188.98" width="280.76" height="41.59" transform="translate(-59.17 134.42) rotate(-23.45)"/>
-    </g>
-  </g>
-</svg>`,
+    svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect x="-10.95" y="-24.6" width="619.72" height="634.7" fill="#181818"/><rect x="153.88" y="423.58" width="280.76" height="41.59" fill="#949aff"/><rect x="166.56" y="382.42" width="280.76" height="41.59" fill="#fff694"/><rect x="153.88" y="327.95" width="280.76" height="41.59" transform="translate(28.27 -22.01) rotate(4.5)" fill="#949aff"/><rect x="153.88" y="188.98" width="280.76" height="41.59" transform="translate(-59.17 134.42) rotate(-23.45)" fill="#fff694"/></svg>`,
     name:"Show Me The Money",subtitle:"Data & Finance Pack",
     desc:"Built for B2B and financial motion work — currency formatting, shorthand numbers, animated deltas, heatmap bars, sparklines and rolling averages.",
     features:["Currency & shorthand (K/M/B)","Animated +/- delta display","Colour heatmap bar charts","Sparkline dot & rolling average"],
-    price:"£9",gumroad:"#",available:true
+    price:"£9",gumroad:"#SHOWMETHEMONEY_GUMROAD_URL",available:true
+  },
+  {
+    id:"swissarmy",
+    svg:SWISS_ARMY_SVG,
+    name:"Swiss Army Script",subtitle:"Complete Bundle · Best Value",
+    desc:"Every plugin in one package — plus 101 ready-to-use expressions wired up with one-click install. Everything in the Reference Guide, but you never have to type a line.",
+    features:["All 5 plugins included","101 expressions, one-click install","Master controller null setup","Lifetime updates + priority support"],
+    price:"£30",gumroad:"#SWISSARMY_BUNDLE_GUMROAD_URL",available:false,
+    highlight:true
   },
 ];
-
-const BUNDLE={
-  name:"Swiss Army Script",
-  desc:"Every plugin in one package — plus 94 ready-to-use expressions wired up with one-click install. Everything in the Reference Guide, but you never have to type a line.",
-  features:["Weightlifter (Stroke Width)","Count It Up (Smart Counter)","Type Toolbox (Text Pack)","The Daily Expression (Essentials)","Show Me The Money (Data & Finance)","94 expressions, one-click install","Master controller null setup","Lifetime updates included","Priority support","Compatible with AE 2022+"],
-  individualTotal:"£37",bundlePrice:"£30",saving:"Save £10 — 27% off",gumroad:"#",available:false
-};
 
 function renderShop(){
   const grid=document.getElementById("shopGrid");
   grid.innerHTML="";
-  PLUGINS.forEach(p=>{
+  ALL_PRODUCTS.forEach(p=>{
     const featuresHtml=p.features.map(f=>`<li>${f}</li>`).join("");
     const buyBtn=p.available
       ?`<a class="shop-buy-btn" href="${p.gumroad}" target="_blank">Buy on Gumroad</a>`
       :`<span class="shop-buy-btn coming">Coming soon</span>`;
+    const borderStyle=p.highlight?`border-color:var(--border)`:``;
     grid.innerHTML+=`
-      <div class="shop-card">
+      <div class="shop-card" style="${borderStyle}">
         <div class="shop-card-artwork">${p.svg}</div>
         <div class="shop-card-name">${p.name}</div>
         <div class="shop-card-subtitle">${p.subtitle}</div>
@@ -964,36 +1233,10 @@ function renderShop(){
         </div>
       </div>`;
   });
-  const bundle=document.getElementById("shopBundle");
-  const bFeaturesHtml=BUNDLE.features.map(f=>`<li>${f}</li>`).join("");
-  const bBtn=BUNDLE.available
-    ?`<a class="bundle-buy-btn" href="${BUNDLE.gumroad}" target="_blank">Buy Bundle on Gumroad</a>`
-    :`<button class="bundle-buy-btn" style="opacity:0.45;cursor:default">Coming Soon</button>`;
-  bundle.innerHTML=`
-    <div class="shop-bundle-card">
-      <span class="bundle-tag">best value · complete bundle</span>
-      <div class="bundle-top">
-        <div>
-          <div class="bundle-name">${BUNDLE.name}</div>
-          <div class="bundle-desc">${BUNDLE.desc}</div>
-        </div>
-        <div class="bundle-pricing">
-          <div class="bundle-price">${BUNDLE.bundlePrice}</div>
-          <div class="bundle-was">${BUNDLE.individualTotal} individually</div>
-          <div class="bundle-save">${BUNDLE.saving}</div>
-        </div>
-      </div>
-      <ul class="bundle-features">${bFeaturesHtml}</ul>
-      <div class="bundle-actions">
-        ${bBtn}
-        <span class="bundle-note">one purchase · all future updates included</span>
-      </div>
-    </div>`;
+  document.getElementById("shopBundle").innerHTML="";
 }
 
-/* ═══════════════════════════════════════════════════════
-   INIT
-═══════════════════════════════════════════════════════ */
+/* ── INIT ── */
 renderGuide();
 buildStageHome();
 </script>
