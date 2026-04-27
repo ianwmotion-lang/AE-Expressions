@@ -53,8 +53,8 @@
   --radius-pill:    0px;   /* tab chips, badges, pill buttons */
 
   /* ── BORDER / STROKE WIDTH ───────────────────────────── */
-  --border-width:   5px;     /* panel & card border thickness   */
-  --border-btn:     5px;     /* button border thickness         */
+  --border-width:   3px;     /* panel & card border thickness   */
+  --border-btn:     3px;     /* button border thickness         */
 
   /* ── OPACITY CONTROLS ───────────────────────────────── */
   --border-opacity:  1.0;    /* subtle border opacity (0–1)    */
@@ -124,6 +124,26 @@
 .tab,.badge,.intro-pill,.s-badge,.q-type-badge,.bundle-tag,.pb-track{border-radius:var(--radius-pill)!important}
 .card,.intro-block,.progress-bar-wrap,.stage-card,.shop-card,.shop-bundle-card,.q-card,.code-block,.safari-tip,.search-wrap input,.code-input,.fill-sentence,.opt,.note,.feedback{border-width:var(--border-width)!important}
 .submit-btn,.next-btn,.back-btn,.btn-primary,.btn-ghost,.copy-btn,.tab,.mode-tab,.shop-buy-btn.coming,.bundle-buy-btn{border-width:var(--border-btn)!important}
+/* ── Category border colours on expression cards ── */
+.card.cat-E{border-color:color-mix(in srgb,var(--ce) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-E:hover{border-color:var(--ce)}
+.card.cat-T{border-color:color-mix(in srgb,var(--ct) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-T:hover{border-color:var(--ct)}
+.card.cat-S{border-color:color-mix(in srgb,var(--cs) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-S:hover{border-color:var(--cs)}
+.card.cat-M{border-color:color-mix(in srgb,var(--cm) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-M:hover{border-color:var(--cm)}
+.card.cat-R{border-color:color-mix(in srgb,var(--cr) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-R:hover{border-color:var(--cr)}
+.card.cat-D{border-color:color-mix(in srgb,var(--cd) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-D:hover{border-color:var(--cd)}
+.card.cat-I{border-color:color-mix(in srgb,var(--ci) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-I:hover{border-color:var(--ci)}
+.card.cat-A{border-color:color-mix(in srgb,var(--ca) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-A:hover{border-color:var(--ca)}
+.card.cat-B{border-color:color-mix(in srgb,var(--cb) calc(var(--border-opacity)*100%),transparent)}
+.card.cat-B:hover{border-color:var(--cb)}
+
 /* ════════════════════════════════════════════════════════
    END OF CUSTOMISATION CONFIG — original site CSS below
    ════════════════════════════════════════════════════════ */
@@ -592,7 +612,7 @@ function renderGuide(){
   if(!filtered.length){cardsEl.innerHTML='<div class="no-results">// no results — try a different keyword</div>';return;}
   filtered.forEach(d=>{
     const card=document.createElement("div");
-    card.className="card";
+    card.className="card cat-"+d.cat;
     const notesHtml=makeNotes(d.notes);
     card.innerHTML=`
       <div class="card-header">
