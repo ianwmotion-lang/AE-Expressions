@@ -156,7 +156,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-ui);min-heigh
 .noise{display:none}
 .container{max-width:880px;margin:0 auto;padding:3rem 1.5rem 6rem;position:relative;z-index:1;opacity:0;transform:translateY(10px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .container.loaded{opacity:1;transform:translateY(0)}
-.mode-bar{display:flex;gap:6px;margin-bottom:2.5rem;border-bottom:1px solid var(--border-subtle);padding-bottom:0}
+.mode-bar{display:flex;gap:6px;margin-bottom:2.5rem;border-bottom:var(--border-width) solid var(--border-subtle);padding-bottom:0}
 .mode-tab{padding:9px 20px;font-size:13px;font-family:var(--font-ui);font-weight:600;border:1px solid transparent;border-bottom:none;border-radius:var(--radius) var(--radius) 0 0;cursor:pointer;background:transparent;color:var(--text-muted);transition:all 0.15s;margin-bottom:-1px;position:relative}
 .mode-tab:hover{color:var(--text);background:var(--panel)}
 .mode-tab.active{background:var(--panel);color:var(--accent);border-color:var(--border-subtle);border-bottom-color:var(--panel)}
@@ -412,7 +412,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
     </div>
     <p class="count" id="count"></p>
     <div class="cards" id="cards"></div>
-    <footer><span>MotionMaths</span><span id="ftotal"></span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
+    <footer><span>MotionMaths</span><span id="ftotal"></span><span>© 2026 MotionMaths by Ian Whitehead. All rights reserved.</span></footer>
   </div>
   <div class="screen" id="screenQuiz">
     <div id="qzHome">
@@ -455,7 +455,7 @@ footer{margin-top:4rem;padding-top:1.75rem;border-top:1px solid var(--border-sub
     </div>
     <div class="shop-grid" id="shopGrid"></div>
     <div class="shop-bundle" id="shopBundle"></div>
-    <footer><span>MotionMaths</span><span>made by Ian Whitehead · April 2026</span><span>© 2026 Ian Whitehead. All rights reserved.</span></footer>
+    <footer><span>MotionMaths</span><span>© 2026 MotionMaths by Ian Whitehead. All rights reserved.</span></footer>
   </div>
 </div>
 <script>
