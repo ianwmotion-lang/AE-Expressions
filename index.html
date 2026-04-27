@@ -56,7 +56,12 @@
   --border-width:   5px;     /* panel & card border thickness   */
   --border-btn:     5px;     /* button border thickness         */
 
+  /* ── OPACITY CONTROLS ───────────────────────────────── */
+  --border-opacity:  1.0;    /* subtle border opacity (0–1)    */
+  --panel-opacity:   1.0;    /* panel / card fill opacity (0–1)*/
+
   /* ── COLOURS — paste any hex code to change ─────────── */
+
 
   /* Backgrounds */
   --hex-bg:          #181818;   /* page background               */
@@ -94,14 +99,14 @@
   --bg:            var(--hex-bg);
   --bg2:           var(--hex-bg2);
   --bg3:           var(--hex-bg3);
-  --panel:         var(--hex-panel);
+  --panel:         color-mix(in srgb, var(--hex-panel) calc(var(--panel-opacity) * 100%), transparent);
   --accent:        var(--hex-accent);
   --accent-text:   var(--hex-accent-text);
   --border:        var(--hex-border);
   --text:          var(--hex-text);
   --text-muted:    var(--hex-text-muted);
   --text-dim:      color-mix(in srgb, var(--hex-text) 35%, transparent);
-  --border-subtle: color-mix(in srgb, var(--hex-accent) 20%, transparent);
+  --border-subtle: color-mix(in srgb, var(--hex-accent) calc(var(--border-opacity) * 100%), transparent);
   --border-hover:  color-mix(in srgb, var(--hex-accent) 60%, transparent);
   --radius:        var(--radius-panel);
   --ce: var(--hex-cat-e); --ce-bg: color-mix(in srgb, var(--hex-cat-e) 12%, transparent);
@@ -114,7 +119,7 @@
   --ca: var(--hex-cat-a); --ca-bg: color-mix(in srgb, var(--hex-cat-a) 12%, transparent);
   --cb: var(--hex-cat-b); --cb-bg: color-mix(in srgb, var(--hex-cat-b) 12%, transparent);
 }
-.submit-btn,.next-btn,.back-btn,.btn-primary,.btn-ghost,.copy-btn,.shop-buy-btn,.bundle-buy-btn,.splash-skip{border-radius:var(--radius-btn)!important}
+.submit-btn,.next-btn,.back-btn,.btn-primary,.btn-ghost,.copy-btn,.shop-buy-btn,.bundle-buy-btn,.splash-skip,.search-wrap input{border-radius:var(--radius-btn)!important}
 .mode-tab{border-radius:var(--radius-btn) var(--radius-btn) 0 0!important}
 .tab,.badge,.intro-pill,.s-badge,.q-type-badge,.bundle-tag,.pb-track{border-radius:var(--radius-pill)!important}
 .card,.intro-block,.progress-bar-wrap,.stage-card,.shop-card,.shop-bundle-card,.q-card,.code-block,.safari-tip,.search-wrap input,.code-input,.fill-sentence,.opt,.note,.feedback{border-width:var(--border-width)!important}
